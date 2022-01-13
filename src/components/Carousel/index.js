@@ -1,14 +1,25 @@
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef, createRef} from "react";
 import "./style.css";
 import { data } from "../../Pages/Projects/data";
 import { contains } from "cheerio/lib/static";
 
 function Carousel(props) {
   const courasel = useRef();
-  const [scroll, setScroll] = useState();
-  const [page, setPage] = useState();
+  // const [scroll, setScroll] = useState();
+  // const [page, setPage] = useState();
 
-  const [isCurrent, setIsCurrent] = useState(3);
+  const [isCurrent, setIsCurrent] = useState(1);
+  const [refs, setRefs] = useState([]);
+
+
+useEffect(()=>{
+  setRefs((refs)=>
+    Array(data.length).fill().map((el, i)=> refs[i] || createRef())
+  )
+},[])
+
+
+  //Intertia Scroll
 
   let speed = 0;
   let position = 0;
@@ -21,8 +32,7 @@ function Carousel(props) {
     speed += e.deltaY * 0.0003;
   });
 
-let items = Array(data.length).fill({dist:0})
-
+  let itemDist = Array(data.length).fill({dist:0})
 
   const onScroll = () => {
     position += speed;
@@ -36,21 +46,21 @@ let items = Array(data.length).fill({dist:0})
     diff = rounded - position;
     position += Math.sign(diff) * Math.pow(Math.abs(diff), .7) * 0.015;
 
-    setScroll(position);
+    // setScroll(position);
 
 
     setIsCurrent(rounded);
 
-    // items.map((e, index) => {
-    //   e.dist = (position - 1)
-    //   e.dist = 1 - e.dist
-    //   // e[index].style.tranform = `scale(${e.dist})`
-    //   console.log(e.dist)
-    // })
+  
+   itemDist.map((el, i) => {
+      el.dist = (position - 1)
+      el.dist = 1 - el.dist
+      refs[i].current.style.transform = `scale(${el.dist})`
+    })
+   
 
 
-
-   courasel.current.style.transform = `translate(0, -${position*100}px)`
+  //  courasel.current.style.transform = `translate(0, -${position*100}px)`
 
  
     requestAnimationFrame(() => onScroll());
@@ -63,7 +73,22 @@ let items = Array(data.length).fill({dist:0})
 
 
 
-
+// const Items = () => {
+//   data.map((e, i) => {
+//    items[i] = (
+//       <div
+//         className="card"
+//         style={
+//           isCurrent === i ? styles.card.active : styles.card.inactive
+//         }
+//         key={i}
+//       ></div>
+//     );
+//   })
+// }
+// useEffect(() => {
+//   Items()
+// }, []);
 
   const styles = {
     button: {
@@ -89,24 +114,23 @@ let items = Array(data.length).fill({dist:0})
     }
   };
 
-useEffect(()=>{
-
-})
-
-
   return (
     <div id="carousel" ref={courasel}>
-     {data.map((e, index) => {
+     {data.map((el, i) => {
       return (
         <div
           className="card"
+          ref={refs[i]}
           style={
-            isCurrent === index ? styles.card.active : styles.card.inactive
+            isCurrent === i ? styles.card.active : styles.card.inactive, {top: (i*40)+"%"}
           }
-          key={index}
+          key={i}
         ></div>
       );
     })}
+    {/* {list.map((e,i)=>{
+      return e
+    })} */}
       </div>
   );
 }

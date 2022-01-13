@@ -17,6 +17,7 @@
   }
   
   .card {
+    position:absolute;
     width: 70%;
     min-height: 32%;
     background: white;

@@ -4,13 +4,16 @@ import Wrapper from "./components/Wrapper";
 import Landing from "./Pages/Landing";
 import Background from "./components/Background";
 import Projects from "./Pages/Projects";
-
+import useWindowSize from "./hooks/windowSize";
 
 function App() {
   const scroller = useRef();
   const [scroll, setScroll] = useState();
   const [page, setPage] = useState();
 
+  const size = useWindowSize()
+
+console.log(size.width)
 
   // let speed = 0;
   // let position = 0;

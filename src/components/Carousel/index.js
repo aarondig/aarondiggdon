@@ -4,7 +4,8 @@ import { data } from "../../Pages/Projects/data";
 import { contains } from "cheerio/lib/static";
 
 function Carousel(props) {
-  const courasel = useRef();
+  const carousel = useRef();
+  const block = useRef();
   // const [scroll, setScroll] = useState();
   // const [page, setPage] = useState();
 
@@ -24,7 +25,6 @@ useEffect(()=>{
   let speed = 0;
   let position = 0;
   let rounded = 0;
-  let diff = 0;
 
   window.addEventListener("wheel", (e) => {
     //Add if touch event
@@ -32,18 +32,28 @@ useEffect(()=>{
     speed += e.deltaY * 0.0003;
   });
 
-  let itemDist = Array(data.length).fill({dist:0})
+  let objs = Array(data.length).fill({dist:0})
 
   const onScroll = () => {
+
     position += speed;
     speed *= 0.8;
+
+      objs.map((el, i) => {
+      el.dist = Math.min(Math.abs(position - i + 1),1)
+      el.dist = Math.abs(el.dist)
+      refs[i].current.style.transform = `scale(${1 - .4* el.dist})`
+    })
+  
+
     rounded = Math.round(position);
 
-    if (rounded > data.length) {
-      rounded = data.length;
-    }
+    // if (rounded > data.length) {
+    //   rounded = data.length;
+    // }
 
-    diff = rounded - position;
+    let diff = rounded - position;
+
     position += Math.sign(diff) * Math.pow(Math.abs(diff), .7) * 0.015;
 
     // setScroll(position);
@@ -52,12 +62,7 @@ useEffect(()=>{
     setIsCurrent(rounded);
 
   
-   itemDist.map((el, i) => {
-      el.dist = (position - 1)
-      el.dist = 1 - el.dist
-      refs[i].current.style.transform = `scale(${el.dist})`
-    })
-   
+    carousel.current.style.transform = `translate(0, -${position*100-50}px)` 
 
 
   //  courasel.current.style.transform = `translate(0, -${position*100}px)`
@@ -67,28 +72,9 @@ useEffect(()=>{
  
   };
 
-  useEffect(() => {
+useEffect(() => {
     requestAnimationFrame(() => onScroll());
-  }, []);
-
-
-
-// const Items = () => {
-//   data.map((e, i) => {
-//    items[i] = (
-//       <div
-//         className="card"
-//         style={
-//           isCurrent === i ? styles.card.active : styles.card.inactive
-//         }
-//         key={i}
-//       ></div>
-//     );
-//   })
-// }
-// useEffect(() => {
-//   Items()
-// }, []);
+  },[refs])
 
   const styles = {
     button: {
@@ -113,17 +99,22 @@ useEffect(()=>{
       inactive: {},
     }
   };
+  
 
   return (
-    <div id="carousel" ref={courasel}>
+    <>
+    <div id="carousel" ref={carousel}>
      {data.map((el, i) => {
       return (
         <div
           className="card"
           ref={refs[i]}
-          style={
-            isCurrent === i ? styles.card.active : styles.card.inactive, {top: (i*40)+"%"}
-          }
+          // style={
+          //   isCurrent === i ? styles.card.active : styles.card.inactive, {top: (i*40)+"%"}
+          // }
+          // style={
+          //   {top: (i*100)+"px"}
+          //   }
           key={i}
         ></div>
       );
@@ -132,6 +123,8 @@ useEffect(()=>{
       return e
     })} */}
       </div>
+      <div ref={block} style={{position: "absolute", width: "100px",height: "100px",background: "red"}}/>
+      </>
   );
 }
 

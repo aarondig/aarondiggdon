@@ -11,9 +11,11 @@ function App() {
   const [scroll, setScroll] = useState();
   const [page, setPage] = useState();
 
-  const size = useWindowSize()
+//   const size = useWindowSize()
+// useEffect(()=>{
 
-console.log(size.width)
+// })
+// console.log(size.width)
 
   // let speed = 0;
   // let position = 0;
@@ -59,14 +61,11 @@ console.log(size.width)
   //   console.log(Math.round(scroll))
   // }, [Math.round(scroll)]);
  
-const onScroll = () => {
-
-}
 
 
   return (
     <Wrapper>
-      <div id="scroller" ref={scroller} onScroll={()=> onScroll()}>
+      <div id="scroller" ref={scroller}>
       {/* <Landing scroll={scroll}></Landing> */}
       <Projects></Projects>
       </div>

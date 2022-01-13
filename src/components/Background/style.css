@@ -1,0 +1,260 @@
+.background {
+  position: absolute;
+  top: 30%;
+  right: 60%;
+  transform: scale(.8);
+  z-index: 0;
+}
+
+
+.blob1 {
+  position: absolute;
+  width: 1398px;
+  height: 489px;
+  left: 612px;
+  top: 580px;
+  
+  background: #FFB000;
+  filter: blur(100px);
+  z-index: 8;
+}
+.blob2 {
+  position: absolute;
+  width: 880.06px;
+  height: 531px;
+  left: 749.05px;
+  top: 200px;
+  
+  background: #FF589C;
+  filter: blur(120px);
+  transform: rotate(-19.96deg);
+  z-index: 7;
+}
+.blob3 {
+  position: absolute;
+  width: 641.39px;
+  height: 197px;
+  left: 463px;
+  top: 909.33px;
+  
+  background: #D6FFEE;
+  filter: blur(100px);
+  transform: rotate(-43.6deg);
+  z-index: 6;
+}
+.blob4 {
+  position: absolute;
+  width: 681.39px;
+  height: 240px;
+  left: 270px;
+  top: 480px;
+  
+  background: #00FF66;
+  filter: blur(60px);
+  transform: rotate(-35.6deg);
+  z-index: 5;
+}
+.blob5 {
+  position: absolute;
+  width: 545px;
+  height: 310.02px;
+  left: 599px;
+  top: 559.52px;
+  
+  background: #00BCC2;
+  filter: blur(100px);
+  transform: rotate(-15.7deg);
+  z-index: 4;
+}
+.blob6 {
+  position: absolute;
+  width: 1464px;
+  height: 1064px;
+  left: -723.81px;
+  top: 200px;
+  
+  background: #00E5E0;
+  filter: blur(150px);
+  transform: rotate(13.77deg);
+  z-index: 3;
+}
+.blob7 {
+  position: absolute;
+  width: 690.35px;
+  height: 305.49px;
+  left: 559px;
+  top: 18px;
+  
+  background: #0041BE;
+  filter: blur(100px);
+  transform: rotate(-24.83deg);
+  z-index: 2;
+}
+.blob8 {
+  position: absolute;
+  width: 1029px;
+  height: 422.8px;
+  left: 28.35px;
+  top: 100px;
+  
+  background: #0041BE;
+  filter: blur(140px);
+  transform: rotate(38.41deg);
+  z-index: 1;
+  }
+
+
+
+
+
+/* .blob1 {
+  position: absolute;
+  width: 1398px;
+  height: 489px;
+
+  background: #ffb000;
+  filter: blur(100px);
+  z-index: 8;
+
+  --transform: translate(612px, 580px);
+  --xy: translate(612px, 500px);
+
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.blob2 {
+  position: absolute;
+  width: 880.06px;
+  height: 531px;
+
+  background: #ff589c;
+  filter: blur(100px);
+  transform: rotate(-19.96deg);
+  z-index: 7;
+
+  --transform: translate(749.05px, 363.9px);
+  --xy: translate(749.05px, 300px);
+
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.blob3 {
+  position: absolute;
+  width: 641.39px;
+  height: 197px;
+
+  background: #D6FFEE;
+  filter: blur(100px);
+  transform: rotate(-43.6deg);
+  z-index: 6;
+
+  --transform: translate(463px, 909.33px);
+  --xy: translate(420px, 950px);
+  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.blob4 {
+  position: absolute;
+  width: 641.39px;
+  height: 197px;
+  
+  background: #00FF66;
+  filter: blur(100px);
+  transform: rotate(-43.6deg);
+  z-index: 5;
+
+  --transform: translate(334px, 901px);
+  --xy: translate(334px, 920px);
+  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.blob5 {
+  position: absolute;
+  width: 545px;
+  height: 310.02px;
+  
+  background: #00BCC2;
+  filter: blur(100px);
+  transform: rotate(-15.7deg);
+  z-index: 4;
+
+  --transform: translate(599px, 559px);
+  --xy: translate(599px, 559px);
+  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.blob6 {
+  position: absolute;
+  width: 1864px;
+  height: 1064px;
+  
+  background: #00E5E0;
+  filter: blur(100px);
+  transform: rotate(13.77deg);
+  z-index: 3;
+
+  --transform: translate(-723.81px, 58px);
+  --xy: translate(-700px, 30px);
+  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+.blob7 {
+  position: absolute;
+  width: 620.35px;
+  height: 205.49px;
+  
+  background: #0041BE;
+  filter: blur(100px);
+  transform: rotate(-24.83deg);
+  z-index: 2;
+
+  --transform: translate(559px, 449px);
+  --xy: translate(529px, 500px);
+  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+}
+.blob8 {
+  position: absolute;
+  width: 620.35px;
+  height: 205.49px;
+  
+  background: #0041BE;
+  filter: blur(100px);
+  transform: rotate(-24.83deg);
+  z-index: 1;
+  
+  --transform: translate(28.35px, -222px);
+  --xy: translate(0px, 100px);
+  
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+}
+
+@keyframes floating {
+  0% { transform: var(--transform); }
+  50%  { transform: translate(var(--xy)); }
+  100%   { transform: var(--transform); }   
+} */

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import Wrapper from "./components/Wrapper";
-import Landing from "./components/Landing";
+import Landing from "./Pages/Landing";
 import Background from "./components/Background";
-import Projects from "./components/Projects";
+import Projects from "./Pages/Projects";
 
 
 function App() {

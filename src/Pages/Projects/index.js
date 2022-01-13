@@ -2,18 +2,20 @@ import React, { useRef } from "react";
 import { useState } from "react/cjs/react.development";
 import "./style.css";
 
-import { items } from "./data";
+import Carousel from "../../components/Carousel";
 
 function Projects({ list }) {
   const projects = useRef();
 
   const [isActive, setIsActive] = useState();
-  const [isCurrent, setIsCurrent] = useState(3);
 
   const togglePortfolio = (e) => {
     let targ = e.target.id;
     setIsActive(targ);
   };
+
+
+
 
   const styles = {
     button: {
@@ -28,39 +30,7 @@ function Projects({ list }) {
       },
       inactive: {},
     },
-    card: {
-      active: {
-        width: "120%",
-        minHeight: "40vh"
-      },
-      inactive: {},
-    }
   };
-
-const handleScroll = (e) => {
-  if (isCurrent === items.length) {
-    setIsCurrent(0)
-  }else {
-    setIsCurrent(isCurrent+1)
-  }
-}
-
-console.log(isCurrent)
-const List = () => {
-
- return <div className="list" onClick={(e)=>handleScroll(e)}>
- {items.map((e, index)=> {
-         return (<div className="card" style={isCurrent === index ? styles.card.active : styles.card.inactive} key={index}>
-            
-          </div>)
-    
-  })}
-  </div>
-}
-
-
-
-
 
 
   return (
@@ -116,7 +86,7 @@ const List = () => {
           </div>
         </div>
         <div className="listPanel">
-        <List/>
+        <Carousel/>
         </div>
       </div>
     </div>

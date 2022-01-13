@@ -1,5 +1,5 @@
 
-export const items = [
+export const data = [
   {
     id: "FactCheck",
     category: "Journalism",

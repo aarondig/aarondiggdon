@@ -1,0 +1,27 @@
+#carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    justify-content: space-evenly;
+    
+    /* overflow-y: scroll; */
+    
+  }
+  
+#carousel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .card {
+    width: 70%;
+    min-height: 32%;
+    background: white;
+    margin-top: 4%;
+    transition: .4s,
+  }
+
+

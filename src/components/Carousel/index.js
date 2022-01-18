@@ -2,6 +2,8 @@ import {useState, useEffect, useRef, createRef} from "react";
 import "./style.css";
 import { data } from "../../Pages/Projects/data";
 import { contains } from "cheerio/lib/static";
+import Canvas from "./module"
+
 
 function Carousel(props) {
   const carousel = useRef();
@@ -40,7 +42,7 @@ useEffect(()=>{
     speed *= 0.8;
 
       objs.map((el, i) => {
-      el.dist = Math.min(Math.abs(position - i + 1),1)
+      el.dist = Math.min(Math.abs(position - i + 1), 1)
       el.dist = Math.abs(el.dist)
       refs[i].current.style.transform = `scale(${1 - .4* el.dist})`
     })
@@ -48,9 +50,7 @@ useEffect(()=>{
 
     rounded = Math.round(position);
 
-    // if (rounded > data.length) {
-    //   rounded = data.length;
-    // }
+
 
     let diff = rounded - position;
 
@@ -59,13 +59,11 @@ useEffect(()=>{
     // setScroll(position);
 
 
-    setIsCurrent(rounded);
+    // setIsCurrent(rounded);
 
   
     carousel.current.style.transform = `translate(0, -${position*100-50}px)` 
 
-
-  //  courasel.current.style.transform = `translate(0, -${position*100}px)`
 
  
     requestAnimationFrame(() => onScroll());
@@ -73,6 +71,7 @@ useEffect(()=>{
   };
 
 useEffect(() => {
+  
     requestAnimationFrame(() => onScroll());
   },[refs])
 
@@ -112,9 +111,9 @@ useEffect(() => {
           // style={
           //   isCurrent === i ? styles.card.active : styles.card.inactive, {top: (i*40)+"%"}
           // }
-          // style={
-          //   {top: (i*100)+"px"}
-          //   }
+          style={
+            {top: (i*100)+"px"}
+            }
           key={i}
         ></div>
       );
@@ -124,6 +123,7 @@ useEffect(() => {
     })} */}
       </div>
       <div ref={block} style={{position: "absolute", width: "100px",height: "100px",background: "red"}}/>
+      <Canvas/>
       </>
   );
 }

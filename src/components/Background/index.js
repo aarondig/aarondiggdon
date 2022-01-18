@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./style.css";
 
 function Backgrounnd({scroll}) {
-
+  
 
     return <div className="background">
     <div className="blob1"/>

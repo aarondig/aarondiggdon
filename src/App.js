@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
-import Wrapper from "./components/Wrapper";
+import Wrapper from "./components/Wrapper/index";
 import Landing from "./Pages/Landing";
-import Background from "./components/Background";
-import Projects from "./Pages/Projects";
+import Background from "./components/Background/index";
+import Projects from "./Pages/Projects/index";
 import useWindowSize from "./hooks/windowSize";
 
 function App() {

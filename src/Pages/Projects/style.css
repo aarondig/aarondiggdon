@@ -114,3 +114,36 @@ img {
   object-fit: scale-down;
 }
 
+/* navigation */
+
+#hoverNav {
+  position: fixed;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+.hNavList {
+  height: auto;
+  width: 100%;
+  list-style: none;
+
+}
+.hNavItem {
+  display: flex;
+  flex-direction: row;
+}
+.hNavDot {
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 100px;
+}
+.hoveredContainer {
+  
+
+}

@@ -1,16 +1,22 @@
-import { useState, useEffect, useRef, createRef } from "react";
+import React, { useState, useEffect, useRef, createRef } from "react";
 import "./style.css";
 import { data } from "../../Pages/Projects/data";
 import Module from "../../components/Module";
 
-function Projects({ list }) {
+function Projects() {
   const projects = useRef();
+  const [hover, setHover] = useState(false);
+
+  //Image Distance (Was 1.2)
+  const spaceBetween = 0.95;
 
   //Intertia Scroll
 
   const carousel = useRef();
   const block = useRef();
+  const [loading, setLoading] = useState(true);
   const [refs, setRefs] = useState([]);
+  const [meshes, setMeshes] = useState([]);
 
   useEffect(() => {
     setRefs((refs) =>
@@ -18,8 +24,13 @@ function Projects({ list }) {
         .fill()
         .map((el, i) => refs[i] || createRef())
     );
+    setMeshes((meshes) =>
+      Array(data.length)
+        .fill()
+        .map((el, i) => meshes[i] || createRef())
+    );
   }, []);
-  
+
   let speed = 0;
   let position = 0;
   let rounded = 0;
@@ -40,13 +51,23 @@ function Projects({ list }) {
       el.dist = Math.min(Math.abs(position - i + 1), 1);
       el.dist = Math.abs(el.dist);
       refs[i].current.style.transform = `scale(${1 - 0.4 * el.dist})`;
+
+      let scale = 1 - 0.4 * el.dist;
+
+      if (meshes[i].current) {
+        meshes[i].current.position.y =
+          i * spaceBetween - position * spaceBetween - 0.85;
+        meshes[i].current.scale.set(scale, scale, scale);
+
+        meshes[i].current.material.uniforms.distanceFromCenter.value = scale;
+      }
     });
 
     rounded = Math.round(position);
 
     let diff = rounded - position;
 
-    position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.015;
+    position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
 
     // setScroll(position);
 
@@ -55,16 +76,20 @@ function Projects({ list }) {
     carousel.current.style.transform = `translate(0, -${
       position * 100 - 50
     }px)`;
-    console.log(refs)
 
     requestAnimationFrame(() => onScroll());
   };
 
   useEffect(() => {
+    if (meshes[data.length - 1] !== undefined) {
+      requestAnimationFrame(onScroll);
+    }
+  }, [meshes]);
 
-      requestAnimationFrame(() => onScroll());
-    
-  }, [refs]);
+  //Navigation Hover
+  const handleHover = () => {
+    setHover(true);
+  };
 
   //SMALL BUTTONS ON LEFT
   const [isActive, setIsActive] = useState();
@@ -168,9 +193,27 @@ function Projects({ list }) {
               background: "red",
             }}
           />
+          <div id="hoverNav" onMouseEnter={handleHover} onMouseLeave={() => setHover(false)}>
+            <ul className="hNavList">
+              {data.map((el, i) => {
+                return (
+                  <li className="hNavItem" onClick={null} key={i}>
+                    {!hover ? (
+                      <div className="hNavDot"/>
+                    ) : (
+                      <div className="hoveredContainer">
+                        <div className="hNavDot" />
+                        <h4 className="hNavTitle">{data[i].title}</h4>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
+        <Module refs={meshes} setLoading={setLoading} />
       </div>
-      <Module />
     </div>
   );
 }

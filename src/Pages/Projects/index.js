@@ -2,10 +2,17 @@ import React, { useState, useEffect, useRef, createRef } from "react";
 import "./style.css";
 import { data } from "../../Pages/Projects/data";
 import Module from "../../components/Module";
+import gsap from "gsap"
 
 function Projects() {
   const projects = useRef();
-  const [hover, setHover] = useState(false);
+
+
+  //Naviagtion
+  const [isOpen, setIsOpen] = useState(false);
+  const [navs, setNavs] = useState([]);
+
+  
 
   //Image Distance (Was 1.2)
   const spaceBetween = 0.95;
@@ -14,9 +21,14 @@ function Projects() {
 
   const carousel = useRef();
   const block = useRef();
+  const hoverNav = useRef();
+  const hoverItem = useRef();
   const [loading, setLoading] = useState(true);
   const [refs, setRefs] = useState([]);
   const [meshes, setMeshes] = useState([]);
+
+  const group = useRef()
+ 
 
   useEffect(() => {
     setRefs((refs) =>
@@ -28,6 +40,11 @@ function Projects() {
       Array(data.length)
         .fill()
         .map((el, i) => meshes[i] || createRef())
+    );
+    setNavs((navs) =>
+      Array(data.length)
+        .fill()
+        .map((el, i) => navs[i] || createRef())
     );
   }, []);
 
@@ -67,15 +84,55 @@ function Projects() {
 
     let diff = rounded - position;
 
+
+    //NAVIGATION UPDATES (barely works)
+    let rots = group.current && group.current.rotation
+
+    if (hoverNav.current) {
+      hoverNav.current.addEventListener("mouseenter", (e) => {
+        gsap.to(rots, {
+          duration: .3,
+          x: 0,
+          y: 0,
+          z: 0,
+        })
+
+        objs.map((el, i) => {
+          if (navs[i].current) {
+            
+            navs[i].current.addEventListener("mouseenter", scrollTo);
+
+          }
+        });
+      });
+      const scrollTo = (e) => {
+        let value = e.target.attributes[1].value;
+        
+       return position += -(position - value) *.04;
+      };
+
+
+      hoverNav.current.addEventListener("mouseleave", (e) => {
+        
+
+        gsap.to(rots, {
+          duration: .3,
+          x: -0.3,
+          y: -0.5,
+          z: -0.1,
+        })
+
+      });
+    } 
     position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
-
-    // setScroll(position);
-
-    // setIsCurrent(rounded);
 
     carousel.current.style.transform = `translate(0, -${
       position * 100 - 50
     }px)`;
+
+    // setScroll(position);
+
+    // setIsCurrent(rounded);
 
     requestAnimationFrame(() => onScroll());
   };
@@ -86,10 +143,25 @@ function Projects() {
     }
   }, [meshes]);
 
-  //Navigation Hover
-  const handleHover = () => {
-    setHover(true);
+  //NAVIGATION
+
+  const openNav = () => {
+    // cancelAnimationFrame(onScroll);
+    setIsOpen(true);
+    // attractMode = true;
   };
+  const closeNav = () => {
+    setIsOpen(false);
+    // attractMode = false;
+    // requestAnimationFrame(onScroll);
+  };
+
+  const handleHover = (e) => {
+    // scrollTo = e.target.attributes[1].value;
+    // requestAnimationFrame(onScroll);
+  };
+
+  //Design Note: maybe copy what you did for refs and add a Mapping function into the RAF function
 
   //SMALL BUTTONS ON LEFT
   const [isActive, setIsActive] = useState();
@@ -193,13 +265,20 @@ function Projects() {
               background: "red",
             }}
           />
-          <div id="hoverNav" onMouseEnter={handleHover} onMouseLeave={() => setHover(false)}>
+          <div id="hoverNav" ref={hoverNav} onMouseEnter={openNav} onMouseLeave={closeNav}>
             <ul className="hNavList">
               {data.map((el, i) => {
                 return (
-                  <li className="hNavItem" onClick={null} key={i}>
-                    {!hover ? (
-                      <div className="hNavDot"/>
+                  <li
+                    className="hNavItem"
+                    ref={navs[i]}
+                    datatype={i}
+                    onClick={null}
+                    key={i}
+                    onMouseEnter={(e) => handleHover(e)}
+                  >
+                    {!isOpen ? (
+                      <div className="hNavDot" />
                     ) : (
                       <div className="hoveredContainer">
                         <div className="hNavDot" />
@@ -212,7 +291,7 @@ function Projects() {
             </ul>
           </div>
         </div>
-        <Module refs={meshes} setLoading={setLoading} />
+        <Module refs={meshes} group={group} setLoading={setLoading}/>
       </div>
     </div>
   );

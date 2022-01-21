@@ -142,8 +142,9 @@ img {
   height: 10px;
   background: red;
   border-radius: 100px;
+  pointer-events: none;
 }
 .hoveredContainer {
-  
+  pointer-events: none;
 
 }

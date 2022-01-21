@@ -8,12 +8,9 @@ import React, {
   useLayoutEffect,
 } from "react";
 import "./style.css";
-import { data } from "../../Pages/Projects/data";
 import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
-import images from "../../Images/0.png";
-import { PerspectiveCamera, shaderMaterial, useTexture } from "@react-three/drei";
-import glsl from "glslify";
+
 
 // const newShader = shaderMaterial(
 //   //Uniform
@@ -171,8 +168,7 @@ const Image = ({ i, mesh, createList }) => {
   );
 };
 
-function HandleImages({refs, setLoading}) {
-const group = useRef()
+function HandleImages({refs, group, setLoading}) {
 
 useEffect(()=>{
   group.current.rotation.y = -.5;
@@ -191,13 +187,17 @@ useEffect(()=>{
   );
 }
 
-function Module({refs, setLoading}) {
+
+//DESIGN NOTE: Setloading does nothing at the moment but it's all plugged in so why not leave it until u want to do something w it
+
+
+function Module({refs, group, setLoading}) {
   return (
     <div id="canvas">
       <Canvas camera={{ position: [0, 0, 2] }} gl={{ antialias: true }}>
         <Suspense fallback={null}>
         
-          <HandleImages refs={refs} setLoading={setLoading}/>
+          <HandleImages refs={refs} group={group} setLoading={setLoading}/>
           {/* <mesh>
       <boxGeometry/>
       <shaderMaterial uniforms={uniforms} fragmentShader={fragment} vertexShader={vertex}/>

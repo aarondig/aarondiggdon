@@ -23,7 +23,7 @@ function App() {
       {/* <Landing scroll={scroll}></Landing> */}
       <Projects></Projects>
       </div>
-      <Background></Background>
+      {/* <Background></Background> */}
     </Wrapper>
   );
 }

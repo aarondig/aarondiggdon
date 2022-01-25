@@ -2,15 +2,31 @@ import React, { useState, useEffect, useRef, createRef } from "react";
 import "./style.css";
 import { data } from "../../Pages/Projects/data";
 import Module from "../../components/Module";
-import gsap from "gsap"
+import gsap from "gsap";
+import { a, useSprings } from "react-spring";
 
 function Projects() {
   const projects = useRef();
 
+  const [isCurrent, setIsCurrent] = useState(0);
 
   //Naviagtion
+  const hoverNav = useRef();
+  const hoverItem = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [navs, setNavs] = useState([]);
+
+  //Animations
+const springs = useSprings(data.length, data.map((el, i) => ({
+  from: {
+    opacity: 0,
+    background: el.background
+  },
+  to: {
+    opacity: i === isCurrent ? 1 : 0,
+}
+})))
+
 
   
 
@@ -21,14 +37,12 @@ function Projects() {
 
   const carousel = useRef();
   const block = useRef();
-  const hoverNav = useRef();
-  const hoverItem = useRef();
+  
   const [loading, setLoading] = useState(true);
   const [refs, setRefs] = useState([]);
   const [meshes, setMeshes] = useState([]);
 
-  const group = useRef()
- 
+  const group = useRef();
 
   useEffect(() => {
     setRefs((refs) =>
@@ -65,74 +79,86 @@ function Projects() {
     speed *= 0.8;
 
     objs.map((el, i) => {
-      el.dist = Math.min(Math.abs(position - i + 1), 1);
+      // el.dist = Math.min(Math.abs(position - i + 1), 1);
+      el.dist = Math.min(Math.abs(position - [data.length - i] + 1), 1);
       el.dist = Math.abs(el.dist);
+      // el.dist = Math.abs(position - i);
+      // el.dist = Math.abs(el.dist);
       refs[i].current.style.transform = `scale(${1 - 0.4 * el.dist})`;
 
       let scale = 1 - 0.4 * el.dist;
 
       if (meshes[i].current) {
+        // meshes[i].current.position.y =
+        //   i * spaceBetween - position * spaceBetween - 0.85;
+        // meshes[i].current.position.y =
+        //   i * spaceBetween + position * spaceBetween - 4.65;
         meshes[i].current.position.y =
-          i * spaceBetween - position * spaceBetween - 0.85;
+          i * spaceBetween + position - (data.length - 1) * spaceBetween;
+
         meshes[i].current.scale.set(scale, scale, scale);
 
         meshes[i].current.material.uniforms.distanceFromCenter.value = scale;
       }
     });
 
-    rounded = Math.round(position);
+    rounded = Math.abs(Math.round(position));
+
+    //Safety Nets to Keep In Bounds
+    rounded = position > data.length - 1 ? data.length - 1 : rounded;
 
     let diff = rounded - position;
 
-
     //NAVIGATION UPDATES (barely works)
-    let rots = group.current && group.current.rotation
 
-    if (hoverNav.current) {
-      hoverNav.current.addEventListener("mouseenter", (e) => {
-        gsap.to(rots, {
-          duration: .3,
-          x: 0,
-          y: 0,
-          z: 0,
-        })
+    // let rots = group.current && group.current.rotation
 
-        objs.map((el, i) => {
-          if (navs[i].current) {
-            
-            navs[i].current.addEventListener("mouseenter", scrollTo);
+    // if (hoverNav.current) {
+    //   hoverNav.current.addEventListener("mouseenter", (e) => {
+    //     gsap.to(rots, {
+    //       duration: .3,
+    //       x: 0,
+    //       y: 0,
+    //       z: 0,
+    //     })
 
-          }
-        });
-      });
-      const scrollTo = (e) => {
-        let value = e.target.attributes[1].value;
-        
-       return position += -(position - value) *.04;
-      };
+    //     objs.map((el, i) => {
+    //       if (navs[i].current) {
 
+    //         navs[i].current.addEventListener("mouseenter", scrollTo);
 
-      hoverNav.current.addEventListener("mouseleave", (e) => {
-        
+    //       }
+    //     });
+    //   });
+    //   const scrollTo = (e) => {
+    //     let value = e.target.attributes[1].value;
 
-        gsap.to(rots, {
-          duration: .3,
-          x: -0.3,
-          y: -0.5,
-          z: -0.1,
-        })
+    //    return position += -(position - value) *.04;
+    //   };
 
-      });
-    } 
-    position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
+    //   hoverNav.current.addEventListener("mouseleave", (e) => {
 
-    carousel.current.style.transform = `translate(0, -${
-      position * 100 - 50
-    }px)`;
+    //     gsap.to(rots, {
+    //       duration: .3,
+    //       x: -0.3,
+    //       y: -0.5,
+    //       z: -0.1,
+    //     })
+
+    //   });
+    // }
+
+    position += Math.sign(diff) * Math.pow(Math.abs(diff), .7) * 0.035;
+
+    // carousel.current.style.transform = `translate(0, -${
+    //   position * 100 - 50
+    // }px)`;
 
     // setScroll(position);
 
-    // setIsCurrent(rounded);
+    if (isCurrent !== rounded) {
+      setIsCurrent(rounded);
+    }
 
     requestAnimationFrame(() => onScroll());
   };
@@ -184,15 +210,21 @@ function Projects() {
     },
   };
 
+  console.log(isCurrent);
+
+
+
   return (
     <div ref={projects} id="projects">
-      <div className="overlay">
+      <a.div className="overlay" >
+      {/* style={active && background} */}
         <div className="projectPanel">
           <div className="title-c">
-            <h1 className="title">Select a project.</h1>
+            <h1 className="title">
+              {data[isCurrent] && data[isCurrent].title}
+            </h1>
             <h4 className="subtitle">
-              My name’s Aaron. I’m a visual designer and developer working at
-              home like the rest of you.
+              {data[isCurrent] && data[isCurrent].description}
             </h4>
             <div
               id="web"
@@ -265,7 +297,7 @@ function Projects() {
               background: "red",
             }}
           />
-          <div id="hoverNav" ref={hoverNav} onMouseEnter={openNav} onMouseLeave={closeNav}>
+          {/* <div id="hoverNav" ref={hoverNav} onMouseEnter={openNav} onMouseLeave={closeNav}>
             <ul className="hNavList">
               {data.map((el, i) => {
                 return (
@@ -289,10 +321,16 @@ function Projects() {
                 );
               })}
             </ul>
-          </div>
+          </div> */}
         </div>
-        <Module refs={meshes} group={group} setLoading={setLoading}/>
-      </div>
+        <Module refs={meshes} group={group} setLoading={setLoading} />
+      </a.div>
+      {data.map((el, i)=>{
+        return (
+        <a.div className="bg" style={springs[i]} key={i}></a.div>
+        )
+      })}
+      
     </div>
   );
 }

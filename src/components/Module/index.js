@@ -49,23 +49,12 @@ import { Canvas, useFrame, useLoader } from "react-three-fiber";
 
 //   );
 
-const Image = ({ i, mesh, createList }) => {
-  // const mesh = useRef();
-
-// useEffect(()=>{
-//   createList(mesh)
-// },[i])
+const Image = ({ i, mesh, handleClick}) => {
 
   const [normalMap] = useLoader(THREE.TextureLoader, [
     `https://raw.githubusercontent.com/shakegioh/threejs-webgl-scrolling-images/main/img/${i}.jpg`,
   ]);
 
-  // const uniforms = {
-  //   time: { type: "f", value: 0 },
-  //   texture1: { type: "t", value: normalMap },
-  //   resolution: { type: "v4", value: new THREE.Vector4() },
-  //   uvRate1: { value: new THREE.Vector2(1, 1) },
-  // }
   const fragmentShader = `
   uniform float time;
   uniform float progress;
@@ -77,7 +66,7 @@ const Image = ({ i, mesh, createList }) => {
   float PI = 3.141592653589793238;
   void main() {
     vec4 t = texture2D(texture1, vUv) * distanceFromCenter;
-
+    
     gl_FragColor = t;
   }`;
 
@@ -161,19 +150,20 @@ const Image = ({ i, mesh, createList }) => {
   
 
   return (
-    <mesh ref={mesh} key={i}>
+  <mesh ref={mesh} key={i} value={i} onClick={(e) => handleClick(e)}>
       <planeBufferGeometry args={[1.5, 1, 20, 20]} />
       <shaderMaterial attach="material" uniformsNeedUpdate={true} {...shader} />
     </mesh>
   );
 };
 
-function HandleImages({refs, group, setLoading}) {
+function HandleImages({refs, group, setLoading, handleClick}) {
 
 useEffect(()=>{
   group.current.rotation.y = -.5;
   group.current.rotation.x = -.3;
   group.current.rotation.z = -.1;
+  
 },[])
 
 
@@ -182,7 +172,7 @@ useEffect(()=>{
     <group ref={group}>
       {refs.map((e, i) => {
         // const texture = useLoader(THREE.TextureLoader, img)
-        return <Image i={i} key={i} mesh={refs[i]} setLoading={setLoading}/>;
+        return <Image i={i} key={i} mesh={refs[i]} setLoading={setLoading} handleClick={handleClick}/>;
       })}
     </group>
   );
@@ -192,17 +182,13 @@ useEffect(()=>{
 //DESIGN NOTE: Setloading does nothing at the moment but it's all plugged in so why not leave it until u want to do something w it
 
 
-function Module({refs, group, setLoading}) {
+function Module({refs, group, setLoading, handleClick}) {
   return (
     <div id="canvas">
       <Canvas camera={{ position: [0, 0, 2] }} gl={{ antialias: true }}>
         <Suspense fallback={null}>
         
-          <HandleImages refs={refs} group={group} setLoading={setLoading}/>
-          {/* <mesh>
-      <boxGeometry/>
-      <shaderMaterial uniforms={uniforms} fragmentShader={fragment} vertexShader={vertex}/>
-      </mesh> */}
+          <HandleImages refs={refs} group={group} setLoading={setLoading} handleClick={handleClick}/>
   
         </Suspense>
       </Canvas>

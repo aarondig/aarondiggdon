@@ -1,6 +1,7 @@
 .wrapper {
-    position: relative;
+    position: fixed;
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
     background: #000000;
     overscroll-behavior: none;

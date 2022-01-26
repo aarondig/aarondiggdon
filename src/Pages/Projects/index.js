@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef, createRef } from "react";
 import "./style.css";
 import { data } from "../../data/data";
 
-function Projects({ isCurrent }) {
+
+function Projects({ onScroll, isCurrent, meshes }) {
   //Intertia Scroll
 
   const carousel = useRef();
@@ -28,6 +29,13 @@ function Projects({ isCurrent }) {
       inactive: {},
     },
   };
+
+  useEffect(() => {
+    if (meshes[data.length - 1] !== undefined) {
+      requestAnimationFrame(onScroll);
+    }
+    return () => cancelAnimationFrame(onScroll)
+  }, [meshes]);
 
   return (
     <div id="projects">

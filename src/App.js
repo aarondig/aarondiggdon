@@ -5,15 +5,19 @@ import Landing from "./Pages/Landing";
 import Background from "./components/Background/index";
 import Module from "./components/Module/index";
 import Projects from "./Pages/Projects/index";
-import Project from "./Pages/Projects/index";
+import Project from "./Pages/Project/index";
 import useWindowSize from "./hooks/windowSize";
 import { data } from "../src/data/data";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 function App() {
+  let navigate = useNavigate();
+  let location = useLocation();
+
   const [isCurrent, setIsCurrent] = useState(0);
   const [loading, setLoading] = useState(true);
   const [refs, setRefs] = useState([]);
+  const project = useRef();
 
   //THREEJS REFS
   const [meshes, setMeshes] = useState([]);
@@ -48,7 +52,7 @@ function App() {
     speed += e.deltaY * 0.0003;
   });
 
-  const onScroll = () => {
+  const onScroll = (stop) => {
     position += speed;
     speed *= 0.8;
 
@@ -81,17 +85,17 @@ function App() {
       setIsCurrent(rounded);
     }
 
-    requestAnimationFrame(() => onScroll());
+//LEARN HOW TO STOP THIS TRAIN
+   
+        requestAnimationFrame(() => onScroll())
+    
   };
 
-  useEffect(() => {
-    if (meshes[data.length - 1] !== undefined) {
-      requestAnimationFrame(onScroll);
-    }
-  }, [meshes]);
-
+ 
   const handleClick = (e) => {
-    console.log(e.eventObject.value)
+
+   navigate("../project", {replace: true})
+
       // let index = e.eventObject.value
       let index = (data.length - 1) - isCurrent
     
@@ -124,19 +128,17 @@ function App() {
           //   t.a = 0.0;
           //   gl_FragColor = t;
           // }`
-          console.log(meshes[i].current)
+          
         } 
       })
-
-     
-    
   }
 
 
-  //Props Passed to Projects
-  const props = {
+  //Props Passed to Pages
+  const projectsProps = {
+    onScroll: onScroll,
     isCurrent: isCurrent,
-
+    
     loading: loading,
     setLoading: setLoading,
 
@@ -145,15 +147,24 @@ function App() {
     group: group,
   };
 
+  const projectProps = {
+    onScroll: onScroll,
+    isCurrent: isCurrent,
+
+    project: project,
+    meshes: meshes,
+    group: group,
+  };
+
   return (
     <Wrapper>
       {/* <Landing scroll={scroll}></Landing> */}
       <Routes>
-        <Route path="/" element={<Projects {...props} />} />
-        <Route path="/project" element={<Project />} />
+        <Route path="/" element={<Projects {...projectsProps}/>} />
+        <Route path="/project" element={<Project {...projectProps}/>} />
       </Routes>
       <Module refs={meshes} group={group} setLoading={setLoading} handleClick={handleClick} />
-      <Background isCurrent={isCurrent}/>
+      {/* <Background isCurrent={isCurrent}/> */}
     </Wrapper>
   );
 }

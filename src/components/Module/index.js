@@ -11,7 +11,6 @@ import "./style.css";
 import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
 
-
 // const newShader = shaderMaterial(
 //   //Uniform
 //   {
@@ -147,7 +146,7 @@ const Image = ({ i, mesh, handleClick}) => {
   //   mesh.current.rotation.z = -.1;
   // },[])
 
-  
+
 
   return (
   <mesh ref={mesh} key={i} value={i} onClick={(e) => handleClick(e)}>
@@ -183,6 +182,18 @@ useEffect(()=>{
 
 
 function Module({refs, group, setLoading, handleClick}) {
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
   return (
     <div id="canvas">
       <Canvas camera={{ position: [0, 0, 2] }} gl={{ antialias: true }}>

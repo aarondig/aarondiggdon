@@ -24,7 +24,6 @@
 }
 .intro {
   position: relative;
-  /* background: red; */
   display: flex;
   flex-wrap: wrap;
   flex-grow: 0;

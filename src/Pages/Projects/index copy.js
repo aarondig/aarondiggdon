@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef, createRef } from "react";
 import "./style.css";
-import { data } from "../../Pages/Projects/data";
+import { data } from "../../data/data";
 import Module from "../../components/Module";
 import gsap from "gsap";
 import { a, useSpring, useSprings } from "react-spring";
 import { useFrame } from "react-three-fiber";
 
 function Projects() {
-
-  const [isCurrent, setIsCurrent] = useState(0);
 
   //Naviagtion
   const hoverNav = useRef();
@@ -262,7 +260,6 @@ const springs = useSprings(data.length, data.map((el, i) => ({
        
       
     }
-
 
   return (
     <div id="projects">

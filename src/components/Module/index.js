@@ -10,45 +10,13 @@ import React, {
 import "./style.css";
 import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
+import {useSpring} from "react-spring"
+import {a} from "@react-spring/three";
+import { is } from "@react-spring/shared";
+import { data } from "../../data/data";
 
-// const newShader = shaderMaterial(
-//   //Uniform
-//   {
-//     time: { type: "f", value: 0 },
-//     texture1: { type: "t", value: null },
-//     resolution: { type: "v4", value: new THREE.Vector4() },
-//     uvRate1: { value: new THREE.Vector2(1, 1) },
-//   },
-//   //Vertex Shader
 
-//   glsl`
-//   uniform float time;
-//   varying vec2 vUv;
-//   varying vec3 vPosition;
-//   uniform vec2 pixels;
-//   float PI = 3.141592653589793238;
-//   void main() {
-//     vUv = uv;
-//     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-//   }
-// `,
-// //Fragment Shader
-// glsl`
-//   uniform float time;
-//   uniform float progress;
-//   uniform sampler2D texture1;
-//   uniform vec4 resolution;
-//   varying vec2 vUv;
-//   varying vec3 vPosition;
-//   float PI = 3.141592653589793238;
-//   void main() {
-//     vec4 t = texture2D(texture1, vUv);
-//     gl_FragColor = vec4(t);
-//   }`
-
-//   );
-
-const Image = ({ i, mesh, handleClick}) => {
+const Image = ({ i, mesh, isCurrent, handleClick, isPopup}) => {
 
   const [normalMap] = useLoader(THREE.TextureLoader, [
     `https://raw.githubusercontent.com/shakegioh/threejs-webgl-scrolling-images/main/img/${i}.jpg`,
@@ -129,6 +97,7 @@ const Image = ({ i, mesh, handleClick}) => {
     }),
     []
   );
+
   let time = 0;
   useFrame(() => {
  
@@ -147,31 +116,65 @@ const Image = ({ i, mesh, handleClick}) => {
   // },[])
 
 
+  //Basically if Index === isCurrent
+const target = (data.length - isCurrent) - 1
+
+
+  const {rotation, positionX, scale} = useSpring({
+    rotation: isPopup ? [0,0,0] : [-.3, -.5, -.1],
+    positionX: isPopup ? (i === target ? 0 : 5) : 0, 
+    scale: isPopup ? (i === target ? [1.2, 1.2, 1.2] : [.8,.8,.8]) : [1,1,1],
+    
+    
+    duration: 1000,
+    delay: i === target ? 0 : ((data.length - i)) * 80,
+  })
+
+
+const props = {
+ref: mesh,
+
+rotation: rotation,
+scale: scale,
+
+onClick: (e) => handleClick(e),
+
+key: i,
+value: i,
+}
 
   return (
-  <mesh ref={mesh} key={i} value={i} onClick={(e) => handleClick(e)}>
+  <a.mesh position-x={positionX} {...props}>
       <planeBufferGeometry args={[1.5, 1, 20, 20]} />
       <shaderMaterial attach="material" uniformsNeedUpdate={true} {...shader} />
-    </mesh>
+    </a.mesh>
   );
 };
 
-function HandleImages({refs, group, setLoading, handleClick}) {
+function HandleImages({refs, group, isPopup, isCurrent, setLoading, handleClick}) {
 
-useEffect(()=>{
-  group.current.rotation.y = -.5;
-  group.current.rotation.x = -.3;
-  group.current.rotation.z = -.1;
+// useEffect(()=>{
+//   group.current.rotation.x = -.3;
+//   group.current.rotation.y = -.5;
+//   group.current.rotation.z = -.1;
   
-},[])
+// },[])
 
+const props ={
+  isCurrent: isCurrent,
+
+  handleClick: handleClick,
+  isPopup: isPopup,
+
+  setLoading: setLoading,
+}
 
 
   return (
-    <group ref={group}>
+    <group ref={group} >
       {refs.map((e, i) => {
         // const texture = useLoader(THREE.TextureLoader, img)
-        return <Image i={i} key={i} mesh={refs[i]} setLoading={setLoading} handleClick={handleClick}/>;
+        return <Image i={i} key={i} mesh={refs[i]} {...props}/>;
       })}
     </group>
   );
@@ -181,16 +184,20 @@ useEffect(()=>{
 //DESIGN NOTE: Setloading does nothing at the moment but it's all plugged in so why not leave it until u want to do something w it
 
 
-function Module({refs, group, setLoading, handleClick}) {
-  
-
-
-
-
+function Module({meshes, group, isCurrent, isPopup, handleClick, setLoading}) {
 
 
   
-  
+  const props ={
+    refs: meshes,
+    group: group,
+    
+    isCurrent: isCurrent,
+    handleClick: handleClick,
+    isPopup: isPopup,
+
+    setLoading: setLoading,
+  }
   
   
   
@@ -199,7 +206,7 @@ function Module({refs, group, setLoading, handleClick}) {
       <Canvas camera={{ position: [0, 0, 2] }} gl={{ antialias: true }}>
         <Suspense fallback={null}>
         
-          <HandleImages refs={refs} group={group} setLoading={setLoading} handleClick={handleClick}/>
+          <HandleImages {...props}/>
   
         </Suspense>
       </Canvas>

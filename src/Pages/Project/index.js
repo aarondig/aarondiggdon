@@ -5,7 +5,9 @@ import "./style.css";
 
 function Project({ isCurrent, project, onScroll }) {
   const size = useWindowSize();
-const scroller = useRef()
+const scroller = useRef();
+
+const requestRef = useRef()
 
    let ease = 0.1
    let current = 0
@@ -18,7 +20,7 @@ const scroller = useRef()
 
   useEffect(() => {
     document.body.style.height = `${
-      scroller.current.getBoundingClientRect().height
+      scroller.current.getBoundingClientRect().height + size.height - 5
     }px`;
   }, [size.height]);
   
@@ -39,18 +41,18 @@ previous += (current - previous) * ease;
 
   //Assign skew and smooth scrolling to the scroll container
   scroller.current.style.transform = `translate3d(0, -${rounded}px, 0) skewY(${skew}deg)`;
-console.log(window.scrollY)
-  requestAnimationFrame(() => skewScrolling());
+
+  requestRef.current = requestAnimationFrame(skewScrolling);
 };
 
   useEffect(()=>{
     // window.removeEventListener('wheel', ()=> cancelAnimationFrame(() => onScroll()))
-    requestAnimationFrame(() => skewScrolling());
-    return () => cancelAnimationFrame(() => skewScrolling());
+    requestRef.current = requestAnimationFrame(skewScrolling);
+    return () => requestAnimationFrame(requestRef.current);
   },[])
 
   return (
-    <div id="project">
+    <div id="project" ref={project}>
       <div className="scroller" ref={scroller}>
       <div className="textWrap">
         <div className="intro">

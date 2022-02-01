@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";
 import "./style.css";
 
-function Project({ isCurrent, project, onScroll }) {
+function Project({ isCurrent, project }) {
   const size = useWindowSize();
 const scroller = useRef();
 
@@ -13,18 +13,16 @@ const requestRef = useRef()
    let current = 0
    let previous = 0
    let rounded = 0
- 
-  useEffect(() => {
-    requestAnimationFrame(() => skewScrolling());
-  }, []);
 
   useEffect(() => {
     document.body.style.height = `${
       scroller.current.getBoundingClientRect().height + size.height - 5
     }px`;
   }, [size.height]);
+
   
 // SCROLLING
+useLayoutEffect(()=>{
 const skewScrolling = () => {
   //Set Current to the scroll position amount
  current = window.scrollY;
@@ -45,10 +43,12 @@ previous += (current - previous) * ease;
   requestRef.current = requestAnimationFrame(skewScrolling);
 };
 
-  useEffect(()=>{
-    // window.removeEventListener('wheel', ()=> cancelAnimationFrame(() => onScroll()))
+    window.scrollTo(0, 0);
+
     requestRef.current = requestAnimationFrame(skewScrolling);
-    return () => requestAnimationFrame(requestRef.current);
+    return () => {
+      cancelAnimationFrame(requestRef.current);
+    }
   },[])
 
   return (

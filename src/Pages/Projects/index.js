@@ -1,41 +1,36 @@
 import React, { useState, useEffect, useLayoutEffect, createRef, useMemo, useRef } from "react";
 import "./style.css";
 import { data } from "../../data/data";
+import { Link, useNavigate } from "react-router-dom";
 
-function Projects({ isCurrent, setIsCurrent,  loading, setLoading, refs, setRefs, meshes, setMeshes, group }) {
+function Projects({ isCurrent, setIsCurrent,  isPopup, loading, setLoading, refs, setRefs, meshes, setMeshes, group }) {
 
 const requestRef = useRef();
+const navigate = useNavigate();
 
-  
 
-  //Setting Grouped Refs
+  useEffect(()=>{
+    if (isPopup) {
+      navigate(`/diff`, {replace: true})
+    }
+  })
+
   let objs = Array(data.length).fill({ dist: 0 });
-  useEffect(() => {
-    setRefs((refs) =>
-    Array(data.length)
-      .fill()
-      .map((el, i) => refs[i] || createRef())
-  );
-    setMeshes((meshes) =>
-    Array(data.length)
-      .fill()
-      .map((el, i) => meshes[i] || createRef())
-  );
-},[])
 
   //Image Distance for MODULE (Was 1.2)
   const spaceBetween = 0.95;
 
   //INERTIA SCROLL
   let speed = 0;
-  let position = 0;
+  let position = isCurrent;
   let rounded = 0;
 
   window.addEventListener("wheel", (e) => {
     //Add if touch event
-
     speed += e.deltaY * 0.0003;
   });
+
+  useLayoutEffect(() => {
 
   const onScroll = () => {
     position += speed;
@@ -47,8 +42,6 @@ const requestRef = useRef();
 
       let scale = 1 - 0.4 * el.dist;
 
-      // console.log(i === (data.length - isCurrent) - 1 && scale)
-      
       if (meshes[i].current) {
         meshes[i].current.position.y =
           i * spaceBetween + position - (data.length - 1) * spaceBetween;
@@ -68,13 +61,17 @@ const requestRef = useRef();
 
     position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
 
-    if (isCurrent !== rounded) {
-      setIsCurrent(rounded);
-    }
+    setIsCurrent(rounded);
 
     requestRef.current = requestAnimationFrame(onScroll)
   };
 
+  if (meshes[data.length - 1] !== undefined) {
+    requestRef.current = requestAnimationFrame(onScroll);
+  }
+ 
+    return () => cancelAnimationFrame(requestRef.current)
+  }, [meshes]);
 
   //SMALL BUTTONS ON LEFT
   const [isActive, setIsActive] = useState();
@@ -102,16 +99,12 @@ const requestRef = useRef();
 
  
 
-useEffect(() => {
-  if (meshes[data.length - 1] !== undefined) {
-    requestRef.current = requestAnimationFrame(onScroll);
-  }
-}, [meshes]);
+// useEffect(() => {
+  
+// }, [meshes]);
 
 
-  useLayoutEffect(() => {
-    return () => cancelAnimationFrame(requestRef.current)
-  }, []);
+
 
   return (
     <div id="projects">
@@ -166,7 +159,15 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        <div className="listPanel">
+        <div className="targContainer">
+                <div className="targ">
+                  <Link to="diff"></Link>
+                </div>
+          {/* {refs.map(()=>{
+            return (<div className="target"/>)
+          })} */}
+
+
         </div>
       </div>
     </div>

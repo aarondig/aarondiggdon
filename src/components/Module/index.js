@@ -103,7 +103,6 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup}) => {
  
     time += 0.05;
     shader.uniforms.time.value = time;
-    
 
     //Ref is now "Mesh"
   
@@ -123,11 +122,11 @@ const target = (data.length - isCurrent) - 1
   const {rotation, positionX, scale} = useSpring({
     rotation: isPopup ? [0,0,0] : [-.3, -.5, -.1],
     positionX: isPopup ? (i === target ? 0 : 5) : 0, 
-    scale: isPopup ? (i === target ? [1.2, 1.2, 1.2] : [.8,.8,.8]) : [1,1,1],
+    scale: isPopup ? (i === target ? [1.2, 1.2, 1.2] : [.8,.8,.8]) : null,
     
     
-    duration: 1000,
-    delay: i === target ? 0 : ((data.length - i)) * 80,
+    // duration: 1000,
+    // delay: i === target ? 0 : ((data.length - i)) * 80,
   })
 
 
@@ -160,6 +159,22 @@ function HandleImages({refs, group, isPopup, isCurrent, setLoading, handleClick}
   
 // },[])
 
+
+const {position, rotation} = useSpring({
+  position: isPopup ? [0,0,0] : [1, 0, 0],
+  rotation: isPopup ? [0,0,0] : [-.1, .1, -.1],
+})
+
+// useFrame(()=>{
+//   console.log(group.current)
+// })
+
+
+const groupProps = {
+  position: position,
+  rotation: rotation,
+}
+
 const props ={
   isCurrent: isCurrent,
 
@@ -171,12 +186,12 @@ const props ={
 
 
   return (
-    <group ref={group} >
+    <a.group ref={group} {...groupProps}>
       {refs.map((e, i) => {
         // const texture = useLoader(THREE.TextureLoader, img)
         return <Image i={i} key={i} mesh={refs[i]} {...props}/>;
       })}
-    </group>
+    </a.group>
   );
 }
 

@@ -1,8 +1,36 @@
-.wrapper {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background: #000000;
-    overscroll-behavior: none;
+#navigation {
+  position: fixed;
+  width: 100%;
+  height: 20%;
+  /* background: red; */
+  z-index: 1000;
+
+}
+
+.navWrap {
+    width: 80%;
+    height: 100%;
+    padding-left: 6%;
+    padding-right: 6%;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+#logo {
+    position: absolute;
+    font-size: 22px;
+    font-weight: 800;
+    /* text-transform: uppercase; */
+    color: white;
+}
+.backBtn {
+    position: absolute;
+    font-size: 22px;
+    font-weight: 600;
+    /* text-transform: uppercase; */
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }

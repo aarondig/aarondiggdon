@@ -1,9 +1,42 @@
 import React from "react";
 import "./style.css";
+import {a, useSpring} from 'react-spring'
+import { useNavigate } from "react-router-dom";
+import { FiArrowLeft } from 'react-icons/fi';
 
-function Wrapper(props) {
-    return <main className="wrapper" {...props} />;
+function Navigation({location, setIsPopup}) {
+
+  const navigate = useNavigate();
+
+
+
+  const logo = useSpring({
+    opacity: location.pathname === "/diff" ? 0 : 1,
+  })
+  const backBtn = useSpring({
+    opacity: location.pathname === "/diff" ? 1 : 0,
+  })
+
+  const Back = () => {
+    setIsPopup(false);
+    navigate('/', {replace: true})
+    
+
+
+  }
+
+
+    return <div id="navigation">
+      <div className="navWrap">
+        
+      <a.div id="logo" style={logo}>aarondiggdon</a.div>
+      <a.div className="backBtn" style={backBtn} onClick={()=> Back()}>
+        <FiArrowLeft size={26}></FiArrowLeft>
+        <div className="backBtnText">Back</div>
+        </a.div>
+      </div>
+      </div>;
   }
   
-  export default Wrapper;
+  export default Navigation;
   

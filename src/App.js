@@ -9,13 +9,15 @@ import Project from "./Pages/Project/index";
 import useWindowSize from "./hooks/windowSize";
 import { data } from "../src/data/data";
 import { Routes, Route, useLocation, useNavigate, useHref } from "react-router-dom";
+import Navigation from "./components/Navigation";
 
 
 function App() {
   let navigate = useNavigate();
   // useNavigate is EXTRMELEY problematic and will not unmount components when called. Needs to be changed to <Link/> somehow. Thanks RR V6.
   let location = useLocation();
-  
+
+
   const [isCurrent, setIsCurrent] = useState(0);
   const [loading, setLoading] = useState(true);
   const [refs, setRefs] = useState([]);
@@ -28,10 +30,14 @@ function App() {
   //ANIMATIONS 
 const [isPopup, setIsPopup] = useState(false)
   
+//Reset
+useEffect(()=>{
+console.log(isCurrent)
+},[isPopup])
 
   const handleClick = (e) => {
-      navigate("/project", {replace: true})
-
+      
+    // navigate(`/diff`, {replace: true})
       setIsPopup(true)
       // let index = e.eventObject.value
       let index = (data.length - 1) - isCurrent
@@ -39,11 +45,34 @@ const [isPopup, setIsPopup] = useState(false)
   }
 
 
+
+  //Setting Grouped Refs
+ 
+  useEffect(() => {
+    setRefs((refs) =>
+    Array(data.length)
+      .fill()
+      .map((el, i) => refs[i] || createRef())
+  );
+    setMeshes((meshes) =>
+    Array(data.length)
+      .fill()
+      .map((el, i) => meshes[i] || createRef())
+  );
+},[])
+
+
+  //Page Refresh Based on Navigation
+
+
+
+
   //Props Passed to Pages
   const projectsProps = {
     isCurrent: isCurrent,
     setIsCurrent: setIsCurrent,
-    
+    isPopup: isPopup,
+
     loading: loading,
     setLoading: setLoading,
 
@@ -74,21 +103,30 @@ const [isPopup, setIsPopup] = useState(false)
 
     handleClick: handleClick,
   };
+
+  const navProps = {
+    location: location,
+    setIsPopup: setIsPopup,
+  }
+
   return (
     <Wrapper>
-     
+      <Navigation {...navProps}/>
       <Routes>
         
-        <Route path="/" element={<Landing/>}/>
-        <Route path="/projects" element={
+        {/* <Route path="/" element={<Landing/>}/> */}
+        {/* <Route index element={<Projects {...projectsProps}/>}/> */}
+        <Route path="/" element={
          <Projects {...projectsProps}/>
-        }/>
-        <Route path="/project" element={<Project {...projectProps}/>} />
+        }>
+          
+        </Route>
+        <Route path={`/diff`} element={<Project {...projectProps}/>} />
+        
   
       </Routes>
 
       <Module {...moduleProps}/>
-
       <Background isCurrent={isCurrent} isPopup={isPopup}/>
     </Wrapper>
   );

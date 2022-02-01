@@ -3,9 +3,16 @@ html, body {
   overscroll-behavior-y: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+
+}
+
 .App {
 
 }
+
+
 
 .row {
   box-sizing: content-box;

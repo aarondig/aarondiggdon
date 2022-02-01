@@ -18,7 +18,7 @@ const navigate = useNavigate();
   let objs = Array(data.length).fill({ dist: 0 });
 
   //Image Distance for MODULE (Was 1.2)
-  const spaceBetween = 0.95;
+  const spaceBetween = 0.98;
 
   //INERTIA SCROLL
   let speed = 0;

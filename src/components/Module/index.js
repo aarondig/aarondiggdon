@@ -66,7 +66,8 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup}) => {
 
     vec3 pos = position;
 
-    
+    // WAS:pos.y += sin(PI*uv.x)*.01;
+
     pos.y += sin(PI*uv.x)*.01;
     pos.x += sin(PI*uv.x)*.02;
     
@@ -122,7 +123,7 @@ const target = (data.length - isCurrent) - 1
   const {rotation, positionX, scale} = useSpring({
     rotation: isPopup ? [0,0,0] : [-.3, -.5, -.1],
     positionX: isPopup ? (i === target ? 0 : 5) : 0, 
-    scale: isPopup ? (i === target ? [1.2, 1.2, 1.2] : [.8,.8,.8]) : null,
+    // scale: isPopup ? (i === target ? [1.2, 1.2, 1.2] : [.8,.8,.8]) : null,
     
     
     // duration: 1000,
@@ -162,7 +163,7 @@ function HandleImages({refs, group, isPopup, isCurrent, setLoading, handleClick}
 
 const {position, rotation} = useSpring({
   position: isPopup ? [0,0,0] : [1, 0, 0],
-  rotation: isPopup ? [0,0,0] : [-.1, .1, -.1],
+  rotation: isPopup ? [0,0,0] : [-.1, -.4, -.1],
 })
 
 // useFrame(()=>{

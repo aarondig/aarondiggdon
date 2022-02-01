@@ -45,10 +45,19 @@
   color: "white";
 }
 .title {
-  font-size: 4rem;
+  font-family: "basier";
+  font-size: 6rem;
+  font-weight: 800;
   margin-bottom: 0.5%;
   color: white;
 }
+/* .title {
+  font-family: "basier";
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 0.5%;
+  color: white;
+} */
 .subtitle {
   font-size: 1.5rem;
   color: white;

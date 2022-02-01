@@ -8,15 +8,26 @@
 }
 
 .navWrap {
-    width: 80%;
+    width: 88%;
     height: 100%;
     padding-left: 6%;
     padding-right: 6%;
-display: flex;
+}
+.leftNav {
+    height: 100%;
+    float: left;
+    display: flex;
 flex-direction: row;
 align-items: center;
 }
-
+.rightNav {
+    height: 100%;
+    float: right;
+    display: flex;
+flex-direction: row;
+align-items: center;
+    
+}
 #logo {
     position: absolute;
     font-size: 22px;
@@ -33,4 +44,12 @@ align-items: center;
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+.navItem{
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+}
+:link {
+    text-decoration: none;
 }

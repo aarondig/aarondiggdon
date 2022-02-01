@@ -2,7 +2,7 @@ export const data = [
   {
     id: "FactCheck",
     category: "Journalism",
-    title: "Google Fact Checker",
+    title: "Fact Checker",
     banner: "https://github.com/aarondig/factCheck/blob/main/assets/banner.png?raw=true",
     description: "This is a super cool project. I really like it because X and Y.",
 
@@ -20,7 +20,7 @@ export const data = [
   {
     id: "Fact",
     category: "Journalism",
-    title: "Google Fact Checker",
+    title: "Fact Checker",
     banner: "https://github.com/aarondig/factCheck/blob/main/assets/banner.png?raw=true",
     description: "This is a super cool project. I really like it because X and Y.",
 
@@ -38,7 +38,7 @@ export const data = [
   {
     id: "Check",
     category: "Journalism",
-    title: "Google Fact Checker",
+    title: "Fact Checker",
     banner: "https://github.com/aarondig/factCheck/blob/main/assets/banner.png?raw=true",
     description: "This is a super cool project. I really like it because X and Y.",
 
@@ -48,7 +48,7 @@ export const data = [
 {
     id: "Check",
     category: "Journalism",
-    title: "Google Fact Checker",
+    title: "Fact Checker",
     banner: "https://github.com/aarondig/factCheck/blob/main/assets/banner.png?raw=true",
     description: "This is a super cool project. I really like it because X and Y.",
 

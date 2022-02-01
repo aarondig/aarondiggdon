@@ -10,6 +10,7 @@ import useWindowSize from "./hooks/windowSize";
 import { data } from "../src/data/data";
 import { Routes, Route, useLocation, useNavigate, useHref } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import { a, useTransition } from "react-spring";
 
 
 function App() {
@@ -23,17 +24,25 @@ function App() {
   const [refs, setRefs] = useState([]);
   const project = useRef();
 
+  const [isPopup, setIsPopup] = useState(false)
+
+
+
   //THREEJS REFS
   const [meshes, setMeshes] = useState([]);
   const group = useRef();
   
   //ANIMATIONS 
-const [isPopup, setIsPopup] = useState(false)
+  const transitions = useTransition(location.pathname, {
+    from: {opacity: 0, transform: "translate(0%,0)"},
+    to: {opacity: 1, transform: "translate(100%,0)"},
+    leave: {opacity: 0, transform: "translate(50%,0)"},
+    initial: false,
+  });
+
+
+
   
-//Reset
-useEffect(()=>{
-console.log(isCurrent)
-},[isPopup])
 
   const handleClick = (e) => {
       
@@ -112,7 +121,18 @@ console.log(isCurrent)
   return (
     <Wrapper>
       <Navigation {...navProps}/>
-      <Routes>
+
+      {/* {transitions((styles, item)=>{
+
+return (
+  <a.div style={{position: "absolute", width: "100%", height: "100%", ...styles}}>
+
+</a.div>
+
+)
+      })} */}
+      
+      <Routes >
         
         {/* <Route path="/" element={<Landing/>}/> */}
         {/* <Route index element={<Projects {...projectsProps}/>}/> */}

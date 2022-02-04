@@ -59,7 +59,7 @@ const navigate = useNavigate();
 
     let diff = rounded - position;
 
-    position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.7) * 0.035;
+    position += Math.sign(diff) * Math.pow(Math.abs(diff), 0.6) * 0.04;
 
     setIsCurrent(rounded);
 
@@ -97,19 +97,11 @@ const navigate = useNavigate();
 
 
 
- 
-
-// useEffect(() => {
-  
-// }, [meshes]);
-
-
-
 
   return (
     <div id="projects">
       <div className="overlay">
-        <div className="projectPanel">
+        {/* <div className="projectPanel">
           <div className="title-c">
             <h1 className="title">
               {data[isCurrent] && data[isCurrent].title}
@@ -158,7 +150,7 @@ const navigate = useNavigate();
               </h4>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="targContainer">
                 <div className="targ">
                   <Link to="diff"></Link>

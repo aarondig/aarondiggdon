@@ -14,12 +14,17 @@ import {useSpring} from "react-spring"
 import {a} from "@react-spring/three";
 import { is } from "@react-spring/shared";
 import { data } from "../../data/data";
+import Images from "../../Images"
 
 
 const Image = ({ i, mesh, isCurrent, handleClick, isPopup}) => {
 
+  // const [normalMap] = useLoader(THREE.TextureLoader, [
+  //   `https://raw.githubusercontent.com/shakegioh/threejs-webgl-scrolling-images/main/img/${i}.jpg`,
+  // ]);
+
   const [normalMap] = useLoader(THREE.TextureLoader, [
-    `https://raw.githubusercontent.com/shakegioh/threejs-webgl-scrolling-images/main/img/${i}.jpg`,
+    `src/Images/${i}.png`,
   ]);
 
   const fragmentShader = `

@@ -11,7 +11,7 @@ import { data } from "../src/data/data";
 import { Routes, Route, useLocation, useNavigate, useHref } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import { a, useTransition } from "react-spring";
-
+import Title from "./components/Title";
 
 function App() {
   let navigate = useNavigate();
@@ -55,9 +55,11 @@ function App() {
 
 
 
-  //Setting Grouped Refs
+//STARTUP
  
   useEffect(() => {
+
+  //Setting Grouped Refs
     setRefs((refs) =>
     Array(data.length)
       .fill()
@@ -68,6 +70,13 @@ function App() {
       .fill()
       .map((el, i) => meshes[i] || createRef())
   );
+
+  //Refresh Handling
+  if (location.pathname !== "/") {
+    setIsPopup(true)
+  }
+
+
 },[])
 
 
@@ -145,7 +154,7 @@ return (
         
   
       </Routes>
-
+      <Title isCurrent={isCurrent} isPopup={isPopup}/>
       <Module {...moduleProps}/>
       <Background isCurrent={isCurrent} isPopup={isPopup}/>
     </Wrapper>

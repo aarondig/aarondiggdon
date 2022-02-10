@@ -10,6 +10,10 @@ function Title({ isCurrent, isPopup }) {
 const [moveDown, setMoveDown] = useState();
 const disappearBox = useRef();
 
+  // useEffect(() => {
+  //   setMoveDown(disappearBox.current.getBoundingClientRect().height)
+  // }, [size.height]);
+
   useEffect(() => {
     setMoveDown(disappearBox.current.getBoundingClientRect().height)
   }, [size.height]);
@@ -18,8 +22,7 @@ const disappearBox = useRef();
   //ANIMATIONS
   const header = useSpring({
     to: async (next, cancel) => {
-    await next({transform: isPopup ? `translateY(${moveDown}px)`: `translateY(0px)`})
-   
+    await next({transform: isPopup ? `translate3d(${moveDown * 2}px, ${moveDown}px, 0)`: `translate3d(0px, 0px, 0px)`})
   },
   from: {transform: `translateY(0)`}
   })

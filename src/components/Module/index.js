@@ -12,19 +12,19 @@ import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
 import {useSpring} from "react-spring"
 import {a} from "@react-spring/three";
-import { is } from "@react-spring/shared";
 import { data } from "../../data/data";
-import Images from "../../Images"
 
 
-const Image = ({ i, mesh, isCurrent, handleClick, isPopup}) => {
+
+const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
 
   // const [normalMap] = useLoader(THREE.TextureLoader, [
-  //   `https://raw.githubusercontent.com/shakegioh/threejs-webgl-scrolling-images/main/img/${i}.jpg`,
+  //   `https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Images/${i}.png`,
   // ]);
 
+
   const [normalMap] = useLoader(THREE.TextureLoader, [
-    `src/Images/${i}.png`,
+    `https://raw.githubusercontent.com/shakegioh/threejs-webgl-scrolling-images/main/img/${i}.jpg`,
   ]);
 
   const fragmentShader = `
@@ -125,22 +125,31 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup}) => {
 const target = (data.length - isCurrent) - 1
 
 
+
   const {rotation, positionX, scale} = useSpring({
     rotation: isPopup ? [0,0,0] : [-.3, -.5, -.1],
-    positionX: isPopup ? (i === target ? 0 : 5) : 0, 
-    // scale: isPopup ? (i === target ? [1.2, 1.2, 1.2] : [.8,.8,.8]) : null,
+    positionX: isPopup ? (i === target ? 0 : 6) : 0, 
     
     
+    // scale: i === target ? (isPopup ? [1.5, 1.5, 1.5] : [scaleRef, scaleRef, scaleRef]) : [scaleRef, scaleRef, scaleRef],
+
+    scale: isPopup ? [1.5, 1.5, 1.5] : (scaleRef === null ? [1,1,1] : [scaleRef, scaleRef, scaleRef])
+  
+
+
     // duration: 1000,
     // delay: i === target ? 0 : ((data.length - i)) * 80,
   })
+
+
 
 
 const props = {
 ref: mesh,
 
 rotation: rotation,
-scale: scale,
+scale: isPopup ? scale : [scaleRef, scaleRef, scaleRef],
+// scale: scale,
 
 onClick: (e) => handleClick(e),
 
@@ -149,14 +158,14 @@ value: i,
 }
 
   return (
-  <a.mesh position-x={positionX} {...props}>
-      <planeBufferGeometry args={[1.5, 1, 20, 20]} />
+  <a.mesh native position-x={positionX} color={data[i].color} {...props}>
+      <planeBufferGeometry args={[1.5, 1, 20, 20]}/>
       <shaderMaterial attach="material" uniformsNeedUpdate={true} {...shader} />
     </a.mesh>
   );
 };
 
-function HandleImages({refs, group, isPopup, isCurrent, setLoading, handleClick}) {
+function HandleImages({refs, group, isPopup, isCurrent, scaleRef, setLoading, handleClick}) {
 
 // useEffect(()=>{
 //   group.current.rotation.x = -.3;
@@ -171,9 +180,6 @@ const {position, rotation} = useSpring({
   rotation: isPopup ? [0,0,0] : [-.1, -.4, -.1],
 })
 
-// useFrame(()=>{
-//   console.log(group.current)
-// })
 
 
 const groupProps = {
@@ -183,6 +189,7 @@ const groupProps = {
 
 const props ={
   isCurrent: isCurrent,
+
 
   handleClick: handleClick,
   isPopup: isPopup,
@@ -195,7 +202,7 @@ const props ={
     <a.group ref={group} {...groupProps}>
       {refs.map((e, i) => {
         // const texture = useLoader(THREE.TextureLoader, img)
-        return <Image i={i} key={i} mesh={refs[i]} {...props}/>;
+        return <Image i={i} key={i} mesh={refs[i]} scaleRef={scaleRef[i].current} {...props}/>;
       })}
     </a.group>
   );
@@ -205,7 +212,7 @@ const props ={
 //DESIGN NOTE: Setloading does nothing at the moment but it's all plugged in so why not leave it until u want to do something w it
 
 
-function Module({meshes, group, isCurrent, isPopup, handleClick, setLoading}) {
+function Module({meshes, group, isCurrent, isPopup, scaleRef, handleClick, setLoading}) {
 
 
   
@@ -214,6 +221,8 @@ function Module({meshes, group, isCurrent, isPopup, handleClick, setLoading}) {
     group: group,
     
     isCurrent: isCurrent,
+    scaleRef: scaleRef,
+
     handleClick: handleClick,
     isPopup: isPopup,
 

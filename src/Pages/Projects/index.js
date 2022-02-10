@@ -3,7 +3,7 @@ import "./style.css";
 import { data } from "../../data/data";
 import { Link, useNavigate } from "react-router-dom";
 
-function Projects({ isCurrent, setIsCurrent,  isPopup, loading, setLoading, refs, setRefs, meshes, setMeshes, group }) {
+function Projects({ isCurrent, setIsCurrent,  isPopup, loading, setLoading, refs, setRefs, meshes, setMeshes, group, setScale, scaleRef }) {
 
 const requestRef = useRef();
 const navigate = useNavigate();
@@ -42,6 +42,8 @@ const navigate = useNavigate();
 
       let scale = 1 - 0.4 * el.dist;
 
+      
+
       if (meshes[i].current) {
         meshes[i].current.position.y =
           i * spaceBetween + position - (data.length - 1) * spaceBetween;
@@ -49,6 +51,10 @@ const navigate = useNavigate();
         meshes[i].current.scale.set(scale, scale, scale);
 
         meshes[i].current.material.uniforms.distanceFromCenter.value = scale;
+
+
+        scaleRef[i].current = scale;
+    
       }
     });
 
@@ -100,7 +106,7 @@ const navigate = useNavigate();
 
   return (
     <div id="projects">
-      <div className="overlay">
+      {/* <div className="overlay"> */}
         {/* <div className="projectPanel">
           <div className="title-c">
             <h1 className="title">
@@ -151,17 +157,8 @@ const navigate = useNavigate();
             </div>
           </div>
         </div> */}
-        <div className="targContainer">
-                <div className="targ">
-                  <Link to="diff"></Link>
-                </div>
-          {/* {refs.map(()=>{
-            return (<div className="target"/>)
-          })} */}
-
-
-        </div>
-      </div>
+ 
+      {/* </div> */}
     </div>
   );
 }

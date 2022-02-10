@@ -22,6 +22,12 @@ function App() {
   const [isCurrent, setIsCurrent] = useState(0);
   const [loading, setLoading] = useState(true);
   const [refs, setRefs] = useState([]);
+
+
+//Kill Scale Refs to Improve performance.
+  const [scaleRef, setScale] = useState([]);
+
+
   const project = useRef();
 
   const [isPopup, setIsPopup] = useState(false)
@@ -71,6 +77,11 @@ function App() {
       .map((el, i) => meshes[i] || createRef())
   );
 
+  setScale((scaleRef) =>
+    Array(data.length)
+      .fill().map((el, i) => scaleRef[i] || createRef())
+  );
+
   //Refresh Handling
   if (location.pathname !== "/") {
     setIsPopup(true)
@@ -98,7 +109,10 @@ function App() {
     setRefs: setRefs,
     meshes: meshes,
     setMeshes: setMeshes,
+    scaleRef: scaleRef,
+    setScale: setScale,
     group: group,
+   
   };
 
   const projectProps = {
@@ -107,6 +121,7 @@ function App() {
     project: project,
     meshes: meshes,
     group: group,
+
   };
 
   const moduleProps = {
@@ -118,6 +133,8 @@ function App() {
 
     meshes: meshes,
     group: group,
+
+    scaleRef: scaleRef,
 
     handleClick: handleClick,
   };
@@ -155,7 +172,10 @@ return (
   
       </Routes>
       <Title isCurrent={isCurrent} isPopup={isPopup}/>
-      <Module {...moduleProps}/>
+
+  
+      <Module {...moduleProps}/> 
+      
       <Background isCurrent={isCurrent} isPopup={isPopup}/>
     </Wrapper>
   );

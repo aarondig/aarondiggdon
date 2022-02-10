@@ -1,0 +1,25 @@
+#image {
+  position: relative;
+  max-width: 100%;
+ height: 600px;
+  flex: 1;
+  z-index: 1;
+}
+.canvasWrap {
+  position: relative;
+  max-width: 100%;
+ height: 600px;
+  flex: 1;
+  z-index: 1;
+}
+.caption-c {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.caption {
+font-family: "basier";
+font-style: italic;
+color: #0d0d0d;
+}
+

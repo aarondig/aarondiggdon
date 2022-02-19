@@ -3,7 +3,7 @@ import { a, useSprings } from "react-spring";
 import { data } from "../../data/data";
 import "./style.css";
 
-function Backgrounnd({ isCurrent }) {
+function Background({ isCurrent }) {
   
   //ANIMATIONS
   const springs = useSprings(
@@ -37,4 +37,4 @@ function Backgrounnd({ isCurrent }) {
   );
 }
 
-export default Backgrounnd;
+export default Background;

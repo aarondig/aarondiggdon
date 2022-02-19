@@ -1,8 +1,9 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";
-import Image from "../../components/Image/index";
+import Image from "../../components/Sections/Image/index";
 import "./style.css";
+import Article from "../../components/Sections/Article";
 
 function Project({ isCurrent, project }) {
   const size = useWindowSize();
@@ -56,7 +57,8 @@ function Project({ isCurrent, project }) {
   }, []);
 
   return (
-    <div id="project" ref={project}>
+    <Suspense>
+    <div id="project" ref={project}> 
       <div className="scroller" ref={scroller}>
         <div className="textWrap">
           <div className="section">
@@ -93,7 +95,13 @@ function Project({ isCurrent, project }) {
                     <h1 className="title">{el.header}</h1>
                     {/* <div className="row"> */}
                     <p className="description">{el.body}</p>
-                    <div className="videoContainer"></div>
+                  </div>
+                );
+              }
+              case "article": {
+                return (
+                  <div className="section" key={i}>
+                    <Article el={el} isCurrent={isCurrent}/>
                   </div>
                 );
               }
@@ -113,9 +121,11 @@ function Project({ isCurrent, project }) {
               }
             }
           })}
+          
         </div>
       </div>
     </div>
+    </Suspense>
   );
 }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, Suspense } from "react";
 import { a, useSpring } from "react-spring";
 import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "react-three-fiber";
-import { data } from "../../data/data";
+import { data } from "../../../data/data";
 
 
 import "./style.css";

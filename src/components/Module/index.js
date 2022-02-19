@@ -24,34 +24,41 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
 
 
   const [normalMap] = useLoader(THREE.TextureLoader, [
-    `https://raw.githubusercontent.com/shakegioh/threejs-webgl-scrolling-images/main/img/${i}.jpg`,
+    `${data[(data.length - i) - 1].banner}`,
   ]);
 
   const fragmentShader = `
   uniform float time;
   uniform float progress;
   uniform float distanceFromCenter;
+  uniform float opacity;
+  uniform float saturation;
   uniform sampler2D texture1;
   uniform vec4 resolution;
+
+  uniform float u_saturation;
+
   varying vec2 vUv;
   varying vec3 vPosition;
   float PI = 3.141592653589793238;
-  void main() {
-    vec4 t = texture2D(texture1, vUv) * distanceFromCenter;
-    
-    gl_FragColor = t;
-  }`;
-
-  // Black and white Fragment Main Function
-  //      vec4 t = texture2D(texture1, vUv);
-
-  //      float bw = (t.r + t.b + t.g)/3.;
-
-  //      vec4 another = vec4(bw,bw,bw, 1.);
   
-  //      gl_FragColor = mix(another, t, distanceFromCenter);
-  //      gl_FragColor.a = clamp(distanceFromCenter, 0.2, 1.0);
-
+  vec3 adjustSaturation(vec3 color, float saturation) {
+    // https://www.w3.org/TR/WCAG21/#dfn-relative-luminance
+    const vec3 luminosityFactor = vec3(0.2126, 0.7152, 0.0722);
+    vec3 grayscale = vec3(dot(color, luminosityFactor));
+    
+    return mix(grayscale, color, 1.0 + saturation);
+  }
+  
+  
+  void main() {
+    vec4 t = texture2D(texture1, vUv) * opacity;
+    vec3 color = t.rgb;
+    color = adjustSaturation(color, saturation - 1.2);
+    
+    // gl_FragColor = t;
+    gl_FragColor = vec4(color, t.a);
+  }`;
 
   //sin(PI*uv.x) = Arc of Image
   
@@ -59,12 +66,15 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
   uniform float time;
   varying vec2 vUv;
   varying vec3 vPosition;
+
+  uniform float flatVal;
+
   uniform vec2 pixels;
   float PI = 3.141592653589793238;
   uniform float distanceFromCenter;
   void main() {
     
-    vUv = (uv - vec2(.5))*(0.9 * distanceFromCenter + .095) + vec2(.5);
+    vUv = (uv - vec2(.5))*(.85 * distanceFromCenter + .07) + vec2(.5);
 
     // NOT BEING USED: vUv = (uv - vec2(.5))*(0.8 - 0.2 * distanceFromCenter * (1. - distanceFromCenter)) + vec2(.5);
 
@@ -73,12 +83,14 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
 
     // WAS:pos.y += sin(PI*uv.x)*.01;
 
-    pos.y += sin(PI*uv.x)*.01;
-    pos.x += sin(PI*uv.x)*.02;
+
+    pos.x += sin(PI*uv.x)* flatVal;
+    pos.y += sin(PI*uv.x)* flatVal;
+    pos.z += sin(PI*uv.x)* flatVal;
     
     
-    pos.y += sin(time*.3)*.02;
-    vUv.y += sin(time*.3)*.02;
+    pos.y += sin(time*.8)*.04;
+    vUv.y += sin(time*.8)*.04;
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
   }
@@ -89,13 +101,16 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
       uniforms: {
         time: { type: "f", value: 0 },
         distanceFromCenter: { type: "f", value: 0 },
+        saturation: { type: "f", value: 0 },
+        opacity: { type: "f", value: 0 },
+
+        flatVal: { type: "f", value: .02 },
+
         texture1: { type: "t", value: normalMap },
         resolution: { type: "v4", value: new THREE.Vector4() },
         uvRate1: { value: new THREE.Vector2(1, 1) },
       },
-      extensions: {
-        derivatives: "#extension GL_OES_standard_derivatives : enable",
-      },
+  
       side: THREE.DoubleSide,
       transparent: true,
       fragmentShader,
@@ -104,14 +119,32 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
     []
   );
 
-  let time = 0;
-  useFrame(() => {
- 
-    time += 0.05;
-    shader.uniforms.time.value = time;
+  useEffect(()=>{
+    if(!isPopup){
+      shader.uniforms.flatVal.value = .02;
+    }
+   
+  },[isPopup])
 
-    //Ref is now "Mesh"
+  useFrame(({ clock }) => shader.uniforms.time.value = clock.getElapsedTime())
   
+  useFrame(() => {
+    if (isPopup) {
+      if (shader.uniforms.flatVal.value < 0){
+        shader.uniforms.flatVal.value = 0
+      } else {
+        shader.uniforms.flatVal.value = shader.uniforms.flatVal.value - .001;
+    }
+  }
+//   if (!isPopup) {
+//     if (shader.uniforms.flatVal.value > .02){
+//       shader.uniforms.flatVal.value = .02
+//     } else {
+//       shader.uniforms.flatVal.value = shader.uniforms.flatVal.value + .0008;
+//   }
+// }
+    
+    //Ref is now "Mesh"
   });
 
   // useEffect(()=>{
@@ -127,14 +160,12 @@ const target = (data.length - isCurrent) - 1
 
 
   const {rotation, positionX, scale} = useSpring({
-    rotation: isPopup ? [0,0,0] : [-.3, -.5, -.1],
+    rotation: isPopup ? [0,0,0] : [.0, .0, 0],
     positionX: isPopup ? (i === target ? 0 : 6) : 0, 
     
     
     // scale: i === target ? (isPopup ? [1.5, 1.5, 1.5] : [scaleRef, scaleRef, scaleRef]) : [scaleRef, scaleRef, scaleRef],
 
-    scale: isPopup ? [1.5, 1.5, 1.5] : (scaleRef === null ? [1,1,1] : [scaleRef, scaleRef, scaleRef])
-  
 
 
     // duration: 1000,
@@ -148,8 +179,7 @@ const props = {
 ref: mesh,
 
 rotation: rotation,
-scale: isPopup ? scale : [scaleRef, scaleRef, scaleRef],
-// scale: scale,
+
 
 onClick: (e) => handleClick(e),
 
@@ -177,9 +207,9 @@ function HandleImages({refs, group, isPopup, isCurrent, scaleRef, setLoading, ha
 
 const {position, rotation} = useSpring({
   position: isPopup ? [0,0,0] : [1, 0, 0],
-  rotation: isPopup ? [0,0,0] : [-.1, -.4, -.1],
+  rotation: isPopup ? [0,0,0] : [-.6, -.8, -.4],
 })
-
+// [-.5, -.9, -.4],
 
 
 const groupProps = {
@@ -187,7 +217,7 @@ const groupProps = {
   rotation: rotation,
 }
 
-const props ={
+const props = {
   isCurrent: isCurrent,
 
 
@@ -233,7 +263,7 @@ function Module({meshes, group, isCurrent, isPopup, scaleRef, handleClick, setLo
   
   return (
     <div id="canvas">
-      <Canvas camera={{ position: [0, 0, 2] }} gl={{ antialias: true }}>
+      <Canvas camera={{ position: [0, 0, 5], fov: 25 }} gl={{ antialias: true }}>
         <Suspense fallback={null}>
         
           <HandleImages {...props}/>
@@ -245,3 +275,23 @@ function Module({meshes, group, isCurrent, isPopup, scaleRef, handleClick, setLo
 }
 
 export default Module;
+
+
+
+
+
+
+// const fragmentShader = `
+// uniform float time;
+// uniform float progress;
+// uniform float distanceFromCenter;
+// uniform sampler2D texture1;
+// uniform vec4 resolution;
+// varying vec2 vUv;
+// varying vec3 vPosition;
+// float PI = 3.141592653589793238;
+// void main() {
+//   vec4 t = texture2D(texture1, vUv) * distanceFromCenter;
+  
+//   gl_FragColor = t;
+// }`;

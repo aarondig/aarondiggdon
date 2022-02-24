@@ -20,6 +20,7 @@ function App() {
 
 
   const [isCurrent, setIsCurrent] = useState(0);
+  
   const [loading, setLoading] = useState(true);
   const [refs, setRefs] = useState([]);
 
@@ -100,6 +101,7 @@ function App() {
   const projectsProps = {
     isCurrent: isCurrent,
     setIsCurrent: setIsCurrent,
+   
     isPopup: isPopup,
 
     loading: loading,
@@ -171,7 +173,7 @@ return (
         
   
       </Routes>
-      <Title isCurrent={isCurrent} isPopup={isPopup}/>
+      <Title isCurrent={isCurrent} isPopup={isPopup} handleClick={handleClick}/>
 
   
       <Module {...moduleProps}/> 

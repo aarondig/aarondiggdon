@@ -127,7 +127,7 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
   },[isPopup])
 
   useFrame(({ clock }) => shader.uniforms.time.value = clock.getElapsedTime())
-  
+
   useFrame(() => {
     if (isPopup) {
       if (shader.uniforms.flatVal.value < 0){

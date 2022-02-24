@@ -29,6 +29,7 @@ const navigate = useNavigate();
   window.addEventListener("wheel", (e) => {
     //Add if touch event
     speed += e.deltaY * 0.0003;
+
   });
 
   useLayoutEffect(() => {
@@ -72,6 +73,7 @@ const navigate = useNavigate();
 
     //Safety Nets to Keep In Bounds
     rounded = position > data.length - 1 ? data.length - 1 : rounded;
+    rounded = position < 0 ? 0 : rounded;
 
     let diff = rounded - position;
 

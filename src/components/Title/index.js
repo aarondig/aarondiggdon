@@ -1,66 +1,103 @@
 import React, { useState, useEffect, useRef } from "react";
-import { a, useSpring } from "react-spring";
+import { Link } from "react-router-dom";
+import { a, useSpring, useSprings } from "react-spring";
 import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";
 import "./style.css";
 
-function Header({ isCurrent, isPopup, el, i, size }) {
-  const disappearBox = useRef();
-  const [moveDown, setMoveDown] = useState();
-  useEffect(() => {
-    setMoveDown(disappearBox.current.getBoundingClientRect().height);
-  }, [size.height]);
+function Header({ isCurrent, isPopup, handleClick, el, i, springs, btnHover, setBtnHover }) {
+  // const disappearBox = useRef();
+  // const [moveDown, setMoveDown] = useState();
+  // useEffect(() => {
+  //   setMoveDown(disappearBox.current.getBoundingClientRect().height);
+  // }, [size.height]);
 
-  //ANIMATIONS
-  const header = useSpring({
-    to: async (next, cancel) => {
-      await next({
-        transform: isPopup
-          ? `translate3d(${moveDown * 2}px, ${moveDown}px, 0)`
-          : `translate3d(0px, 0px, 0px)`,
-      });
-    },
-    from: { transform: `translateY(0)` },
-  });
-
-  const disappear = useSpring({
-    to: async (next, cancel) => {
-      await next({ opacity: isPopup ? 0 : 1 });
-    },
-    from: { opacity: 1 },
-  });
-
-  const {opacity} = useSpring({
-    opacity: isCurrent === i ? 1 : 0,
-    delay: 500,
-    duration: 1200,
-  });
-  const cStyles = {
+  // const btnStyles = useSpring({
+  //   from: {
+  //     borderColor: "transparent",
+  //     background: "transparent",
+  //   },
+  //   to: {
+      
+  //     background: btnHover ? "transparent" : el.background,
     
-    opacity: opacity,
-    
-  };
+  //   },
+  // })
 
+  const btnStyle = useSpring({
+ 
+    borderColor: !btnHover ? el.background : "transparent",
+      background: btnHover ? el.background : "transparent",
+      config:{duration: 200}
+    
+  })
+  const btnText = useSpring({
+    color: !btnHover ? el.background : "white",
+ config:{duration: 200}
+    })
 
 
   return (
-    <a.div className="title-c" style={header, {...cStyles}}>
-      <a.h1 className="title" >{el.title}</a.h1>
-      <a.div className="disappearBox">
-        <a.h4 className="subtitle" ref={disappearBox} style={disappear}>
-          {el && el.description}
-        </a.h4>
-      </a.div>
-    </a.div>
+    <a.div className="title-c" style={springs[i]} key={i}>
+            <a.h1 className="title">{el.title}</a.h1>
+            <a.div className="disappearBox">
+              <a.h4 className="subtitle">{el.description}</a.h4>
+            </a.div>
+            
+            <a.div className="btn" style={btnStyle} onMouseOver={()=> setBtnHover(true)} onMouseLeave={()=> setBtnHover(false)} onClick={() => handleClick()}>
+              <a.h4 className="btn-text" style={btnText}>Learn More</a.h4>
+            </a.div>
+          </a.div>
   );
 }
 
-function Title({ isCurrent, isPopup }) {
+function Title({ isCurrent, isPopup, handleClick }) {
   const size = useWindowSize();
+
+  
+  
+  //ANIMATIONS
+  const springs = useSprings(
+    data.length,
+    data.map((el, i) => ({
+      from: {
+        opacity: 0,
+        // background: el.background,
+      },
+      to: {
+        
+        opacity: i === isCurrent ? 1 : 0,
+        transform: i === isCurrent ? "translateY(0)" : `translateY(${-30}px)`,
+      },
+      config: {
+        duration: 400,
+        
+       }
+    }))
+  );
+
+
+
+const [btnHover, setBtnHover] = useState(false)
+
+const headerProps = {
+  isCurrent: isCurrent,
+  handleClick: handleClick,
+  springs: springs,
+  btnHover: btnHover,
+  setBtnHover: setBtnHover,
+
+}
 
   return (
     <div id="title">
       {data.map((el, i) => {
+        return (
+          <Header el={el} i={i} key={i} {...headerProps}/>
+        );
+      })}
+
+      {/* {data.map((el, i) => {
         const headerProps = {
           isCurrent: isCurrent,
           isPopup: isPopup,
@@ -69,7 +106,14 @@ function Title({ isCurrent, isPopup }) {
           size: size,
         };
         return (<Header key={i} {...headerProps} />);
-      })}
+      })} */}
+
+      {/* <a.div className="title-c" style={styles}>
+        <a.h1 className="title">{data[isCurrent].title}</a.h1>
+        <a.div className="disappearBox">
+          <a.h4 className="subtitle">{data[isCurrent].description}</a.h4>
+        </a.div>
+      </a.div> */}
     </div>
   );
 }

@@ -8,6 +8,19 @@
   height: 100%;
   z-index: 0;
 }
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #000000 30%,
+    #000000e5 60%,
+    #000000cb 80%,
+    #000000ad 100%
+  );
+}
 
 .bg {
   position: absolute;

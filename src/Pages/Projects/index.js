@@ -2,18 +2,29 @@ import React, { useState, useEffect, useLayoutEffect, createRef, useMemo, useRef
 import "./style.css";
 import { data } from "../../data/data";
 import { Link, useNavigate } from "react-router-dom";
+import useScrollLock from "../../hooks/scrollLock";
 
-function Projects({ isCurrent, setIsCurrent,  isPopup, loading, setLoading, refs, setRefs, meshes, setMeshes, group, setScale, scaleRef }) {
+function Projects({ isCurrent, setIsCurrent,  isPopup, setIsPopup, refs, setRefs, meshes, setMeshes, group, setScale, scaleRef }) {
 
 const requestRef = useRef();
 const navigate = useNavigate();
-
+const scrollLock = useScrollLock()
 
   useEffect(()=>{
     if (isPopup) {
-      navigate(`/diff`, {replace: true})
+      navigate(`/${data[isCurrent].id}`)
     }
   })
+
+//ON MOUNT FUNCTION
+  useEffect(()=>{
+    scrollLock.lock()
+  
+    navigate(`/`)
+    setIsPopup(false);
+    
+    return ()=> scrollLock.unlock()
+    },[])
 
   let objs = Array(data.length).fill({ dist: 0 });
 
@@ -26,11 +37,12 @@ const navigate = useNavigate();
   let position = isCurrent;
   let rounded = 0;
 
-  window.addEventListener("wheel", (e) => {
-    //Add if touch event
+  const Wheel = (e) => {
     speed += e.deltaY * 0.0003;
+    //Add if touch event
+  }
 
-  });
+  window.addEventListener("wheel", Wheel)
 
   useLayoutEffect(() => {
 
@@ -88,89 +100,15 @@ const navigate = useNavigate();
     requestRef.current = requestAnimationFrame(onScroll);
   }
  
-    return () => cancelAnimationFrame(requestRef.current)
+    return () => {
+      cancelAnimationFrame(requestRef.current)
+      window.removeEventListener("wheel", Wheel)
+    }
   }, [meshes]);
-
-  //SMALL BUTTONS ON LEFT
-  const [isActive, setIsActive] = useState();
-  const togglePortfolio = (e) => {
-    let targ = e.target.id;
-    setIsActive(targ);
-  };
-  const styles = {
-    button: {
-      active: {
-        background: "#fff",
-      },
-      inactive: {},
-    },
-    text: {
-      active: {
-        color: "#000",
-      },
-      inactive: {},
-    },
-  };
-
-
-
-
 
   return (
     <div id="projects">
-      <div className="overlay">
-        {/* <div className="projectPanel">
-          <div className="title-c">
-            <h1 className="title">
-              {data[isCurrent] && data[isCurrent].title}
-            </h1>
-            <h4 className="subtitle">
-              {data[isCurrent] && data[isCurrent].description}
-            </h4>
-            <div
-              id="web"
-              className="button"
-              style={
-                isActive === "web"
-                  ? styles.button.active
-                  : styles.button.inactive
-              }
-              onClick={(e) => togglePortfolio(e)}
-            >
-              <h4
-                className="buttontitle"
-                style={
-                  isActive === "web" ? styles.text.active : styles.text.inactive
-                }
-              >
-                Web Development
-              </h4>
-            </div>
-            <div
-              id="design"
-              className="button"
-              style={
-                isActive === "design"
-                  ? styles.button.active
-                  : styles.button.inactive
-              }
-              onClick={(e) => togglePortfolio(e)}
-            >
-              <h4
-                className="buttontitle"
-                style={
-                  isActive === "design"
-                    ? styles.text.active
-                    : styles.text.inactive
-                }
-              >
-                Design
-              </h4>
-            </div>
-          </div>
-        </div> */}
- 
-      </div>
+      
     </div>
   );
 }

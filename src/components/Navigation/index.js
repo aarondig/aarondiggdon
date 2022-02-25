@@ -9,12 +9,13 @@ function Navigation({location, setIsPopup}) {
   const navigate = useNavigate();
 
 
-
+console.log(location.pathname)
   const logo = useSpring({
-    opacity: location.pathname === "/diff" ? 0 : 1,
+    opacity: location.pathname !== "/" ? 0 : 1,
   })
   const backBtn = useSpring({
-    opacity: location.pathname === "/diff" ? 1 : 0,
+    opacity: location.pathname !== "/" ? 1 : 0,
+    color: location.pathname === "/about" ? "#252525" : "white"
   })
 
   const Back = () => {

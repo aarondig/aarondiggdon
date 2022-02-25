@@ -62,7 +62,7 @@
 
   color: #000;
 }
- .description {
+#project .description {
   flex: 0 0 65%;
   max-width: 100%;
   min-height: 1px;

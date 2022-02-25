@@ -4,9 +4,13 @@ import useWindowSize from "../../hooks/windowSize";
 import Image from "../../components/Sections/Image/index";
 import "./style.css";
 import Article from "../../components/Sections/Article";
+import useScrollLock from "../../hooks/scrollLock";
+import {matchPath} from "react-router-dom"
 
 function Project({ isCurrent, project }) {
+
   const size = useWindowSize();
+  const scrollLock = useScrollLock();
   const scroller = useRef();
 
   const requestRef = useRef();
@@ -16,16 +20,36 @@ function Project({ isCurrent, project }) {
   let previous = 0;
   let rounded = 0;
 
-
   useEffect(() => {
     document.body.style.height = `${
       scroller.current.getBoundingClientRect().height + size.height - 5
     }px`;
   }, [size.height]);
 
+
+  useEffect(()=>{
+    scrollLock.unlock()
+    return ()=> scrollLock.lock()
+    },[])
+
+
+  // let speed = 0;
+  // const Wheel = (e) => {
+  //   speed += e.deltaY * 0.3;
+  //   //Add if touch event
+  // }
+
+  // window.addEventListener("wheel", Wheel)
+  // current += speed;
+  // speed *= 0.8;
+
+
+
   // SCROLLING
   useLayoutEffect(() => {
     const skewScrolling = () => {
+
+     
       //Set Current to the scroll position amount
       current = window.scrollY;
       // Set Previous to the scroll previous position

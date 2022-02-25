@@ -35,12 +35,13 @@
 .btn {
   width: fit-content;
   height: fit-content;
-  border: 2px solid;
-  margin-top: 2%;
+  border: 1px solid;
+  margin-top: 4%;
 }
 .btn-text {
   font-family: "basier";
-  font-size: 1.4rem;
+  font-size: 18px;
+  font-weight: 400;
   color: white;
   margin-top: 16px;
   margin-bottom: 16px;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { a, useSpring, useSprings } from "react-spring";
 import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";

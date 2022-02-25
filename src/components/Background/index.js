@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { a, useSprings } from "react-spring";
+import { a, useSpring, useSprings } from "react-spring";
 import { data } from "../../data/data";
 import "./style.css";
 
-function Background({ isCurrent }) {
+function Background({ isCurrent, isPopup }) {
   
   //ANIMATIONS
   const springs = useSprings(
@@ -19,8 +19,14 @@ function Background({ isCurrent }) {
     }))
   );
 
+
+  const overlayStyle = useSpring({
+    opacity: isPopup ? 0: 1,
+  })
+
   return (
     <div className="background">
+  
       {data.map((el, i) => {
         return <a.div className="bg" style={springs[i]} key={i}></a.div>;
       })}
@@ -33,6 +39,7 @@ function Background({ isCurrent }) {
     <div className="blob6"/>
     <div className="blob7"/>
     <div className="blob8"/> */}
+        <a.div className="overlay" style={overlayStyle} />
     </div>
   );
 }

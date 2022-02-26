@@ -4,9 +4,12 @@
   height: 100%;
 
   z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
 }
 #about .panel {
-  width: 25%;
+  position: relative;
+  min-width: 15%;
   height: 100%;
   background: white;
   display: flex;
@@ -14,6 +17,7 @@
   flex-direction: column;
   padding-left: 8%;
   padding-right: 8%;
+  flex: .5;
 
 }
 #about .name {
@@ -45,4 +49,16 @@
   text-align: left;
   margin-bottom: 32px;
 
+}
+.profile-pic {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+.img {
+  width: 100%;
+  height: 100%;
+ object-fit: cover;
+  filter: grayscale(100%);
 }

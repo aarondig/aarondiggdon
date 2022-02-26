@@ -28,6 +28,9 @@ function About() {
             </a.div>
         
       </div>
+      <div className="profile-pic">
+      <img className="img" src="https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Assets/Images/profile.jpeg"/>
+      </div>
     </div>
   }
   

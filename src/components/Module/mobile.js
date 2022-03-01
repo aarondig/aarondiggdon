@@ -18,10 +18,6 @@ import { data } from "../../data/data";
 
 const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
 
-  // const [normalMap] = useLoader(THREE.TextureLoader, [
-  //   `https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Images/${i}.png`,
-  // ]);
-
 
   const [normalMap] = useLoader(THREE.TextureLoader, [
     `${data[(data.length - i) - 1].banner}`,
@@ -242,7 +238,7 @@ const props = {
 //DESIGN NOTE: Setloading does nothing at the moment but it's all plugged in so why not leave it until u want to do something w it
 
 
-function ModuleMobile({meshes, group, isCurrent, isMobile, isPopup, scaleRef, handleClick, setLoading}) {
+function Module({meshes, group, isCurrent, isMobile, isPopup, scaleRef, handleClick, setLoading}) {
   const props ={
     refs: meshes,
     group: group,
@@ -272,7 +268,7 @@ function ModuleMobile({meshes, group, isCurrent, isMobile, isPopup, scaleRef, ha
   );
 }
 
-export default ModuleMobile;
+export default Module;
 
 
 

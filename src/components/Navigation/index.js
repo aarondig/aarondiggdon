@@ -18,6 +18,7 @@ console.log(location.pathname)
     color: location.pathname === "/about" ? "#252525" : "white"
   })
 
+
   const Back = () => {
     setIsPopup(false);
     navigate('/', {replace: true})

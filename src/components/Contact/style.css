@@ -1,0 +1,22 @@
+/* #contact {
+  position: absolute;
+  z-index: 2;
+} */
+.contact-list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
+  margin-right: 20%;
+  }
+  .contact-link {
+  display: inline-block;
+  }
+  .contact-text {
+    font-family: "basier";
+    font-size: 48px;
+    font-weight: 600;
+    color: white;
+    text-align: left;
+  }

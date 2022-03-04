@@ -4,24 +4,43 @@ import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";
 import "./style.css";
 
-function Header({ isCurrent, isPopup, handleClick, el, i, springs, btnHover, setBtnHover }) {
-  // const disappearBox = useRef();
-  // const [moveDown, setMoveDown] = useState();
-  // useEffect(() => {
-  //   setMoveDown(disappearBox.current.getBoundingClientRect().height);
-  // }, [size.height]);
+function Header({ isCurrent, isPopup, handleClick, el, i, springs, btnHover, setBtnHover, size }) {
 
-  // const btnStyles = useSpring({
-  //   from: {
-  //     borderColor: "transparent",
-  //     background: "transparent",
-  //   },
-  //   to: {
-      
-  //     background: btnHover ? "transparent" : el.background,
+ const disappearBox = useRef();
+  const [moveDown, setMoveDown] = useState();
+  useEffect(() => {
+    setMoveDown(disappearBox.current.getBoundingClientRect().height);
+  }, [size.height]);
+
+
+// const slide = (size.height/2) + moveDown / 10;
+const slide = moveDown / 2;
+
+
+  const disappear = useSpring({
+    from: {
+      transform: "translateY(0px)",
+      opacity: 1,
+    },
+    to: {
+      transform: isPopup ? `translateY(${moveDown}px)` : `translateY(-0px)`,
+      opacity: isPopup ? 0 : 1,
     
-  //   },
-  // })
+    },
+  })
+  const slideDown = useSpring({
+    from: {
+      transform: "translateY(0px)",
+  
+    },
+    to: {
+      transform: isPopup ? `translateY(${slide}px)` : `translateY(-0px)`,
+    
+    },
+  })
+
+
+
 
   const btnStyle = useSpring({
  
@@ -38,20 +57,20 @@ function Header({ isCurrent, isPopup, handleClick, el, i, springs, btnHover, set
 
   return (
     <a.div className="title-c" style={springs[i]} key={i}>
-            <a.h1 className="title">{el.title}</a.h1>
-            <a.div className="disappearBox">
+            <a.h1 className="title" style={slideDown}>{el.title}</a.h1>
+            <a.div className="disappearBox" ref={disappearBox} style={disappear}>
               <a.h4 className="subtitle">{el.description}</a.h4>
-            </a.div>
+            
             
             <a.div className="btn" style={btnStyle} onMouseOver={()=> setBtnHover(true)} onMouseLeave={()=> setBtnHover(false)} onClick={() => handleClick()}>
               <a.h4 className="btn-text" style={btnText}>Learn More</a.h4>
+            </a.div>
             </a.div>
           </a.div>
   );
 }
 
-function Title({ isCurrent, isPopup, handleClick }) {
-  const size = useWindowSize();
+function Title({ isCurrent, isPopup, handleClick, size }) {
 
   
   
@@ -66,7 +85,7 @@ function Title({ isCurrent, isPopup, handleClick }) {
       to: {
         
         opacity: i === isCurrent ? 1 : 0,
-        transform: i === isCurrent ? "translateY(0)" : `translateY(${-30}px)`,
+        // transform: i === isCurrent ? "translateY(0)" : `translateY(${-30}px)`,
       },
       config: {
         duration: 400,
@@ -81,10 +100,12 @@ const [btnHover, setBtnHover] = useState(false)
 
 const headerProps = {
   isCurrent: isCurrent,
+  isPopup: isPopup,
   handleClick: handleClick,
   springs: springs,
   btnHover: btnHover,
   setBtnHover: setBtnHover,
+  size: size,
 
 }
 

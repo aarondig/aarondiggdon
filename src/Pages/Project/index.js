@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";
 import Image from "../../components/Sections/Image/index";
@@ -74,9 +74,8 @@ function Project({ isCurrent, project }) {
       cancelAnimationFrame(requestRef.current);
     };
   }, []);
-
   return (
-    <Suspense>
+    
     <div id="project" ref={project}> 
       <div className="scroller" ref={scroller}>
         <div className="textWrap">
@@ -144,8 +143,9 @@ function Project({ isCurrent, project }) {
         </div>
       </div>
     </div>
-    </Suspense>
-  );
+  )
+  ;
+
 }
 
 
@@ -153,8 +153,8 @@ function Project({ isCurrent, project }) {
 
 function ProjectLoader({isCurrent, project}) {
   const [loading, setLoading] = useState(true);
-  useEffect(()=>{
-    setTimeout(()=>{
+  useEffect(async ()=>{
+    await setTimeout(()=>{
       setLoading(false);
     }, 500)
     return () => setTimeout(null);

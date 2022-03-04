@@ -8,7 +8,6 @@ import Article from "../../components/Sections/Article";
 import useScrollLock from "../../hooks/scrollLock";
 
 function Project({ isCurrent, project }) {
-
   const size = useWindowSize();
   const scrollLock = useScrollLock();
   const scroller = useRef();
@@ -26,8 +25,6 @@ function Project({ isCurrent, project }) {
     }px`;
   }, [size.height]);
 
-
-
   // let speed = 0;
   // const Wheel = (e) => {
   //   speed += e.deltaY * 0.3;
@@ -38,13 +35,9 @@ function Project({ isCurrent, project }) {
   // current += speed;
   // speed *= 0.8;
 
-
-
   // SCROLLING
   useLayoutEffect(() => {
     const skewScrolling = () => {
-
-     
       //Set Current to the scroll position amount
       current = window.scrollY;
       // Set Previous to the scroll previous position
@@ -75,8 +68,7 @@ function Project({ isCurrent, project }) {
     };
   }, []);
   return (
-    
-    <div id="project" ref={project}> 
+    <div id="project" ref={project}>
       <div className="scroller" ref={scroller}>
         <div className="textWrap">
           <div className="section">
@@ -119,14 +111,14 @@ function Project({ isCurrent, project }) {
               case "article": {
                 return (
                   <div className="section" key={i}>
-                    <Article el={el} isCurrent={isCurrent}/>
+                    <Article el={el} isCurrent={isCurrent} />
                   </div>
                 );
               }
               case "image": {
                 return (
                   <div className="section" key={i}>
-                    <Image el={el} isCurrent={isCurrent}/>
+                    <Image el={el} isCurrent={isCurrent} />
                   </div>
                 );
               }
@@ -139,32 +131,26 @@ function Project({ isCurrent, project }) {
               }
             }
           })}
-          
         </div>
       </div>
     </div>
-  )
-  ;
-
+  );
 }
 
-
-
-
-function ProjectLoader({isCurrent, project}) {
+function ProjectLoader({ isCurrent, project }) {
   const [loading, setLoading] = useState(true);
-  useEffect(async ()=>{
-    await setTimeout(()=>{
+  useEffect(async () => {
+    await setTimeout(() => {
       setLoading(false);
-    }, 500)
+    }, 500);
     return () => setTimeout(null);
-  },[])
+  }, []);
   const projectProps = {
     isCurrent: isCurrent,
     id: data[isCurrent].id,
 
     project: project,
   };
-  return loading ? (<></>) : (<Project {...projectProps}/>);
+  return loading ? <></> : <Project {...projectProps} />;
 }
 export default ProjectLoader;

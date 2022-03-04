@@ -8,8 +8,6 @@ function Navigation({location, setIsPopup}) {
 
   const navigate = useNavigate();
 
-
-console.log(location.pathname)
   const logo = useSpring({
     opacity: location.pathname !== "/" ? 0 : 1,
   })

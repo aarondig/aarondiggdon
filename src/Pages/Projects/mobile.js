@@ -4,7 +4,7 @@ import { data } from "../../data/data";
 import { Link, useNavigate } from "react-router-dom";
 import useScrollLock from "../../hooks/scrollLock";
 
-function Projects({ isCurrent, setIsCurrent,  isPopup, setIsPopup, refs, setRefs, meshes, setMeshes, group, setScale, scaleRef }) {
+function ProjectsMobile({ isCurrent, setIsCurrent,  isPopup, setIsPopup, refs, setRefs, meshes, setMeshes, group, setScale, scaleRef }) {
 
 const requestRef = useRef();
 const navigate = useNavigate();
@@ -18,7 +18,6 @@ const scrollLock = useScrollLock()
 
 //ON MOUNT FUNCTION
   useEffect(()=>{
-   
     scrollLock.lock()
   
     navigate(`/`)
@@ -40,6 +39,7 @@ const scrollLock = useScrollLock()
 
   const Wheel = (e) => {
     speed += e.deltaY * 0.0003;
+    
     //Add if touch event
   }
 
@@ -58,8 +58,9 @@ const scrollLock = useScrollLock()
       let scale = Math.abs(1 - 0.2 * el.dist);
 
       let saturation = 1 - 0.8 * el.dist;
-      let opacity = 1 - 0.5 * el.dist;
+      // let opacity = 1 - 0.5 * el.dist;
       
+      let opacity = - .2 *(Math.abs(position - [data.length - i] + 1) * 1.8) + 1
 
       if (meshes[i].current) {
         meshes[i].current.position.y =
@@ -68,7 +69,7 @@ const scrollLock = useScrollLock()
 
          // meshes[i].current.position.y = i * spaceBetween  + position - (data.length - 1) * spaceBetween;
 
-        //  meshes[i].current.position.x = (.8 - scale) * .3
+         meshes[i].current.position.z = scale *.3
         
 
           meshes[i].current.scale.set(scale, scale, scale);
@@ -107,7 +108,6 @@ const scrollLock = useScrollLock()
     }
   }, [meshes]);
 
-
   return (
     <div id="projects">
       
@@ -115,4 +115,4 @@ const scrollLock = useScrollLock()
   );
 }
 
-export default Projects;
+export default ProjectsMobile;

@@ -1,11 +1,11 @@
-import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";
 import Image from "../../components/Sections/Image/index";
 import "./style.css";
+import { Link, useNavigate } from "react-router-dom";
 import Article from "../../components/Sections/Article";
 import useScrollLock from "../../hooks/scrollLock";
-import {matchPath} from "react-router-dom"
 
 function Project({ isCurrent, project }) {
 
@@ -26,11 +26,6 @@ function Project({ isCurrent, project }) {
     }px`;
   }, [size.height]);
 
-
-  useEffect(()=>{
-    scrollLock.unlock()
-    return ()=> scrollLock.lock()
-    },[])
 
 
   // let speed = 0;
@@ -153,4 +148,23 @@ function Project({ isCurrent, project }) {
   );
 }
 
-export default Project;
+
+
+
+function ProjectLoader({isCurrent, project}) {
+  const [loading, setLoading] = useState(true);
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false);
+    }, 500)
+    return () => setTimeout(null);
+  },[])
+  const projectProps = {
+    isCurrent: isCurrent,
+    id: data[isCurrent].id,
+
+    project: project,
+  };
+  return loading ? (<></>) : (<Project {...projectProps}/>);
+}
+export default ProjectLoader;

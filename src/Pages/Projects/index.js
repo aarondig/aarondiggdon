@@ -4,7 +4,7 @@ import { data } from "../../data/data";
 import { Link, useNavigate } from "react-router-dom";
 import useScrollLock from "../../hooks/scrollLock";
 
-function Projects({ isCurrent, setIsCurrent,  isPopup, setIsPopup, refs, setRefs, meshes, setMeshes, group, setScale, scaleRef }) {
+function Projects({ isCurrent, setIsCurrent, isPopup, setIsPopup, basename, meshes, setMeshes, group, setScale, scaleRef }) {
 
 const requestRef = useRef();
 const navigate = useNavigate();
@@ -12,7 +12,7 @@ const scrollLock = useScrollLock()
 
   useEffect(()=>{
     if (isPopup) {
-      navigate(`/${data[isCurrent].id}`)
+      navigate(`projects/${data[isCurrent].id}`)
     }
   })
 
@@ -21,7 +21,9 @@ const scrollLock = useScrollLock()
    
     scrollLock.lock()
   
-    navigate(`/`)
+    // navigate(`/`)
+   
+    
     setIsPopup(false);
     
     return ()=> scrollLock.unlock()

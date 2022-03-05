@@ -68,9 +68,8 @@ function Contact({ contact }) {
     // <div id="contact">
       <a.ul className="contact-list" >
       {items.map((el, i) => {
-        console.log(el)
         return (
-          <a.a className="contact-link" style={springs[i]} onMouseOver={()=>setHovered(i+1)} onMouseLeave={()=>setHovered(false)} href={el.link} target='_blank' rel='noopener noreferrer'>     
+          <a.a className="contact-link" style={springs[i]} onMouseOver={()=>setHovered(i+1)} onMouseLeave={()=>setHovered(false)} href={el.link} target='_blank' rel='noopener noreferrer' key={i}>     
               <a.h4 className="contact-text" style={hover[i]}>{el.title}</a.h4>
             </a.a>
         );

@@ -4,22 +4,22 @@ import {a, useSpring} from 'react-spring'
 import { Link, useNavigate } from "react-router-dom";
 import { FiArrowLeft } from 'react-icons/fi';
 
-function Navigation({location, setIsPopup}) {
+function Navigation({location, basename, setIsPopup}) {
 
   const navigate = useNavigate();
 
   const logo = useSpring({
-    opacity: location.pathname !== "/" ? 0 : 1,
+    opacity: location.pathname !== `/${basename}` ? 0 : 1,
   })
   const backBtn = useSpring({
-    opacity: location.pathname !== "/" ? 1 : 0,
-    color: location.pathname === "/about" ? "#252525" : "white"
+    opacity: location.pathname !==`/${basename}` ? 1 : 0,
+    color: location.pathname === `/${basename}/about` ? "#252525" : "white"
   })
 
 
   const Back = () => {
     setIsPopup(false);
-    navigate('/', {replace: true})
+    navigate(`${basename}`, {replace: true})
   }
 
 
@@ -33,7 +33,7 @@ function Navigation({location, setIsPopup}) {
         </a.div>
         </div>
         <div className="rightNav">
-        <Link to="/about">
+        <Link to={`/${basename}/about`}>
         <div className="navItem">About Me</div>
         </Link>
         </div>

@@ -99,7 +99,7 @@ function App() {
 
     //Change when loader Is built
     if (url === "/") {
-      navigate(`${basename}`)
+      navigate(`${basename}/`)
     }
     
   }, []);

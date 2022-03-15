@@ -9,17 +9,17 @@ function Navigation({location, basename, setIsPopup}) {
   const navigate = useNavigate();
 
   const logo = useSpring({
-    opacity: location.pathname !== `/${basename}` ? 0 : 1,
+    opacity: location.pathname !== `/${basename}/` ? 0 : 1,
   })
   const backBtn = useSpring({
-    opacity: location.pathname !==`/${basename}` ? 1 : 0,
+    opacity: location.pathname !==`/${basename}/` ? 1 : 0,
     color: location.pathname === `/${basename}/about` ? "#252525" : "white"
   })
 
 
   const Back = () => {
     setIsPopup(false);
-    navigate(`${basename}`, {replace: true})
+    navigate(`${basename}/`, {replace: true})
   }
 
 

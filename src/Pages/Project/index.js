@@ -6,6 +6,7 @@ import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 import Article from "../../components/Sections/Article";
 import useScrollLock from "../../hooks/scrollLock";
+import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 
 function Project({ isCurrent, project }) {
   const size = useWindowSize();
@@ -34,7 +35,9 @@ function Project({ isCurrent, project }) {
   // window.addEventListener("wheel", Wheel)
   // current += speed;
   // speed *= 0.8;
-
+  useEffect(() => {
+    console.log(isCurrent);
+  }, [isCurrent]);
   // SCROLLING
   useLayoutEffect(() => {
     const skewScrolling = () => {
@@ -139,18 +142,78 @@ function Project({ isCurrent, project }) {
 
 function ProjectLoader({ isCurrent, project }) {
   const [loading, setLoading] = useState(true);
-  useEffect(async () => {
-    await setTimeout(() => {
+  const [counter, setCounter] = useState(0);
+
+  // useEffect(async () => {
+
+  //  for (let i = 0; i <= 100; i++){
+
+  //     setTimeout(() => {
+  //       setLoading(loading+1)
+  //       }, 100);
+  //     console.log(loading)
+  //   }
+
+  //   if (loading >= 100) {
+  //     setLoading(false)
+  //   }
+  //   // await setTimeout(() => {
+  //   //   setLoading(false);
+  //   // }, 500);
+  //   return () => setTimeout(null);
+  // }, []);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => setCounter(counter + 1), 10);
+    }
+    if (counter >= 99) {
       setLoading(false);
-    }, 500);
-    return () => setTimeout(null);
-  }, []);
+    }
+    console.log(counter);
+  }, [counter]);
+
   const projectProps = {
     isCurrent: isCurrent,
     id: data[isCurrent].id,
 
     project: project,
   };
-  return loading ? <></> : <Project {...projectProps} />;
+  let radius = 40;
+  let stroke = 4;
+  let progress = counter;
+
+  let normalizedRadius = radius - stroke * 2;
+
+  let circumference = normalizedRadius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
+  return (
+    <>
+      <div className="loader-c">
+        <svg className="loader-svg" height={radius * 2} width={radius * 2}>
+          <circle
+            stroke="white"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + " " + circumference}
+            style={{ strokeDashoffset }}
+            stroke-width={stroke}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+          />
+          
+         
+        </svg>
+        <svg className="checkmark-svg" height={radius/.75} width={radius/.75}>
+        {!loading && <path className="checkmark-svg" stroke="white" fill="none" strokeWidth={stroke} stroke-width={stroke} strokeDasharray={10} d="M14.1 27.2l7.1 7.2 16.7-16.8"/>}
+          
+         
+          </svg>
+      </div>
+      {loading ? <></> : <Project {...projectProps} />}
+    </>
+  );
 }
 export default ProjectLoader;

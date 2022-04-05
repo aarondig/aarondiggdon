@@ -42,6 +42,8 @@ function App() {
 
   //Kill Scale Refs to Improve performance.
   const [scaleRef, setScale] = useState([]);
+ 
+
 
   const project = useRef();
 
@@ -70,6 +72,13 @@ function App() {
     // navigate()
   }, []);
 
+  
+
+
+  useEffect(()=>{
+    console.log("APP SAYS: "+ isCurrent)
+  },[isCurrent])
+
   useEffect(() => {
     //Setting Grouped Refs
     setRefs((refs) =>
@@ -82,6 +91,7 @@ function App() {
         .fill()
         .map((el, i) => meshes[i] || createRef())
     );
+
 
     setScale((scaleRef) =>
       Array(data.length)
@@ -159,6 +169,15 @@ function App() {
     setIsPopup: setIsPopup,
   };
 
+  const bgProps = {
+
+    isCurrent: isCurrent,
+    isPopup: isPopup,
+
+
+  };
+
+
   return (
     <Wrapper>
       <Navigation {...navProps} />
@@ -187,7 +206,7 @@ function App() {
       />
       <Module {...moduleProps} />
 
-      <Background isCurrent={isCurrent} isPopup={isPopup} />
+      <Background {...bgProps} />
     </Wrapper>
   );
 }

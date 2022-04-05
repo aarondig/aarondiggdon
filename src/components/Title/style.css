@@ -1,33 +1,61 @@
 #title {
   position: absolute;
-  width: 50%;
+  width: 84%;
   height: 100%;
   z-index: 2;
   margin-left: 6%;
+  margin-right: 6%;
+  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
 }
 
+.left-panel {
+  position: relative;
+  flex: 1;
+}
+.right-panel {
+  position: relative;
+  flex: 1;
+}
+
+.big-title {
+  position: absolute;
+  font-size: 9rem;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
 
 .title-c {
   position: absolute;
   height: 100%;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   color: "white";
 }
+
+
 .title {
-  font-family: "basier";
-  font-size: 6rem;
-  font-weight: 800;
+  /* font-family: "basier"; */
+  font-size: 5rem;
+  font-weight: 700;
   margin-bottom: 0.5%;
   margin-top: 0;
+  white-space: nowrap;
   color: white;
 }
 .subtitle {
   font-size: 1.5rem;
-  color: white;
-  width: 80%;
-  
+  color: #fff;
+  width: 100%;
+  opacity: .5;
+ 
 }
 
 .btn {
@@ -35,6 +63,7 @@
   height: fit-content;
   border: 1px solid;
   margin-top: 8%;
+  pointer-events:all;
 }
 .btn-text {
   font-family: "basier";
@@ -46,4 +75,14 @@
   margin-left: 32px;
   margin-right: 32px;
   pointer-events: none;
+}
+
+.right-panel {
+  /* background: linear-gradient(90deg, #000000 -19.64%, rgba(0, 0, 0, 0) 56.75%);
+  transform: matrix(-1, 0, 0, 1, 0, 0); */
+  /* background: linear-gradient(61.64deg, #000000 1.05%, rgba(0, 0, 0, 0) 72.52%);
+transform: matrix(-1, 0, 0, 1, 0, 0); */
+
+/* background: linear-gradient(305.68deg, #000000 -3.75%, rgba(0, 0, 0, 0) 63.51%, #000000 135.68%);
+transform: matrix(-1, 0, 0, 1, 0, 0); */
 }

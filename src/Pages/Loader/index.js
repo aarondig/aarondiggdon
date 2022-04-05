@@ -3,8 +3,6 @@ import {Link, Outlet, useNavigate} from "react-router-dom"
 import "./style.css";
 
 function Loader({children, basename}) {
-  const navigate = useNavigate()
-
 
     return <div id="loader">
       <Outlet/>

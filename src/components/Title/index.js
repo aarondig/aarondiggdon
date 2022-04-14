@@ -75,26 +75,6 @@ function Header({
 function Title({ isCurrent, isPopup, handleClick, size }) {
   //ANIMATIONS
 
-  // const transitions = useTransition(
-  //   data.length,
-  //   data.map((el, i) => ({
-  //     from: {
-  //       opacity: 0,
-  //       // background: el.background,
-  //     },
-  //     to: {
-  //       transform: isPopup ? `translateY(${200}px)` : `translateY(-0px)`,
-  //       opacity: isPopup ? 0 : i === isCurrent ? 1 : 0,
-
-  //       // transform: i === isCurrent ? "translateY(0)" : `translateY(${-30}px)`,
-  //     },
-  //     delay: 300,
-  //     config: {
-  //       duration: 300,
-  //     },
-  //   }))
-  // );
-
   const springs = useSprings(
     data.length,
     data.map((el, i) => ({
@@ -103,12 +83,12 @@ function Title({ isCurrent, isPopup, handleClick, size }) {
         // background: el.background,
       },
       to: {
-        transform: isPopup ? `translateY(${200}px)` : `translateY(-0px)`,
+        transform: isPopup ? `translateY(${50}px)` : `translateY(-0px)`,
         opacity: isPopup ? 0 : i === isCurrent ? 1 : 0,
 
         // transform: i === isCurrent ? "translateY(0)" : `translateY(${-30}px)`,
       },
-      delay: 300,
+
       config: {
         duration: 300,
       },

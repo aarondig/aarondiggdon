@@ -13,7 +13,7 @@ import {
   Route,
   useLocation,
   useNavigate,
-  useHref,
+  useHistory,
 } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import { a, useTransition } from "react-spring";
@@ -68,7 +68,6 @@ function App() {
     } else {
       setIsMobile(false);
     }
-    console.log(location);
     // navigate()
   }, []);
 
@@ -104,15 +103,17 @@ function App() {
     data.map((el, i) => {
       if (url === `/${basename}/projects/${el.id}`) {
         setIsPopup(true);
+     
       }
     });
 
     //Change when loader Is built
     if (url === "/") {
-      navigate(`${basename}/`)
+      navigate(`${basename}/`, {replace: true})
     }
     
   }, []);
+
 
   //Props Passed to Pages
   const projectsProps = {

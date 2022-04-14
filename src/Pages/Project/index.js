@@ -170,7 +170,6 @@ function ProjectLoader({ isCurrent, project }) {
     if (counter >= 99) {
       setLoading(false);
     }
-    console.log(counter);
   }, [counter]);
 
   const projectProps = {

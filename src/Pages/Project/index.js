@@ -144,25 +144,6 @@ function ProjectLoader({ isCurrent, project }) {
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
 
-  // useEffect(async () => {
-
-  //  for (let i = 0; i <= 100; i++){
-
-  //     setTimeout(() => {
-  //       setLoading(loading+1)
-  //       }, 100);
-  //     console.log(loading)
-  //   }
-
-  //   if (loading >= 100) {
-  //     setLoading(false)
-  //   }
-  //   // await setTimeout(() => {
-  //   //   setLoading(false);
-  //   // }, 500);
-  //   return () => setTimeout(null);
-  // }, []);
-
   useEffect(() => {
     if (loading) {
       setTimeout(() => setCounter(counter + 1), 10);

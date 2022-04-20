@@ -1,16 +1,29 @@
 import React from "react";
 import "./style.css";
 import {a, useSpring} from 'react-spring'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, matchRoutes } from "react-router-dom";
 import { FiArrowLeft } from 'react-icons/fi';
+import { useEffect } from "react/cjs/react.production.min";
 
 function Navigation({location, basename, setIsPopup}) {
 
   const navigate = useNavigate();
 
+//   const routes = [{ path: "/projects/:id" }]
+
+//  const useCurrentPath = () => {
+//    const [{ route }] = matchRoutes(routes, location);
+//    return route.path;
+//  }
+
+//   const current = useCurrentPath();
+
+
   const logo = useSpring({
-    opacity: location.pathname !== `/${basename}/` ? 0 : 1,
+    // opacity: location.pathname !== `/${basename}/` ? 0 : 1,
+    opacity: location.pathname === `/${basename}/projects/:id` ? 0 : 1,
   })
+
   const backBtn = useSpring({
     opacity: location.pathname !==`/${basename}/` ? 1 : 0,
     color: location.pathname === `/${basename}/about` ? "#252525" : "white"
@@ -19,7 +32,8 @@ function Navigation({location, basename, setIsPopup}) {
 
   const Back = () => {
     setIsPopup(false);
-    navigate(`${basename}/`, {replace: true})
+    navigate(-1, {replace: true})
+    // navigate(`${basename}/`, {replace: true})
   }
 
 

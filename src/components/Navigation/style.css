@@ -31,14 +31,14 @@ align-items: center;
 #logo {
     position: absolute;
     font-size: 22px;
-    font-weight: 800;
+    font-weight: 600;
     /* text-transform: uppercase; */
     color: white;
 }
 .backBtn {
     position: absolute;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 300;
     /* text-transform: uppercase; */
     color: white;
     display: flex;
@@ -47,7 +47,7 @@ align-items: center;
 }
 .navItem{
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 300;
     color: white;
 }
 :link {

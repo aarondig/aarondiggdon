@@ -18,7 +18,6 @@ import {
 import Navigation from "./components/Navigation";
 import { a, useTransition } from "react-spring";
 import { AnimatePresence, motion } from "framer-motion";
-import Title from "./components/Title";
 import About from "./Pages/About";
 import Loader from "./Pages/Loader";
 
@@ -42,8 +41,6 @@ function App() {
 
   //Kill Scale Refs to Improve performance.
   const [scaleRef, setScale] = useState([]);
- 
-
 
   const project = useRef();
 
@@ -53,8 +50,7 @@ function App() {
   const [meshes, setMeshes] = useState([]);
   const group = useRef();
 
-
-//PAGE TRANSITION
+  //PAGE TRANSITION
 
   const handleClick = (e) => {
     setIsPopup(true);
@@ -68,15 +64,11 @@ function App() {
     } else {
       setIsMobile(false);
     }
-    // navigate()
   }, []);
 
-  
-
-
-  useEffect(()=>{
-    console.log("APP SAYS: "+ isCurrent)
-  },[isCurrent])
+  useEffect(() => {
+    console.log("APP SAYS: " + isCurrent);
+  }, [isCurrent]);
 
   useEffect(() => {
     //Setting Grouped Refs
@@ -91,7 +83,6 @@ function App() {
         .map((el, i) => meshes[i] || createRef())
     );
 
-
     setScale((scaleRef) =>
       Array(data.length)
         .fill()
@@ -101,24 +92,32 @@ function App() {
     //Refresh Handling
     let url = location.pathname;
     data.map((el, i) => {
-      if (url === `/${basename}/projects/${el.id}`) {
+      if (url === `/${basename}/${el.id}`) {
         setIsPopup(true);
-     
       }
     });
 
+
     //Change when loader Is built
     if (url === "/") {
-      navigate(`${basename}/`, {replace: true})
+      navigate(`${basename}/`, { replace: true });
     }
-    
   }, []);
 
-
+  // useEffect(()=>{
+  //   if (location.pathname === `/${basename}/`) {
+  //   setIsPopup(false);
+  //   console.log(location.pathname)
+  // }})
+  
   //Props Passed to Pages
   const projectsProps = {
+    size: size,
+
     isCurrent: isCurrent,
     setIsCurrent: setIsCurrent,
+
+    handleClick: handleClick,
 
     basename: basename,
 
@@ -166,16 +165,8 @@ function App() {
   const navProps = {
     basename: basename,
     location: location,
-    
+
     setIsPopup: setIsPopup,
-  };
-
-  const bgProps = {
-
-    isCurrent: isCurrent,
-    isPopup: isPopup,
-
-
   };
 
 
@@ -185,29 +176,23 @@ function App() {
 
       <AnimatePresence initial={false} exitBeforeEnter>
         <Routes>
-          <Route path="/" element={<Loader basename={basename}/>}>
-            <Route
-              path={`${basename}`}
-              element={<Projects {...projectsProps} />}
-            />
-            <Route
-              path={`${basename}/projects/:id`}
-              element={<ProjectLoader {...projectProps} />}
-            />
+          {/* Maybe Loader route shouldn't be a nester? */}
 
+          <Route path={`/`} element={<Loader basename={basename} />}>
+          <Route path={`${basename}`} element={<Landing />}/>
+            <Route path={`${basename}/projects`} element={<Projects {...projectsProps} />}>
+              <Route
+                path={`:id`}
+                element={<ProjectLoader {...projectProps} />}
+              />
+            </Route>
             <Route path={`${basename}/about`} element={<About />} />
           </Route>
         </Routes>
       </AnimatePresence>
-      <Title
-        isCurrent={isCurrent}
-        isPopup={isPopup}
-        handleClick={handleClick}
-        size={size}
-      />
       <Module {...moduleProps} />
 
-      <Background {...bgProps} />
+      
     </Wrapper>
   );
 }

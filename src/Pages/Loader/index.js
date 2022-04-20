@@ -1,25 +1,92 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import {a, useSpring, useSprings, useSpringRef} from "react-spring";
 import "./style.css";
 
 function Loader({ children, basename }) {
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
 
-  useEffect(() => {
-    if (loading) {
-      setTimeout(() => setCounter(counter + 1), 10);
-    }
-    if (counter >= 99) {
-      setLoading(false);
-    }
-  }, [counter]);
+  // useEffect(() => {
+  //   if (loading) {
+  //     setTimeout(() => setCounter(counter + 1), 10);
+  //   }
+  //   if (counter >= 99) {
+  //     setLoading(false);
+  //   }
+  // }, [counter]);
+
+  //ANIMATIONS
+
+
+  // const [nextSpring, setNextSpring] = useState(false);
+
+
+
+  let letters = ["W","e","l","c","o","m","e"]
+
+  const lettersRef = useSpringRef();
+
+  const lettersSprings = useSprings(
+    letters.length,
+    letters.map((el, i) => ({
+      from: {
+        opacity: 0,
+        transform: "translateY(+20px)",
+      },
+      to: {
+        opacity:  1,
+        transform:  "translateY(0)",
+      },
+      
+      delay: 180 * i,
+      config: {
+        // mass: 1,
+        // tension: 280,
+        // friction: 18
+      },
+      lettersRef
+    }))
+  );
+
+
+  const imgRef = useSpringRef();
+  const imgSpring = useSpring({
+    from: {scale: 0, opacity: 0},
+    to: {scale: 1, opacity: 1},
+    config: {
+      mass: 1,
+      tension: 280,
+      friction: 100,
+      
+    },
+    onRest: () => setLoading(false),
+    imgRef
+  })
+  
+
+
+
+  // const growSpring = useSpring({
+  //   scale: nextSpring ? 3 : 1,
+  //   delay: 1600
+  //   ,
+  //   config: {
+  //     mass: 1,
+  //     tension: 280,
+  //     friction: 100,
+  //     // duration: 800,
+  //   },
+  // })
+
 
   return (
     <div id="loader">
       {loading ? (
-        <div className="img-c">
-          {/* <div className="img"> */}
+      <a.div className="main-c" >
+      {/* style={growSpring} */}
+          
+        <a.div className="img-c" style={imgSpring}>
             <svg
               width="353"
               height="353"
@@ -27,7 +94,7 @@ function Loader({ children, basename }) {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_316_611)">
+              <g clipPath="url(#clip0_316_611)">
                 <rect width="353" height="353" fill="black" />
                 <g filter="url(#filter0_f_316_611)">
                   <ellipse
@@ -116,9 +183,9 @@ function Loader({ children, basename }) {
                   width="548.237"
                   height="472.106"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -137,9 +204,9 @@ function Loader({ children, basename }) {
                   width="684.599"
                   height="503.211"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -158,9 +225,9 @@ function Loader({ children, basename }) {
                   width="508.481"
                   height="457.54"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -179,9 +246,9 @@ function Loader({ children, basename }) {
                   width="415.596"
                   height="327.036"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -200,9 +267,9 @@ function Loader({ children, basename }) {
                   width="834.985"
                   height="466.974"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -221,9 +288,9 @@ function Loader({ children, basename }) {
                   width="330.941"
                   height="260.443"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -242,9 +309,9 @@ function Loader({ children, basename }) {
                   width="314.115"
                   height="307.307"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -263,9 +330,9 @@ function Loader({ children, basename }) {
                   width="314.115"
                   height="307.307"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feBlend
                     mode="normal"
                     in="SourceGraphic"
@@ -282,10 +349,25 @@ function Loader({ children, basename }) {
                 </clipPath>
               </defs>
             </svg>
-          {/* </div> */}
+     
+        </a.div>
+        <div className="text-c">
+          {lettersSprings.map((el, i)=> {
+      
+            return (
+            // <a.div className="letter-c" style={}>
+              <a.h1 className="letter" key={i} style={lettersSprings[i]}>{letters[i]}</a.h1>
+              // </a.div>
+            )
+          })}
         </div>
+        
+        
+        </a.div>
+
       ) : (
-        <Outlet />
+      <Outlet /> 
+
      )} 
     </div>
   );

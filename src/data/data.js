@@ -338,7 +338,7 @@ export const data = [
       "Design a Credit Card as a Service product with an embeddable rewards system for a pitch to their CTO.",
 
     banner:
-      "https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Assets/Images/Banners/travelpins.png",
+      "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Banners/lululemoncover.png",
 
     tagline: "Social media for travelers.",
     about: `This project was conducted with two other team members. "Do you love to travel? This app is for you. In this app, you create your own personalized account. You can view all of the countries in the world with a click. If you have traveled to a country, you can mark the country as 'traveled.' The country will highlight blue to show that you have traveled to the country."`,

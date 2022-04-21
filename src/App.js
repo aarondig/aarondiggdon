@@ -89,14 +89,13 @@ function App() {
         .map((el, i) => scaleRef[i] || createRef())
     );
 
-    //Refresh Handling
+    // //Refresh Handling
     let url = location.pathname;
-    data.map((el, i) => {
-      if (url === `/${basename}/${el.id}`) {
-        setIsPopup(true);
-      }
-    });
-
+    // data.map((el, i) => {
+    //   if (url === `/${basename}/projects/${el.id}`) {
+    //     setIsPopup(true);
+    //   }
+    // });
 
     //Change when loader Is built
     if (url === "/") {
@@ -109,7 +108,7 @@ function App() {
   //   setIsPopup(false);
   //   console.log(location.pathname)
   // }})
-  
+
   //Props Passed to Pages
   const projectsProps = {
     size: size,
@@ -139,6 +138,7 @@ function App() {
   const projectProps = {
     id: data[isCurrent].id,
     isCurrent: isCurrent,
+    isPopup: isPopup,
 
     basename: basename,
 
@@ -169,7 +169,6 @@ function App() {
     setIsPopup: setIsPopup,
   };
 
-
   return (
     <Wrapper>
       <Navigation {...navProps} />
@@ -178,21 +177,22 @@ function App() {
         <Routes>
           {/* Maybe Loader route shouldn't be a nester? */}
 
-          <Route path={`/`} element={<Loader basename={basename} />}>
-          <Route path={`${basename}`} element={<Landing />}/>
-            <Route path={`${basename}/projects`} element={<Projects {...projectsProps} />}>
+            <Route path={`/`}/>
+            <Route path={`${basename}`} element={<Loader basename={basename} />} />
+            <Route
+              path={`${basename}/projects`}
+              element={<Projects {...projectsProps} />}
+            >
               <Route
                 path={`:id`}
                 element={<ProjectLoader {...projectProps} />}
               />
             </Route>
             <Route path={`${basename}/about`} element={<About />} />
-          </Route>
+          
         </Routes>
       </AnimatePresence>
       <Module {...moduleProps} />
-
-      
     </Wrapper>
   );
 }

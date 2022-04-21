@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import {a, useSpring, useSprings, useSpringRef} from "react-spring";
 import "./style.css";
 
@@ -7,6 +7,8 @@ function Loader({ children, basename }) {
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
 
+
+  const navigate = useNavigate();
   // useEffect(() => {
   //   if (loading) {
   //     setTimeout(() => setCounter(counter + 1), 10);
@@ -60,7 +62,7 @@ function Loader({ children, basename }) {
       friction: 100,
       
     },
-    onRest: () => setLoading(false),
+    onRest: () => navigate(`projects`),
     imgRef
   })
   
@@ -82,7 +84,7 @@ function Loader({ children, basename }) {
 
   return (
     <div id="loader">
-      {loading ? (
+      
       <a.div className="main-c" >
       {/* style={growSpring} */}
           
@@ -361,14 +363,8 @@ function Loader({ children, basename }) {
             )
           })}
         </div>
-        
-        
         </a.div>
-
-      ) : (
-      <Outlet /> 
-
-     )} 
+     
     </div>
   );
 }

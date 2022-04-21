@@ -42,7 +42,7 @@ const bgTop = useSpring({
 
           {/* <a.div className="bg-right" style={{background: `radial-gradient(50% 50% at 50% 50%, #ffffff 0%, rgba(5, 128, 238, 0) 100%)` }}></a.div> */}
           
-          <a.div className="bg-top-right" style={{background: `radial-gradient(50% 50% at 50% 50%, #ffffff 0%, rgba(5, 128, 238, 0) 100%)` }}></a.div>
+          <a.div className="bg-top-right" style={{background: `radial-gradient(50% 50% at 50% 50%, ${el.background} 0%, rgba(5, 128, 238, 0) 100%)` }}></a.div>
           <a.div className="bg-back-right" style={{background: `radial-gradient(50% 50% at 50% 50%, ${el.background} 0%, rgba(5, 128, 238, 0) 100%)` }}></a.div>
           <a.div className="bg-back-bottom" style={{background: `radial-gradient(50% 50% at 50% 50%, ${el.background} 0%, rgba(5, 128, 238, 0) 100%)` }}></a.div>
       

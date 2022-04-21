@@ -229,7 +229,7 @@ export const data = [
     icon: "fa-search",
 
     color: "",
-    background: "#0073ff",
+    background: "#000CBE",
   },
   {
     id: "travelpins",
@@ -340,11 +340,11 @@ export const data = [
     banner:
       "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Banners/lululemoncover.png",
 
-    tagline: "Social media for travelers.",
+    tagline: "Building an Ecosystem",
     about: `This project was conducted with two other team members. "Do you love to travel? This app is for you. In this app, you create your own personalized account. You can view all of the countries in the world with a click. If you have traveled to a country, you can mark the country as 'traveled.' The country will highlight blue to show that you have traveled to the country."`,
 
-    client: "Personal",
-    role: "Frontend Developer / UX Designer",
+    client: "Railsbank",
+    role: "Lead Product Designer",
     date: "November 2020",
     disciplines: ["Web Development", "Journalism"],
 
@@ -352,7 +352,7 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Assets/Images/Banners/travelpins.png",
+        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Banners/lululemoncover.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -429,7 +429,7 @@ export const data = [
     icon: "fa-map-marker-alt",
 
     color: "",
-    background: "#00E5E0",
+    background: "#BE000E",
   },
 
   // {

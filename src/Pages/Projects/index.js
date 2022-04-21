@@ -27,20 +27,55 @@ function Projects({
   scaleRef,
   handleClick, 
   size,
+  basename
 }) {
 
-  const navigate = useNavigate();
-  const location = useLocation();
- 
+    //Page Transition
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [reclaimLocation, setReclaimLocation] = useState(false);
 
-  useEffect(() => {
+    // useEffect(()=>{
+    //   let url = location.pathname;
+    //     data.map((el, i) => {
+    //       if (url === `/${basename}/projects/${el.id}`) {
+    //         navigate(`${data[i].id}`);
+    //         setIsPopup(true)
+    //         setReclaimLocation(true)
+    //         return true;
+    //       } else return false;
+    //     });
+    //   console.log("runnnnnn")
+    // },[])
+    useEffect(() => {
 
-    if (isPopup) {
-      navigate(`${data[isCurrent].id}`);
-    }
-  },[isPopup]);
+        // let isRouteMatch = routeMatch.some(element => element)
+        // console.log(isPopup)
+        // if (isRouteMatch === true) {
+        //   setIsPopup(true);
+        //   // navigate(`${data[isCurrent].id}`);
+        // } 
+        // if (isRouteMatch === false) {
+        //   if (isPopup) {
+        //     navigate(`${data[isCurrent].id}`);
+        //   }
+          
+        // } 
 
-  
+// if (!reclaimLocation) {
+  if (isPopup) {
+    navigate(`${data[isCurrent].id}`);
+  }
+// }
+        
+        
+      
+      
+   
+    },[isPopup]);
+    
+    
+
 
   const selectorProps = {
     isCurrent: isCurrent,
@@ -71,8 +106,6 @@ function Projects({
     <Title {...titleProps}/>
     { !isPopup ? 
      <ProjectSelector {...selectorProps}/> :
-    
-    
     <Outlet/> 
 }
 

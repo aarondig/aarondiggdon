@@ -25,14 +25,7 @@ function ProjectSelector({
 }) {
 
   const requestRef = useRef();
-  const navigate = useNavigate();
   const scrollLock = useScrollLock();
-
-  // useEffect(() => {
-  //   if (isPopup) {
-  //     navigate(`projects/${data[isCurrent].id}`);
-  //   }
-  // });
 
   //ON MOUNT FUNCTION
   useEffect(() => {

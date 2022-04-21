@@ -140,7 +140,7 @@ function Project({ isCurrent, project }) {
   );
 }
 
-function ProjectLoader({ isCurrent, project }) {
+function ProjectLoader({ isCurrent, project}) {
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
 
@@ -159,6 +159,7 @@ function ProjectLoader({ isCurrent, project }) {
 
     project: project,
   };
+
   let radius = 40;
   let stroke = 4;
   let progress = counter;

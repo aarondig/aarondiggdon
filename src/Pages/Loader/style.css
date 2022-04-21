@@ -13,7 +13,7 @@
 }
 #loader .img-c {
 }
-#loader .text-c {
+.main-c .text-c {
     position: absolute;
     display: flex;
     justify-content: space-evenly;

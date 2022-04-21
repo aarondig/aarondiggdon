@@ -7,7 +7,7 @@ import React, {
   useRef,
 } from "react";
 import { data } from "../../data/data";
-import { useNavigate, Outlet, useLocation } from "react-router-dom";
+import { useNavigate, Outlet, useLocation, useMatch, } from "react-router-dom";
 import ProjectSelector from "../../components/ProjectSelector";
 
 import "./style.css";
@@ -33,44 +33,34 @@ function Projects({
     //Page Transition
     const navigate = useNavigate();
     const location = useLocation();
-    const [reclaimLocation, setReclaimLocation] = useState(false);
 
-    // useEffect(()=>{
-    //   let url = location.pathname;
-    //     data.map((el, i) => {
-    //       if (url === `/${basename}/projects/${el.id}`) {
-    //         navigate(`${data[i].id}`);
-    //         setIsPopup(true)
-    //         setReclaimLocation(true)
-    //         return true;
-    //       } else return false;
-    //     });
-    //   console.log("runnnnnn")
-    // },[])
+
+
+  //Checking Location Match for Page Refresh
+  const [isMatch, setIsMatch] = useState(false);
+
+    useEffect(()=>{
+      let url = location.pathname;
+        data.map((el, i) => {
+          if (url === `/${basename}/projects/${el.id}`) {
+            setIsCurrent(i)
+            setIsPopup(true)
+            setIsMatch(true)
+            return true;
+          } else return false;
+        });
+        return () => setIsMatch(false)
+    },[])
+
     useEffect(() => {
 
-        // let isRouteMatch = routeMatch.some(element => element)
-        // console.log(isPopup)
-        // if (isRouteMatch === true) {
-        //   setIsPopup(true);
-        //   // navigate(`${data[isCurrent].id}`);
-        // } 
-        // if (isRouteMatch === false) {
-        //   if (isPopup) {
-        //     navigate(`${data[isCurrent].id}`);
-        //   }
-          
-        // } 
-
-// if (!reclaimLocation) {
-  if (isPopup) {
-    navigate(`${data[isCurrent].id}`);
-  }
-// }
-        
-        
-      
-      
+  if (!isMatch) {
+    if (isPopup) {
+      navigate(`${data[isCurrent].id}`);
+    }
+  } else {
+    setIsMatch(false)
+  }    
    
     },[isPopup]);
     

@@ -30,7 +30,7 @@ function Navigation({ location, basename, setIsPopup }) {
 
   const backBtn = useSpring({
     // opacity: location.pathname !== `/${basename}/` ? 1 : 0,
-    opacity: isMatch ? 1 : 0,
+    opacity: location.pathname === `/${basename}/about` ? 1 : (isMatch ? 1 : 0),
     color: location.pathname === `/${basename}/about` ? "#252525" : "white",
   });
 

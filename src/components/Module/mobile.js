@@ -238,7 +238,7 @@ const props = {
 //DESIGN NOTE: Setloading does nothing at the moment but it's all plugged in so why not leave it until u want to do something w it
 
 
-function Module({meshes, group, isCurrent, isMobile, isPopup, scaleRef, handleClick, setLoading}) {
+function ModuleMobile({meshes, group, isCurrent, isMobile, isPopup, scaleRef, handleClick, setLoading}) {
   const props ={
     refs: meshes,
     group: group,
@@ -268,7 +268,7 @@ function Module({meshes, group, isCurrent, isMobile, isPopup, scaleRef, handleCl
   );
 }
 
-export default Module;
+export default ModuleMobile;
 
 
 

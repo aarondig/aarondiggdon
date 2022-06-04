@@ -63,9 +63,6 @@ function Projects({
   }    
    
     },[isPopup]);
-    
-    
-
 
   const selectorProps = {
     isCurrent: isCurrent,

@@ -1,0 +1,27 @@
+#tech {
+flex: 1;
+
+}
+.tech-c {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tech-box {
+  flex: 1;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: solid 1px #707070; */
+  border-radius: 16px;
+  margin: 20px;
+  
+}
+.tech-title {
+  font-family: 'basier';
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+}

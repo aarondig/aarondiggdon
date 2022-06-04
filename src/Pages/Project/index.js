@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Article from "../../components/Sections/Article";
 import useScrollLock from "../../hooks/scrollLock";
 import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
+import Tech from "../../components/Sections/Tech";
 
 function Project({ isCurrent, project }) {
   const size = useWindowSize();
@@ -70,6 +71,7 @@ function Project({ isCurrent, project }) {
       cancelAnimationFrame(requestRef.current);
     };
   }, []);
+
   return (
     <div id="project" ref={project}>
       <div className="scroller" ref={scroller}>
@@ -78,7 +80,13 @@ function Project({ isCurrent, project }) {
             <h4 className="subtitle">About This Project</h4>
             <h1 className="title">{data[isCurrent].tagline}</h1>
             {/* <div className="row"> */}
-            <p className="description">{data[isCurrent].about}</p>
+            <div className="description-c">
+            {data[isCurrent].about.map((el, i)=>{
+              return (
+              <p className="description" key={i}>{data[isCurrent].about[i]}</p>
+              )
+            })}
+            </div>
 
             <div className="details">
               <div className="detail">
@@ -128,12 +136,13 @@ function Project({ isCurrent, project }) {
               case "tech": {
                 return (
                   <div className="section" key={i}>
-                    {/* <Tech el={el} isCurrent={isCurrent}/> */}
+                    <Tech el={el} isCurrent={isCurrent}/>
                   </div>
                 );
               }
             }
           })}
+          
         </div>
       </div>
     </div>

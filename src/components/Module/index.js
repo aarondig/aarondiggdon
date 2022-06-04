@@ -9,23 +9,30 @@ import React, {
 } from "react";
 import "./style.css";
 import * as THREE from "three";
-import { Canvas, useFrame, useLoader } from "react-three-fiber";
-import {useSpring} from "react-spring"
-import {a} from "@react-spring/three";
+import { Canvas, useFrame, useLoader, useThree } from "react-three-fiber";
+import { useSpring } from "react-spring";
+import { a } from "@react-spring/three";
 import { data } from "../../data/data";
 
-
-
-const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
-
+const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef }) => {
   // const [normalMap] = useLoader(THREE.TextureLoader, [
   //   `https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Images/${i}.png`,
   // ]);
 
-
   const [normalMap] = useLoader(THREE.TextureLoader, [
-    `${data[(data.length - i) - 1].banner}`,
+    `${data[data.length - i - 1].banner}`,
   ]);
+ 
+  //ANISTROPY IS SHARPNESS - Hard on GPU
+  const {gl} = useThree();
+
+useEffect(()=>{
+  const ani = gl.capabilities.getMaxAnisotropy();
+  normalMap.anisotropy = (ani/3) + (ani/2);
+},[])
+ 
+
+
 
   const fragmentShader = `
   uniform float time;
@@ -61,7 +68,7 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
   }`;
 
   //sin(PI*uv.x) = Arc of Image
-  
+
   const vertexShader = `
   uniform float time;
   varying vec2 vUv;
@@ -104,13 +111,13 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
         saturation: { type: "f", value: 0 },
         opacity: { type: "f", value: 0 },
 
-        flatVal: { type: "f", value: .02 },
+        flatVal: { type: "f", value: 0.02 },
 
         texture1: { type: "t", value: normalMap },
         resolution: { type: "v4", value: new THREE.Vector4() },
         uvRate1: { value: new THREE.Vector2(1, 1) },
       },
-  
+
       side: THREE.DoubleSide,
       transparent: true,
       fragmentShader,
@@ -119,31 +126,32 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
     []
   );
 
-  useEffect(()=>{
-    if(!isPopup){
-      shader.uniforms.flatVal.value = .02;
+  useEffect(() => {
+    if (!isPopup) {
+      shader.uniforms.flatVal.value = 0.02;
     }
-   
-  },[isPopup])
+  }, [isPopup]);
 
-  useFrame(({ clock }) => shader.uniforms.time.value = clock.getElapsedTime())
+  useFrame(
+    ({ clock }) => (shader.uniforms.time.value = clock.getElapsedTime())
+  );
 
   useFrame(() => {
     if (isPopup) {
-      if (shader.uniforms.flatVal.value < 0){
-        shader.uniforms.flatVal.value = 0
+      if (shader.uniforms.flatVal.value < 0) {
+        shader.uniforms.flatVal.value = 0;
       } else {
-        shader.uniforms.flatVal.value = shader.uniforms.flatVal.value - .001;
+        shader.uniforms.flatVal.value = shader.uniforms.flatVal.value - 0.001;
+      }
     }
-  }
-//   if (!isPopup) {
-//     if (shader.uniforms.flatVal.value > .02){
-//       shader.uniforms.flatVal.value = .02
-//     } else {
-//       shader.uniforms.flatVal.value = shader.uniforms.flatVal.value + .0008;
-//   }
-// }
-    
+    //   if (!isPopup) {
+    //     if (shader.uniforms.flatVal.value > .02){
+    //       shader.uniforms.flatVal.value = .02
+    //     } else {
+    //       shader.uniforms.flatVal.value = shader.uniforms.flatVal.value + .0008;
+    //   }
+    // }
+
     //Ref is now "Mesh"
   });
 
@@ -153,100 +161,108 @@ const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef}) => {
   //   mesh.current.rotation.z = -.1;
   // },[])
 
-
   //Basically if Index === isCurrent
-const target = (data.length - isCurrent) - 1
+  const target = data.length - isCurrent - 1;
 
+  const { rotation, positionX, scale } = useSpring({
+    rotation: isPopup ? [0, 0, 0] : [0.0, 0.0, 0],
+    positionX: isPopup ? (i === target ? 0 : 6) : 0,
 
-
-  const {rotation, positionX, scale} = useSpring({
-    rotation: isPopup ? [0,0,0] : [.0, .0, 0],
-    positionX: isPopup ? (i === target ? 0 : 6) : 0, 
-    
-    
     // scale: i === target ? (isPopup ? [1.5, 1.5, 1.5] : [scaleRef, scaleRef, scaleRef]) : [scaleRef, scaleRef, scaleRef],
-
-
 
     // duration: 1000,
     // delay: i === target ? 0 : ((data.length - i)) * 80,
-  })
+  });
 
+  const props = {
+    ref: mesh,
 
+    rotation: rotation,
 
+    onClick: (e) => handleClick(e),
 
-const props = {
-ref: mesh,
-
-rotation: rotation,
-
-
-onClick: (e) => handleClick(e),
-
-key: i,
-value: i,
-}
+    key: i,
+    value: i,
+  };
 
   return (
-  <a.mesh native position-x={positionX} color={data[i].color} {...props}>
-      <planeBufferGeometry args={[1.5, 1, 20, 20]}/>
+    <a.mesh native position-x={positionX} color={data[i].color} {...props}>
+      <planeBufferGeometry args={[1.5, 1, 20, 20]} />
       <shaderMaterial attach="material" uniformsNeedUpdate={true} {...shader} />
     </a.mesh>
   );
 };
 
-function HandleImages({refs, group, isPopup, isCurrent, scaleRef, setLoading, handleClick}) {
+function HandleImages({
+  refs,
+  group,
+  isPopup,
+  isCurrent,
+  scaleRef,
+  setLoading,
+  handleClick,
+}) {
+  // useEffect(()=>{
+  //   group.current.rotation.x = -.3;
+  //   group.current.rotation.y = -.5;
+  //   group.current.rotation.z = -.1;
 
-// useEffect(()=>{
-//   group.current.rotation.x = -.3;
-//   group.current.rotation.y = -.5;
-//   group.current.rotation.z = -.1;
-  
-// },[])
+  // },[])
 
+  const { position, rotation } = useSpring({
+    position: isPopup ? [0, 0, 0] : [1, 0, 0],
+    rotation: isPopup ? [0, 0, 0] : [-0.6, -0.8, -0.4],
+  });
+  // [-.5, -.9, -.4],
 
-const {position, rotation} = useSpring({
-  position: isPopup ? [0,0,0] : [1, 0, 0],
-  rotation: isPopup ? [0,0,0] : [-.6, -.8, -.4],
-})
-// [-.5, -.9, -.4],
+  const groupProps = {
+    position: position,
+    rotation: rotation,
+  };
 
+  const props = {
+    isCurrent: isCurrent,
 
-const groupProps = {
-  position: position,
-  rotation: rotation,
-}
+    handleClick: handleClick,
+    isPopup: isPopup,
 
-const props = {
-  isCurrent: isCurrent,
-
-
-  handleClick: handleClick,
-  isPopup: isPopup,
-
-  setLoading: setLoading,
-}
-
+    setLoading: setLoading,
+  };
 
   return (
     <a.group ref={group} {...groupProps}>
       {refs.map((e, i) => {
         // const texture = useLoader(THREE.TextureLoader, img)
-        return <Image i={i} key={i} mesh={refs[i]} scaleRef={scaleRef[i].current} {...props}/>;
+        return (
+          <Image
+            i={i}
+            key={i}
+            mesh={refs[i]}
+            scaleRef={scaleRef[i].current}
+            {...props}
+          />
+        );
       })}
     </a.group>
   );
 }
 
-
 //DESIGN NOTE: Setloading does nothing at the moment but it's all plugged in so why not leave it until u want to do something w it
 
-
-function ModuleMobile({meshes, group, isCurrent, isMobile, isPopup, scaleRef, handleClick, setLoading}) {
-  const props ={
+function Module({
+  meshes,
+  group,
+  isCurrent,
+  isMobile,
+  isPopup,
+  scaleRef,
+  handleClick,
+  setLoading,
+}) {
+  const props = {
     refs: meshes,
     group: group,
-    
+
     isCurrent: isCurrent,
     isMobile: isMobile,
     scaleRef: scaleRef,
@@ -255,29 +271,23 @@ function ModuleMobile({meshes, group, isCurrent, isMobile, isPopup, scaleRef, ha
     isPopup: isPopup,
 
     setLoading: setLoading,
-  }
-  
-  
-  
+  };
+
   return (
     <div id="canvas">
-      <Canvas camera={{ position: [0, 0, 5], fov: 25 }} gl={{ antialias: true }}>
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 25 }}
+        gl={{ antialias: true, pixelRatio: window.devicePixelRatio }}
+      >
         <Suspense fallback={null}>
-        
-          <HandleImages {...props}/>
-  
+          <HandleImages {...props} />
         </Suspense>
       </Canvas>
     </div>
   );
 }
 
-export default ModuleMobile;
-
-
-
-
-
+export default Module;
 
 // const fragmentShader = `
 // uniform float time;
@@ -290,6 +300,6 @@ export default ModuleMobile;
 // float PI = 3.141592653589793238;
 // void main() {
 //   vec4 t = texture2D(texture1, vUv) * distanceFromCenter;
-  
+
 //   gl_FragColor = t;
 // }`;

@@ -50,6 +50,7 @@ function Article({ el, isCurrent }) {
             </div>
             );
           }
+          
         }
       })}
 

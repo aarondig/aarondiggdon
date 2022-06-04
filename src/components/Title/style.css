@@ -30,7 +30,7 @@
   color: #fff;
 }
 
-.title-c {
+#title .title-c {
   position: absolute;
   height: 100%;
  
@@ -42,7 +42,7 @@
 }
 
 
-.title {
+#title .title {
   /* font-family: "basier"; */
   font-size: 5rem;
   font-weight: 700;
@@ -51,7 +51,7 @@
   white-space: nowrap;
   color: white;
 }
-.subtitle {
+#title .subtitle {
   font-size: 1.5rem;
   color: #fff;
   width: 100%;

@@ -156,10 +156,14 @@ useEffect(()=>{
   });
 
   // useEffect(()=>{
-  //   mesh.current.rotation.y = -.5;
-  //   mesh.current.rotation.x = -.3;
-  //   mesh.current.rotation.z = -.1;
+  //   if (isPopup) {
+  //     mesh.current.rotation.y = -.5;
+  //     mesh.current.rotation.x = -.3;
+  //     mesh.current.rotation.z = -.1;
+  //   }
+   
   // },[])
+
 
   //Basically if Index === isCurrent
   const target = data.length - isCurrent - 1;

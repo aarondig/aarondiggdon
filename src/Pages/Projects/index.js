@@ -7,13 +7,12 @@ import React, {
   useRef,
 } from "react";
 import { data } from "../../data/data";
-import { useNavigate, Outlet, useLocation, useMatch, } from "react-router-dom";
+import { useNavigate, Outlet, useLocation, useMatch } from "react-router-dom";
 import ProjectSelector from "../../components/ProjectSelector";
 
 import "./style.css";
 import Title from "../../components/Title";
 import Background from "../../components/Background";
-
 
 function Projects({
   isCurrent,
@@ -25,44 +24,39 @@ function Projects({
   group,
   setScale,
   scaleRef,
-  handleClick, 
+  handleClick,
   size,
-  basename
+  basename,
 }) {
-
-    //Page Transition
-    const navigate = useNavigate();
-    const location = useLocation();
-
-
+  //Page Transition
+  const navigate = useNavigate();
+  const location = useLocation();
 
   //Checking Location Match for Page Refresh
   const [isMatch, setIsMatch] = useState(false);
 
-    useEffect(()=>{
-      let url = location.pathname;
-        data.map((el, i) => {
-          if (url === `/${basename}/projects/${el.id}`) {
-            setIsCurrent(i)
-            setIsPopup(true)
-            setIsMatch(true)
-            return true;
-          } else return false;
-        });
-        return () => setIsMatch(false)
-    },[])
+  useEffect(() => {
+    let url = location.pathname;
+    data.map((el, i) => {
+      if (url === `/${basename}/projects/${el.id}`) {
+        setIsCurrent(i);
+        setIsPopup(true);
+        setIsMatch(true);
+        return true;
+      } else return false;
+    });
+    return () => setIsMatch(false);
+  }, []);
 
-    useEffect(() => {
-
-  if (!isMatch) {
-    if (isPopup) {
-      navigate(`${data[isCurrent].id}`);
+  useEffect(() => {
+    if (!isMatch) {
+      if (isPopup) {
+        navigate(`${data[isCurrent].id}`);
+      }
+    } else {
+      setIsMatch(false);
     }
-  } else {
-    setIsMatch(false)
-  }    
-   
-    },[isPopup]);
+  }, [isPopup]);
 
   const selectorProps = {
     isCurrent: isCurrent,
@@ -82,21 +76,19 @@ function Projects({
     isPopup: isPopup,
     handleClick: handleClick,
     size: size,
-  }
+  };
   const bgProps = {
     isCurrent: isCurrent,
     isPopup: isPopup,
   };
 
-  return <div id="projects">
-    <Background {...bgProps} />
-    <Title {...titleProps}/>
-    { !isPopup ? 
-     <ProjectSelector {...selectorProps}/> :
-    <Outlet/> 
-}
-
-  </div>;
+  return (
+    <div id="projects">
+      <Background {...bgProps} />
+      <Title {...titleProps} />
+      {!isPopup ? <ProjectSelector {...selectorProps} /> : <Outlet />}
+    </div>
+  );
 }
 
 export default Projects;

@@ -76,7 +76,7 @@ export const data = [
     link:
       "https://travel-pins.herokuapp.com",
     banner:
-      "https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Assets/Images/Banners/travelpins.png",
+      "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/travel%20pins/travelpins.png",
 
     tagline: "Social media for travelers.",
     about: [
@@ -92,7 +92,7 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Assets/Images/Banners/travelpins.png",
+        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/travel%20pins/travelpins.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -178,7 +178,7 @@ export const data = [
       "Design a Credit Card as a Service product with an embeddable rewards system for a pitch to their CTO.",
 
     link: "",
-    banner: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Banners/lululemoncover.png",
+    banner: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/large/Banner.png",
 
     tagline: "Building an Ecosystem",
     about: [
@@ -195,7 +195,7 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Banners/lululemoncover.png",
+        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/large/Banner.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -281,11 +281,11 @@ export const data = [
       "Worked with Visa and our vendor to design a credit card for our Credit Card as a Service customers.",
 
     link: "",
-    banner: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Banners/lululemoncover.png",
+    banner: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/large/Banner.png",
 
-    tagline: "Building an Ecosystem",
+    tagline: "Generic, Yet Innovative",
     about: [
-      `Tasked with creating an embedded experience in the Lululemon app, I had to researched the scope of their brand ecosystem, and highlight how our rewards as a service product could create engagement throughout the brand.`,
+      `This card was created for Railsbank’s CCAP MVP program, which prioritized speed to market for our customers launching a credit product. This card would be used for the initial 90 days of our customer’s launch process. I was tasked with designing a card that was adaptable to any brand while still standing out from co-brand or other white-label cards.`,
       `This culminated in the design of a curated dashboard in which users could view their upcoming classes, earn daily rewards, view articles, and learn about upcoming promotions.`
       ],
 
@@ -298,7 +298,7 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Banners/lululemoncover.png",
+        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/large/Banner.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -375,7 +375,7 @@ export const data = [
     icon: "fa-map-marker-alt",
 
     color: "",
-    background: "#BE000E",
+    background: "#FC1EFF",
   },
 
 ];

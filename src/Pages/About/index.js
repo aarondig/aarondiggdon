@@ -49,7 +49,7 @@ function About() {
           <a.img
             className="img"
             style={imgStyles}
-            src="https://raw.githubusercontent.com/aarondig/designPortfolio/main/src/Assets/Images/profilepicBW.jpg"
+            src="https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/About/profile.jpg"
           />
           </div>
           <Contact contact={contact}/>

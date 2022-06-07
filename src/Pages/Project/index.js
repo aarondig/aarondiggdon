@@ -169,8 +169,10 @@ function ProjectLoader({ isCurrent, project}) {
     project: project,
   };
 
-  let radius = 40;
-  let stroke = 4;
+  // let radius = 40;
+  let radius = 30;
+ 
+  let stroke = 2;
   let progress = counter;
 
   let normalizedRadius = radius - stroke * 2;
@@ -188,7 +190,6 @@ function ProjectLoader({ isCurrent, project}) {
             strokeWidth={stroke}
             strokeDasharray={circumference + " " + circumference}
             style={{ strokeDashoffset }}
-            stroke-width={stroke}
             r={normalizedRadius}
             cx={radius}
             cy={radius}
@@ -196,8 +197,9 @@ function ProjectLoader({ isCurrent, project}) {
           
          
         </svg>
-        <svg className="checkmark-svg" height={radius/.75} width={radius/.75}>
-        {!loading && <path className="checkmark-svg" stroke="white" fill="none" strokeWidth={stroke} stroke-width={stroke} strokeDasharray={10} d="M14.1 27.2l7.1 7.2 16.7-16.8"/>}
+        {/* height={radius/.75} width={radius/.75} */}
+        <svg className="checkmark-svg" height={radius/.58} width={radius/.58}>
+        {!loading && <path className="checkmark-svg" stroke="white" fill="none" strokeWidth={stroke} strokeDasharray={10} d="M14.1 27.2l7.1 7.2 16.7-16.8"/>}
           
          
           </svg>

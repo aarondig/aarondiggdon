@@ -36,8 +36,8 @@ function Navigation({ location, basename, setIsPopup }) {
 
   const Back = () => {
     setIsPopup(false);
-    // navigate(-1, {replace: true})
-    navigate(`${basename}/projects/`, { replace: true });
+    navigate(-1, {replace: true})
+    // navigate(`${basename}/projects/`, { replace: true });
   };
 
   return (

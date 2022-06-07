@@ -13,7 +13,6 @@ import {
   Route,
   useLocation,
   useNavigate,
-  useHistory,
 } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import { a, useTransition } from "react-spring";
@@ -33,6 +32,9 @@ function App() {
 
   let location = useLocation();
   const navigate = useNavigate();
+  
+
+  //Basic 
 
   const [isCurrent, setIsCurrent] = useState(0);
 
@@ -67,16 +69,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log("APP SAYS: " + isCurrent);
-  }, [isCurrent]);
-
-  useEffect(() => {
     //Setting Grouped Refs
-    setRefs((refs) =>
-      Array(data.length)
-        .fill()
-        .map((el, i) => refs[i] || createRef())
-    );
+
+    // setRefs((refs) =>
+    //   Array(data.length)
+    //     .fill()
+    //     .map((el, i) => refs[i] || createRef())
+    // );
     setMeshes((meshes) =>
       Array(data.length)
         .fill()
@@ -89,25 +88,31 @@ function App() {
         .map((el, i) => scaleRef[i] || createRef())
     );
 
-    // //Refresh Handling
+  }, []);
+
+  //REFRESH HANDLING
+  useEffect(() => {
+    
     let url = location.pathname;
+
+    //Change when loader Is built
+    if (url === "/") {
+      navigate(`${basename}/`, { replace: true });
+    }
     // data.map((el, i) => {
     //   if (url === `/${basename}/projects/${el.id}`) {
     //     setIsPopup(true);
     //   }
     // });
 
-    //Change when loader Is built
-    if (url === "/") {
-      navigate(`${basename}/`, { replace: true });
+    if (url === `/${basename}/projects/`) {
+      setIsPopup(false);
     }
-  }, []);
-
-  // useEffect(()=>{
-  //   if (location.pathname === `/${basename}/`) {
-  //   setIsPopup(false);
-  //   console.log(location.pathname)
-  // }})
+    if (url === `/${basename}/projects`) {
+      setIsPopup(false);
+    }
+  
+},[location]);
 
   //Props Passed to Pages
   const projectsProps = {

@@ -23,7 +23,7 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/factCheck/main/assets/banner.png",
+        src: "https://raw.githubusercontent.com/aarondig/factCheck/main/assets/banner.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -37,7 +37,7 @@ export const data = [
       {
         header: "User Experience",
         body: "Creating a seamless user experience was my top priority. I tried to keep a minimalist aesthetic with aesthetic transitions to seamlessly move the user from one action to another.",
-        href: "",
+        src: "",
         caption: "",
 
         type: "",
@@ -50,7 +50,7 @@ export const data = [
       {
         header: "Routes",
         body: "Search queries are recieved in the public directory, and passed into the api-routes.js file where the API is called, using axios.js, with the query name. All data is passed using express.js.",
-        href: "",
+        src: "",
         caption: "",
 
         type: "",
@@ -92,7 +92,7 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/travel%20pins/travelpins.png",
+        src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/travel%20pins/travelpins.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -114,7 +114,7 @@ export const data = [
       {
         header: "User Experience",
         body: "Creating a seamless user experience was my top priority. I tried to keep a minimalist aesthetic with aesthetic transitions to seamlessly move the user from one action to another.",
-        href: "",
+        src: "",
         caption: "",
 
         type: "",
@@ -130,7 +130,7 @@ export const data = [
         header: "Features",
 
         body: "",
-        href: "",
+        src: "",
         caption: "",
 
         subsections: [
@@ -139,21 +139,21 @@ export const data = [
             subhead: "Mark Where You've Been",
             subbody:
               "You can upload your photos for each country as well! You simply click on the country you want to upload a photo to and then press the plus button to upload. This is an opportunity to keep a photo journal of your travels and share your pictures with others.",
-            href: "https://raw.githubusercontent.com/aarondig/travel-pins/main/images/traveledCountry.gif",
+            src: "https://raw.githubusercontent.com/aarondig/travel-pins/main/images/traveledCountry.gif",
           },
           {
             type: "image/text",
             subhead: "Community",
             subbody:
               "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            href: "https://github.com/aarondig/travel-pins/blob/main/images/friends.gif?raw=true",
+            src: "https://github.com/aarondig/travel-pins/blob/main/images/friends.gif?raw=true",
           },
           {
             type: "text/text",
             subhead: "This app is not my best work.",
             subbody:
               "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            href: "",
+            src: "",
           },
         ],
 
@@ -195,7 +195,7 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/large/Banner.png",
+        src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/large/Banner.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -217,7 +217,7 @@ export const data = [
       {
         header: "User Experience",
         body: "Creating a seamless user experience was my top priority. I tried to keep a minimalist aesthetic with aesthetic transitions to seamlessly move the user from one action to another.",
-        href: "",
+        src: "",
         caption: "",
 
         type: "",
@@ -233,7 +233,7 @@ export const data = [
         header: "Features",
 
         body: "",
-        href: "",
+        src: "",
         caption: "",
 
         subsections: [
@@ -242,21 +242,21 @@ export const data = [
             subhead: "Mark Where You've Been",
             subbody:
               "You can upload your photos for each country as well! You simply click on the country you want to upload a photo to and then press the plus button to upload. This is an opportunity to keep a photo journal of your travels and share your pictures with others.",
-            href: "https://raw.githubusercontent.com/aarondig/travel-pins/main/images/traveledCountry.gif",
+            src: "https://raw.githubusercontent.com/aarondig/travel-pins/main/images/traveledCountry.gif",
           },
           {
             type: "image/text",
             subhead: "Community",
             subbody:
               "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            href: "https://github.com/aarondig/travel-pins/blob/main/images/friends.gif?raw=true",
+            src: "https://github.com/aarondig/travel-pins/blob/main/images/friends.gif?raw=true",
           },
           {
             type: "text/text",
             subhead: "This app is not my best work.",
             subbody:
               "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            href: "",
+            src: "",
           },
         ],
 
@@ -298,11 +298,15 @@ export const data = [
       {
         header: "",
         body: "",
-        href: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/large/Banner.png",
+        src: [
+        "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Banner.png",
+        "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/small/Banner.png",
+        "https://raw.githubusercontent.com/aarondig/factCheck/main/assets/banner.png",
+      ],
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
-        type: "image",
+        type: "slideshow",
         img: true,
         video: false,
         quote: false,
@@ -320,7 +324,7 @@ export const data = [
       {
         header: "User Experience",
         body: "Creating a seamless user experience was my top priority. I tried to keep a minimalist aesthetic with aesthetic transitions to seamlessly move the user from one action to another.",
-        href: "",
+        src: "",
         caption: "",
 
         type: "",
@@ -336,7 +340,7 @@ export const data = [
         header: "Features",
 
         body: "",
-        href: "",
+        src: "",
         caption: "",
 
         subsections: [
@@ -345,21 +349,21 @@ export const data = [
             subhead: "Mark Where You've Been",
             subbody:
               "You can upload your photos for each country as well! You simply click on the country you want to upload a photo to and then press the plus button to upload. This is an opportunity to keep a photo journal of your travels and share your pictures with others.",
-            href: "https://raw.githubusercontent.com/aarondig/travel-pins/main/images/traveledCountry.gif",
+            src: "https://raw.githubusercontent.com/aarondig/travel-pins/main/images/traveledCountry.gif",
           },
           {
             type: "image/text",
             subhead: "Community",
             subbody:
               "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            href: "https://github.com/aarondig/travel-pins/blob/main/images/friends.gif?raw=true",
+            src: "https://github.com/aarondig/travel-pins/blob/main/images/friends.gif?raw=true",
           },
           {
             type: "text/text",
             subhead: "This app is not my best work.",
             subbody:
               "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            href: "",
+            src: "",
           },
         ],
 

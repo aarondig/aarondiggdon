@@ -24,7 +24,7 @@ function Article({ el, isCurrent }) {
               <p className="description">{element.subbody}</p>
               </div>
               <div className="sub-img-c">
-                <img className="sub-img" src={element.href}/>
+                <img className="sub-img" src={element.src}/>
               </div>
             </div>
             );
@@ -33,7 +33,7 @@ function Article({ el, isCurrent }) {
             return (
             <div className="subsection" key={i}>
               <div className="sub-img-c">
-                <img className="sub-img" src={element.href}/>
+                <img className="sub-img" src={element.src}/>
               </div>
               <div className="text-c">
               <h3 className="subtitle">{element.subhead}</h3>

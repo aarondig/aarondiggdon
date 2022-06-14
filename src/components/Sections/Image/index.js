@@ -10,7 +10,7 @@ import "./style.css";
 const Loader = ({el, isCurrent}) => {
 
   const [image] = useLoader(THREE.TextureLoader,
-  [`${el.href}`]
+  [`${el.src}`]
   );
 
   // const [image] = useLoader(THREE.TextureLoader, () => { 

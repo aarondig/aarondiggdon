@@ -8,6 +8,7 @@ import Article from "../../components/Sections/Article";
 import useScrollLock from "../../hooks/scrollLock";
 import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 import Tech from "../../components/Sections/Tech";
+import Slideshow from "../../components/Sections/Slideshow";
 
 function Project({ isCurrent, project }) {
   const size = useWindowSize();
@@ -137,6 +138,13 @@ function Project({ isCurrent, project }) {
                 return (
                   <div className="section" key={i}>
                     <Tech el={el} isCurrent={isCurrent}/>
+                  </div>
+                );
+              }
+              case "slideshow": {
+                return (
+                  <div className="section" key={i}>
+                    <Slideshow el={el} isCurrent={isCurrent}/>
                   </div>
                 );
               }

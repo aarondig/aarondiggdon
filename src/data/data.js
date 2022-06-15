@@ -301,7 +301,7 @@ export const data = [
         meta: [
           {
             src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
-            caption: "Lorem Ipsum",
+            caption: "Caption",
           },
           {
             src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/MVPCard.png",

@@ -7,7 +7,7 @@ function Slideshow({ el, isCurrent }) {
   const [index, setIndex] = useState(0);
   const [delay, setDelay] = useState(3500);
 
-  let length = el.src.length - 1;
+  let length = el.meta.length - 1;
 
   useEffect(()=>{
   timeoutRef.current = setTimeout(() => {
@@ -28,8 +28,8 @@ function Slideshow({ el, isCurrent }) {
   //ANIMATIONS
 
   const springs = useSprings(
-    el.src.length,
-    el.src.map((el, i) => ({
+    el.meta.length,
+    el.meta.map((el, i) => ({
       to: {
         opacity: index === i ? 1 : 0,
         // display: index === i ? "block" : "none",
@@ -46,12 +46,12 @@ function Slideshow({ el, isCurrent }) {
 
   return (
     <div id="slideshow" onClick={() => handleClick()}>
-        {el.src.map((el, i) => {
+        {el.meta.map((el, i) => {
           return (
             <div className="img-c">
               <a.img
                 className="image"
-                src={el}
+                src={el.src}
                 key={i}
                 style={springs[i]}
               ></a.img>

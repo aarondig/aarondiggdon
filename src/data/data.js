@@ -299,9 +299,14 @@ export const data = [
         header: "",
         body: "",
         src: [
-        "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Banner.png",
-        "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/small/Banner.png",
-        "https://raw.githubusercontent.com/aarondig/factCheck/main/assets/banner.png",
+        //   {
+        //   src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Banner.png",
+        //   caption: "Lorem Ipsum",
+        // },
+        // {
+        //   src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/small/Banner.png",
+        //   caption: "Lorem Ipsum",
+        // },
       ],
         caption:
           "The interface invites users to click the bubble to activate the search.",

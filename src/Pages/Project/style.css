@@ -49,8 +49,6 @@
 /* PAGES */
 
 
-
-
 .scroller {
   margin-top: 100vh;
     background: #fff;
@@ -87,17 +85,18 @@
 #project .title {
   flex: 0 0 66.66%;
   font-family: 'Basier';
-  font-size: 4rem;
+  /* font-size: 4rem; */
+  font-size: 80px;
   font-weight: 800;
-  margin-bottom: 1%;
+  margin-bottom: 4%;
   margin-top: 2.5%;
   color: #212121;
 }
 #project .subtitle {
   flex: 0 0 66.66%;
   font-family: 'Basier';
-  /* font-size: 16px; */
-  font-size: 1.1rem;
+  font-size: 16px;
+  /* font-size: 1.1rem; */
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 0%;
@@ -111,13 +110,21 @@
 }
 #project .description {
   font-family: 'Basier';
-  line-height: 1.6em;
- 
- 
-    /* font-size: 20px; */
-  font-size: 1.25rem;
+  /* line-height: 1.6em; */
+
+    font-size: 20px;
+  /* font-size: 1.25rem; */
   color:#424242;
 }
+
+#project .description {
+  font-family: 'Calibre';
+
+    font-size: 24px;
+  color:#424242;
+}
+
+
 #project .details {
   flex: 0 0 33.33%;
   flex: 1;

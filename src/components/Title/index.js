@@ -62,7 +62,7 @@ function Header({
       </a.h1>
       {/* <a.div className="disappearBox" ref={disappearBox} style={disappear}> */}
       <a.div className="disappearBox" style={disappear}>
-        <a.h4 className="subtitle">{el.description}</a.h4>
+        <a.h3 className="subtitle">{el.description}</a.h3>
 
         {/* <a.div className="btn" style={btnStyle} onMouseOver={()=> setBtnHover(true)} onMouseLeave={()=> setBtnHover(false)} onClick={() => handleClick()}>
               <a.h4 className="btn-text" style={btnText}>Learn More</a.h4>

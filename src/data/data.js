@@ -299,7 +299,28 @@ export const data = [
         header: "",
         body: "",
         meta: [
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Front.png",
+            caption: "'Card Front'Design File",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Back.png",
+            caption: "'Card Back'Design File",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/MVPCard.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
+            caption: "Marketing Material",
+          },
           
+        
       ],
         caption:
           "The interface invites users to click the bubble to activate the search.",

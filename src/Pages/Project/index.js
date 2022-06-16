@@ -76,7 +76,7 @@ function Project({ isCurrent, project }) {
   return (
     <div id="project" ref={project}>
       <div className="scroller" ref={scroller}>
-        <div className="textWrap">
+        <div className="text-wrap">
           <div className="section">
             <h4 className="subtitle">About This Project</h4>
             <h1 className="title">{data[isCurrent].tagline}</h1>
@@ -105,8 +105,7 @@ function Project({ isCurrent, project }) {
             </div>
             {/* </div> */}
 
-            {/* <div className="title-c">
-      </div> */}
+         
           </div>
 
           {data[isCurrent].sections.map((el, i) => {

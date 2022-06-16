@@ -45,7 +45,8 @@ function Slideshow({ el, isCurrent }) {
   
 
   return (
-    <div id="slideshow" onClick={() => handleClick()}>
+    <div id="slideshow"  onClick={() => handleClick()}>
+      
         {el.meta.map((el, i) => {
           return (
             <div className="img-c">
@@ -57,9 +58,9 @@ function Slideshow({ el, isCurrent }) {
               ></a.img>
             </div>
           )
-          
+
         })}
-  
+
     
         {/* {el.src.map((el, i) => {
           return (

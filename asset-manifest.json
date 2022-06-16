@@ -1,9 +1,14 @@
 {
   "files": {
-    "main.css": "/aarondiggdon/static/css/main.e9c5fe9f.css",
-    "main.js": "/aarondiggdon/static/js/main.8094a304.js",
+    "main.css": "/aarondiggdon/static/css/main.0995ca04.css",
+    "main.js": "/aarondiggdon/static/js/main.cb392a53.js",
     "static/media/Resume.pdf": "/aarondiggdon/static/media/Resume.820c80b8e62bcd68fdea.pdf",
+    "static/media/CalibreBold.otf": "/aarondiggdon/static/media/CalibreBold.bba4dd93e0dc972eedb6.otf",
+    "static/media/CalibreSemibold.otf": "/aarondiggdon/static/media/CalibreSemibold.508412ff4c6875e10aa1.otf",
+    "static/media/CalibreBlack.otf": "/aarondiggdon/static/media/CalibreBlack.b4b05685f40bf2ee8cf1.otf",
     "static/media/basiercircle-semibolditalic-webfont.eot": "/aarondiggdon/static/media/basiercircle-semibolditalic-webfont.6ee7fe9845c79b54cb0e.eot",
+    "static/media/CalibreLight.otf": "/aarondiggdon/static/media/CalibreLight.9063ac3eba5da4333619.otf",
+    "static/media/CalibreRegular.otf": "/aarondiggdon/static/media/CalibreRegular.84b1f95cc4641415a24e.otf",
     "static/media/basiercircle-semibolditalic-webfont.ttf": "/aarondiggdon/static/media/basiercircle-semibolditalic-webfont.67dda9f345402eb282c1.ttf",
     "static/media/basiercircle-semibold-webfont.eot": "/aarondiggdon/static/media/basiercircle-semibold-webfont.aea5ff9ee996f7822d83.eot",
     "static/media/basiercircle-mediumitalic-webfont.ttf": "/aarondiggdon/static/media/basiercircle-mediumitalic-webfont.cdfc1172c118933c84eb.ttf",
@@ -14,6 +19,8 @@
     "static/media/basiercircle-regularitalic-webfont.ttf": "/aarondiggdon/static/media/basiercircle-regularitalic-webfont.4419173babd3705f3c07.ttf",
     "static/media/basiercircle-bold-webfont.ttf": "/aarondiggdon/static/media/basiercircle-bold-webfont.4d07b86945cbf594596e.ttf",
     "static/media/basiercircle-regular-webfont.ttf": "/aarondiggdon/static/media/basiercircle-regular-webfont.af78d5227a539c9cfec7.ttf",
+    "static/media/CalibreMedium.otf": "/aarondiggdon/static/media/CalibreMedium.284460eeb8ca28df9954.otf",
+    "static/media/CalibreThin.otf": "/aarondiggdon/static/media/CalibreThin.c3370df31159dde0cb29.otf",
     "static/media/basiercircle-semibolditalic-webfont.woff": "/aarondiggdon/static/media/basiercircle-semibolditalic-webfont.5e856ca41778872645d9.woff",
     "static/media/basiercircle-mediumitalic-webfont.woff": "/aarondiggdon/static/media/basiercircle-mediumitalic-webfont.f496d1bf2d7e6785ac45.woff",
     "static/media/basiercircle-semibold-webfont.woff": "/aarondiggdon/static/media/basiercircle-semibold-webfont.f60003bd0d68b21fb85e.woff",
@@ -22,12 +29,6 @@
     "static/media/basiercircle-regularitalic-webfont.woff": "/aarondiggdon/static/media/basiercircle-regularitalic-webfont.d4ebe228b7e01396a6e8.woff",
     "static/media/basiercircle-regular-webfont.woff": "/aarondiggdon/static/media/basiercircle-regular-webfont.1fe958d73cd8cf3638a5.woff",
     "static/media/basiercircle-bold-webfont.woff": "/aarondiggdon/static/media/basiercircle-bold-webfont.2f42d9076e204c2479f3.woff",
-    "static/media/archia-medium-webfont.woff": "/aarondiggdon/static/media/archia-medium-webfont.1e8bdc64f86cad3c1062.woff",
-    "static/media/archia-semibold-webfont.woff": "/aarondiggdon/static/media/archia-semibold-webfont.49114057ddaf315de2da.woff",
-    "static/media/archia-light-webfont.woff": "/aarondiggdon/static/media/archia-light-webfont.9fffa867a19fa7da3b03.woff",
-    "static/media/archia-bold-webfont.woff": "/aarondiggdon/static/media/archia-bold-webfont.5d58f2966b4908b3a69a.woff",
-    "static/media/archia-thin-webfont.woff": "/aarondiggdon/static/media/archia-thin-webfont.4589ccf59b863f47c6a5.woff",
-    "static/media/archia-regular-webfont.woff": "/aarondiggdon/static/media/archia-regular-webfont.97b7f9e05b914efa5889.woff",
     "static/media/basiercircle-mediumitalic-webfont.eot": "/aarondiggdon/static/media/basiercircle-mediumitalic-webfont.b990de07ce3063fffedd.eot",
     "static/media/basiercircle-medium-webfont.eot": "/aarondiggdon/static/media/basiercircle-medium-webfont.a417aad4e9f25daf3f53.eot",
     "static/media/basiercircle-bolditalic-webfont.eot": "/aarondiggdon/static/media/basiercircle-bolditalic-webfont.36b89563b430e0eefc43.eot",
@@ -42,11 +43,11 @@
     "static/media/basiercircle-regular-webfont.woff2": "/aarondiggdon/static/media/basiercircle-regular-webfont.75ed1573a0428232374b.woff2",
     "static/media/basiercircle-bold-webfont.woff2": "/aarondiggdon/static/media/basiercircle-bold-webfont.81100782b3e156f91107.woff2",
     "index.html": "/aarondiggdon/index.html",
-    "main.e9c5fe9f.css.map": "/aarondiggdon/static/css/main.e9c5fe9f.css.map",
-    "main.8094a304.js.map": "/aarondiggdon/static/js/main.8094a304.js.map"
+    "main.0995ca04.css.map": "/aarondiggdon/static/css/main.0995ca04.css.map",
+    "main.cb392a53.js.map": "/aarondiggdon/static/js/main.cb392a53.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9c5fe9f.css",
-    "static/js/main.8094a304.js"
+    "static/css/main.0995ca04.css",
+    "static/js/main.cb392a53.js"
   ]
 }

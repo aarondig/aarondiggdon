@@ -198,7 +198,6 @@ export const data = [
           // },
         ],
 
-        
         img: true,
         video: false,
         quote: false,

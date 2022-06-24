@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./style.css";
 
-function Article({ el, isCurrent }) {
+function Article({ el, isCurrent}) {
   return (
     <div id="article">
       {/* <h4 className="subtitle">About This Project</h4> */}
@@ -16,6 +16,19 @@ function Article({ el, isCurrent }) {
         switch (element.type) {
           default: {
             return <p className="description">{element.body}</p>;
+          }
+          case "text/space": {
+            return (
+              <div className="subsection" key={i}>
+                
+                <div className="left-c">
+                <h3 className="subtitle">{element.subhead}</h3>
+                <p className="description">{element.subbody}</p>
+                </div>
+                <div className="right-c" />
+        
+              </div>
+            );
           }
           case "text/image": {
             return (
@@ -48,7 +61,7 @@ function Article({ el, isCurrent }) {
               <div className="subsection" key={i}>
                 <h3 className="subhead">{element.subhead}</h3>
                 <div className="left-c">
-                <p className="description">{element.subbody}</p>
+                <p className="description no-margin">{element.subbody}</p>
                 </div>
               </div>
             );

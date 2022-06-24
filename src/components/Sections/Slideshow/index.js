@@ -16,7 +16,6 @@ function Slideshow({ el, isCurrent }) {
     
   }, [delay]);
 },[index])
-  console.log(index);
 
 
   //NEXT SLIDE

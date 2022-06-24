@@ -9,6 +9,8 @@ import useScrollLock from "../../hooks/scrollLock";
 import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 import Tech from "../../components/Sections/Tech";
 import Slideshow from "../../components/Sections/Slideshow";
+import Gallery from "../../components/Sections/Gallery";
+import useIsInViewport from "../../hooks/intersectionObserver";
 
 function Project({ isCurrent, project }) {
   const size = useWindowSize();
@@ -16,6 +18,19 @@ function Project({ isCurrent, project }) {
   const scroller = useRef();
 
   const requestRef = useRef();
+
+
+  // //ARTICLE REFS
+  // // Gallery
+  // const galleryRefs = {}
+  // const railTop = useRef();
+  // const railBottom = useRef();
+  // galleryRefs[0] = railTop;
+  // galleryRefs[1] = railBottom;
+  
+
+
+
 
   let ease = 0.1;
   let current = 0;
@@ -37,9 +52,10 @@ function Project({ isCurrent, project }) {
   // window.addEventListener("wheel", Wheel)
   // current += speed;
   // speed *= 0.8;
-  useEffect(() => {
-    console.log(isCurrent);
-  }, [isCurrent]);
+
+
+
+
   // SCROLLING
   useLayoutEffect(() => {
     const skewScrolling = () => {
@@ -61,6 +77,16 @@ function Project({ isCurrent, project }) {
 
       //No Skew with React Three Fiber Canvas... It extends page.
       scroller.current.style.transform = `translate3d(0, -${rounded}px, 0) skewY(${skew}deg)`;
+
+
+      // //ARTICLE-GALLERY MOVEMENT
+    
+      //  if (railTop.current) {
+      //   railTop.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${rounded-4000}, 0, 0, 1)`;
+      //  }
+      //  if (railBottom.current) {
+      //   railTop.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${-rounded}, 0, 0, 1)`;
+      //  }
 
       requestRef.current = requestAnimationFrame(skewScrolling);
     };
@@ -122,7 +148,7 @@ function Project({ isCurrent, project }) {
               case "article": {
                 return (
                   <div className="section" key={i}>
-                    <Article el={el} isCurrent={isCurrent} />
+                    <Article el={el} isCurrent={isCurrent}/>
                   </div>
                 );
               }
@@ -144,6 +170,14 @@ function Project({ isCurrent, project }) {
                 return (
                   <div className="section" key={i}>
                     <Slideshow el={el} isCurrent={isCurrent}/>
+                  </div>
+                );
+              }
+              case "gallery": {
+                
+                return (
+                  <div className="section" key={i}>
+                    <Gallery el={el} isCurrent={isCurrent} size={size}/>
                   </div>
                 );
               }

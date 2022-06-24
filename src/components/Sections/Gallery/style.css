@@ -1,0 +1,26 @@
+#gallery {
+  position: relative;
+  
+ height: 600px;
+ 
+  flex: 1;
+  z-index: 1;
+}
+
+.rail {
+
+}
+.rail .img-c {
+  position: relative;
+  max-width: 25%;
+  flex: 0 0 25%;
+  padding-left: 22px;
+  padding-right: 22px;
+  
+}
+.rail .paralax-c {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+transform: translateZ(0px);
+}

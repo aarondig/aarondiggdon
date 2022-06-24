@@ -6,13 +6,14 @@ export const data = [
       "Worked with Visa and our vendor to design a credit card for our Credit Card as a Service customers.",
 
     link: "",
-    banner: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/large/Banner.png",
+    banner:
+      "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/large/Banner.png",
 
-    tagline: "Generic, Yet Innovative",
+    tagline: "The Task",
     about: [
       `This card was created for Railsbank’s CCAP MVP program, which prioritized speed to market for our customers launching a credit product. This card would be used for the initial 90 days of our customer’s launch process. I was tasked with designing a card that was adaptable to any brand while still standing out from co-brand or other white-label cards.`,
-      `This culminated in the design of a curated dashboard in which users could view their upcoming classes, earn daily rewards, view articles, and learn about upcoming promotions.`
-      ],
+      `This culminated in the design of a curated dashboard in which users could view their upcoming classes, earn daily rewards, view articles, and learn about upcoming promotions.`,
+    ],
 
     client: "Railsbank",
     role: "Lead Product Designer",
@@ -44,9 +45,7 @@ export const data = [
             src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
             caption: "Marketing Material",
           },
-          
-        
-      ],
+        ],
         caption:
           "The interface invites users to click the bubble to activate the search.",
 
@@ -57,31 +56,18 @@ export const data = [
 
         background: "white",
       },
+      // {
+      //   header: "Technology Used",
+      //   list: ["Figma", "Adobe Illustrator", "CSS"],
+
+      //   type: "tech",
+
+      //   background: "white",
+      // },
       {
-        header: "Technology Used",
-        list: ["React", "Javascript", "CSS"],
-
-        type: "tech",
-
-        background: "white",
-      },
-      {
-        header: "User Experience",
-        body: "Creating a seamless user experience was my top priority. I tried to keep a minimalist aesthetic with aesthetic transitions to seamlessly move the user from one action to another.",
-        src: "",
-        caption: "",
-
-        type: "",
-        img: false,
-        video: false,
-        quote: false,
-
-        background: "white",
-      },
-      {
-        //Big Section
-
-        header: "Features",
+        type: "article",
+        header: `Minimalism works for all.`,
+        // header: "Generic yet innovative",
 
         body: "",
         src: "",
@@ -89,34 +75,97 @@ export const data = [
 
         subsections: [
           {
-            type: "text/image",
-            subhead: "Mark Where You've Been",
+            type: "title/text",
+            subhead: "My personal objective",
             subbody:
-              "You can upload your photos for each country as well! You simply click on the country you want to upload a photo to and then press the plus button to upload. This is an opportunity to keep a photo journal of your travels and share your pictures with others.",
-            src: "https://raw.githubusercontent.com/aarondig/travel-pins/main/images/traveledCountry.gif",
+              "Create a design that was applicable to any brand, without making it generic and dull.",
           },
           {
-            type: "image/text",
-            subhead: "Community",
-            subbody:
-              "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            src: "https://github.com/aarondig/travel-pins/blob/main/images/friends.gif?raw=true",
+            type: "text/space",
+            subhead: "How I achieved this",
+            subbody: `I strived for less, choosing to use a minimalist sans-serif font and used a black on black color scheme for an elevated feel.`,
           },
           {
-            type: "text/text",
-            subhead: "This app is not my best work.",
-            subbody:
-              "You can find other travelers as well on the app. You can search their username and follow them. Once you follow them, you can see photos about their travels on your newsfeed.",
-            src: "",
+            type: "font/color",
+            fonts: [
+              {
+                name: "Poppins",
+                fontFamily: "Poppins",
+                fontSize: "80px",
+                fontWeight: 600,
+                color: "#000000",
+              },
+              {
+                name: "Poppins Light",
+                fontFamily: "Poppins",
+                fontSize: "36px",
+                fontWeight: 300,
+                color: "#777777",
+              },
+            ],
+            colors: ["#252525", "#151515"],
           },
         ],
 
-        type: "article",
         img: true,
         video: false,
         quote: false,
 
         background: "white",
+      },
+      {
+        type: "article",
+        header: "Generic yet innovative",
+
+        body: "",
+        src: "",
+        caption: "",
+
+        subsections: [
+          {
+            type: "title/text",
+            subhead: "Modern and different.",
+            subbody:
+              "Taking inspiration from Robinhood's debit card and other new cards on the market, I came up with hundreds of different concepts using a variety of materials.",
+          },
+          {
+            type: "text/space",
+            subhead: "How I achieved this",
+            subbody:
+              "I strived for less, choosing to use a minimalist sans-serif font and used a black on black color scheme for an elevated feel.",
+          },
+        ],
+
+        img: true,
+        video: false,
+        quote: false,
+
+        background: "white",
+      },
+      {
+        type: "gallery",
+        meta: [
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Front.png",
+            caption: "'Card Front'Design File",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Back.png",
+            caption: "'Card Back'Design File",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/MVPCard.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
+            caption: "Marketing Material",
+          },
+        ],
       },
     ],
 
@@ -132,13 +181,14 @@ export const data = [
       "Design a Credit Card as a Service product with an embeddable rewards system for a pitch to their CTO.",
 
     link: "",
-    banner: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/large/Banner.png",
+    banner:
+      "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/large/Banner.png",
 
     tagline: "Building an Ecosystem",
     about: [
       `Tasked with creating an embedded experience in the Lululemon app, I had to researched the scope of their brand ecosystem, and highlight how our rewards as a service product could create engagement throughout the brand.`,
-      `This culminated in the design of a curated dashboard in which users could view their upcoming classes, earn daily rewards, view articles, and learn about upcoming promotions.`
-      ],
+      `This culminated in the design of a curated dashboard in which users could view their upcoming classes, earn daily rewards, view articles, and learn about upcoming promotions.`,
+    ],
 
     client: "Railsbank",
     role: "Lead Product Designer",
@@ -161,7 +211,6 @@ export const data = [
         background: "white",
       },
       {
-
         type: "article",
         header: "Same brand, new feel.",
 
@@ -179,8 +228,20 @@ export const data = [
           {
             type: "font/color",
             fonts: [
-              {name: "lululemon", fontFamily: "Calibre", fontSize: "80px", fontWeight: 600, color: "#000000"},
-              {name: "Calibre Regular", fontFamily: "Calibre", fontSize: "36px", fontWeight: 300, color: "#777777"},
+              {
+                name: "lululemon",
+                fontFamily: "Calibre",
+                fontSize: "80px",
+                fontWeight: 600,
+                color: "#000000",
+              },
+              {
+                name: "Calibre Regular",
+                fontFamily: "Calibre",
+                fontSize: "36px",
+                fontWeight: 300,
+                color: "#777777",
+              },
             ],
             colors: ["#B72B34", "#535659", "#000000"],
           },
@@ -216,15 +277,14 @@ export const data = [
     title: "Fact Checker",
     description:
       "Application that returns fact checked articles reguarding the validitiy of the query.",
-    
-    link:
-      "https://googlefactchecker.herokuapp.com",
+
+    link: "https://googlefactchecker.herokuapp.com",
     banner:
       "https://raw.githubusercontent.com/aarondig/factCheck/main/assets/banner.png",
 
     tagline: "Fighting Misinformation",
-    about:[
-      `During my studies with UC Berkeley Extension, I was influenced by the upcoming 2020 election, as the President at the time, was spreading misinformation in an effort to subvert the results.`
+    about: [
+      `During my studies with UC Berkeley Extension, I was influenced by the upcoming 2020 election, as the President at the time, was spreading misinformation in an effort to subvert the results.`,
     ],
     client: "Personal",
     role: "Full Stack Developer",
@@ -284,15 +344,14 @@ export const data = [
     title: "Travel Pins",
     description:
       "A social media application for world travelers that allows users to post photos, mark countries they've traveled to, and follow friends.",
-    
-    link:
-      "https://travel-pins.herokuapp.com",
+
+    link: "https://travel-pins.herokuapp.com",
     banner:
       "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/travel%20pins/travelpins.png",
 
     tagline: "Social media for travelers.",
     about: [
-      `This project was conducted with two other team members. "Do you love to travel? This app is for you. In this app, you create your own personalized account. You can view all of the countries in the world with a click. If you have traveled to a country, you can mark the country as 'traveled.' The country will highlight blue to show that you have traveled to the country."`
+      `This project was conducted with two other team members. "Do you love to travel? This app is for you. In this app, you create your own personalized account. You can view all of the countries in the world with a click. If you have traveled to a country, you can mark the country as 'traveled.' The country will highlight blue to show that you have traveled to the country."`,
     ],
 
     client: "Personal",
@@ -383,7 +442,4 @@ export const data = [
     color: "",
     background: "#FBB034",
   },
-
-
-
 ];

@@ -13,13 +13,18 @@ function Article({ el, isCurrent}) {
         <div className="spacer"></div>
       </div>
       {el.subsections.map((element, i) => {
+        //IF LAST SUBSECTION
+        if (i === el.subsections.length -1) {
+
+        }
+
         switch (element.type) {
           default: {
             return <p className="description">{element.body}</p>;
           }
           case "text/space": {
             return (
-              <div className="subsection" key={i}>
+              <div className={i !== el.subsections.length -1 ? "subsection" : "subsection last"} key={i}>
                 
                 <div className="left-c">
                 <h3 className="subtitle">{element.subhead}</h3>
@@ -28,11 +33,11 @@ function Article({ el, isCurrent}) {
                 <div className="right-c" />
         
               </div>
-            );
+            )
           }
           case "text/image": {
             return (
-              <div className="subsection" key={i}>
+              <div className={i !== el.subsections.length -1 ? "subsection" : "subsection last"} key={i}>
                 <div className="left-c">
                   <h3 className="subtitle">{element.subhead}</h3>
                   <p className="description">{element.subbody}</p>
@@ -45,7 +50,7 @@ function Article({ el, isCurrent}) {
           }
           case "image/text": {
             return (
-              <div className="subsection" key={i}>
+              <div className={i !== el.subsections.length -1 ? "subsection" : "subsection last"} key={i}>
                 <div className="sub-img-c">
                   <img className="sub-img" src={element.src} />
                 </div>
@@ -58,7 +63,7 @@ function Article({ el, isCurrent}) {
           }
           case "title/text": {
             return (
-              <div className="subsection" key={i}>
+              <div className={i !== el.subsections.length -1 ? "subsection" : "subsection last"} key={i}>
                 <h3 className="subhead">{element.subhead}</h3>
                 <div className="left-c">
                 <p className="description no-margin">{element.subbody}</p>

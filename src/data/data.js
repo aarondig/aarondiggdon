@@ -114,6 +114,76 @@ export const data = [
         background: "white",
       },
       {
+        type: "gallery",
+        meta: [
+          //Make sure there's an Even number.
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Front.png",
+            caption: "'Card Front'Design File",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Back.png",
+            caption: "'Card Back'Design File",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/MVPCard.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Front.png",
+            caption: "'Card Front'Design File",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
+            caption: "Marketing Material",
+          },
+          {
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
+            caption: "Marketing Material",
+          },
+        
+          
+        
+        ],
+      },
+      {
+        type: "article",
+        header: "",
+
+        body: "",
+        src: "",
+        caption: "",
+
+        subsections: [
+          {
+            type: "title/text",
+            subhead: "Modern and different.",
+            subbody:
+              "Taking inspiration from Robinhood's debit card and other new cards on the market, I came up with hundreds of different concepts using a variety of materials.",
+          },
+          {
+            type: "text/img",
+            subhead: "Pushing Boundaries",
+            subbody:
+              `Given creative freedom, I wanted to use transparency within the card to symbolize "blank canvas" that can adapt to any branding or colors.`,
+          },
+        ],
+
+        img: true,
+        video: false,
+        quote: false,
+
+        background: "white",
+      },
+      {
         type: "article",
         header: "Generic yet innovative",
 
@@ -142,31 +212,7 @@ export const data = [
 
         background: "white",
       },
-      {
-        type: "gallery",
-        meta: [
-          {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Front.png",
-            caption: "'Card Front'Design File",
-          },
-          {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Back.png",
-            caption: "'Card Back'Design File",
-          },
-          {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/MVPCard.png",
-            caption: "Marketing Material",
-          },
-          {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
-            caption: "Marketing Material",
-          },
-          {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
-            caption: "Marketing Material",
-          },
-        ],
-      },
+     
     ],
 
     icon: "fa-map-marker-alt",

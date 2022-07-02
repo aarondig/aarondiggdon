@@ -1,26 +1,52 @@
 #gallery {
   position: relative;
-  
- height: 600px;
- 
+
+  height: 600px;
+
   flex: 1;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  will-change: transform;
 }
 
 .rail {
-
+  display: flex;
+ will-change: transform;
 }
+.rail.top {
+  flex-direction: flex-start;
+}
+.rail.bottom {
+  flex-direction: flex-start;
+}
+
 .rail .img-c {
   position: relative;
-  max-width: 25%;
-  flex: 0 0 25%;
+  box-sizing: border-box;
+  min-height: 1px;
+  /* max-width: 25%;
+  flex: 0 0 25%; */
   padding-left: 22px;
   padding-right: 22px;
-  
+  overflow: hidden;
 }
+
 .rail .paralax-c {
   position: relative;
-  border-radius: 4px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding-bottom: 125%;
   overflow: hidden;
-transform: translateZ(0px);
+}
+
+.rail .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+  object-fit: cover;
+  object-position: center;
+  
 }

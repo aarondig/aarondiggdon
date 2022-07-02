@@ -12,6 +12,9 @@
   justify-content: space-between;
   /* align-items: center; */
 }
+.subsection.last {
+  margin-bottom: 0% !important;
+}
 
 
 .subsection .left-c {
@@ -54,6 +57,7 @@
   flex: 0 0 33.333333333333336%;
   max-width: 33.333333333333336%;
   object-fit: scale-down;
+  border-radius: 4px;
   /* box-shadow: 0px 24px 64px hsla(0, 0%, 0%, 0.2); */
 }
 .sub-color-c {

@@ -23,9 +23,6 @@ function Gallery({ el, isCurrent, size }) {
   const [imagesBottom, setImagesBottom] = useState([]);
 
   useEffect(() => {
-    
-    
-
     el.meta.map((element, index) => {
       if (index < split) {
 
@@ -46,7 +43,7 @@ function Gallery({ el, isCurrent, size }) {
   let current = 0;
   let previous = 0;
   let rounded = 0;
-  let deduction = window.scrollY;
+  let deduction = window.scrollY / 4;
 
   const scroll = () => {
     current = window.scrollY;
@@ -57,7 +54,8 @@ function Gallery({ el, isCurrent, size }) {
     // Set rounded to
     rounded = Math.round(previous * 100) / 100;
     // Slow down
-    rounded = rounded / 2;
+    rounded = rounded / 4;
+    
     //VARIABLES
     const difference = current - rounded;
     const acceleration = difference / size.width;
@@ -70,12 +68,13 @@ function Gallery({ el, isCurrent, size }) {
       section.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${-(
         rounded -
         size.width +
-        (size.width / (2.8 - ((split / 3) / 10) - ((imageWidth * split / 100))) )
+        // (size.width / (2.8 - ((split / 4) / 10) - ((imageWidth * split / 100))) )
+        (size.width / 2 - (imageWidth / 100))
       )}, 0, 0, 1)`;
     }
     if (rail.current) {
       rail.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${
-        (rounded * 2) - size.width + size.width / 4
+        (rounded * 2) - size.width
       }, 0, 0, 1)`;
     }
     

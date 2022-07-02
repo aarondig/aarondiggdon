@@ -118,38 +118,37 @@ export const data = [
         meta: [
           //Make sure there's an Even number.
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Front.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Trans-Wire.png",
             caption: "'Card Front'Design File",
           },
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Back.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Trans-Wonky.png",
             caption: "'Card Back'Design File",
           },
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/MVPCard.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Trans-MoneyClip.png",
             caption: "Marketing Material",
           },
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Trans-Bookmark.png",
             caption: "Marketing Material",
           },
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Square.png",
             caption: "Marketing Material",
           },
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Front.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Back.png",
             caption: "'Card Front'Design File",
           },
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/One%20Card.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Clipper-Front.png",
             caption: "Marketing Material",
           },
           {
-            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Card%20Program.png",
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Clipper-Back.png",
             caption: "Marketing Material",
           },
-        
           
         
         ],
@@ -170,11 +169,13 @@ export const data = [
               "Taking inspiration from Robinhood's debit card and other new cards on the market, I came up with hundreds of different concepts using a variety of materials.",
           },
           {
-            type: "text/img",
+            type: "text/image",
             subhead: "Pushing Boundaries",
             subbody:
               `Given creative freedom, I wanted to use transparency within the card to symbolize "blank canvas" that can adapt to any branding or colors.`,
-          },
+            src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/credit%20card/small/Transparent%20Mockup.png",
+
+            },
         ],
 
         img: true,
@@ -183,35 +184,35 @@ export const data = [
 
         background: "white",
       },
-      {
-        type: "article",
-        header: "Generic yet innovative",
+      // {
+      //   type: "article",
+      //   header: "Generic yet innovative",
 
-        body: "",
-        src: "",
-        caption: "",
+      //   body: "",
+      //   src: "",
+      //   caption: "",
 
-        subsections: [
-          {
-            type: "title/text",
-            subhead: "Modern and different.",
-            subbody:
-              "Taking inspiration from Robinhood's debit card and other new cards on the market, I came up with hundreds of different concepts using a variety of materials.",
-          },
-          {
-            type: "text/space",
-            subhead: "How I achieved this",
-            subbody:
-              "I strived for less, choosing to use a minimalist sans-serif font and used a black on black color scheme for an elevated feel.",
-          },
-        ],
+      //   subsections: [
+      //     {
+      //       type: "title/text",
+      //       subhead: "Modern and different.",
+      //       subbody:
+      //         "Taking inspiration from Robinhood's debit card and other new cards on the market, I came up with hundreds of different concepts using a variety of materials.",
+      //     },
+      //     {
+      //       type: "text/space",
+      //       subhead: "How I achieved this",
+      //       subbody:
+      //         "I strived for less, choosing to use a minimalist sans-serif font and used a black on black color scheme for an elevated feel.",
+      //     },
+      //   ],
 
-        img: true,
-        video: false,
-        quote: false,
+      //   img: true,
+      //   video: false,
+      //   quote: false,
 
-        background: "white",
-      },
+      //   background: "white",
+      // },
      
     ],
 

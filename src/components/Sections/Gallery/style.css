@@ -16,10 +16,10 @@
  will-change: transform;
 }
 .rail.top {
-  flex-direction: flex-start;
+  flex-direction: row-reverse;
 }
 .rail.bottom {
-  flex-direction: flex-start;
+  flex-direction: row;
 }
 
 .rail .img-c {

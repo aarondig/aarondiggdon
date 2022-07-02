@@ -76,8 +76,8 @@ function Project({ isCurrent, project }) {
       // scroller.current.style.transform = `translate3d(0, -${rounded}px, 0) skewY(${skew}deg)`;
 
       //No Skew with React Three Fiber Canvas... It extends page.
-      scroller.current.style.transform = `translate3d(0, -${rounded}px, 0) skewY(${skew}deg)`;
-
+      scroller.current.style.transform = `translate3d(0, -${rounded}px, 0)`;
+      // skewY(${skew}deg)
 
       // //ARTICLE-GALLERY MOVEMENT
     

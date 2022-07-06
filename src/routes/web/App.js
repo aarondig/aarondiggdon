@@ -1,29 +1,28 @@
 import { useState, useEffect, useRef, createRef, Suspense } from "react";
 import "./App.css";
-import Wrapper from "./components/Wrapper/index";
-import Landing from "./Pages/Landing";
-import Background from "./components/Background/index";
-import Module from "./components/Module/index";
-import Projects from "./Pages/Projects/index";
-import ProjectLoader from "./Pages/Project/index";
-import useWindowSize from "./hooks/windowSize";
-import { data } from "../src/data/data";
+import Wrapper from "../../components/Wrapper/index";
+import Landing from "../../Pages/Landing";
+import Background from "../../components/Background/index";
+import Module from "../../components/Module/index";
+import Projects from "../../Pages/Projects/index";
+import ProjectLoader from "../../Pages/Project/index";
+import useWindowSize from "../../hooks/windowSize";
+import { data } from "../../data/data";
 import {
   Routes,
   Route,
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import Navigation from "./components/Navigation";
+import Navigation from "../../components/Navigation";
 import { a, useTransition } from "react-spring";
 import { AnimatePresence, motion } from "framer-motion";
-import About from "./Pages/About";
-import Loader from "./Pages/Loader";
+import About from "../../Pages/About";
+import Loader from "../../Pages/Loader";
 
-import ModuleMobile from "./components/Module/mobile";
+import ModuleMobile from "../../components/Module/mobile";
 
 function App() {
-  const [isMobile, setIsMobile] = useState();
 
   //ROUTER
   const basename = "aarondiggdon";
@@ -59,14 +58,6 @@ function App() {
   };
 
   //STARTUP
-  // CHECK IF MOBILE
-  useEffect(() => {
-    if (size.width < 900) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, []);
 
   useEffect(() => {
     //Setting Grouped Refs
@@ -152,7 +143,7 @@ function App() {
   };
 
   const moduleProps = {
-    isMobile: isMobile,
+    
     isCurrent: isCurrent,
     isPopup: isPopup,
 

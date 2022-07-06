@@ -48,7 +48,7 @@ function Slideshow({ el, isCurrent }) {
       
         {el.meta.map((el, i) => {
           return (
-            <div className="img-c">
+            <div className="img-c" key={i}>
               <a.img
                 className="image"
                 src={el.src}

@@ -96,9 +96,14 @@ function Gallery({ el, isCurrent, size }) {
     }
   }, [inView]);
 
+  //Cleanup
+  useEffect(() => {
+    return () => {
+      cancelAnimationFrame(requestRef.current);
+    };
+  }, []);
 
-  console.log("TOP: " +  imagesTop.length)
-  console.log("BOTTOM: " +  imagesBottom.length)
+
   return (
     <div id="gallery" ref={section}>
       <div ref={rail} className="rail top">

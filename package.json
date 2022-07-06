@@ -19,6 +19,7 @@
     "react-scripts": "^5.0.0",
     "react-spring": "^9.4.2",
     "react-three-fiber": "^6.0.13",
+    "react-touch-carousel": "^0.10.2",
     "spring": "^0.0.0",
     "util": "^0.12.4",
     "web-vitals": "^2.1.3"

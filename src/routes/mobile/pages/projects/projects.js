@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, createRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Title from "./components/Title/index";
+import Carousel from "./components/carousel";
+import Title from "./components/title/index";
 import "./style.css";
 
 
@@ -39,7 +40,7 @@ function Projects() {
 
   return (
     <div id="projects">
-      
+      <Carousel/>
     </div>
   );
 }

@@ -32,13 +32,23 @@ function Carousel() {
 // const {height, width} = useWindowSize();
 // const padding = width * .06;
 
+const [titles, setTitles] = useState([]);
+useEffect(()=>{
+for (let i = 0; i < data.length; i++){
+  setTitles(current => [...current, data[i].title.split(" ")])
+}
+
+},[])
+
+
   const settings = {
     dots: true,
     infinite: false,
     speed: 300,
     slidesToShow: 1,
     centerMode: true,
-    centerPadding: "10%",
+    // centerPadding: "32px",
+    centerPadding: "6%",
     easing: "ease-in-out",
     beforeChange: (oldIndex, newIndex) => handleChange(oldIndex, newIndex),
   };
@@ -46,8 +56,9 @@ function Carousel() {
   return <div className="slider-container">
   <Slider {...settings}>
     {
-    data.map((el, i) => {
-      console.log(i === isCurrent ? `Current: ${i}` : i)
+    titles[data.length-1] && data.map((el, i) => {
+      
+
           return (
           <div className="slider-card" key={i} >
             <div className="slider-img" >
@@ -56,9 +67,11 @@ function Carousel() {
             <div className="body-container">
 
             <div className="slider-title-container">
-              <h1 className="slider-title">{el.title}</h1>
+              <h1 className="slider-title">{titles[i][0]} </h1>
+              <h1 className="slider-title" style={{color: el.background}}>{titles[i][1]}</h1>
+              </div>
               <p className="slider-description">{el.description}</p>
-            </div>
+            
             </div>
           </div>)
         })}

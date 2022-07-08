@@ -15,7 +15,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import Navigation from "../../components/Navigation";
+import Navigation from "./g-components/navigation";
 import { a, useTransition } from "react-spring";
 import { AnimatePresence, motion } from "framer-motion";
 import About from "../../Pages/About";

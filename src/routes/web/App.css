@@ -1,7 +1,6 @@
 
-/* html, body {
-  
-} */
+html, body {
+}
 
 body::-webkit-scrollbar {
   display: none;

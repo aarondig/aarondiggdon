@@ -25,7 +25,7 @@
   } */
 
 
-  .card {
+  #carousel .card {
       position: absolute;
       height: 10px;
       width: 100%;

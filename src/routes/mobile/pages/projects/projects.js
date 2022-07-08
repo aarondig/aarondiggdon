@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, createRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Carousel from "./components/carousel";
+import Carousel from "./components/carousel/index";
 import Title from "./components/title/index";
 import "./style.css";
 

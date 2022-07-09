@@ -43,8 +43,6 @@ function App() {
   //Kill Scale Refs to Improve performance.
   const [scaleRef, setScale] = useState([]);
 
-  const project = useRef();
-
   const [isPopup, setIsPopup] = useState(false);
 
   //THREEJS REFS

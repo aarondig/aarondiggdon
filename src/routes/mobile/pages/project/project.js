@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
-import { data } from "../../data/data";
-import useWindowSize from "../../hooks/windowSize";
-import Image from "../../components/Sections/Image/index";
+import { data } from "../../../../data/data";
+import useWindowSize from "../../../../hooks/windowSize";
+import Image from "../../../../components/Sections/Image/index";
 import "./style.css";
-import { Link, useNavigate } from "react-router-dom";
-import Article from "../../components/Sections/Article";
-import useScrollLock from "../../hooks/scrollLock";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import Article from "../../../../components/Sections/Article";
+import useScrollLock from "../../../../hooks/scrollLock";
 import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
-import Tech from "../../components/Sections/Tech";
-import Slideshow from "../../components/Sections/Slideshow";
-import Gallery from "../../components/Sections/Gallery";
-import useIsInViewport from "../../hooks/intersectionObserver";
+import Tech from "../../../../components/Sections/Tech";
+import Slideshow from "../../../../components/Sections/Slideshow";
+import Gallery from "../../../../components/Sections/Gallery";
+import useIsInViewport from "../../../../hooks/intersectionObserver";
 
-function Project({ isCurrent }) {
+function Project({ isCurrent, project }) {
   const size = useWindowSize();
-  const scrollLock = useScrollLock();
   const scroller = useRef();
 
   const requestRef = useRef();
@@ -39,7 +38,7 @@ function Project({ isCurrent }) {
 
   useEffect(() => {
     document.body.style.height = `${
-      scroller.current.getBoundingClientRect().height + size.height - 5
+      scroller.current.getBoundingClientRect().height + size.height + 5
     }px`;
   }, [size.height]);
 
@@ -96,11 +95,14 @@ function Project({ isCurrent }) {
     requestRef.current = requestAnimationFrame(skewScrolling);
     return () => {
       cancelAnimationFrame(requestRef.current);
+      document.body.style.height = `${
+        size.height
+      }px`;
     };
   }, []);
-  
+
   return (
-    <div id="project">
+    <div id="project-mobile" ref={project}>
       <div className="scroller" ref={scroller}>
         <div className="text-wrap">
           <div className="section">
@@ -190,7 +192,8 @@ function Project({ isCurrent }) {
   );
 }
 
-function ProjectLoader({isCurrent}) {
+function ProjectLoader() {
+  const {isCurrent} = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
 

@@ -1,46 +1,72 @@
 import React, { useState, useEffect, useRef, createRef } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, Outlet, useLocation, useMatch } from "react-router-dom";
 import Carousel from "./components/carousel/index";
-import Title from "./components/title/index";
+
+import ProjectSelector from "../../../../Pages/Project/index";
+import { data } from "./../../../../data/data";
 import "./style.css";
 
 
-function Projects() {
+function Projects({basename, isPopup, setIsPopup}) {
+
+  const [isCurrent, setIsCurrent] = useState(0)
+  // const [isPopup, setIsPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setIsPopup(true);
+   
+  };
 
 
- //Page Transition
+
+ 
+  //Page Transition
   const navigate = useNavigate();
   const location = useLocation();
 
   //Checking Location Match for Page Refresh
   const [isMatch, setIsMatch] = useState(false);
 
-  // useEffect(() => {
-  //   let url = location.pathname;
-  //   data.map((el, i) => {
-  //     if (url === `/${basename}/projects/${el.id}`) {
-  //       setIsCurrent(i);
-  //       setIsPopup(true);
-  //       setIsMatch(true);
-  //       return true;
-  //     } else return false;
-  //   });
-  //   return () => setIsMatch(false);
-  // }, []);
 
-  // useEffect(() => {
-  //   if (!isMatch) {
-  //     if (isPopup) {
-  //       navigate(`${data[isCurrent].id}`);
-  //     }
-  //   } else {
-  //     setIsMatch(false);
-  //   }
-  // }, [isPopup]);
+  useEffect(() => {
+    let url = location.pathname;
+    data.map((el, i) => {
+      if (url === `/${basename}/projects/${el.id}`) {
+        setIsCurrent(i);
+        setIsPopup(true);
+        setIsMatch(true);
+        return true;
+      } else return false;
+    });
+    return () => setIsMatch(false);
+  }, []);
+
+  useEffect(() => {
+    if (!isMatch) {
+      if (isPopup) {
+        navigate(`${data[isCurrent].id}`);
+      }
+    } else {
+      setIsMatch(false);
+    }
+  }, [isPopup]);
+
+
+
+
+  const carouselProps = {
+    setIsCurrent: setIsCurrent,
+    handleClick: handleClick,
+    isPopup: isPopup,
+  }
+  
+
 
   return (
-    <div id="projects">
-      <Carousel/>
+    <div id="projects-mobile">
+      <Carousel {...carouselProps}/>
+      {isPopup && <Outlet context={{isCurrent, isPopup, loading, setLoading}}/>}
     </div>
   );
 }

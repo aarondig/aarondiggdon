@@ -6,7 +6,9 @@ import Projects from "./pages/projects/projects";
 
 import Carousel from "./pages/projects/components/carousel/index"
 
-import ProjectLoader from "../../Pages/Project/index";
+import ProjectLoader from "./pages/project/project";
+
+
 import useWindowSize from "../../hooks/windowSize";
 import { data } from "../../data/data";
 import {
@@ -21,11 +23,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import About from "../../Pages/About";
 import Loader from "../../Pages/Loader";
 
+
 import ModuleMobile from "../../components/Module/mobile";
 
 function App() {
 
   const [isPopup, setIsPopup] = useState(false);
+
 
   //ROUTER
   const basename = "aarondiggdon";
@@ -44,6 +48,16 @@ function App() {
     setIsPopup: setIsPopup,
   };
 
+  const projectsProps = {
+    basename: basename,
+    isPopup: isPopup,
+    setIsPopup: setIsPopup,
+
+
+  };
+
+
+
   return (
     <Wrapper>
       <Navigation {...navProps} />
@@ -53,7 +67,12 @@ function App() {
         
 
             <Route path={`/`} element={<Carousel />}/>
-            <Route path={`${basename}`} element={<Projects />} />
+            <Route path={`${basename}`} element={<Projects {...projectsProps}/>} >
+            <Route
+                path={`:id`}
+                element={<ProjectLoader />}
+              />
+            </Route>
             {/* <Route
               path={`${basename}/projects`}
               element={<Projects {...projectsProps} />}

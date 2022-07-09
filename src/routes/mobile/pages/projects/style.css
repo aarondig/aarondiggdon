@@ -1,9 +1,12 @@
-#projects {
-  width: 100%;
-  background-color: #161618;
+@media only screen and (max-width: 768px) {
+#projects-mobile {
+  box-sizing: border-box;
+  height:100%;
+  background: #161618;
   /* background-color: #000000; */
 
   padding-top: 90px;
+  overflow-x: hidden;
 }
 
 
@@ -97,4 +100,5 @@
 .hoveredContainer {
   pointer-events: none;
 
+}
 }

@@ -4,33 +4,16 @@ import { data } from "../../../../../../data/data";
 import "./style.css";
 import Slider from "react-slick";
 import useWindowSize from "../../../../../../hooks/windowSize";
-import Title from "../title";
 
 
-function Carousel() {
+function Carousel({setIsCurrent, handleClick}) {
 
-  const [isCurrent, setIsCurrent] = useState()
+
   const handleChange = (oldIndex, newIndex) => {
     setIsCurrent(newIndex)
   };
-
-  const cards = useSprings(
-    data.length,
-    data.map((el, i) => ({
-      from: {
-        opacity: .2,
-        // transform: "scale(1)",
-      },
-      to: {
-        opacity: i === isCurrent ? 1 : .2,
-      
-      }
-      
-    }))
-  );
  
-// const {height, width} = useWindowSize();
-// const padding = width * .06;
+
 
 const [titles, setTitles] = useState([]);
 useEffect(()=>{
@@ -60,7 +43,7 @@ for (let i = 0; i < data.length; i++){
       
 
           return (
-          <div className="slider-card" key={i} >
+          <div className="slider-card" key={i} onClick={()=> handleClick()}>
             <div className="slider-img" >
               <img src={el.banner}></img>
             </div>

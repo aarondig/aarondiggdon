@@ -15,6 +15,8 @@ overflow: hidden;
 /* margin: 40px; */
 display: flex;
 flex-direction: column;
+touch-action: pan-x;
+
 }
 
 
@@ -127,7 +129,8 @@ list-style: none;
 
 
 /* Entire Slide */
-.slick-slide {
+
+/* .slick-slide {
   filter: grayscale(100%);
   opacity: .2;
   transition: opacity .4s, filter .8s ease-in-out;
@@ -136,14 +139,14 @@ list-style: none;
 .slick-current {
   filter: none;
   opacity: 1;
-}
+} */
 
 /* Body Container */
-.slick-slide .slider-card .body-container {
+/* .slick-slide .slider-card .body-container {
   opacity: 0;
   transition: opacity .8s ease-in;
 }
 .slick-current .slider-card .body-container{
   filter: none;
   opacity: 1;
-}
+} */

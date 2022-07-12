@@ -9,15 +9,15 @@ import useScrollLock from "../../../../hooks/scrollLock";
 import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 import Tech from "../../../../components/Sections/Tech";
 import Slideshow from "../../../../components/Sections/Slideshow";
-import Gallery from "../../../../components/Sections/Gallery";
+import Gallery from "./sections/gallery";
 import useIsInViewport from "../../../../hooks/intersectionObserver";
 
-function Project({ isCurrent, project }) {
+function Project({ isCurrent, mobile }) {
   const size = useWindowSize();
   const scroller = useRef();
 
   const requestRef = useRef();
-
+  const project = useRef();
 
   // //ARTICLE REFS
   // // Gallery
@@ -26,10 +26,6 @@ function Project({ isCurrent, project }) {
   // const railBottom = useRef();
   // galleryRefs[0] = railTop;
   // galleryRefs[1] = railBottom;
-  
-
-
-
 
   let ease = 0.1;
   let current = 0;
@@ -38,7 +34,7 @@ function Project({ isCurrent, project }) {
 
   useEffect(() => {
     document.body.style.height = `${
-      scroller.current.getBoundingClientRect().height + size.height + 5
+      scroller.current.getBoundingClientRect().height + size.height - 5
     }px`;
   }, [size.height]);
 
@@ -52,69 +48,72 @@ function Project({ isCurrent, project }) {
   // current += speed;
   // speed *= 0.8;
 
-
-
-
   // SCROLLING
-  useLayoutEffect(() => {
-    const skewScrolling = () => {
-      //Set Current to the scroll position amount
-      current = window.scrollY;
-      // Set Previous to the scroll previous position
-      previous += (current - previous) * ease;
-      // Set rounded to
-      rounded = Math.round(previous * 100) / 100;
+  // useLayoutEffect(() => {
+  //   const skewScrolling = () => {
+  //     //Set Current to the scroll position amount
+  //     current = window.scrollY;
+  //     // Set Previous to the scroll previous position
+  //     previous += (current - previous) * ease;
+  //     // Set rounded to
+  //     rounded = Math.round(previous * 100) / 100;
 
-      //VARIABLES
-      const difference = current - rounded;
-      const acceleration = difference / size.width;
-      const velocity = +acceleration;
-      const skew = velocity * 7.5;
+  //     //VARIABLES
+  //     const difference = current - rounded;
+  //     const acceleration = difference / size.width;
+  //     const velocity = +acceleration;
+  //     const skew = velocity * 7.5;
 
-      //Assign skew and smooth scrolling to the scroll container
-      // scroller.current.style.transform = `translate3d(0, -${rounded}px, 0) skewY(${skew}deg)`;
+  //     //Assign skew and smooth scrolling to the scroll container
+  //     // scroller.current.style.transform = `translate3d(0, -${rounded}px, 0) skewY(${skew}deg)`;
 
-      //No Skew with React Three Fiber Canvas... It extends page.
-      scroller.current.style.transform = `translate3d(0, -${rounded}px, 0)`;
-      // skewY(${skew}deg)
+  //     //No Skew with React Three Fiber Canvas... It extends page.
+  //     scroller.current.style.transform = `translate3d(0, -${rounded}px, 0)`;
+  //     // skewY(${skew}deg)
 
-      // //ARTICLE-GALLERY MOVEMENT
-    
-      //  if (railTop.current) {
-      //   railTop.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${rounded-4000}, 0, 0, 1)`;
-      //  }
-      //  if (railBottom.current) {
-      //   railTop.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${-rounded}, 0, 0, 1)`;
-      //  }
+  //     requestRef.current = requestAnimationFrame(skewScrolling);
+  //   };
 
-      requestRef.current = requestAnimationFrame(skewScrolling);
+  //   window.scrollTo(0, 0);
+
+  //   requestRef.current = requestAnimationFrame(skewScrolling);
+  //   return () => {
+  //     cancelAnimationFrame(requestRef.current);
+  //     document.body.style.height = `${
+  //       size.height
+  //     }px`;
+  //   };
+  // }, []);
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+
+  useEffect(() => {
+    const onScroll = (e) => {
+      setScrollTop(e.target.scrollTop);
     };
+    project.current.addEventListener("scroll", onScroll);
 
-    window.scrollTo(0, 0);
-
-    requestRef.current = requestAnimationFrame(skewScrolling);
-    return () => {
-      cancelAnimationFrame(requestRef.current);
-      document.body.style.height = `${
-        size.height
-      }px`;
-    };
-  }, []);
+    return () => project.current.removeEventListener("scroll", onScroll);
+  }, [scrollTop]);
 
   return (
     <div id="project-mobile" ref={project}>
       <div className="scroller" ref={scroller}>
         <div className="text-wrap">
           <div className="section">
-            <h4 className="subtitle">About This Project</h4>
-            <h1 className="title">{data[isCurrent].tagline}</h1>
+            <div className="col">
+              <h4 className="subtitle">About This Project</h4>
+              <h1 className="title">{data[isCurrent].tagline}</h1>
+            </div>
             {/* <div className="row"> */}
             <div className="description-c">
-            {data[isCurrent].about.map((el, i)=>{
-              return (
-              <p className="description" key={i}>{data[isCurrent].about[i]}</p>
-              )
-            })}
+              {data[isCurrent].about.map((el, i) => {
+                return (
+                  <p className="description" key={i}>
+                    {data[isCurrent].about[i]}
+                  </p>
+                );
+              })}
             </div>
 
             <div className="details">
@@ -132,8 +131,6 @@ function Project({ isCurrent, project }) {
               </div>
             </div>
             {/* </div> */}
-
-         
           </div>
 
           {data[isCurrent].sections.map((el, i) => {
@@ -150,42 +147,49 @@ function Project({ isCurrent, project }) {
               case "article": {
                 return (
                   <div className="section" key={i}>
-                    <Article el={el} isCurrent={isCurrent}/>
+                    <Article el={el} isCurrent={isCurrent} />
                   </div>
                 );
               }
               case "image": {
                 return (
                   <div className="section" key={i}>
-                    <Image el={el} isCurrent={isCurrent} />
+                    <div id="image">
+                      <div className="img-c">
+                        <img className="img" src={el.src} />
+                      </div>
+                    </div>
                   </div>
                 );
               }
               case "tech": {
                 return (
                   <div className="section" key={i}>
-                    <Tech el={el} isCurrent={isCurrent}/>
+                    <Tech el={el} isCurrent={isCurrent} />
                   </div>
                 );
               }
               case "slideshow": {
                 return (
                   <div className="section" key={i}>
-                    <Slideshow el={el} isCurrent={isCurrent}/>
+                    <Slideshow el={el} isCurrent={isCurrent} />
                   </div>
                 );
               }
               case "gallery": {
-                
                 return (
                   <div className="section" key={i}>
-                    <Gallery el={el} isCurrent={isCurrent} size={size}/>
+                    <Gallery
+                      el={el}
+                      mobile={mobile}
+                      size={size}
+                      scrollTop={scrollTop}
+                    />
                   </div>
                 );
               }
             }
           })}
-          
         </div>
       </div>
     </div>
@@ -193,7 +197,7 @@ function Project({ isCurrent, project }) {
 }
 
 function ProjectLoader() {
-  const {isCurrent} = useOutletContext();
+  const { isCurrent, mobile } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
 
@@ -208,11 +212,11 @@ function ProjectLoader() {
 
   const projectProps = {
     isCurrent: isCurrent,
+    mobile: mobile,
   };
 
-  // let radius = 40;
   let radius = 30;
- 
+
   let stroke = 2;
   let progress = counter;
 
@@ -235,15 +239,24 @@ function ProjectLoader() {
             cx={radius}
             cy={radius}
           />
-          
-         
         </svg>
         {/* height={radius/.75} width={radius/.75} */}
-        <svg className="checkmark-svg" height={radius/.58} width={radius/.58}>
-        {!loading && <path className="checkmark-svg" stroke="white" fill="none" strokeWidth={stroke} strokeDasharray={10} d="M14.1 27.2l7.1 7.2 16.7-16.8"/>}
-          
-         
-          </svg>
+        <svg
+          className="checkmark-svg"
+          height={radius / 0.58}
+          width={radius / 0.58}
+        >
+          {!loading && (
+            <path
+              className="checkmark-svg"
+              stroke="white"
+              fill="none"
+              strokeWidth={stroke}
+              strokeDasharray={10}
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
+          )}
+        </svg>
       </div>
       {loading ? <></> : <Project {...projectProps} />}
     </>

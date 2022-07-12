@@ -1,28 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
-import { a, useSpring, useSprings } from "react-spring";
+import {a, useSpring} from "react-spring";
 import { data } from "../../../../../../data/data";
 import "./style.css";
 import Slider from "react-slick";
 import useWindowSize from "../../../../../../hooks/windowSize";
 
-
-function Carousel({setIsCurrent, handleClick}) {
-
-
+function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
   const handleChange = (oldIndex, newIndex) => {
-    setIsCurrent(newIndex)
+    setIsCurrent(newIndex);
   };
- 
 
-
-const [titles, setTitles] = useState([]);
-useEffect(()=>{
-for (let i = 0; i < data.length; i++){
-  setTitles(current => [...current, data[i].title.split(" ")])
-}
-
-},[])
-
+  const [titles, setTitles] = useState([]);
+  
+  useEffect(() => {
+    for (let i = 0; i < data.length; i++) {
+      setTitles((current) => [...current, data[i].title.split(" ")]);
+    }
+  }, []);
 
   const settings = {
     dots: true,
@@ -35,33 +29,54 @@ for (let i = 0; i < data.length; i++){
     easing: "ease-in-out",
     beforeChange: (oldIndex, newIndex) => handleChange(oldIndex, newIndex),
   };
+ const [toggle, setToggle]= useState(false)
+  const opacity = useSpring({
+    opacity: toggle ? 0 : 1,
 
-  return <div className="slider-container">
-  <Slider {...settings}>
-    {
-    titles[data.length-1] && data.map((el, i) => {
+  });
+  const scale = useSpring({
+    transform: isPopup ? "scale(2)" : "scale(1)",
+  });
+
+  useEffect(()=>{
+    if (isPopup) {
       
-
-          return (
-          <div className="slider-card" key={i} onClick={()=> handleClick()}>
-            <div className="slider-img" >
-              <img src={el.banner}></img>
-            </div>
-            <div className="body-container">
-
-            <div className="slider-title-container">
-              <h1 className="slider-title">{titles[i][0]} </h1>
-              <h1 className="slider-title" style={{color: el.background}}>{titles[i][1]}</h1>
+    }
+  })
+console.log(toggle)
+  return (
+    <a.div className="slider-container" style={opacity} onClick={()=>setToggle(!toggle)}>
+      <Slider {...settings}>
+        {titles[data.length - 1] &&
+          data.map((el, i) => {
+            return (
+              <div
+                className="slider-card"
+                key={i}
+                onClick={() => handleClick()}
+              >
+                <a.div className="slider-img" style={scale}>
+                  <img src={el.banner}></img>
+                </a.div>
+                <a.div className="body-container" style={opacity}>
+                  <div className="slider-title-container">
+                    <h1 className="slider-title">{titles[i][0]} </h1>
+                    <h1
+                      className="slider-title"
+                      style={{ color: el.background }}
+                    >
+                      {titles[i][1]}
+                    </h1>
+                  </div>
+                  <p className="slider-description">{el.description}</p>
+                </a.div>
               </div>
-              <p className="slider-description">{el.description}</p>
-            
-            </div>
-          </div>)
-        })}
-  </Slider>
-  
-  </div>
-  
+            );
+          })}
+      </Slider>
+      
+    </a.div>
+  );
 }
 
 export default Carousel;

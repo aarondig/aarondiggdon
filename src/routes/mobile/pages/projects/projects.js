@@ -7,7 +7,7 @@ import { data } from "./../../../../data/data";
 import "./style.css";
 
 
-function Projects({basename, isPopup, setIsPopup}) {
+function Projects({basename, isPopup, setIsPopup, mobile}) {
 
   const [isCurrent, setIsCurrent] = useState(0)
   // const [isPopup, setIsPopup] = useState(false);
@@ -56,6 +56,7 @@ function Projects({basename, isPopup, setIsPopup}) {
 
 
   const carouselProps = {
+    isCurrent: isCurrent,
     setIsCurrent: setIsCurrent,
     handleClick: handleClick,
     isPopup: isPopup,
@@ -66,7 +67,7 @@ function Projects({basename, isPopup, setIsPopup}) {
   return (
     <div id="projects-mobile">
       <Carousel {...carouselProps}/>
-      {isPopup && <Outlet context={{isCurrent, isPopup, loading, setLoading}}/>}
+      {isPopup && <Outlet context={{isCurrent, isPopup, loading, setLoading, mobile}}/>}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { a, useSpring, useSprings, config } from "react-spring";
+import { a, useSpring, useSprings, config } from "@react-spring/core";
 import { data } from "../../data/data";
 import "./style.css";
 import Resume from "../../Assets/Resume.pdf"

@@ -2,10 +2,10 @@ import { data } from "cheerio/lib/api/attributes";
 import React, { useState, useEffect, useRef } from "react";
 import { a, useSprings } from "react-spring";
 import { useLayoutEffect, useMemo } from "react/cjs/react.production.min";
-import useIsInViewport from "../../../hooks/intersectionObserver";
+import useIsInViewport from "../../../../../../hooks/intersectionObserver";
 import "./style.css";
 
-function Gallery({ el, size }) {
+function Gallery({ el, size, scrollTop}) {
   const requestRef = useRef();
   
   const section = useRef();
@@ -16,7 +16,7 @@ function Gallery({ el, size }) {
 //SUBJECT TO CHANGE
   let split = (el.meta.length / 2);
 
-  let imageWidth = size.width > 768 ? 30 : 40;
+  let imageWidth = 40;
 
   //DIVIDING IMAGES Top/Bottom
 
@@ -44,12 +44,14 @@ function Gallery({ el, size }) {
   let current = 0;
   let previous = 0;
   let rounded = 0;
-  let deduction = window.scrollY * .4;
+  let deduction = scrollTop * .8;
 
-  const scroll = () => {
-    current = window.scrollY;
-    current = current - deduction;
 
+  useEffect(() => {
+    const scroll = () => {
+    current = scrollTop * 4;
+    // current = current - deduction;
+    
     // Set Previous to the scroll previous position
     previous += (current - previous) * ease;
     // Set rounded to
@@ -79,34 +81,16 @@ function Gallery({ el, size }) {
       }, 0, 0, 1)`;
     }
     
-
-    requestRef.current = requestAnimationFrame(scroll);
-    return () => {
-      cancelAnimationFrame(requestRef.current);
-    };
+  }
+  requestRef.current = requestAnimationFrame(scroll);
+  return () => {
+    cancelAnimationFrame(requestRef.current);
   };
-
-  useEffect(() => {
-    if (inView) {
-      if (!executed) {
-        //Trigger goes here
-        requestRef.current = requestAnimationFrame(scroll);
-
-        setExecuted(true);
-      }
-    }
-  }, [inView]);
-
-  //Cleanup
-  useEffect(() => {
-    return () => {
-      cancelAnimationFrame(requestRef.current);
-    };
-  }, []);
+  },[scrollTop]);
 
 
   return (
-    <div id="gallery" ref={section}>
+    <div id="gallery-mobile" ref={section}>
       <div ref={rail} className="rail top">
         {imagesTop.map((element, index) => {
         

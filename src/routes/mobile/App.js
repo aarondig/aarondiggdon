@@ -28,8 +28,9 @@ import ModuleMobile from "../../components/Module/mobile";
 
 function App() {
 
+  
   const [isPopup, setIsPopup] = useState(false);
-
+  let mobile = true;
 
   //ROUTER
   const basename = "aarondiggdon";
@@ -53,6 +54,8 @@ function App() {
     isPopup: isPopup,
     setIsPopup: setIsPopup,
 
+    mobile: mobile,
+
 
   };
 
@@ -66,26 +69,17 @@ function App() {
         <Routes>
         
 
-            <Route path={`/`} element={<Carousel />}/>
+            {/* <Route path={`/`} element={<Carousel />}/> */}
             <Route path={`${basename}`} element={<Projects {...projectsProps}/>} >
             <Route
                 path={`:id`}
                 element={<ProjectLoader />}
               />
             </Route>
-            {/* <Route
-              path={`${basename}/projects`}
-              element={<Projects {...projectsProps} />}
-            >
-              <Route
-                path={`:id`}
-                element={<ProjectLoader {...projectProps} />}
-              />
-            </Route>
-            <Route path={`${basename}/about`} element={<About />} /> */}
+            
           
         </Routes>
- 
+      {/* <Carousel /> */}
 
     </Wrapper>
   );

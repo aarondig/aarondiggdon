@@ -15,12 +15,9 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Navigation from "../../components/Navigation";
-import { a, useTransition } from "react-spring";
 import { AnimatePresence, motion } from "framer-motion";
 import About from "../../Pages/About";
 import Loader from "../../Pages/Loader";
-
-import ModuleMobile from "../../components/Module/mobile";
 
 function App() {
 

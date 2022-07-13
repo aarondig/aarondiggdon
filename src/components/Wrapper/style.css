@@ -9,6 +9,11 @@
 
 @media only screen and (max-width: 768px) {
     .wrapper {
-        
+        box-sizing: border-box;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
+    .wrapper::-webkit-scrollbar {
+        display: none;
+      }
   }

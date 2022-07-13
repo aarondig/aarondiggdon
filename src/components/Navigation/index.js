@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./style.css";
-import { a, useSpring } from "@react-spring/core";
+import { a, useSpring } from "react-spring";
 import { Link, useNavigate, useMatch } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 

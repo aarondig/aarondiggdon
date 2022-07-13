@@ -38,14 +38,14 @@ function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
     transform: isPopup ? "scale(2)" : "scale(1)",
   });
 
-  useEffect(()=>{
-    if (isPopup) {
+  // useEffect(()=>{
+  //   if (isPopup) {
       
-    }
-  })
+  //   }
+  // })
 console.log(toggle)
   return (
-    <a.div className="slider-container" style={opacity} onClick={()=>setToggle(!toggle)}>
+    <div className="slider-container"  onClick={()=>setToggle(!toggle)}>
       <Slider {...settings}>
         {titles[data.length - 1] &&
           data.map((el, i) => {
@@ -74,8 +74,7 @@ console.log(toggle)
             );
           })}
       </Slider>
-      
-    </a.div>
+    </div>
   );
 }
 

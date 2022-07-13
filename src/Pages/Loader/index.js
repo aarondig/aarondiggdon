@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
-import {a, useSpring, useSprings, useSpringRef} from "@react-spring/core";
+import {a, useSpring, useSprings, useSpringRef} from "react-spring";
 import "./style.css";
 
 function Loader({ children, basename }) {

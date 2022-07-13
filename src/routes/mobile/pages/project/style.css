@@ -57,9 +57,14 @@
 /* PAGES */
 
 
-.scroller {
+#project-mobile .scroller {
     background: #fff;
   margin-top: 100vh;
+  
+}
+
+.scroller:-webkit-scrollbar {
+  display: none;
 }
 
 #project-mobile .text-wrap {

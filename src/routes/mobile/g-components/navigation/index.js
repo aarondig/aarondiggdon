@@ -27,7 +27,6 @@ function Navigation({ location, basename, setIsPopup }) {
     // opacity: location.pathname !== `/${basename}/` ? 0 : 1,
     opacity: isMatch ? 0 : 1,
   });
-
   const backBtn = useSpring({
     // opacity: location.pathname !== `/${basename}/` ? 1 : 0,
     opacity: location.pathname === `/${basename}/about` ? 1 : (isMatch ? 1 : 0),

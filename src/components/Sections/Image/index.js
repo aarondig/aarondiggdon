@@ -13,13 +13,6 @@ const Loader = ({el, isCurrent}) => {
   [`${el.src}`]
   );
 
-  // const [image] = useLoader(THREE.TextureLoader, () => { 
-  //   try {
-  //     return [`${el.href}`]
-  //   } catch (error) {
-  //     return ["https://developers.google.com/maps/documentation/streetview/images/error-image-generic.png"]
-  //   }
-  // });
 
   const fragmentShader = `
 precision mediump float;

@@ -3,7 +3,6 @@ import "./App.css";
 import Wrapper from "../../components/Wrapper/index";
 import Landing from "./pages/landing/landing";
 import Projects from "./pages/projects/projects";
-
 import Carousel from "./pages/projects/components/carousel/index"
 
 import ProjectLoader from "./pages/project/project";
@@ -18,8 +17,6 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Navigation from "./g-components/navigation";
-import { a, useTransition } from "react-spring";
-import { AnimatePresence, motion } from "framer-motion";
 import About from "../../Pages/About";
 import Loader from "../../Pages/Loader";
 
@@ -59,7 +56,7 @@ function App() {
 
   };
 
-
+  
 
   return (
     <Wrapper>
@@ -69,13 +66,14 @@ function App() {
         <Routes>
         
 
-            {/* <Route path={`/`} element={<Carousel />}/> */}
-            <Route path={`${basename}`} element={<Projects {...projectsProps}/>} >
+            <Route path={`/`} element={<Landing />}/>
+            <Route path={`/${basename}/`} element={<Landing />}/>
+            {/* <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
             <Route
                 path={`:id`}
                 element={<ProjectLoader />}
               />
-            </Route>
+            </Route> */}
             
           
         </Routes>

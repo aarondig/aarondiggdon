@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { a, useSpring, useSprings } from "@react-spring/core";
+import { a, useSpring, useSprings } from "react-spring";
 import { data } from "../../data/data";
 import "./style.css";
 

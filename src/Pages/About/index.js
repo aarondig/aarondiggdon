@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import {a, useSpring} from "@react-spring/core";
+import {a, useSpring} from "react-spring";
 import {motion} from "framer-motion"
 import Contact from "../../components/Contact";
 import "./style.css";

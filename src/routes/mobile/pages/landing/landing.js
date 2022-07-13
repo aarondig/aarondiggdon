@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, createRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
-function Landing() {
+function Landing({basename}) {
   const navigate = useNavigate();
 
   return (
@@ -22,7 +22,7 @@ function Landing() {
       </div>
       <div className="content-block">
         <div className="buttons-c">
-          <div className="button black" onClick={() => navigate()}>
+          <div className="button black" onClick={() => navigate(`${basename}/projects`)}>
             View Projects
           </div>
           <div className="button white" onClick={() => navigate()}>

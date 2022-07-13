@@ -55,6 +55,9 @@ function App() {
 
 
   };
+  const landingProps = {
+    basename: basename,
+  };
 
   
 
@@ -66,14 +69,14 @@ function App() {
         <Routes>
         
 
-            <Route path={`/`} element={<Landing />}/>
-            <Route path={`/${basename}/`} element={<Landing />}/>
-            {/* <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
+            <Route path={`/`} element={<Landing {...landingProps}/>}/>
+            <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/>
+            <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
             <Route
                 path={`:id`}
                 element={<ProjectLoader />}
               />
-            </Route> */}
+            </Route>
             
           
         </Routes>

@@ -71,12 +71,12 @@ function App() {
 
             <Route path={`/`} element={<Landing {...landingProps}/>}/>
             <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/>
-            <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
+            {/* <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
             <Route
                 path={`:id`}
                 element={<ProjectLoader />}
               />
-            </Route>
+            </Route> */}
             
           
         </Routes>

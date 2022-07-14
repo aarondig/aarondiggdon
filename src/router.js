@@ -21,8 +21,8 @@ function Router() {
   return (
     <Routes>
       {!isMobile ? 
-      <Mobile/> :
-      <Mobile/>
+      <Web/> :
+      <Web/>
       }
     </Routes>
   );

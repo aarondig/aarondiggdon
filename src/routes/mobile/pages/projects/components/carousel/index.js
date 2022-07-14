@@ -26,7 +26,6 @@ function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
     centerMode: true,
     // centerPadding: "32px",
     centerPadding: "6%",
-    easing: "ease-in-out",
     beforeChange: (oldIndex, newIndex) => handleChange(oldIndex, newIndex),
   };
  const [toggle, setToggle]= useState(false)
@@ -38,12 +37,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
     transform: isPopup ? "scale(2)" : "scale(1)",
   });
 
-  // useEffect(()=>{
-  //   if (isPopup) {
-      
-  //   }
-  // })
-console.log(toggle)
+
   return (
     <div className="slider-container"  onClick={()=>setToggle(!toggle)}>
       <Slider {...settings}>

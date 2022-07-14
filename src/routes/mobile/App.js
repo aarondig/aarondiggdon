@@ -27,7 +27,7 @@ function App() {
 
   
   const [isPopup, setIsPopup] = useState(false);
-  let mobile = true;
+  // let mobile = true;
 
   //ROUTER
   const basename = "aarondiggdon";

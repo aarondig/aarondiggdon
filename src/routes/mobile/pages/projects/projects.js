@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, createRef } from "react";
-import { useNavigate, Outlet, useLocation, useMatch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import Carousel from "./components/carousel/index";
 
-import ProjectSelector from "../../../../Pages/Project/index";
+// import ProjectSelector from "../../../../Pages/Project/index";
 import { data } from "./../../../../data/data";
 import "./style.css";
 

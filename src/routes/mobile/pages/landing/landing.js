@@ -67,7 +67,8 @@ function Landing({basename}) {
             </div>
             <div className="text-c-row">
             <p className="text">Through &nbsp;</p>
-            <a href="https://extension.berkeley.edu/public/category/courseCategoryCertificateProfile.do?method=load&certificateId=32408422#:~:text=The%20Berkeley%20Coding%20Boot%20Camp,like%20forms%2C%20quizzes%20and%20games.">
+            {/* href="https://extension.berkeley.edu/public/category/courseCategoryCertificateProfile.do?method=load&certificateId=32408422#:~:text=The%20Berkeley%20Coding%20Boot%20Camp,like%20forms%2C%20quizzes%20and%20games." */}
+            <a >
               <p className="text">UC Berkeley Extension</p>
             </a>
             

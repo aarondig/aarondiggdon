@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import {a, useSpring} from "react-spring";
+// import {a, useSpring} from "react-spring";
 import { data } from "../../../../../../data/data";
 import "./style.css";
 import Slider from "react-slick";
-import useWindowSize from "../../../../../../hooks/windowSize";
 
 function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
   const handleChange = (oldIndex, newIndex) => {
@@ -29,13 +28,13 @@ function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
     beforeChange: (oldIndex, newIndex) => handleChange(oldIndex, newIndex),
   };
  const [toggle, setToggle]= useState(false)
-  const opacity = useSpring({
-    opacity: toggle ? 0 : 1,
+  // const opacity = useSpring({
+  //   opacity: toggle ? 0 : 1,
 
-  });
-  const scale = useSpring({
-    transform: isPopup ? "scale(2)" : "scale(1)",
-  });
+  // });
+  // const scale = useSpring({
+  //   transform: isPopup ? "scale(2)" : "scale(1)",
+  // });
 
 
   return (
@@ -49,10 +48,10 @@ function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
                 key={i}
                 onClick={() => handleClick()}
               >
-                <div className="slider-img" style={scale}>
+                <div className="slider-img">
                   <img src={el.banner}></img>
                 </div>
-                <div className="body-container" style={opacity}>
+                <div className="body-container">
                   <div className="slider-title-container">
                     <h1 className="slider-title">{titles[i][0]} </h1>
                     <h1

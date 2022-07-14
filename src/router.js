@@ -22,7 +22,7 @@ function Router() {
     <Routes>
       {!isMobile ? 
       <Web/> :
-      <Web/>
+      <Mobile/>
       }
     </Routes>
   );

@@ -3,13 +3,12 @@ import "./App.css";
 import Wrapper from "../../components/Wrapper/index";
 import Landing from "./pages/landing/landing";
 import Projects from "./pages/projects/projects";
-import Carousel from "./pages/projects/components/carousel/index"
+
 
 import ProjectLoader from "./pages/project/project";
 
 
 import useWindowSize from "../../hooks/windowSize";
-import { data } from "../../data/data";
 import {
   Routes,
   Route,
@@ -17,11 +16,8 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Navigation from "./g-components/navigation";
-import About from "../../Pages/About";
-import Loader from "../../Pages/Loader";
-
-
-import ModuleMobile from "../../components/Module/mobile";
+// import About from "../../Pages/About";
+// import Loader from "../../Pages/Loader";
 
 function App() {
 
@@ -32,10 +28,7 @@ function App() {
   //ROUTER
   const basename = "aarondiggdon";
 
-  const size = useWindowSize();
-
   let location = useLocation();
-  const navigate = useNavigate();
   
 
 
@@ -72,12 +65,12 @@ function App() {
 
             <Route path={`/`} element={<Landing {...landingProps}/>}/>
             <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/>
-            {/* <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
+            <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
             <Route
                 path={`:id`}
                 element={<ProjectLoader />}
               />
-            </Route> */}
+            </Route>
             
           
         </Routes>

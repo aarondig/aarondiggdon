@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-// import {a, useSpring} from "react-spring";
+import {a, useSpring} from "react-spring";
 import { data } from "../../../../../../data/data";
 import "./style.css";
 import Slider from "react-slick";
@@ -23,7 +23,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
     speed: 300,
     slidesToShow: 1,
     centerMode: true,
-    // centerPadding: "32px",
+    centerPadding: "32px",
     centerPadding: "6%",
     beforeChange: (oldIndex, newIndex) => handleChange(oldIndex, newIndex),
   };
@@ -38,7 +38,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
 
 
   return (
-    <div className="slider-container"  onClick={()=>setToggle(!toggle)}>
+    <div className="slider-container"  onClick={()=> setToggle(!toggle)}>
       <Slider {...settings}>
         {titles[data.length - 1] &&
           data.map((el, i) => {

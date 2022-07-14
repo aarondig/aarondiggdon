@@ -86,7 +86,7 @@ function Loader({ children, basename }) {
     <div id="loader">
       
       <a.div className="main-c" >
-      {/* style={growSpring} */}
+      
           
         <a.div className="img-c" style={imgSpring}>
             <svg

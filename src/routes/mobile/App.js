@@ -7,8 +7,6 @@ import Projects from "./pages/projects/projects";
 
 import ProjectLoader from "./pages/project/project";
 
-
-import useWindowSize from "../../hooks/windowSize";
 import {
   Routes,
   Route,
@@ -28,7 +26,7 @@ function App() {
   //ROUTER
   const basename = "aarondiggdon";
 
-  let location = useLocation();
+  const location = useLocation();
   
 
 

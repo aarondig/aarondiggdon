@@ -26,7 +26,7 @@ function App() {
 
   const size = useWindowSize();
 
-  let location = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
   
 

@@ -43,16 +43,6 @@ function Project({ isCurrent }) {
     }px`;
   }, [size.height]);
 
-  // let speed = 0;
-  // const Wheel = (e) => {
-  //   speed += e.deltaY * 0.3;
-  //   //Add if touch event
-  // }
-
-  // window.addEventListener("wheel", Wheel)
-  // current += speed;
-  // speed *= 0.8;
-
 
 
 
@@ -78,15 +68,6 @@ function Project({ isCurrent }) {
       //No Skew with React Three Fiber Canvas... It extends page.
       scroller.current.style.transform = `translate3d(0, -${rounded}px, 0)`;
       // skewY(${skew}deg)
-
-      // //ARTICLE-GALLERY MOVEMENT
-    
-      //  if (railTop.current) {
-      //   railTop.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${rounded-4000}, 0, 0, 1)`;
-      //  }
-      //  if (railBottom.current) {
-      //   railTop.current.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ${-rounded}, 0, 0, 1)`;
-      //  }
 
       requestRef.current = requestAnimationFrame(skewScrolling);
     };

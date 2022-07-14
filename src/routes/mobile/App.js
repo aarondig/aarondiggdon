@@ -27,7 +27,7 @@ function App() {
 
   
   const [isPopup, setIsPopup] = useState(false);
-  // let mobile = true;
+  let mobile = true;
 
   //ROUTER
   const basename = "aarondiggdon";
@@ -37,6 +37,7 @@ function App() {
   let location = useLocation();
   const navigate = useNavigate();
   
+
 
 
   const navProps = {
@@ -69,14 +70,14 @@ function App() {
         <Routes>
         
 
-            <Route path={`/`} element={<Landing {...landingProps}/>}/>
-            <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/>
-            {/* <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
+            {/* <Route path={`/`} element={<Landing {...landingProps}/>}/>
+            <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/> */}
+            <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
             <Route
                 path={`:id`}
                 element={<ProjectLoader />}
               />
-            </Route> */}
+            </Route>
             
           
         </Routes>

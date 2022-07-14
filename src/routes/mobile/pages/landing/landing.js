@@ -25,7 +25,7 @@ function Landing({basename}) {
           <div className="button black" onClick={() => navigate(`${basename}/projects`)}>
             View Projects
           </div>
-          <div className="button white" onClick={() => navigate()}>
+          <div className="button white" onClick={() => navigate(`${basename}/projects`)}>
             Contact Me
           </div>
         </div>

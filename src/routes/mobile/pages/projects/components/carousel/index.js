@@ -55,10 +55,10 @@ console.log(toggle)
                 key={i}
                 onClick={() => handleClick()}
               >
-                <a.div className="slider-img" style={scale}>
+                <div className="slider-img" style={scale}>
                   <img src={el.banner}></img>
-                </a.div>
-                <a.div className="body-container" style={opacity}>
+                </div>
+                <div className="body-container" style={opacity}>
                   <div className="slider-title-container">
                     <h1 className="slider-title">{titles[i][0]} </h1>
                     <h1
@@ -69,7 +69,7 @@ console.log(toggle)
                     </h1>
                   </div>
                   <p className="slider-description">{el.description}</p>
-                </a.div>
+                </div>
               </div>
             );
           })}

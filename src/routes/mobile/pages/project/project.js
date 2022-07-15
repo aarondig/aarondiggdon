@@ -16,7 +16,6 @@ function Project({ isCurrent }) {
   const size = useWindowSize();
   const scroller = useRef();
 
-  const requestRef = useRef();
   const project = useRef();
 
 
@@ -28,14 +27,14 @@ function Project({ isCurrent }) {
 
   const [scrollTop, setScrollTop] = useState(0);
 
-  useEffect(() => {
-    const onScroll = (e) => {
-      setScrollTop(e.target.scrollTop);
-    };
-    project.current.addEventListener("scroll", onScroll);
+  // useEffect(() => {
+  //   const onScroll = (e) => {
+  //     setScrollTop(e.target.scrollTop);
+  //   };
+  //   project.current.addEventListener("scroll", onScroll);
 
-    return () => project.current.removeEventListener("scroll", onScroll);
-  }, [scrollTop]);
+  //   return () => project.current.removeEventListener("scroll", onScroll);
+  // }, [scrollTop]);
 
   return (
     <div id="project-mobile" ref={project}>
@@ -118,11 +117,11 @@ function Project({ isCurrent }) {
               case "gallery": {
                 return (
                   <div className="section" key={i}>
-                    <Gallery
+                    {/* <Gallery
                       el={el}
                       size={size}
                       scrollTop={scrollTop}
-                    />
+                    /> */}
                   </div>
                 );
               }

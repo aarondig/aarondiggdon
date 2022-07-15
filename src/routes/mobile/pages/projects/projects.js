@@ -18,7 +18,7 @@ function Projects({basename, isPopup, setIsPopup}) {
    
   };
 
-
+console.log(isPopup)
 
  
   //Page Transition

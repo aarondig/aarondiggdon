@@ -3,7 +3,7 @@ import { data } from "../../../../../../data/data";
 import "./style.css";
 import Slider from "react-slick";
 
-function Carousel({ isCurrent, setIsCurrent, handleClick, isPopup }) {
+function Carousel({ isCurrent, setIsCurrent, handleClick }) {
   const handleChange = (oldIndex, newIndex) => {
     setIsCurrent(newIndex);
   };

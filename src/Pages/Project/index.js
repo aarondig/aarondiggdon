@@ -10,7 +10,6 @@ import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 import Tech from "../../components/Sections/Tech";
 import Slideshow from "../../components/Sections/Slideshow";
 import Gallery from "../../components/Sections/Gallery";
-import useIsInViewport from "../../hooks/intersectionObserver";
 
 function Project({ isCurrent }) {
   const size = useWindowSize();
@@ -19,14 +18,6 @@ function Project({ isCurrent }) {
 
   const requestRef = useRef();
 
-
-  // //ARTICLE REFS
-  // // Gallery
-  // const galleryRefs = {}
-  // const railTop = useRef();
-  // const railBottom = useRef();
-  // galleryRefs[0] = railTop;
-  // galleryRefs[1] = railBottom;
   
 
 

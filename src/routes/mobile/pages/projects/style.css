@@ -1,4 +1,6 @@
 @media only screen and (max-width: 768px) {
+
+}
 #projects-mobile {
   box-sizing: border-box;
   height:100%;
@@ -105,5 +107,4 @@
 .hoveredContainer {
   pointer-events: none;
 
-}
 }

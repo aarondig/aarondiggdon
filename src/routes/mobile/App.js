@@ -11,17 +11,13 @@ import {
   Routes,
   Route,
   useLocation,
-  useNavigate,
 } from "react-router-dom";
 import Navigation from "./g-components/navigation";
-// import About from "../../Pages/About";
-// import Loader from "../../Pages/Loader";
 
 function App() {
 
   
   const [isPopup, setIsPopup] = useState(false);
-  let mobile = true;
 
   //ROUTER
   const basename = "aarondiggdon";
@@ -42,9 +38,6 @@ function App() {
     basename: basename,
     isPopup: isPopup,
     setIsPopup: setIsPopup,
-
-    mobile: mobile,
-
 
   };
   const landingProps = {
@@ -72,7 +65,6 @@ function App() {
             
           
         </Routes>
-      {/* <Carousel /> */}
 
     </Wrapper>
   );

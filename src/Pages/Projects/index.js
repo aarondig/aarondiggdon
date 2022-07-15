@@ -1,13 +1,9 @@
 import React, {
   useState,
   useEffect,
-  useLayoutEffect,
-  createRef,
-  useMemo,
-  useRef,
 } from "react";
 import { data } from "../../data/data";
-import { useNavigate, Outlet, useLocation, useMatch } from "react-router-dom";
+import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import ProjectSelector from "../../components/ProjectSelector";
 
 import "./style.css";

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import {a, useSpring} from "react-spring";
 import { data } from "../../../../../../data/data";
 import "./style.css";
 import Slider from "react-slick";

@@ -8,7 +8,6 @@ import React, {
 } from "react";
 import "./style.css";
 import { data } from "../../data/data";
-import { Link, useNavigate } from "react-router-dom";
 import useScrollLock from "../../hooks/scrollLock";
 
 function ProjectSelector({

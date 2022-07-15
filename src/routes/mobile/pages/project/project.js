@@ -12,25 +12,13 @@ import Slideshow from "../../../../components/Sections/Slideshow";
 import Gallery from "./sections/gallery";
 import useIsInViewport from "../../../../hooks/intersectionObserver";
 
-function Project({ isCurrent, mobile }) {
+function Project({ isCurrent }) {
   const size = useWindowSize();
   const scroller = useRef();
 
   const requestRef = useRef();
   const project = useRef();
 
-  // //ARTICLE REFS
-  // // Gallery
-  // const galleryRefs = {}
-  // const railTop = useRef();
-  // const railBottom = useRef();
-  // galleryRefs[0] = railTop;
-  // galleryRefs[1] = railBottom;
-
-  let ease = 0.1;
-  let current = 0;
-  let previous = 0;
-  let rounded = 0;
 
   useEffect(() => {
     document.body.style.height = `${
@@ -38,53 +26,6 @@ function Project({ isCurrent, mobile }) {
     }px`;
   }, [size.height]);
 
-  // let speed = 0;
-  // const Wheel = (e) => {
-  //   speed += e.deltaY * 0.3;
-  //   //Add if touch event
-  // }
-
-  // window.addEventListener("wheel", Wheel)
-  // current += speed;
-  // speed *= 0.8;
-
-  // SCROLLING
-  // useLayoutEffect(() => {
-  //   const skewScrolling = () => {
-  //     //Set Current to the scroll position amount
-  //     current = window.scrollY;
-  //     // Set Previous to the scroll previous position
-  //     previous += (current - previous) * ease;
-  //     // Set rounded to
-  //     rounded = Math.round(previous * 100) / 100;
-
-  //     //VARIABLES
-  //     const difference = current - rounded;
-  //     const acceleration = difference / size.width;
-  //     const velocity = +acceleration;
-  //     const skew = velocity * 7.5;
-
-  //     //Assign skew and smooth scrolling to the scroll container
-  //     // scroller.current.style.transform = `translate3d(0, -${rounded}px, 0) skewY(${skew}deg)`;
-
-  //     //No Skew with React Three Fiber Canvas... It extends page.
-  //     scroller.current.style.transform = `translate3d(0, -${rounded}px, 0)`;
-  //     // skewY(${skew}deg)
-
-  //     requestRef.current = requestAnimationFrame(skewScrolling);
-  //   };
-
-  //   window.scrollTo(0, 0);
-
-  //   requestRef.current = requestAnimationFrame(skewScrolling);
-  //   return () => {
-  //     cancelAnimationFrame(requestRef.current);
-  //     document.body.style.height = `${
-  //       size.height
-  //     }px`;
-  //   };
-  // }, []);
-  const [scrolling, setScrolling] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
@@ -105,7 +46,6 @@ function Project({ isCurrent, mobile }) {
               <h4 className="subtitle">About This Project</h4>
               <h1 className="title">{data[isCurrent].tagline}</h1>
             </div>
-            {/* <div className="row"> */}
             <div className="description-c">
               {data[isCurrent].about.map((el, i) => {
                 return (
@@ -130,7 +70,6 @@ function Project({ isCurrent, mobile }) {
                 <p className="text">{data[isCurrent].date}</p>
               </div>
             </div>
-            {/* </div> */}
           </div>
 
           {data[isCurrent].sections.map((el, i) => {
@@ -181,7 +120,6 @@ function Project({ isCurrent, mobile }) {
                   <div className="section" key={i}>
                     <Gallery
                       el={el}
-                      mobile={mobile}
                       size={size}
                       scrollTop={scrollTop}
                     />
@@ -197,7 +135,7 @@ function Project({ isCurrent, mobile }) {
 }
 
 function ProjectLoader() {
-  const { isCurrent, mobile } = useOutletContext();
+  const { isCurrent } = useOutletContext();
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState(0);
 
@@ -212,7 +150,6 @@ function ProjectLoader() {
 
   const projectProps = {
     isCurrent: isCurrent,
-    mobile: mobile,
   };
 
   let radius = 30;

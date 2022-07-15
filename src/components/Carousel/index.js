@@ -1,7 +1,6 @@
 import {useState, useEffect, useRef, createRef} from "react";
 import "./style.css";
 import { data } from "../../Pages/Projects/data";
-import { contains } from "cheerio/lib/static";
 import Canvas from "./module"
 
 

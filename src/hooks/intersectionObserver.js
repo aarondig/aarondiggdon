@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState, useMemo} from 'react';
+import {useEffect, useState, useMemo} from 'react';
 
 
 export default function useIsInViewport(ref) {

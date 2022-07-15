@@ -7,7 +7,7 @@ import { data } from "./../../../../data/data";
 import "./style.css";
 
 
-function Projects({basename, isPopup, setIsPopup, mobile}) {
+function Projects({basename, isPopup, setIsPopup}) {
 
   const [isCurrent, setIsCurrent] = useState(0)
   // const [isPopup, setIsPopup] = useState(false);
@@ -67,7 +67,7 @@ function Projects({basename, isPopup, setIsPopup, mobile}) {
   return (
     <div id="projects-mobile">
       <Carousel {...carouselProps}/>
-      {isPopup && <Outlet context={{isCurrent, isPopup, loading, setLoading, mobile}}/>}
+      {isPopup && <Outlet context={{isCurrent, isPopup, loading, setLoading}}/>}
     </div>
   );
 }

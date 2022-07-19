@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { data } from "../../../../../../data/data";
 import "./style.css";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 
 function Carousel({ isCurrent, setIsCurrent, handleClick }) {
   const handleChange = (oldIndex, newIndex) => {

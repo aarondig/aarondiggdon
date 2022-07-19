@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef, createRef} from "react";
 import "./style.css";
-import { data } from "../../Pages/Projects/data";
+// import { data } from "../../Pages/Projects/data";
+import { data } from "../../data/data";
 import Canvas from "./module"
 
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { data } from "../../../../../../data/data";
 import "./style.css";
-// import Slider from "react-slick";
+import Slider from "react-slick";
 
 function Carousel({ isCurrent, setIsCurrent, handleClick }) {
   const handleChange = (oldIndex, newIndex) => {
@@ -38,7 +38,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick }) {
 
   return (
     <div className="slider-container"  onClick={()=> setToggle(!toggle)}>
-      {/* <Slider {...settings}>
+      <Slider {...settings}>
         {titles[data.length - 1] &&
           data.map((el, i) => {
             return (
@@ -65,7 +65,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick }) {
               </div>
             );
           })}
-      </Slider> */}
+      </Slider>
     </div>
   );
 }

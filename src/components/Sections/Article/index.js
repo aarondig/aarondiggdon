@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./style.css";
 
-function Article({ el, isCurrent}) {
+function Article({ el }) {
   return (
     <div id="article">
       {/* <h4 className="subtitle">About This Project</h4> */}

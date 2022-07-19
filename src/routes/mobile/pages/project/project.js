@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { data } from "../../../../data/data";
 import useWindowSize from "../../../../hooks/windowSize";
-import Image from "../../../../components/Sections/Image/index";
 import "./style.css";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import Article from "../../../../components/Sections/Article";
-import useScrollLock from "../../../../hooks/scrollLock";
 import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 import Tech from "../../../../components/Sections/Tech";
 import Slideshow from "../../../../components/Sections/Slideshow";
 import Gallery from "./sections/gallery";
-import useIsInViewport from "../../../../hooks/intersectionObserver";
 
 function Project({ isCurrent }) {
   const size = useWindowSize();
   const scroller = useRef();
+
 
   const project = useRef();
 
@@ -27,14 +25,14 @@ function Project({ isCurrent }) {
 
   const [scrollTop, setScrollTop] = useState(0);
 
-  // useEffect(() => {
-  //   const onScroll = (e) => {
-  //     setScrollTop(e.target.scrollTop);
-  //   };
-  //   project.current.addEventListener("scroll", onScroll);
+  useEffect(() => {
+    const onScroll = (e) => {
+      setScrollTop(e.target.scrollTop);
+    };
+    project.current.addEventListener("scroll", onScroll);
 
-  //   return () => project.current.removeEventListener("scroll", onScroll);
-  // }, [scrollTop]);
+    return () => project.current.removeEventListener("scroll", onScroll);
+  }, [scrollTop]);
 
   return (
     <div id="project-mobile" ref={project}>
@@ -117,11 +115,11 @@ function Project({ isCurrent }) {
               case "gallery": {
                 return (
                   <div className="section" key={i}>
-                    {/* <Gallery
+                    <Gallery
                       el={el}
                       size={size}
                       scrollTop={scrollTop}
-                    /> */}
+                    />
                   </div>
                 );
               }

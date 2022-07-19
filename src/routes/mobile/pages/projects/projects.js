@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import Carousel from "./components/carousel/index";
 
-// import ProjectSelector from "../../../../Pages/Project/index";
 import { data } from "./../../../../data/data";
 import "./style.css";
 
@@ -17,8 +16,6 @@ function Projects({basename, isPopup, setIsPopup}) {
     setIsPopup(true);
    
   };
-
-console.log(isPopup)
 
  
   //Page Transition

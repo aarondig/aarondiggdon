@@ -38,7 +38,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick }) {
 
   return (
     <div className="slider-container"  onClick={()=> setToggle(!toggle)}>
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         {titles[data.length - 1] &&
           data.map((el, i) => {
             return (
@@ -65,7 +65,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick }) {
               </div>
             );
           })}
-      </Slider>
+      </Slider> */}
     </div>
   );
 }

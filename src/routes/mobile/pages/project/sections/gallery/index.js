@@ -1,7 +1,6 @@
 import { data } from "cheerio/lib/api/attributes";
 import React, { useState, useEffect, useRef } from "react";
 import { a, useSprings } from "react-spring";
-import { useLayoutEffect, useMemo } from "react/cjs/react.production.min";
 import useIsInViewport from "../../../../../../hooks/intersectionObserver";
 import "./style.css";
 

@@ -13,7 +13,7 @@ function Gallery({ el, size }) {
 //SUBJECT TO CHANGE
   let split = (el.meta.length / 2);
 
-  let imageWidth = size.width > 768 ? 30 : 40;
+  let imageWidth = 30;
 
   //DIVIDING IMAGES Top/Bottom
 

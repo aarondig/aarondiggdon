@@ -9,9 +9,8 @@ import React, {
 } from "react";
 import "./style.css";
 import * as THREE from "three";
-import { Canvas, useFrame, useLoader, useThree } from "react-three-fiber";
-import { useSpring } from "react-spring";
-import { a } from "@react-spring/three";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
+import { a, useSpring } from "@react-spring/three";
 import { data } from "../../data/data";
 
 const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef }) => {
@@ -168,7 +167,7 @@ useEffect(()=>{
   //Basically if Index === isCurrent
   const target = data.length - isCurrent - 1;
 
-  const { rotation, positionX, scale } = useSpring({
+  const { rotation, positionX, } = useSpring({
     rotation: isPopup ? [0, 0, 0] : [0.0, 0.0, 0],
     positionX: isPopup ? (i === target ? 0 : 6) : 0,
 

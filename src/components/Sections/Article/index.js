@@ -14,13 +14,13 @@ function Article({ el }) {
       </div>
       {el.subsections.map((element, i) => {
         //IF LAST SUBSECTION
-        if (i === el.subsections.length -1) {
+        // if (i === el.subsections.length -1) {
 
-        }
+        // }
 
         switch (element.type) {
           default: {
-            return <p className="description">{element.body}</p>;
+            return <p className="description" key={i}>{element.body}</p>;
           }
           case "text/space": {
             return (

@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef, createRef, Suspense } from "react";
 import "./App.css";
 import Wrapper from "../../components/Wrapper/index";
-import Landing from "../../Pages/Landing";
-import Background from "../../components/Background/index";
+
 import Module from "../../components/Module/index";
 import Projects from "../../Pages/Projects/index";
 import ProjectLoader from "../../Pages/Project/index";
@@ -15,7 +14,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Navigation from "../../components/Navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import About from "../../Pages/About";
 import Loader from "../../Pages/Loader";
 

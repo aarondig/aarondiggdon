@@ -2,9 +2,8 @@ import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { data } from "../../../../data/data";
 import useWindowSize from "../../../../hooks/windowSize";
 import "./style.css";
-import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import Article from "../../../../components/Sections/Article";
-import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 import Tech from "../../../../components/Sections/Tech";
 import Slideshow from "../../../../components/Sections/Slideshow";
 import Gallery from "./sections/gallery";
@@ -21,18 +20,21 @@ function Project({ isCurrent }) {
     document.body.style.height = `${
       scroller.current.getBoundingClientRect().height + size.height - 5
     }px`;
+    return () => document.body.style.height = "initial";
   }, [size.height]);
 
   const [scrollTop, setScrollTop] = useState(0);
+
+
 
   useEffect(() => {
     const onScroll = (e) => {
       setScrollTop(e.target.scrollTop);
     };
     project.current.addEventListener("scroll", onScroll);
-
-    return () => project.current.removeEventListener("scroll", onScroll);
+    // return () => project.current.removeEventListener("scroll", onScroll)
   }, [scrollTop]);
+
 
   return (
     <div id="project-mobile" ref={project}>

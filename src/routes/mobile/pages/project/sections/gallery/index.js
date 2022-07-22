@@ -1,7 +1,4 @@
-import { data } from "cheerio/lib/api/attributes";
 import React, { useState, useEffect, useRef } from "react";
-import { a, useSprings } from "react-spring";
-import useIsInViewport from "../../../../../../hooks/intersectionObserver";
 import "./style.css";
 
 function Gallery({ el, size, scrollTop}) {
@@ -11,7 +8,7 @@ function Gallery({ el, size, scrollTop}) {
   const rail = useRef();
  
 
-  const inView = useIsInViewport(rail);
+
 //SUBJECT TO CHANGE
   let split = (el.meta.length / 2);
 

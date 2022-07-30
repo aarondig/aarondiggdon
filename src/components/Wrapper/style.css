@@ -12,7 +12,7 @@
         box-sizing: border-box;
         overflow-y: scroll;
         overflow-x: hidden;
-        padding-bottom: env(safe-area-inset-bottom);
+        
     }
     .wrapper::-webkit-scrollbar {
         display: none;

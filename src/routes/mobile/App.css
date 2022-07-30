@@ -1,10 +1,12 @@
 @media only screen and (max-width: 768px) {
-  html, body {
+  html {
     overflow: hidden;
-    background: #161618;
-    overscroll-behavior: none;
-
-    
+    height: 100%;
+  }
+  body {
+    height: 100%;
+    overflow: auto;
+    padding-bottom: env(safe-area-inset-bottom);
   }
   
 }

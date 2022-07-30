@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aarondiggdon/static/css/main.57475a38.css",
-    "main.js": "/aarondiggdon/static/js/main.ec7d1810.js",
+    "main.css": "/aarondiggdon/static/css/main.022e4749.css",
+    "main.js": "/aarondiggdon/static/js/main.9b4a4559.js",
     "static/media/Resume.pdf": "/aarondiggdon/static/media/Resume.820c80b8e62bcd68fdea.pdf",
     "static/media/CalibreBold.otf": "/aarondiggdon/static/media/CalibreBold.bba4dd93e0dc972eedb6.otf",
     "static/media/CalibreSemibold.otf": "/aarondiggdon/static/media/CalibreSemibold.508412ff4c6875e10aa1.otf",
@@ -43,11 +43,11 @@
     "static/media/basiercircle-regular-webfont.woff2": "/aarondiggdon/static/media/basiercircle-regular-webfont.75ed1573a0428232374b.woff2",
     "static/media/basiercircle-bold-webfont.woff2": "/aarondiggdon/static/media/basiercircle-bold-webfont.81100782b3e156f91107.woff2",
     "index.html": "/aarondiggdon/index.html",
-    "main.57475a38.css.map": "/aarondiggdon/static/css/main.57475a38.css.map",
-    "main.ec7d1810.js.map": "/aarondiggdon/static/js/main.ec7d1810.js.map"
+    "main.022e4749.css.map": "/aarondiggdon/static/css/main.022e4749.css.map",
+    "main.9b4a4559.js.map": "/aarondiggdon/static/js/main.9b4a4559.js.map"
   },
   "entrypoints": [
-    "static/css/main.57475a38.css",
-    "static/js/main.ec7d1810.js"
+    "static/css/main.022e4749.css",
+    "static/js/main.9b4a4559.js"
   ]
 }

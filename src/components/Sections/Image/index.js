@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, Suspense } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame, useLoader } from "react-three-fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { data } from "../../../data/data";
 
 

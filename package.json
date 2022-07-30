@@ -1,30 +1,28 @@
 {
   "homepage": "https://aarondig.github.io/aarondiggdon/",
-  "name": "design",
+  "name": "some",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-spring/three": "^9.5.1",
-    "@react-spring/web": "^9.4.5",
-    "@react-three/drei": "^9.17.1",
-    "@react-three/fiber": "^8.2.0",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
+    "@react-spring/three": "^9.5.2",
+    "@react-spring/web": "^9.5.2",
+    "@react-three/fiber": "^8.2.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "framer-motion": "^6.2.8",
+    "framer-motion": "^6.5.1",
     "gh-pages": "^4.0.0",
     "glslify": "^7.1.1",
     "react": "^18.2.0",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "^5.0.1",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0",
     "react-slick": "^0.29.0",
-    "react-spring": "^9.5.1",
-    "react-three-fiber": "^6.0.13",
-    "three": "^0.142.0",
-    "util": "^0.12.4",
-    "web-vitals": "^2.1.3"
+    "react-spring": "^9.5.2",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -51,9 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0"
   }
 }

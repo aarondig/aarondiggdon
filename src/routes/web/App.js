@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, createRef, Suspense } from "react";
+import { useState, useEffect, useRef, createRef } from "react";
 import "./App.css";
 import Wrapper from "../../components/Wrapper/index";
 

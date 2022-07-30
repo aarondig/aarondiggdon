@@ -1,13 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import Router from './router';
 
+const container = document.getElementById('root')
+const root = createRoot(container);
 
-ReactDOM.render(
-  
-    <Router />
-  ,
-  document.getElementById('root')
-);
+root.render(<Router />);
 

@@ -24,9 +24,6 @@ function App() {
 
   const location = useLocation();
   
-
-
-
   const navProps = {
     basename: basename,
     location: location,

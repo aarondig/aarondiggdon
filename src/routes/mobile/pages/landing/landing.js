@@ -22,10 +22,10 @@ function Landing({basename}) {
       </div>
       <div className="content-block">
         <div className="buttons-c">
-          <div className="button black" onClick={() => navigate(`${basename}/projects`)}>
+          <div className="button black" onClick={() => navigate(`projects`)}>
             View Projects
           </div>
-          <div className="button white" onClick={() => navigate(`${basename}/projects`)}>
+          <div className="button white" onClick={() => navigate(`projects`)}>
             Contact Me
           </div>
         </div>

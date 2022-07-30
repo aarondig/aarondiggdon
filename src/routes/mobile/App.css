@@ -2,9 +2,9 @@
   html, body {
     overflow: hidden;
     background: #161618;
+    overscroll-behavior: none;
 
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    
   }
   
 }

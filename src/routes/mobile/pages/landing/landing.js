@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, createRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaFigma } from "react-icons/fa";
 import "./style.css";
 
 function Landing({basename}) {
@@ -76,6 +77,16 @@ function Landing({basename}) {
           </div>
         </div>
       </div>
+      <div className="color-block">
+        <div className="content-block">
+        <div className="col">
+            <div className="title-c">
+            <FaFigma className="title-icon" size={48}></FaFigma>
+              <h2 className="title">Figma Proficiency</h2>
+            </div>
+          </div>
+        </div>
+        </div>
     </div>
   );
 }

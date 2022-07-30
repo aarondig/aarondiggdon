@@ -119,7 +119,7 @@
   
 }
 #landing-mobile .title {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 400;
   margin: 0;
   padding: 8px 0;
@@ -127,7 +127,7 @@
   
 }
 #landing-mobile .subtitle {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   margin: 0;
 }
@@ -168,7 +168,7 @@
   box-sizing: content-box;
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 8px;
   padding: 0 32px;
 }
 
@@ -184,6 +184,7 @@
 #landing-mobile .text {
   font-size: 18px;
   color: #fff;
+  margin-top: 0;
 }
 #landing-mobile a .text {
   color: #2977F3;

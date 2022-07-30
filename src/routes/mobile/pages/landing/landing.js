@@ -5,7 +5,10 @@ import "./style.css";
 
 function Landing({basename}) {
   const navigate = useNavigate();
-
+  useEffect(()=>{
+    //Setting theme color to white
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', "#ffffff");
+  },[])
   return (
     <div id="landing-mobile">
       <div className="content-block">

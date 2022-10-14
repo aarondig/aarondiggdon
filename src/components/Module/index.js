@@ -12,6 +12,7 @@ import * as THREE from "three";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { data } from "../../data/data";
+import useWindowSize from "../../hooks/windowSize";
 
 const Image = ({ i, mesh, isCurrent, handleClick, isPopup, scaleRef }) => {
   // const [normalMap] = useLoader(THREE.TextureLoader, [
@@ -205,6 +206,11 @@ function HandleImages({
   setLoading,
   handleClick,
 }) {
+
+  const { viewport } = useThree();
+  // or use 1 instead
+
+
   // useEffect(()=>{
   //   group.current.rotation.x = -.3;
   //   group.current.rotation.y = -.5;
@@ -213,7 +219,7 @@ function HandleImages({
   // },[])
 
   const { position, rotation } = useSpring({
-    position: isPopup ? [0, 0, 0] : [1, 0, 0],
+    position: isPopup ? [0, 0, 0] : [viewport.width/4.3, 0, 0],
     rotation: isPopup ? [0, 0, 0] : [-0.6, -0.8, -0.4],
   });
   // [-.5, -.9, -.4],
@@ -262,6 +268,8 @@ function Module({
   handleClick,
   setLoading,
 }) {
+
+
   const props = {
     refs: meshes,
     group: group,
@@ -275,6 +283,7 @@ function Module({
 
     setLoading: setLoading,
   };
+  
 
   return (
     <div id="canvas">
@@ -284,6 +293,7 @@ function Module({
       >
         <Suspense fallback={null}>
           <HandleImages {...props} />
+          
         </Suspense>
       </Canvas>
     </div>

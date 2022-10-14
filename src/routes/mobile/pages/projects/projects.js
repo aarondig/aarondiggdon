@@ -4,6 +4,7 @@ import Carousel from "./components/carousel/index";
 
 import { data } from "./../../../../data/data";
 import "./style.css";
+import Background from "../../../../components/Background";
 
 
 function Projects({basename, isPopup, setIsPopup}) {
@@ -58,12 +59,15 @@ function Projects({basename, isPopup, setIsPopup}) {
     handleClick: handleClick,
     isPopup: isPopup,
   }
-  
-
+  const bgProps = {
+    isCurrent: isCurrent,
+    isPopup: isPopup,
+  };
 
   return (
     <div id="projects-mobile">
       <Carousel {...carouselProps}/>
+      <Background {...bgProps} />
       {isPopup && <Outlet context={{isCurrent, isPopup, loading, setLoading}}/>}
     </div>
   );

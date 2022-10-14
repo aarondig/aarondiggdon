@@ -246,7 +246,7 @@ export const data = [
       {
         header: "",
         body: "",
-        src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/small/componentfloat.png",
+        src: "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/lululemon/small/Ecosystem.png",
         caption:
           "The interface invites users to click the bubble to activate the search.",
 

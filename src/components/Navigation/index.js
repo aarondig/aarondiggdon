@@ -25,7 +25,7 @@ function Navigation({ location, basename, setIsPopup }) {
 
   const logo = useSpring({
     // opacity: location.pathname !== `/${basename}/` ? 0 : 1,
-    opacity: isMatch ? 0 : 1,
+    opacity: location.pathname === `/${basename}/about` ? 0 : (isMatch ? 0 : 1),
   });
 
   const backBtn = useSpring({
@@ -54,7 +54,7 @@ function Navigation({ location, basename, setIsPopup }) {
         </div>
         <div className="rightNav">
           <Link to={`/${basename}/about`}>
-            <div className="navItem">About Me</div>
+            <div className="navItem">About</div>
           </Link>
         </div>
       </div>

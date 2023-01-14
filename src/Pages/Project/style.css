@@ -7,10 +7,23 @@
 }
 
 /* LOADER */
-.loader-c {
+/* .loader-c {
   width: 100%;
   position: absolute;
   bottom: 60px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+} */
+.loader-c {
+  box-sizing: border-box;
+  padding-left: 6%;
+  padding-right: 6%;
+  position: absolute;
+  bottom: 60px;
+  right: 0px;
   display: flex;
   justify-content: center;
   align-items: center;

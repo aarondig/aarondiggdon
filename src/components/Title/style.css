@@ -21,12 +21,26 @@
   flex: 1;
 }
 
-.big-title {
+/* .big-title {
   position: absolute;
   font-size: 9rem;
   font-weight: 300;
   width: 100%;
   text-align: center;
+  color: #fff;
+} */
+.big-title {
+  position: absolute;
+  font-size: 4rem;
+  line-height: 1em;
+  font-weight: 200;
+  width: 100%;
+  margin: 0;
+  left: 0;
+  bottom: 60px;
+
+
+  text-align: left;
   color: #fff;
 }
 
@@ -53,9 +67,9 @@
 }
 #title .subtitle {
   font-size: 1.5rem;
-  color: #fff;
+  color: #909090;
   width: 100%;
-  opacity: .5;
+  /* opacity: .5; */
  
 }
 

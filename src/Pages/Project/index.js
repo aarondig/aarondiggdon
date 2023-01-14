@@ -19,7 +19,7 @@ function Project({ isCurrent }) {
   
 
 
-
+  console.log(window.scrollY)
 
   let ease = 0.1;
   let current = 0;
@@ -56,7 +56,8 @@ function Project({ isCurrent }) {
 
       //No Skew with React Three Fiber Canvas... It extends page.
       scroller.current.style.transform = `translate3d(0, -${rounded}px, 0)`;
-      // skewY(${skew}deg)
+      // skewY(${skew}deg
+      
 
       requestRef.current = requestAnimationFrame(skewScrolling);
     };

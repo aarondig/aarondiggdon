@@ -320,6 +320,76 @@ export const data = [
     background: "#BE000E",
   },
   {
+    id: "makeapayment",
+    title: "Make a Payment",
+    description:
+      "Designed a user experience payment flow for Railsbank's Credit Card as a Service program. Product Design",
+
+    // link: "",
+    banner:
+      "https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/Projects/make%20a%20payment/small/Banner.png",
+
+    tagline: "Fintech Product Design",
+    about: [
+      `As a part of Railsbank's embeddable design system, I designed embeddable components for making credit card payments. Inspired by Apple's Credit Card payment wheel, I deconstructed and reconstructed the necessities into a payment horseshoe, which can be displayed throughout.`,
+    ],
+    client: "Railsbank",
+    role: "Lead Product Designer",
+    date: "September 2021",
+    disciplines: ["Product Design", "CCAS", "Figma",],
+
+    sections: [
+      {
+        header: "",
+        body: "",
+        src: "https://raw.githubusercontent.com/aarondig/factCheck/main/assets/banner.png",
+        caption:
+          "The interface invites users to click the bubble to activate the search.",
+
+        type: "image",
+        img: true,
+        video: false,
+        quote: false,
+
+        background: "white",
+      },
+      {
+        header: "User Experience",
+        body: "Creating a seamless user experience was my top priority. I tried to keep a minimalist aesthetic with aesthetic transitions to seamlessly move the user from one action to another.",
+        src: "",
+        caption: "",
+
+        type: "",
+        img: false,
+        video: false,
+        quote: false,
+
+        background: "white",
+      },
+      {
+        header: "Routes",
+        body: "Search queries are recieved in the public directory, and passed into the api-routes.js file where the API is called, using axios.js, with the query name. All data is passed using express.js.",
+        src: "",
+        caption: "",
+
+        type: "",
+        img: false,
+        video: false,
+        quote: false,
+
+        background: "white",
+      },
+    ],
+
+    icon: "fa-search",
+
+    color: "",
+    background: "#1721DE",
+  },
+
+
+
+  {
     id: "factcheck",
     title: "Fact Checker",
     description:

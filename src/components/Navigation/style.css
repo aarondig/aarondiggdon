@@ -29,9 +29,10 @@
   align-items: center;
 }
 #logo {
+  font-family: Inter;
   position: absolute;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 400;
   /* text-transform: uppercase; */
   color: white;
 }

@@ -138,6 +138,7 @@ const button =useSpring({opacity: buttonHover ? 1 : .6})
             })}
            
           </InView>
+          
           {/* <div className="text-row full">
               <a.p className="main-text">
                 I used my background in photojournalism to capture and

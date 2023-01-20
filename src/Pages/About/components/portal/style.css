@@ -1,0 +1,34 @@
+#about .banner {
+
+}
+#about .page-section.banner {
+
+  box-sizing: content-box;
+  height: 100vh;
+  padding-left: 0vw;
+  padding-right: 0vw;
+  margin-bottom: 0;
+  background: #050505;
+}
+#about .banner-img-clip {
+  width: 100vw;
+  height: 100vh;
+  -webkit-clip-path: inset(0px 7vw);
+  clip-path: inset(0px 7vw);
+  will-change: clip-path, -webkit-clip-path;
+}
+#about .banner-img-c {
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+#about .banner-img {
+  position: absolute;
+  height: 200%;
+  object-position: 50% 50%;
+  /* aspect-ratio: auto 1432 / 588; */
+  transform: translate3d(0px, 0px, 0px);
+  will-change: transform;
+}

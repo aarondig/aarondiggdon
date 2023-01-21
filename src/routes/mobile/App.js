@@ -6,6 +6,7 @@ import Projects from "./pages/projects/projects";
 
 
 import ProjectLoader from "./pages/project/project";
+import About from "./pages/About";
 
 import {
   Routes,
@@ -50,9 +51,10 @@ function App() {
       
         <Routes>
         
-
-            <Route path={`/`} element={<Landing {...landingProps}/>}/>
-            <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/>
+        <Route path={`/`} element={<About/>}/>
+        <Route path={`/${basename}/`} element={<About/>}/>
+            {/* <Route path={`/`} element={<Landing {...landingProps}/>}/>
+            <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/> */}
             <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >
             <Route
                 path={`:id`}

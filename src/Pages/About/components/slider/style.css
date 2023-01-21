@@ -1,3 +1,4 @@
+@media only screen and (min-width: 768px) {
 #slider {
 
 }
@@ -20,3 +21,4 @@ width: fit-content;
 #slider .line-break {
    color: #252525
     }
+  }

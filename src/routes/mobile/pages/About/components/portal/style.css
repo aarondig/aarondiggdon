@@ -1,19 +1,19 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
+
 #about .banner {
 
 }
 #about .page-section.banner {
 
   box-sizing: content-box;
-  height: 100vh;
-  padding-left: 0vw;
-  padding-right: 0vw;
+  height:60vh;
+  padding: 0;
   margin-bottom: 0;
   background: #050505;
 }
 #about .banner-img-clip {
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   -webkit-clip-path: inset(0px 7vw);
   clip-path: inset(0px 7vw);
   will-change: clip-path, -webkit-clip-path;

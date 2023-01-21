@@ -61,6 +61,7 @@
     font-size: 16px;
     line-height: 24px;
     white-space: nowrap;
+    width: fit-content;
   }
   #landing-mobile .button.black {
     background: #161618;

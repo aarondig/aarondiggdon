@@ -1,18 +1,14 @@
-@media only screen and (min-width: 768px) {
-#about .landing.page-section  {
- 
-  margin-top: 0vh;
-  margin-bottom: 12vw;
+@media only screen and (max-width: 768px) {
 
-}
+
 .page-section .main-subtitle {
   font-family: Inter;
   /* color: #959595; */
   color: #fff;
   font-weight: 300;
-  font-size: 1.6vw;
+  font-size: 16px;
   margin: 0;
-  margin-bottom: 4vh;
+  margin-bottom: 20px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -20,38 +16,49 @@
   box-sizing: content-box;
   display: flex;
   flex-direction: column;
-  margin-bottom: 12vh;
+  margin-bottom: 60px;
   -webkit-font-smoothing: antialiased;
 }
 .page-section .main-title .line {
   font-family: Inter;
   color: #fff;
-  font-weight: 300;
-  margin: 0;
+  font-weight: 200;
+ 
 
-  font-size: 6vw;
+  font-size: 32px;
   max-width: 100%;
   white-space: wrap;
   -webkit-font-smoothing: antialiased;
+
+  opacity: 1;
 }
 .main-c .row {
-  gap: 12vw;
-  margin-top: 60px;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 0px;
+  padding-bottom: 40px;
+  
 }
 .page-section .main-text {
   font-family: Inter;
-  color: #fff;
-  font-weight: 200;
+  color: #909090;
+  font-weight: 300;
   margin: 0;
-  font-size: 1.6vw;
+  font-size: 18px;
   line-height: 1.6;
-  max-width: 32vw;
-align-self: center;
-
+  max-width: 100%;
+/* align-self: center; */
   white-space: wrap;
   -webkit-font-smoothing: antialiased;
 }
 
+#about .details {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-between;
+
+}
 #about .detail {
   box-sizing: border-box;
   display: flex;
@@ -66,18 +73,18 @@ align-self: center;
 .detail-subtitle{
   font-family: Inter;
   color: #fff;
-  font-weight: 200;
+  font-weight: 300;
   margin: 0;
-  font-size: 1.6vw;
+  font-size: 16px;
   opacity: .4;
-  margin-bottom: 10%;
+  margin-bottom: 2vh;
 }
 .detail-text{
   font-family: Inter;
   color: #fff;
-  font-weight: 200;
+  font-weight: 300;
   margin: 0;
-  font-size: 2vw;
+  font-size:18px;
 
 }
 

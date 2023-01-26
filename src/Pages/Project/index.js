@@ -19,7 +19,7 @@ function Project({ isCurrent }) {
   
 
 
-  console.log(window.scrollY)
+
 
   let ease = 0.1;
   let current = 0;

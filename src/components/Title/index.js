@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { a, useSpring, useSprings, useTransition } from "react-spring";
+import { a, useSpring, useSprings, useTransition } from "@react-spring/web";
 import { data } from "../../data/data";
 import useWindowSize from "../../hooks/windowSize";
 import "./style.css";

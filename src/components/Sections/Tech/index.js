@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { a, useSpring, useSprings } from "react-spring";
+import { a, useSpring, useSprings } from "@react-spring/web";
 import "./style.css";
 
 function Tech({ el, isCurrent }) {

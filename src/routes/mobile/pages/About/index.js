@@ -20,7 +20,7 @@ import Slider from "./components/slider";
 import Intro from "./components/intro";
 
 
-function About() {
+function About({setnavVisible}) {
 
   const [startintro, setStartintro] = useState(false);
   const [startpage, setStartpage] = useState(true);
@@ -119,6 +119,8 @@ b4img: b4img,
       exit={{ opacity: 0 }}
     >
       {/* <Intro {...introprops}/> */}
+
+      <InView id="navvisible" threshold={0} onChange={setnavVisible}/>
         <a.div className="page-c" ref={scroller} style={page}>
           <Landing {...landingprops}/>
 
@@ -128,23 +130,9 @@ b4img: b4img,
 {/* <Banner {...bannerprops}/> */}
 <Process {...processprops}/>
 
-          {/* <section className="page-section">
-            <a.h6 className="main-subtitle">/ Expertise</a.h6>
-            <a.div className="section-title">
-              <a.h3 >
-              UX Design / Graphic Design / Web + App Development / Branding /
-                  </a.h3>
-            </a.div>
-
-            <a.p className="main-text">
-              Currently based in London, Aaron is a visual designer and
-              developer focusesd on creating immersive product expereinces.
-            </a.p>
-          </section> */}
+         
         </a.div>
-      {/* )} */}
-
-      {/* </div> */}
+     
     </motion.div>
   );
 }

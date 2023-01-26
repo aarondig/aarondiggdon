@@ -5,7 +5,7 @@ import React, {
   useLayoutEffect,
   useRef,
 } from "react";
-import { a, useSpring, useSprings } from "react-spring";
+import { a, useSpring, useSprings } from 'react-spring';
 import { InView } from "react-intersection-observer";
 
 import "./style.css";
@@ -138,7 +138,7 @@ const button =useSpring({opacity: buttonHover ? 1 : .6})
             })}
            
           </InView>
-          
+
           {/* <div className="text-row full">
               <a.p className="main-text">
                 I used my background in photojournalism to capture and

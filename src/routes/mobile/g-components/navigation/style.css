@@ -6,8 +6,19 @@
   height: 90px;
   /* background: red; */
   z-index: 1000;
-  mix-blend-mode: difference;
 }
+
+
+.nav-wrap {
+  display: flex;
+  flex-direction:row;
+  padding: 0 6vw;
+  height: 100%;
+  align-items: center;
+  float: right;
+  gap: 16px;
+}
+
 
 .navWrap {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -18,16 +29,20 @@
   
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .leftNav {
+  position: relative;
+  box-sizing: border-box;
   height: 100%;
   float: left;
   display: flex;
   flex-direction: row;
   align-items: center;
+
 }
 .rightNav {
+  position: relative;
   height: 100%;
   float: right;
   display: flex;
@@ -35,11 +50,14 @@
   align-items: center;
 }
 #logo {
-  position: absolute;
-  font-size: 16px;
-  font-weight: 600;
+  position: relative;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: Inter;
   /* text-transform: uppercase; */
   color: white;
+  opacity: 0;
+  will-change: opacity;
 }
 .back-btn {
   position: absolute;
@@ -52,7 +70,11 @@
   gap: 10px;
 }
 .menu-btn {
+  position: relative;
   color: white;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
 }
 .navItem {
   font-size: 16px;

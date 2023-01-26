@@ -5,7 +5,6 @@ import React, {
     useLayoutEffect,
     useRef,
   } from "react";
-import { a, useSprings } from "react-spring";
 import { InView } from "react-intersection-observer";
 
 import "./style.css";

@@ -13,7 +13,7 @@ import "./style.css";
 function Contact({startpage}) {
     const [isVisible, setIsVisible] = useState();
 
-    let lines = ["UX Design", "Web + App Development", "Graphic Design", "Branding"]
+   
     
 
     const linesprings = useSprings(

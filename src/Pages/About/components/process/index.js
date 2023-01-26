@@ -5,7 +5,7 @@ import React, {
   useLayoutEffect,
   useRef,
 } from "react";
-import { a, useSprings } from "react-spring";
+import { a, useSprings } from "@react-spring/web";
 import { InView } from "react-intersection-observer";
 
 import "./style.css";
@@ -71,7 +71,7 @@ function Process({
             <a.div className="section-title">
               {lines.map((el, i) => {
                 return (
-                  <div className="line-wrap">
+                  <div className="line-wrap" key={i}>
                     <a.h3 className="line" style={linesprings[i]} key={i}>
                       {el}
                     </a.h3>

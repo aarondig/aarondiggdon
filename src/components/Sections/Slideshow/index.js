@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { a, useSprings } from "react-spring";
+import { a, useSprings } from "@react-spring/web";
 import "./style.css";
 
 function Slideshow({ el, isCurrent }) {

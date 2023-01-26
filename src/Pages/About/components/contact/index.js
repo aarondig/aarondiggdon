@@ -5,7 +5,7 @@ import React, {
     useLayoutEffect,
     useRef,
   } from "react";
-import { a, useSprings } from "react-spring";
+import { a, useSprings } from "@react-spring";
 import { InView } from "react-intersection-observer";
 
 import "./style.css";
@@ -13,7 +13,7 @@ import "./style.css";
 function Contact({startpage}) {
     const [isVisible, setIsVisible] = useState();
 
-    let lines = ["UX Design", "Web + App Development", "Graphic Design", "Branding"]
+   
     
 
     const linesprings = useSprings(

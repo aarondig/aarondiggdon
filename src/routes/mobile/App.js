@@ -20,6 +20,8 @@ function App() {
   
   const [isPopup, setIsPopup] = useState(false);
 
+  const [navvisible, setnavVisible] = useState(true);
+
   //ROUTER
   const basename = "aarondiggdon";
 
@@ -30,6 +32,7 @@ function App() {
     location: location,
 
     setIsPopup: setIsPopup,
+    navvisible: navvisible,
   };
 
   const projectsProps = {
@@ -41,7 +44,9 @@ function App() {
   const landingProps = {
     basename: basename,
   };
-
+  const aboutProps = {
+    setnavVisible: setnavVisible,
+  };
   
 
   return (
@@ -52,7 +57,7 @@ function App() {
         <Routes>
         
         <Route path={`/`} element={<About/>}/>
-        <Route path={`/${basename}/`} element={<About/>}/>
+        <Route path={`/${basename}/`} element={<About {...aboutProps}/>}/>
             {/* <Route path={`/`} element={<Landing {...landingProps}/>}/>
             <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/> */}
             <Route path={`${basename}/projects`} element={<Projects {...projectsProps}/>} >

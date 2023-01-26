@@ -14,8 +14,9 @@
 #about .banner-img-clip {
   width: 100vw;
   height: 60vh;
-  -webkit-clip-path: inset(0px 7vw);
-  clip-path: inset(0px 7vw);
+  /* -webkit-clip-path: inset(0px 7vw);
+  clip-path: inset(0px 7vw); */
+  overflow: hidden;
   will-change: clip-path, -webkit-clip-path;
 }
 #about .banner-img-c {

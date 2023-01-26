@@ -20,7 +20,6 @@ function Landing({startpage, b4img, svgprops}) {
 
 
   ];
-  console.log(startpage)
   
 
   const reveal = useSpring({ opacity: startpage ? 1 : 0 ,

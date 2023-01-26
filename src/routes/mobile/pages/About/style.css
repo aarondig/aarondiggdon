@@ -11,13 +11,11 @@
 } */
 @media only screen and (max-width: 768px) {
 #about {
-  /* position: fixed; */
-  width: 100%;
-  height: 100%;
+  position: relative;
+  box-sizing: border-box;
   z-index: 2;
   background-color: #050505;
-  overflow-y: scroll;
-  overflow-x: hidden;
+ overflow: hidden;
 
   /* perspective: 800px; */
   overscroll-behavior-y: none !important;
@@ -32,7 +30,6 @@
 /* PAGE */
 
 #about .page-c {
-  position: absolute;
   box-sizing: content-box;
   /* padding-left: 12vw;
   padding-right: 12vw; */
@@ -44,19 +41,19 @@
   transform: translate3d(0px, 0px, 0px);
   will-change: transform;
 }
-#about .page-c {
+/* #about .page-c {
   padding-bottom: 80px;
-}
+} */
 
 #navvisible{
   position: relative;
-  height: 80px;
+  height: 60px;
 }
 
 #about .page-section {
   position: relative;
   box-sizing: content-box;
-  padding: 80px 12vw 60px;
+  padding: 80px 10vw 60px;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;

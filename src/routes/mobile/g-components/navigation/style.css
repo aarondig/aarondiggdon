@@ -56,8 +56,12 @@
   font-family: Inter;
   /* text-transform: uppercase; */
   color: white;
-  opacity: 0;
   will-change: opacity;
+  
+  /* REMOVE WHEN SPRINGS WORK */
+  opacity: 1 !important;
+
+
 }
 .back-btn {
   position: absolute;

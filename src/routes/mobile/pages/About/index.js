@@ -122,7 +122,7 @@ b4img: b4img,
       {/* <Intro {...introprops}/> */}
 
       <InView id="navvisible" threshold={0} onChange={setnavVisible}/>
-        <a.div className="page-c" ref={scroller} style={page}>
+        <a.div className="page-c" style={page}>
           <Landing {...landingprops}/>
 
           <Portal {...portalprops} />

@@ -31,6 +31,10 @@
 
   opacity: 1;
 }
+.landing .main-title .line {
+  font-size: 38px;
+  
+}
 .main-c .row {
   flex-direction: column;
   gap: 40px;
@@ -40,7 +44,7 @@
 }
 .page-section .main-text {
   font-family: Inter;
-  color: #909090;
+  color: #e1e1e1;
   font-weight: 300;
   margin: 0;
   font-size: 18px;
@@ -52,7 +56,8 @@
 
 }
 .landing .main-text {
-  padding-top:80px;
+  padding-top:60px;
+
 }
 
 #about .details {

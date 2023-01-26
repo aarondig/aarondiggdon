@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10%;
+  gap: 8%;
 }
 .contact-card {
   box-sizing: border-box;
@@ -20,7 +20,8 @@
   display: flex;
   flex-direction: column;
 
-  max-width: 42%;
+  max-width: 44%;
+  flex: 1;
 }
 /* .contact-card:nth-last-child(1){
   
@@ -34,7 +35,7 @@
 }
 .contact-card .card-text {
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
 }
 .card-icon {
   height: 60px;

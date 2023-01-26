@@ -5,18 +5,18 @@ import React, {
     useLayoutEffect,
     useRef,
   } from "react";
-import { a, useSpring, useSprings } from "react-spring";
+import { a, useSpring, useSprings } from "@react-spring/web";
 import { InView } from "react-intersection-observer";
 import Ornament from "../ornament";
 import "./style.css";
 
 function Landing({startpage, b4img, svgprops}) {
   const lines = [
-    // "I create",
+    "I Create",
     // "unforgettable",
     // "—winning Websites",
-    "Elevated",
-    "Visual Experiences",
+    "Elevated Visual",
+    " — Experiences",
 
 
   ];

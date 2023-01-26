@@ -75,7 +75,7 @@ padding-bottom: 6vw;
   .card-caption {
     display: flex;
     flex-direction: row;
-    padding-top: 3vw;
+    padding-top: 6vw;
     gap: 12%;
     align-items: center;
   }

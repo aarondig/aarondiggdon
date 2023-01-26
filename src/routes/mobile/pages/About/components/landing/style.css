@@ -55,6 +55,19 @@
   -webkit-font-smoothing: antialiased;
 
 }
+.page-section .text{
+  position: relative;
+  font-family: Inter;
+  color: #e1e1e1;
+  font-weight: 300;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 100%;
+  white-space: wrap;
+  -webkit-font-smoothing: antialiased;
+
+}
 .landing .main-text {
   padding-top:60px;
 

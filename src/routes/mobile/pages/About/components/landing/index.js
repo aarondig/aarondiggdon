@@ -79,6 +79,9 @@ function Landing({startpage, b4img, svgprops}) {
       Currently based in London, Aaron is a visual designer and
       developer focused on creating immersive digital products.
     </a.p>
+    {/* <a.p className="text" >
+      My focus is to approach design 
+    </a.p> */}
     {/* <div className="details">
     <div className="detail">
     <div className="detail-c">

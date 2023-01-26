@@ -103,6 +103,7 @@ function Process({
               <div className="card-img-c">
                 <img className="card-img" src={assets[0]} ref={process_img_0} />
               </div>
+              <div className="card-details">
               <div className="card-caption">
                 <p className="caption-text">01</p>
                 <div className="caption-line" />
@@ -111,11 +112,13 @@ function Process({
               <a.p className="card-text">
               Through journey — mapping and preliminary research, we can understand the narrative.
               </a.p>
+              </div>
             </div>
             <div className="parallax-column-card">
               <div className="card-img-c">
                 <img className="card-img" src={assets[1]} ref={process_img_1} />
               </div>
+              <div className="card-details">
               <div className="card-caption">
                 <p className="caption-text">03</p>
                 <div className="caption-line" />
@@ -124,12 +127,15 @@ function Process({
               <a.p className="card-text">
               Use user feedback to innovate and prototype solutions to their pain — points. This is where the creativity is maximized.
               </a.p>
+              </div>
             </div>
           
             <div className="parallax-column-card">
+              
               <div className="card-img-c">
                 <img className="card-img" src={assets[2]} ref={process_img_2} />
               </div>
+              <div className="card-details">
               <div className="card-caption">
                 <p className="caption-text">02</p>
                 <div className="caption-line" />
@@ -138,11 +144,13 @@ function Process({
               <a.p className="card-text">
               User — testing and consultation help us understand pain — points  in the journey, and keeps the scope of the project in focus.
               </a.p>
+              </div>
             </div>
             <div className="parallax-column-card">
               <div className="card-img-c">
                 <img className="card-img" src={assets[3]} ref={process_img_3} />
               </div>
+              <div className="card-details">
               <div className="card-caption">
                 <p className="caption-text">04</p>
                 {/* <p className="caption-text">Repeat</p> */}
@@ -152,6 +160,7 @@ function Process({
               <a.p className="card-text">
               Design is an iterative process. This cycle ensures the user is the focus, and while creating a seamless experience.
               </a.p>
+              </div>
             </div>
      
         </InView>

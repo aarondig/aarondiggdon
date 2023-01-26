@@ -52,6 +52,16 @@ padding-bottom: 6vw;
     padding-bottom: 12vh;
    
   }
+  .parallax-columns :nth-last-child(1) {
+
+    padding-bottom: 0;
+   
+  }
+  .parallax-column-card :nth-last-child(1) {
+
+    padding-bottom: 0;
+   
+  }
   .card-img-c {
     position: relative;
     overflow: hidden;
@@ -72,10 +82,15 @@ padding-bottom: 6vw;
     position: absolute;
     background: #252525;
   }
+  .card-details {
+    padding: 8vw 0 16vw;
+  }
+
   .card-caption {
     display: flex;
     flex-direction: row;
-    padding-top: 6vw;
+    padding:  18px 0 12px;
+   
     gap: 12%;
     align-items: center;
   }
@@ -103,7 +118,7 @@ padding-bottom: 6vw;
     font-size: 24px;
     color: #fff;
     font-weight: 300;
-    line-height: 1;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   .card-text {

@@ -6,25 +6,28 @@
 #about .page-section.banner {
 
   box-sizing: content-box;
-  height:60vh;
+  height:80vh;
   padding: 0;
   margin-bottom: 0;
   background: #050505;
 }
 #about .banner-img-clip {
   width: 100vw;
-  height: 60vh;
+  height: 80vh;
   /* -webkit-clip-path: inset(0px 7vw);
   clip-path: inset(0px 7vw); */
   overflow: hidden;
   will-change: clip-path, -webkit-clip-path;
 }
 #about .banner-img-c {
+  position: relative;
   height: 100%;
+
   object-fit: cover;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
 }
 #about .banner-img {
   position: absolute;

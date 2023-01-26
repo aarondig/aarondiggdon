@@ -1,24 +1,33 @@
 @media only screen and (min-width: 768px) {
-#slider {
-
+#contact {
+  padding-top: 8vw;
+  padding-bottom: 8vw;
 }
-#slider .section-title {
-    flex-direction: row;
-    
-    flex-wrap: wrap;
-    max-width: 80%;
-    gap: 2vw;
-}
-#slider .line-wrap {
+.contact-cards {
   display: flex;
   flex-direction: row;
-  gap: 2vw;
-  flex-wrap: nowrap;
-    }
-#slider .line {
-width: fit-content;
+  justify-content: space-between;
 }
-#slider .line-break {
-   color: #252525
-    }
+.contact-card {
+  box-sizing: border-box;
+  padding: 4vw 0 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 26%;
+}
+.contact-card .card-title {
+  width: 100%;
+  margin: 26px 0;
+}
+.contact-card .card-text {
+  width: 100%;
+}
+.card-icon {
+  height: 60px;
+  max-width: 20%;
+}
+a {
+  width: 100%;
+}
   }

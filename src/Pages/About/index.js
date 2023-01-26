@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { a, useSpring, useSprings } from "react-spring";
 import { motion } from "framer-motion";
-import Contact from "../../components/Contact";
+// import Contact from "../../components/Contact";
 import "./style.css";
 import useWindowSize from "../../hooks/windowSize";
 import { InView } from "react-intersection-observer";
@@ -19,6 +19,7 @@ import Banner from "./components/banner";
 import Process from "./components/process";
 import Slider from "./components/slider";
 import Intro from "./components/intro";
+import Contact from "./components/contact";
 
 
 function About() {
@@ -413,6 +414,7 @@ b4img: b4img,
 {/* <Banner {...bannerprops}/> */}
 <Process {...processprops}/>
 
+<Contact/>
           {/* <section className="page-section">
             <a.h6 className="main-subtitle">/ Expertise</a.h6>
             <a.div className="section-title">
@@ -435,40 +437,3 @@ b4img: b4img,
 }
 
 export default About;
-
-{
-  /* <div
-        className="right-panel"
-        // onMouseOver={() => setContact(true)}
-        // onMouseLeave={() => setContact(false)}
-      >
-        <Suspense fallback={null}>
-          <div className="img-c">
-          <a.img
-            className="img"
-            style={imgStyles}
-            src="https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/About/profile.jpg"
-          />
-          </div>
-          <Contact contact={contact}/>
-        </Suspense>
-      </div>
-      <div className="left-panel">
-        <h1 className="name">Aaron Diggdon</h1>
-        <h4 className="subtitle">San Francisco, CA</h4>
-        <p className="text">
-        Hi! I’m Aaron. I’m a a product designer specializing in user experience design and web development. Swipe to learn more.
-        </p>
-        <a.div
-          className="btn"
-          style={btnStyle}
-          onMouseOver={() => setBtnHover(true)}
-          onMouseLeave={() => setBtnHover(false)}
-          onClick={() => setContact(!contact)}
-        >
-          <a.h4 className="btn-text" style={btnText}>
-            Contact Me
-          </a.h4>
-        </a.div>
-      </div> */
-}

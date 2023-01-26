@@ -1,86 +1,92 @@
 import React, {
-    Suspense,
-    useEffect,
-    useState,
-    useLayoutEffect,
-    useRef,
-  } from "react";
+  Suspense,
+  useEffect,
+  useState,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { a, useSprings } from "react-spring";
 import { InView } from "react-intersection-observer";
 
 import "./style.css";
 
-function Contact({startpage}) {
-    const [isVisible, setIsVisible] = useState();
+import resume from "../../../../../../Assets/other/contact/aarondiggdon.pdf";
+import code from "../../../../../../Assets/svgs/about/code-t.svg";
+import email from "../../../../../../Assets/svgs/about/email-t.svg";
+import file from "../../../../../../Assets/svgs/about/file-t.svg";
+import comments from "../../../../../../Assets/svgs/about/comments-t.svg";
 
-   
-    
+function Contact({ startpage }) {
+  const [isVisible, setIsVisible] = useState();
 
-    const linesprings = useSprings(
-        lines.length,
-        lines.map((el, i) =>
-          isVisible
-            ? {
-                from: {
-                  opacity: 0,
-                  transform: `translateY(+20px)`,
-                },
-                to: {
-                  opacity: 1,
-                  transform: `translateY(0)`,
-                },
-    
-                delay: 220 * i,
-                // config: { mass: 1, tension: 120, friction: 40 },
-              }
-            : {
-                from: {
-                  transform: `translateY(0)`,
-                  opacity: 1,
-                },
-                to: {
-                  transform: `translateY(0)`,
-                  opacity: 0,
-                },
-    
-                delay: 220 * i,
-                // config: { mass: 3, tension: 280, friction: 60 },
-              }
-        )
-      );
+  const items = [
+    {
+      title: "LinkedIn",
+      text: "Reach out, let's start a connection!",
+      icon: comments,
+      link: "https://www.linkedin.com/in/aarondiggdon/",
+    },
+    {
+      title: "Github",
+      text: "Jump into my web — dev workflow.",
+      icon: code,
+      link: "https://github.com/aarondig",
+    },
+    {
+      title: "Resume",
+      text: "Take a look at my experience.",
+      icon: file,
+      link: resume,
+    },
+    {
+      title: "Email",
+      text: "Send me a direct message.",
+      icon: email,
+      link: resume,
+    },
+  ];
 
+  return (
+    <InView id="contact" threshold={0.6} onChange={setIsVisible}>
+      <div className="contact-c">
+        <section className="page-section">
+          <div className="main-title">
+            <a.h2 className="line">Let's</a.h2>
+            <a.h2 className="line">Get In Touch</a.h2>
 
-    return <InView id="Contact" threshold={.6} onChange={setIsVisible}>
-        <div className="Contact-c">
-    
-            <section className="page-section">
-            <a.h6 className="main-subtitle">/ Contact</a.h6>
-            <a.div className="section-title">
-              {lines.map((el, i) => {
-                return (
-               <div className="line-wrap">
-                  <a.h3 className="line" style={linesprings[i]} key={i}>
-                    {el}
-                  </a.h3>
-                  <a.h3 className="line line-break">/</a.h3>
-                  </div>
-               
-                );
-              })}
-              {/* <a.h3 >
+            {/* <a.h3 >
               UX Design / Graphic Design / Web + App Development / Branding /
                   </a.h3> */}
-            </a.div>
+          </div>
+          <div className="contact-cards">
+            {items.map((el, i) => {
+              return (
+                
+                  <div className="contact-card"    key={i}>
+                    <a
+                  href={el.link}
+               
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                    <img className="card-icon" src={el.icon} />
+                    <h4 className="card-title">{el.title}</h4>
+                    <p className="card-text">{el.text}</p>
+                    </a>
+                  </div>
+             
+              );
+            })}
+          </div>
 
-            <a.p className="main-text">
+          {/* <a.p className="main-text">
               Currently based in London, Aaron is a visual designer and
               developer focusesd on creating immersive product expereinces.
-            </a.p>
-          </section>
-        
-        </div>
-
+            </a.p> */}
+        </section>
+      </div>
     </InView>
-  }
-  
-  export default Contact;
+  );
+}
+
+export default Contact;

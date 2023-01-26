@@ -18,6 +18,7 @@ import Banner from "./components/banner";
 import Process from "./components/process";
 import Slider from "./components/slider";
 import Intro from "./components/intro";
+import Contact from "./components/contact";
 
 
 function About({setnavVisible}) {
@@ -129,7 +130,7 @@ b4img: b4img,
 {/* <Slider {...sliderprops}/> */}
 {/* <Banner {...bannerprops}/> */}
 <Process {...processprops}/>
-
+<Contact/>
          
         </a.div>
      

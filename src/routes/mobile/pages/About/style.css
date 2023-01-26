@@ -44,6 +44,9 @@
   transform: translate3d(0px, 0px, 0px);
   will-change: transform;
 }
+#about .page-c {
+  padding-bottom: 80px;
+}
 
 #navvisible{
   position: relative;

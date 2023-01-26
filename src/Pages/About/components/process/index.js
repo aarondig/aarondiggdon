@@ -91,14 +91,14 @@ function Process({
             {/* </div> */}
     
 
-          {/* <img className="banner-img" src={src} ref={banner} data-isVisible={isVisible}/> */}
+          {/* <img className="banner-img" src={src} ref={banner} data-isvisible={isVisible}/> */}
           {/* <Ornament ornament={process_svg} /> */}
         </div>
         <InView className="parallax-columns" onChange={setIsVisible}>
           <div
             className="parallax-column"
             ref={process_col_0}
-            data-isVisible={isVisible}
+            data-isvisible={isVisible}
           >
             <div className="parallax-column-card">
               <div className="card-img-c">
@@ -130,7 +130,7 @@ function Process({
           <div
             className="parallax-column"
             ref={process_col_1}
-            data-isVisible={isVisible}
+            data-isvisible={isVisible}
           >
             <div className="parallax-column-card">
               <div className="card-img-c">

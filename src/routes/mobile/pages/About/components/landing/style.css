@@ -39,7 +39,7 @@
   flex-direction: column;
   gap: 40px;
   margin-top: 0px;
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
   
 }
 .page-section .main-text {
@@ -107,6 +107,21 @@
   margin: 0;
   font-size:18px;
 
+}
+.landing .badge-wrap {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  gap: 10vw;
+  padding-top:12px;
+  padding-bottom:24px;
+}
+.landing .badge {
+  padding-left: 2px;
+  /* float:left;
+  transform: scale(.4); */
+ height: 24px;
 }
 
 }

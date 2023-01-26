@@ -103,7 +103,8 @@ const button =useSpring({opacity: buttonHover ? 1 : .6})
                     >
                       {el}
                     </a.h3>
-              
+                    
+                  <p className="line-number"> 0{i+1}</p>
                   {/* <a.h3 className="line line-break" 
                   // style={linebreaksprings[i]}
                   >
@@ -128,7 +129,7 @@ const button =useSpring({opacity: buttonHover ? 1 : .6})
               rel="noreferrer"
             >
               <p className="button-text">
-                Find Out More
+                Explore More
               </p>
               <svg width="72" height="30" viewBox="0 0 72 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="button-svg">
 <path d="M69.1161 15.0001L59.4226 24.6936L58.5333 23.8042L66.7085 15.629H3V14.3713L66.7086 14.3713L58.5333 6.19599L59.4226 5.30664L69.1161 15.0001Z" fill="white"/>

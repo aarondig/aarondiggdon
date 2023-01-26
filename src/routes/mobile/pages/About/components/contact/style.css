@@ -13,7 +13,7 @@
   justify-content: space-between;
   grid-template-columns: auto auto;
 
-  gap: 6%;
+  gap: 8%;
 }
 .contact-card {
   box-sizing: border-box;
@@ -32,16 +32,15 @@
 } */
 .contact-card .card-title {
   width: 100%;
-  margin: 26px 0;
+  margin: 12px 0;
 }
 .contact-card .card-text {
-  width: 80%;
   font-size: 12px;
 
 }
 .card-icon {
-  height: 60px;
-  max-width: 32%;
+  height: 32px;
+  /* max-width: 24%; */
   
 }
 a {

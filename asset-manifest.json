@@ -1,7 +1,12 @@
 {
   "files": {
-    "main.css": "/aarondiggdon/static/css/main.ce9153b4.css",
-    "main.js": "/aarondiggdon/static/js/main.db63c4a7.js",
+    "main.css": "/aarondiggdon/static/css/main.f76492f9.css",
+    "main.js": "/aarondiggdon/static/js/main.56369033.js",
+    "static/media/blue-background.jpg": "/aarondiggdon/static/media/blue-background.0bc5cee07a8e811ec226.jpg",
+    "static/media/Analyze.jpg": "/aarondiggdon/static/media/Analyze.4cc43205c0cb47d38af1.jpg",
+    "static/media/Repeat.jpg": "/aarondiggdon/static/media/Repeat.81d5f809cfeabd3746d2.jpg",
+    "static/media/Propose.jpg": "/aarondiggdon/static/media/Propose.1c1296b08b00d5261c1d.jpg",
+    "static/media/Consult.jpg": "/aarondiggdon/static/media/Consult.c22c22b0a9c60e94b38c.jpg",
     "static/media/Resume.pdf": "/aarondiggdon/static/media/Resume.820c80b8e62bcd68fdea.pdf",
     "static/media/CalibreBold.otf": "/aarondiggdon/static/media/CalibreBold.bba4dd93e0dc972eedb6.otf",
     "static/media/CalibreSemibold.otf": "/aarondiggdon/static/media/CalibreSemibold.508412ff4c6875e10aa1.otf",
@@ -43,11 +48,11 @@
     "static/media/basiercircle-regular-webfont.woff2": "/aarondiggdon/static/media/basiercircle-regular-webfont.75ed1573a0428232374b.woff2",
     "static/media/basiercircle-bold-webfont.woff2": "/aarondiggdon/static/media/basiercircle-bold-webfont.81100782b3e156f91107.woff2",
     "index.html": "/aarondiggdon/index.html",
-    "main.ce9153b4.css.map": "/aarondiggdon/static/css/main.ce9153b4.css.map",
-    "main.db63c4a7.js.map": "/aarondiggdon/static/js/main.db63c4a7.js.map"
+    "main.f76492f9.css.map": "/aarondiggdon/static/css/main.f76492f9.css.map",
+    "main.56369033.js.map": "/aarondiggdon/static/js/main.56369033.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce9153b4.css",
-    "static/js/main.db63c4a7.js"
+    "static/css/main.f76492f9.css",
+    "static/js/main.56369033.js"
   ]
 }

@@ -13,9 +13,9 @@
         box-sizing: border-box;
         /* overflow-y: scroll;
         overflow-x: hidden; */
-        height: auto;
-        width: auto;
-        overscroll-behavior: none;
+        height: unset;
+        width: unset;
+        /* overscroll-behavior: none; */
     }
     .wrapper::-webkit-scrollbar {
         display: none;

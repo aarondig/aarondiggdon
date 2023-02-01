@@ -63,6 +63,7 @@ function About() {
   const requestref = useRef();
   const scroller = useRef();
   const b4img = useRef();
+  
   // Sections
   const main = useRef();
   // Portal
@@ -100,16 +101,20 @@ function About() {
     }
   }, [startpage]);
 // force location reload NOT DONE
-  useEffect(() => {
-    if (startpage) {
-      setStartpage(false);
-      setTimeout(() => {
-        window.location.reload(true);
-      }, 200)
+  // useEffect(() => {
+  //   if (startpage) {
+  //     setStartpage(false);
+  //     setTimeout(() => {
+  //       window.location.reload(true);
+  //     }, 200)
       
-    }
+  //   }
    
-  }, [size.height]);
+  // }, [size.height]);
+
+
+
+ 
 
   
   
@@ -179,7 +184,7 @@ function About() {
         //  MOVING PARTS
         //  Page Scroller
         scroller.current.style.transform = `translate3d(0, -${rounded}px, 0)`;
-        // Window
+        // Portal
         if (portalclip.current !== undefined) {
           // Clip Path
           let inset = range(

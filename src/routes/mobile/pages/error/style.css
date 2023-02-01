@@ -1,0 +1,11 @@
+@media only screen and (max-width: 768px) {
+  #error {
+    display: flex;
+    flex-direction: column;
+
+  }
+#error .line{
+  margin-bottom: 2vw;
+}
+
+}

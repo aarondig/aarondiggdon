@@ -23,14 +23,10 @@ import Contact from "./components/contact";
 
 function About({setnavVisible}) {
 
-  const [startintro, setStartintro] = useState(false);
-  const [startpage, setStartpage] = useState(true);
+  const [startintro, setStartintro] = useState(true);
+  const [startpage, setStartpage] = useState(false);
 
-  const [startscroll, setStartscroll] = useState(false);
 
- 
-
-  const size = useWindowSize();
 
   //INERTIA SCROLL
   const requestref = useRef();
@@ -57,10 +53,6 @@ function About({setnavVisible}) {
 
   const process_svg = useRef();
 
-
-  useEffect(()=>{
-setStartpage(true)
-  },[])
 
   
 
@@ -119,7 +111,7 @@ b4img: b4img,
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {/* <Intro {...introprops}/> */}
+      <Intro {...introprops}/>
 
       <InView id="navvisible" threshold={0} onChange={setnavVisible}/>
         <a.div className="page-c" style={page}>

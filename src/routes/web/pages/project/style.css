@@ -1,0 +1,43 @@
+@media only screen and (min-width: 768px) {
+
+#project {
+  /* min-height: 100vh; */
+  background: #fff;
+  box-sizing: content-box;
+  width: 100%;
+}
+
+#project .line {
+  font-size: 6vw;
+  color: #050505;
+  margin-bottom: 40px;
+}
+
+#project .main-subtitle {
+  
+  color: #8D8F9A;
+
+}
+#project .main-text {
+  color: #8D8F9A;
+  font-size: 1.6vw;
+  align-self: baseline;
+}
+#project .line {
+  font-size: 4vw;
+  color: #050505;
+  margin-bottom: 20px;
+}
+#project .main-subtitle {
+  color: #8D8F9A;
+  font-size: 2.4vw;
+  margin: 0;
+}
+#project .main-text {
+  color: #8D8F9A;
+}
+
+
+
+
+}

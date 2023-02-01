@@ -1,0 +1,151 @@
+#mobile-carousel {
+
+
+}
+
+.slider-container {
+height: 100%;
+
+  
+  
+  /* background-color: red; */
+
+overflow: hidden;
+/* margin: 40px; */
+display: flex;
+flex-direction: column;
+touch-action: pan-x;
+
+}
+
+
+
+.slider-card {
+  height: 160px;
+  box-sizing: border-box;
+  padding: 0 2%;
+}
+
+.slider-img {
+  box-sizing: border-box;
+  height: 130%;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ overflow: hidden;
+
+ border-radius: 4px;
+}
+.slider-img img {
+  /* position: absolute; */
+  width: 100%;
+  object-fit: cover;
+ 
+}
+
+
+
+.body-container {
+box-sizing: border-box;
+/* padding: 0 4%; */
+}
+
+.slider-title-container {
+  display: flex;
+  flex-direction: row;
+}
+.slider-title {
+  font-size: 48px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 10px;
+}
+.slider-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #707070;
+  line-height: 24px;
+ 
+
+}
+.slick-dots {
+  box-sizing: border-box;
+padding: 0 6%;
+width: auto;
+bottom: -50px;
+
+
+}
+
+.slick-dots ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+list-style: none;
+}
+.slick-dots li button:before{
+  font-size: 0px;
+  opacity: 0;
+}
+.slick-dots li {
+  min-width: 32px;
+  height: 2px;
+  background: #404040;
+  /* display: flex;
+ flex-direction: column;
+ justify-content: center; */
+
+}
+.slick-dots li.slick-active {
+  min-width: 32px;
+  height: 2px;
+  background: #fff;
+  /* display: flex;
+ flex-direction: column;
+ justify-content: center; */
+
+}
+.slick-dots li button {
+  width: 100%;
+  display: inline-block;
+  border: none;
+  height: 1px;
+  position: absolute;
+  left: 0px;
+  border: none;
+  background: transparent;
+  font-size: 0px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+
+
+/* TRANSITION ANIMATIONS */
+
+
+/* Entire Slide */
+
+/* .slick-slide {
+  filter: grayscale(100%);
+  opacity: .2;
+  transition: opacity .4s, filter .8s ease-in-out;
+}
+
+.slick-current {
+  filter: none;
+  opacity: 1;
+} */
+
+/* Body Container */
+/* .slick-slide .slider-card .body-container {
+  opacity: 0;
+  transition: opacity .8s ease-in;
+}
+.slick-current .slider-card .body-container{
+  filter: none;
+  opacity: 1;
+} */

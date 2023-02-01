@@ -50,7 +50,7 @@
   height: 80px;
 }
 
-#about .page-section {
+.page-section {
   position: relative;
   box-sizing: content-box;
   padding: 80px 10vw 60px;

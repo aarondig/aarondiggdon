@@ -1,0 +1,40 @@
+@media only screen and (max-width: 768px) {
+
+#project .banner {
+position: relative;
+}
+#project .page-section.banner {
+
+  box-sizing: content-box;
+  height:80vh;
+  padding: 0;
+  margin-bottom: 0;
+  background: #050505;
+}
+#project .banner-img-clip {
+  width: 100vw;
+  height: 80vh;
+  /* -webkit-clip-path: inset(0px 7vw);
+  clip-path: inset(0px 7vw); */
+  overflow: hidden;
+  will-change: clip-path, -webkit-clip-path;
+}
+#project .banner-img-c {
+  position: relative;
+  height: 100%;
+
+  object-fit: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+#project .banner-img {
+  position: absolute;
+  height:100%;
+  object-position: 50% 50%;
+  /* aspect-ratio: auto 1432 / 588; */
+  transform: translate3d(0px, 0px, 0px);
+  will-change: transform;
+}
+}

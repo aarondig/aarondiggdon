@@ -12,11 +12,11 @@ import "./style.css";
 
 function Landing({startpage, b4img, svgprops}) {
   const lines = [
-    // "I create",
+    "I Create",
     // "unforgettable",
     // "—winning Websites",
-    "Elevated",
-    "Visual Experiences",
+    "Elevated Visual",
+    " — Experiences",
 
 
   ];
@@ -59,7 +59,7 @@ function Landing({startpage, b4img, svgprops}) {
 
   return (<section className="landing page-section" ref={b4img}>
   <div className="main-c">
-  {/* <a.h6 className="main-subtitle" style={reveal}>/ About Aaron</a.h6> */}
+  <a.h6 className="main-subtitle" style={reveal}>/ About</a.h6>
   <a.div className="main-title">
     {lines.map((el, i) => {
       return (

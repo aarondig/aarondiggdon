@@ -2,11 +2,11 @@ import { useState, useEffect, useRef, createRef } from "react";
 import "./App.css";
 import Wrapper from "../../components/Wrapper/index";
 
-import Module from "../../components/Module/index";
-import Projects from "../../Pages/Projects/index";
-import ProjectLoader from "../../Pages/Project/index";
+// import Module from "../../components/Module/index";
+// import Projects from "../../Pages/Projects/index";
+// import ProjectLoader from "../../Pages/Project/index";
 import useWindowSize from "../../hooks/windowSize";
-import { data } from "../../data/data";
+import { data } from "../../data";
 import {
   Routes,
   Route,
@@ -17,6 +17,9 @@ import Navigation from "../../components/Navigation";
 import { AnimatePresence } from "framer-motion";
 import About from "../../Pages/About";
 import Loader from "../../Pages/Loader";
+import Error from "./pages/error";
+import Projects from "../web/pages/projects/index";
+import Project from "../web/pages/project/index";
 
 function App() {
 
@@ -100,41 +103,41 @@ function App() {
 },[location]);
 
   //Props Passed to Pages
-  const projectsProps = {
-    size: size,
+  // const projectsProps = {
+  //   size: size,
 
-    isCurrent: isCurrent,
-    setIsCurrent: setIsCurrent,
+  //   isCurrent: isCurrent,
+  //   setIsCurrent: setIsCurrent,
 
-    handleClick: handleClick,
+  //   handleClick: handleClick,
 
-    basename: basename,
+  //   basename: basename,
 
-    isPopup: isPopup,
-    setIsPopup: setIsPopup,
+  //   isPopup: isPopup,
+  //   setIsPopup: setIsPopup,
 
-    loading: loading,
-    setLoading: setLoading,
+  //   loading: loading,
+  //   setLoading: setLoading,
 
-    refs: refs,
-    setRefs: setRefs,
-    meshes: meshes,
-    setMeshes: setMeshes,
-    scaleRef: scaleRef,
-    setScale: setScale,
-    group: group,
-  };
+  //   refs: refs,
+  //   setRefs: setRefs,
+  //   meshes: meshes,
+  //   setMeshes: setMeshes,
+  //   scaleRef: scaleRef,
+  //   setScale: setScale,
+  //   group: group,
+  // };
 
-  const projectProps = {
-    id: data[isCurrent].id,
-    isCurrent: isCurrent,
-    isPopup: isPopup,
+  // const projectProps = {
+  //   id: data[isCurrent].id,
+  //   isCurrent: isCurrent,
+  //   isPopup: isPopup,
 
-    basename: basename,
+  //   basename: basename,
 
-    loading: loading,
-    setLoading: setLoading,
-  };
+  //   loading: loading,
+  //   setLoading: setLoading,
+  // };
 
   const moduleProps = {
     
@@ -152,6 +155,12 @@ function App() {
     handleClick: handleClick,
   };
 
+  const projectprops = {
+    basename: basename,
+
+  };
+
+
   const navProps = {
     basename: basename,
     location: location,
@@ -168,8 +177,18 @@ function App() {
           {/* Maybe Loader route shouldn't be a nester? */}
 
             <Route path={`/`}/>
-            <Route path={`${basename}`} element={<Loader basename={basename} />} />
-            <Route
+            
+            <Route path={`${basename}`} element={<About />} />
+            <Route path={`${basename}/about`} element={<About />} />
+            <Route path={`${basename}/projects`} element={<Projects />} />
+            
+            {data.map((el, i)=>{
+            return (<Route path={`${basename}/projects/${el.id}`} element={<Project el={el} current={i} {...projectprops}/>} key={i}/>)
+        })}
+        
+          <Route path="*" element={<Error />} />
+          {/* <Route path={`${basename}`} element={<Loader basename={basename} />} /> */}
+            {/* <Route
               path={`${basename}/projects`}
               element={<Projects {...projectsProps} />}
             >
@@ -177,12 +196,11 @@ function App() {
                 path={`:id`}
                 element={<ProjectLoader {...projectProps} />}
               />
-            </Route>
-            <Route path={`${basename}/about`} element={<About />} />
+            </Route> */}
           
         </Routes>
       </AnimatePresence>
-      <Module {...moduleProps} />
+      {/* <Module {...moduleProps} /> */}
     </Wrapper>
   );
 }

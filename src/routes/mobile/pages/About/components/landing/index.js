@@ -26,38 +26,38 @@ function Landing({startpage, b4img, svgprops}) {
 
   const reveal = useSpring({ opacity: startpage ? 1 : 0 ,
   delay: 770});
-  // const linesprings = useSprings(
-  //   lines.length,
-  //   lines.map((el, i) =>
-  //     startpage
-  //       ? {
-  //           from: {
-  //             opacity: 0,
-  //             transform: `translateY(+20px)`,
-  //           },
-  //           to: {
-  //             opacity: 1,
-  //             transform: `translateY(0)`,
-  //           },
+  const linesprings = useSprings(
+    lines.length,
+    lines.map((el, i) =>
+      startpage
+        ? {
+            from: {
+              opacity: 0,
+              transform: `translateY(+20px)`,
+            },
+            to: {
+              opacity: 1,
+              transform: `translateY(0)`,
+            },
 
-  //           delay: 220 * i,
-  //           // config: { mass: 1, tension: 120, friction: 40 },
-  //         }
-  //       : {
-  //           from: {
-  //             transform: `translateY(0)`,
-  //             opacity: 1,
-  //           },
-  //           to: {
-  //             transform: `translateY(0)`,
-  //             opacity: 0,
-  //           },
+            delay: 220 * i,
+            // config: { mass: 1, tension: 120, friction: 40 },
+          }
+        : {
+            from: {
+              transform: `translateY(0)`,
+              opacity: 1,
+            },
+            to: {
+              transform: `translateY(0)`,
+              opacity: 0,
+            },
 
-  //           delay: 220 * i,
-  //           // config: { mass: 3, tension: 280, friction: 60 },
-  //         }
-  //   )
-  // );
+            delay: 220 * i,
+            // config: { mass: 3, tension: 280, friction: 60 },
+          }
+    )
+  );
 
 
   return (<section className="landing page-section" ref={b4img}>
@@ -66,16 +66,16 @@ function Landing({startpage, b4img, svgprops}) {
   <a.div className="main-title">
     {lines.map((el, i) => {
       return (
-        // <a.h2 className="line" style={linesprings[i]} key={i}>
-        //   {el}
-        // </a.h2>
-        <a.h2 className="line" key={i}>
-           {el}
-         </a.h2>
+        <a.h2 className="line reveal" style={linesprings[i]} key={i}>
+          {el}
+        </a.h2>
+        // <a.h2 className="line" key={i}>
+        //    {el}
+        //  </a.h2>
       );
     })}
   </a.div>
-  <a.div className="row" style={reveal}>
+  <a.div className="row reveal" style={reveal}>
   {/* <Ornament {...svgprops} /> */}
     <a.p className="main-text" >
       Currently based in London, Aaron is a visual designer and

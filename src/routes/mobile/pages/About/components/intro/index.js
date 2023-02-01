@@ -10,7 +10,8 @@ import { InView } from "react-intersection-observer";
 
 import "./style.css";
 
-function Intro({startintro,setStartintro, startpage, setStartpage}) {
+function Intro({startintro, setStartintro, startpage, setStartpage}) {
+
 
   const intro = useSpring({ 
     opacity: startpage ? 0 : 1,
@@ -56,6 +57,7 @@ function Intro({startintro,setStartintro, startpage, setStartpage}) {
           }
     )
   );
+
 
     return (<a.div className="intro-c" style={intro}>
     <div className="intro-text">

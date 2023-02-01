@@ -49,13 +49,13 @@ console.log(navvisible)
 
   return (
     <div id="navigation">
-        <div id="navigation">
+        
 
 
 <div className="nav-wrap">
-<a.div id="logo" style={logoscroll}>
+{/* <a.div id="logo" style={logoscroll}>
       aarondig
-    </a.div>
+    </a.div> */}
     <a.div className="menu-btn">
           <svg width="42" height="26" viewBox="0 0 42 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 9H34" stroke="white" strokeLinecap="square" strokeLinejoin="round"/>
@@ -65,7 +65,7 @@ console.log(navvisible)
 
 </div>
 
-</div>
+
       {/* <div className="navWrap">
         <div className="leftNav">
           <a.div id="logo" style={logo}>

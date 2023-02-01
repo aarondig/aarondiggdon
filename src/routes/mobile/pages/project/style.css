@@ -1,5 +1,25 @@
 @media only screen and (max-width: 768px) {
-#project-mobile {
+
+#project {
+  /* min-height: 100vh; */
+  background: #fff;
+  box-sizing: content-box;
+}
+#project .line {
+  font-size: 32px;
+  color: #050505;
+  margin-bottom: 20px;
+}
+#project .main-subtitle {
+  color: #8D8F9A;
+}
+#project .main-text {
+  color: #8D8F9A;
+}
+
+
+/* OLDER VERSION */
+  #project-mobile {
   position: fixed;
   width: 100%;
   height: 100%;

@@ -13,7 +13,7 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
  
   const hamburger = {
     size: 18,
-    color: active ? "#050505" : "white",
+    color: active ? "#050505" : (location.pathname === `/${basename}/about` ? "white" : "#050505"),
     distance: "sm",
     duration: 0.4,
     // height: "1px",
@@ -35,11 +35,6 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
     }
   }, [location]);
 
-
-  // const logo = useSpring({
-  //   // opacity: location.pathname !== `/${basename}/` ? 0 : 1,
-  //   opacity: isMatch ? 0 : (navvisible ? 1 : 0),
-  // });
 
 
 
@@ -70,8 +65,10 @@ const url = location.pathname.split("/");
     toggleActive(false)
   }
 
-  const logoscroll = useSpring({opacity: navvisible ? 1 : (active ? 1 : 0),
-    color: active ? "#050505" : "#fff",
+  const logoscroll = useSpring({
+    // opacity: navvisible ? 1 : (active ? 1 : 0),
+    opacity: active ? 1 : 1,
+    color: active ? "#050505" : (location.pathname === `/${basename}/about` ? "white" : "#050505"),
 //     config: 
     
 // { tension: 100,  

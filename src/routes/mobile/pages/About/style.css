@@ -50,15 +50,7 @@
   height: 80px;
 }
 
-.page-section {
-  position: relative;
-  box-sizing: content-box;
-  padding: 80px 10vw 60px;
-  -webkit-font-smoothing: antialiased;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
+
 
 
 

@@ -13,7 +13,8 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import Navigation from "../../components/Navigation";
+// import Navigation from "../../components/Navigation";
+import Navigation from "./g-components/navigation/index";
 import { AnimatePresence } from "framer-motion";
 import About from "../../Pages/About";
 import Loader from "../../Pages/Loader";
@@ -179,6 +180,7 @@ function App() {
             <Route path={`/`}/>
             
             <Route path={`${basename}`} element={<About />} />
+            <Route path={`${basename}/home`} element={<About />} />
             <Route path={`${basename}/about`} element={<About />} />
             <Route path={`${basename}/projects`} element={<Projects />} />
             

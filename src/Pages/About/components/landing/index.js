@@ -64,7 +64,7 @@ function Landing({startpage, b4img, svgprops}) {
   <a.div className="main-title">
     {lines.map((el, i) => {
       return (
-        <a.h2 className="line" style={linesprings[i]} key={i}>
+        <a.h2 className="landing line" style={linesprings[i]} key={i}>
           {el}
         </a.h2>
       );

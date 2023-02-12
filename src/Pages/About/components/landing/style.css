@@ -17,9 +17,10 @@
 font-weight: 200;
 }
 .landing#logo {
-  font-size: 6vw;
+  font-size: 4vw;
   margin: 0;
-  margin-bottom: 6vh;
+  margin-bottom: 8vh;
+  padding-top: 4vh;
 
 }
 

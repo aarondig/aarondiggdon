@@ -169,6 +169,7 @@ function App() {
     setIsPopup: setIsPopup,
   };
 
+  console.log(location)
   return (
     <Wrapper>
       <Navigation {...navProps} />

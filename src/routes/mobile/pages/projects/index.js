@@ -8,6 +8,8 @@ import "./style.css";
 function Projects({ basename, isPopup, setIsPopup, setnavVisible }) {
   const navigate = useNavigate();
 
+  let linestroke = "#050505"
+let circlestroke = "#e1e1e1"
   return (
     <div id="projects">
       
@@ -22,7 +24,30 @@ function Projects({ basename, isPopup, setIsPopup, setnavVisible }) {
             ac dui mi aliquam condimentum.
           </p> */}
         </div>
-       
+        <div className="arrow" style={{borderColor: circlestroke}}>
+              <svg
+                width="67"
+                height="66"
+                viewBox="0 0 67 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34 21V45"
+                  stroke={linestroke}
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M43 36L34 45L25 36"
+                  stroke={linestroke}
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
       </section>
       <InView id="navvisible" threshold={0} onChange={setnavVisible}/>
        {/* <div className="spacer" /> */}

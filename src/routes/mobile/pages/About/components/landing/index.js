@@ -57,9 +57,9 @@ function Landing({ startpage, b4img, svgprops }) {
   return (
     <section className="landing page-section" ref={b4img}>
       <div className="main-c">
-        <a.h6 className="main-subtitle" style={reveal}>
-          / About
-        </a.h6>
+        {/* <a.h6 className="main-subtitle" id="logo" style={reveal}>
+          aaro
+        </a.h6> */}
         <a.div className="main-title">
           {lines.map((el, i) => {
             return (

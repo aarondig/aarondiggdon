@@ -9,7 +9,7 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
   const navigate = useNavigate();
 
   const [active, toggleActive] = useState(false);
-  const [menucolor, setMenuColor] = useState("#050505")
+  const [menucolor, setMenuColor] = useState("#fff")
 
   const hamburger = {
     size: 18,
@@ -23,7 +23,7 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
     if (active) {
       setMenuColor("#050505");
     } if (!active) {
-      if (location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/${basename}/home`) {
+      if (location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/` || location.pathname === `/${basename}/home`) {
         setMenuColor("#fff");
       } else {
         setMenuColor("#050505");
@@ -45,38 +45,38 @@ useEffect(()=> {
 
 
 
-  //Checking Location Match
-  const [isMatch, setIsMatch] = useState(false);
-  const match = useMatch(`/${basename}/projects/:id`, {
-    path: location.pathname,
-    exact: true,
-    strict: true,
-  });
-
-  useEffect(() => {
-    if (match !== null) {
-      setIsMatch(true);
-    } else if (match === null) {
-      setIsMatch(false);
-    }
-  }, [location]);
-
-  // const logo = useSpring({
-  //   // opacity: location.pathname !== `/${basename}/` ? 0 : 1,
-  //   opacity: isMatch ? 0 : (navvisible ? 1 : 0),
+  // //Checking Location Match
+  // const [isMatch, setIsMatch] = useState(false);
+  // const match = useMatch(`/${basename}/projects/:id`, {
+  //   path: location.pathname,
+  //   exact: true,
+  //   strict: true,
   // });
 
-  const backBtn = useSpring({
-    // opacity: location.pathname !== `/${basename}/` ? 1 : 0,
-    opacity: location.pathname === `/${basename}/about` ? 1 : isMatch ? 1 : 0,
-    color: location.pathname === `/${basename}/about` ? "#252525" : "white",
-  });
+  // useEffect(() => {
+  //   if (match !== null) {
+  //     setIsMatch(true);
+  //   } else if (match === null) {
+  //     setIsMatch(false);
+  //   }
+  // }, [location]);
 
-  const Back = () => {
-    setIsPopup(false);
-    navigate(-1, { replace: true });
-    // navigate(`${basename}/projects/`, { replace: true });
-  };
+  // // const logo = useSpring({
+  // //   // opacity: location.pathname !== `/${basename}/` ? 0 : 1,
+  // //   opacity: isMatch ? 0 : (navvisible ? 1 : 0),
+  // // });
+
+  // const backBtn = useSpring({
+  //   // opacity: location.pathname !== `/${basename}/` ? 1 : 0,
+  //   opacity: location.pathname === `/${basename}/about` ? 1 : isMatch ? 1 : 0,
+  //   color: location.pathname === `/${basename}/about` ? "#252525" : "white",
+  // });
+
+  // const Back = () => {
+  //   setIsPopup(false);
+  //   navigate(-1, { replace: true });
+  //   // navigate(`${basename}/projects/`, { replace: true });
+  // };
 
   // NEW
 
@@ -95,7 +95,7 @@ useEffect(()=> {
 
   const logoscroll = useSpring({
     opacity: navvisible ? 1 : active ? 1 : 0,
-    color: active ? "#050505" : ((location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/`) ? "white" : (location.pathname === `/${basename}/home` ? "white" : "#050505")),
+    color: active ? "#050505" : ((location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/` || location.pathname === `/${basename}/home`) ? "white" : "#050505"),
     //     config:
 
     // { tension: 100,
@@ -170,7 +170,7 @@ useEffect(()=> {
     <div id="navigation">
       <div className="nav-wrap">
         <a.div id="logo" style={logoscroll}>
-        araro
+        aaro
         </a.div>
         <Hamburger toggled={active} toggle={toggleActive} {...hamburger} />
       </div>

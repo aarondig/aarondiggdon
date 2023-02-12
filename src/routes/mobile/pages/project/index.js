@@ -31,14 +31,30 @@ let circlestroke = "#e1e1e1"
             <h2 className="line">{el.title}</h2>
             {/* <p className="main-text">Lorem ipsum dolor sit amet consectetur. Sit sed ultricies nisl vitae ac dui mi aliquam condimentum.</p> */}
         </div>
-        <div className="downbtn">
-        <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M34 21V45" stroke={linestroke} stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M43 36L34 45L25 36" stroke={linestroke} stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="0.6" y="0.6" width="64.8" height="64.8" rx="32.4" transform="matrix(0 1 1 0 0.5 0)" stroke={circlestroke} stroke-width="1.2"/>
-</svg>
-
-</div>
+        <div className="arrow" style={{borderColor: circlestroke}}>
+              <svg
+                width="67"
+                height="66"
+                viewBox="0 0 67 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34 21V45"
+                  stroke={linestroke}
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M43 36L34 45L25 36"
+                  stroke={linestroke}
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
         </section>
        
         <Portal el={el}/>

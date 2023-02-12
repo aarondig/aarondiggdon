@@ -89,11 +89,11 @@ function Projects({ basename, isPopup, setIsPopup }) {
         <section className="page-section">
           <div className="main-title">
             <h2 className="line">Projects</h2>
-            <h6 className="main-subtitle">UX | UI Design</h6>
+            {/* <h6 className="main-subtitle">UX | UI Design</h6>
             <p className="main-text">
               Lorem ipsum dolor sit amet consectetur. Sit sed ultricies nisl
               vitae ac dui mi aliquam condimentum.
-            </p>
+            </p> */}
           </div>
         </section>
         <section className="project-list">

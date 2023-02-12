@@ -23,10 +23,10 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
   if (active) {
     setMenuColor("#050505");
   } if (!active) {
-    if (location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/${basename}/home`) {
-      setMenuColor("#fff");
-    } else {
+    if (location.pathname === `/${basename}/projects/*` || location.pathname === `/${basename}/projects`) {
       setMenuColor("#050505");
+    } else {
+      setMenuColor("#ffffff");
     }
   }
 },[active])
@@ -237,7 +237,7 @@ if (location.pathname === `/${basename}/projects` || location.pathname === `/${b
     <div id="navigation">
       <div className="nav-wrap">
         <a.div id="logo" style={logoscroll}>
-          araro
+          aaro
         </a.div>
         <Hamburger toggled={active} toggle={toggleActive} {...hamburger} />
       </div>

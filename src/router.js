@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, createRef, Suspense } from "react";
 import Web from "./routes/web/App";
 import Mobile from "./routes/mobile/App";
-import {HashRouter as Routes} from "react-router-dom"
+import {BrowserRouter as Routes} from "react-router-dom"
 
 function Router() {
   const [width, setWidth] = useState(window.innerWidth);

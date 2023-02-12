@@ -232,7 +232,6 @@ if (location.pathname === `/${basename}/projects` || location.pathname === `/${b
           }
     )
   );
-  console.log(hover);
   return (
     <div id="navigation">
       <div className="nav-wrap">

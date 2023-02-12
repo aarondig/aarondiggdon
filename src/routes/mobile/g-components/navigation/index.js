@@ -4,12 +4,13 @@ import { a, useSpring, easings, useSprings } from "react-spring";
 import { Link, useNavigate, useMatch } from "react-router-dom";
 import { Squeeze as Hamburger } from "hamburger-react";
 import { data } from "../../../../data";
+import useWindowSize from "../../../../hooks/windowSize";
 
 function Navigation({ location, basename, setIsPopup, navvisible }) {
   const navigate = useNavigate();
 
   const [active, toggleActive] = useState(false);
-  const [menucolor, setMenuColor] = useState("#fff")
+  const [menucolor, setMenuColor] = useState("#fff");
 
   const hamburger = {
     size: 18,
@@ -19,31 +20,37 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
     // height: "1px",
   };
   // Hamburger menu colors
-  useEffect(()=>{
+  useEffect(() => {
     if (active) {
       setMenuColor("#050505");
-    } if (!active) {
-      if (location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/` || location.pathname === `/${basename}/home`) {
+    }
+    if (!active) {
+      if (
+        location.pathname === `/${basename}/about` ||
+        location.pathname === `/${basename}` ||
+        location.pathname === `/${basename}/` ||
+        location.pathname === `/` ||
+        location.pathname === `/${basename}/home`
+      ) {
         setMenuColor("#fff");
       } else {
         setMenuColor("#050505");
       }
     }
-  },[active])
+  }, [active]);
 
-useEffect(()=> {
-  if (location.pathname === `/${basename}/projects` || location.pathname === `/${basename}/*`) {
-    if (!navvisible){
-      setMenuColor("#fff");
-    } else if (navvisible) {
-      setMenuColor("#050505")
+  useEffect(() => {
+    if (
+      location.pathname === `/${basename}/projects` ||
+      location.pathname === `/${basename}/*`
+    ) {
+      if (!navvisible) {
+        setMenuColor("#fff");
+      } else if (navvisible) {
+        setMenuColor("#050505");
+      }
     }
-  }
-},[navvisible])
-
-
-
-
+  }, [navvisible]);
 
   // //Checking Location Match
   // const [isMatch, setIsMatch] = useState(false);
@@ -88,27 +95,33 @@ useEffect(()=> {
     //   navigate(`${basename}/projects/${e.target.dataset.id}`, { replace: true })
     //  }
     navigate(`${basename}/${e.target.dataset.id}`, { replace: true });
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     toggleActive(false);
-  
   };
 
   const logoscroll = useSpring({
     opacity: navvisible ? 1 : active ? 1 : 0,
-    color: active ? "#050505" : ((location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/` || location.pathname === `/${basename}/home`) ? "white" : "#050505"),
+    color: active
+      ? "#050505"
+      : location.pathname === `/${basename}/about` ||
+        location.pathname === `/${basename}` ||
+        location.pathname === `/${basename}/` ||
+        location.pathname === `/` ||
+        location.pathname === `/${basename}/home`
+      ? "white"
+      : "#050505",
     //     config:
 
     // { tension: 100,
     //       easing: easings.easeInOutCubic(),
     //     },
   });
+  const size = useWindowSize();
+
   const wrapper = useSpring({
-    transform: active ? "translateY(0vh)" : "translateY(-100vh)",
+    transform: active ? "translateY(0vh)" :`translateY(-${100}vh)`,
     background: active ? "#fff" : "#050505",
-    //     config:
-    // { tension: 100,
-    //       easing: easings.easeOutCubic(),
-    //     },
+    config: { tension: 100, easing: easings.easeInOutCubic() },
   });
 
   let pages = [
@@ -133,6 +146,7 @@ useEffect(()=> {
 
             delay: 180 * (pages.length - 1 - i) + 200,
             // config: { tension: 100, easing: easings.easeOutCubic() },
+
             onRest: () => setFooter(true),
           }
         : {
@@ -144,12 +158,6 @@ useEffect(()=> {
               transform: `translateY(-60px)`,
               opacity: 0,
             },
-
-            // delay: (180 * i),
-            // delay: (80 * ((pages.length - 1) - i)),
-            // config: { tension: 100,
-            //   easing: easings.easeOutCubic(),
-            // },
           }
     )
   );
@@ -160,34 +168,25 @@ useEffect(()=> {
     }
   }, [active]);
   const parallaxclose = useSpring({
-    transform: active ? `translateY(0vh)` : `translateY(80vh)`,
+    transform: active ? `translateY(0vh)` : `translateY(100vh)`,
+    height: `${size.height}px`,
+    config: { tension: 100, easing: easings.easeInOutCubic() },
   });
   const footerspring = useSpring({
     opacity: active ? 1 : 0,
-    delay:  active ? (pages.length * 180 + 200) : 0,
+    delay: active ? pages.length * 180 + 200 : 0,
   });
   return (
     <div id="navigation">
       <div className="nav-wrap">
         <a.div id="logo" style={logoscroll}>
-        aaro
+          aaro
         </a.div>
         <Hamburger toggled={active} toggle={toggleActive} {...hamburger} />
       </div>
       <a.div className="nav-active" style={wrapper}>
         <a.div className="nav-inner-wrap" style={parallaxclose}>
-          {/* <div className="nav-section">
-        <p className="nav-subtitle">
-          Home
-          </p>
-          <div className="nav-link" onClick={(e)=> handleNavigate(e)}>
-            <h6 className="nav-link-title md" data-id={"about"}>About</h6>
-          </div>
-        </div> */}
           <div className="nav-section">
-            {/* <p className="nav-subtitle">
-          Projects
-          </p> */}
             {pages.map((el, i) => {
               return (
                 <a.div
@@ -207,14 +206,10 @@ useEffect(()=> {
               );
             })}
 
-            {/* {data.map((el, i)=>{
-            return (<div className="nav-link" key={i} onClick={(e)=> handleNavigate(e)}>
-            <h6 data-id={el.id} data-key={i} className="nav-link-title lg" >{el.id}</h6>
-          </div>)
-          })} */}
+
           </div>
           <a.div className="nav-footer" style={footerspring}>
-            <h6 className="nav-link-title sm">aarondiggdon@gmail.com</h6>
+            <h6 className="nav-link-title md">aarondiggdon@gmail.com</h6>
           </a.div>
         </a.div>
       </a.div>

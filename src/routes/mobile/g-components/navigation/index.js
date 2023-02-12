@@ -22,18 +22,16 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
   useEffect(()=>{
     if (active) {
       setMenuColor("#050505");
-      
+    } if (!active) {
+      if (location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/${basename}/home`) {
+        setMenuColor("#fff");
+      } else {
+        setMenuColor("#050505");
+      }
     }
   },[active])
-useEffect(()=>{
-  if (location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/home`) {
-    setMenuColor("#fff");
-  } else {
-    setMenuColor("#050505");
-  }
-  
-},[location.pathname])
-useEffect(()=>{
+
+useEffect(()=> {
   if (location.pathname === `/${basename}/projects` || location.pathname === `/${basename}/*`) {
     if (!navvisible){
       setMenuColor("#fff");
@@ -97,7 +95,7 @@ useEffect(()=>{
 
   const logoscroll = useSpring({
     opacity: navvisible ? 1 : active ? 1 : 0,
-    color: active ? "#050505" : ((location.pathname === `/${basename}/about` || location.pathname === `/${basename}`) ? "white" : (location.pathname === `/${basename}/home` ? "white" : "#050505")),
+    color: active ? "#050505" : ((location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/`) ? "white" : (location.pathname === `/${basename}/home` ? "white" : "#050505")),
     //     config:
 
     // { tension: 100,
@@ -172,7 +170,7 @@ useEffect(()=>{
     <div id="navigation">
       <div className="nav-wrap">
         <a.div id="logo" style={logoscroll}>
-          aaro
+        araro
         </a.div>
         <Hamburger toggled={active} toggle={toggleActive} {...hamburger} />
       </div>

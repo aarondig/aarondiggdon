@@ -99,9 +99,7 @@ padding-bottom: 6px;
   text-decoration: none;
 }
 .hamburger-react {
- transform: scale(.8);
  will-change: transform, background;
-  
 }
 .hamburger-react div {
   

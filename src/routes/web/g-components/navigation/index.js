@@ -9,20 +9,37 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
   const navigate = useNavigate();
 
   const [active, toggleActive] = useState(false);
+  const [menucolor, setMenuColor] = useState("#050505")
 
   const hamburger = {
     size: 18,
-    color: active
-      ? "#050505"
-      : location.pathname === `/${basename}/about`
-      ? "white"
-      : location.pathname === `/${basename}/home`
-      ? "white"
-      : "#050505",
+    color: menucolor,
     distance: "sm",
     duration: 0.4,
     // height: "1px",
   };
+ // Hamburger menu colors
+ useEffect(()=>{
+  if (active) {
+    setMenuColor("#050505");
+  } if (!active) {
+    if (location.pathname === `/${basename}/about` || location.pathname === `/${basename}` || location.pathname === `/${basename}/` || location.pathname === `/${basename}/home`) {
+      setMenuColor("#fff");
+    } else {
+      setMenuColor("#050505");
+    }
+  }
+},[active])
+
+useEffect(()=> {
+if (location.pathname === `/${basename}/projects` || location.pathname === `/${basename}/*`) {
+  if (!navvisible){
+    setMenuColor("#fff");
+  } else if (navvisible) {
+    setMenuColor("#050505")
+  }
+}
+},[navvisible])
 
   // //Checking Location Match
   // const [isMatch, setIsMatch] = useState(false);

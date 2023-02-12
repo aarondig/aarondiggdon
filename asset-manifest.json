@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aarondiggdon/static/css/main.219a16a1.css",
-    "main.js": "/aarondiggdon/static/js/main.fe229776.js",
+    "main.css": "/aarondiggdon/static/css/main.ece1e5b3.css",
+    "main.js": "/aarondiggdon/static/js/main.6f96e29d.js",
     "static/media/blue-background.jpg": "/aarondiggdon/static/media/blue-background.0bc5cee07a8e811ec226.jpg",
     "static/media/credit-card.jpg": "/aarondiggdon/static/media/credit-card.069eee847345350fcc8d.jpg",
     "static/media/Analyze.jpg": "/aarondiggdon/static/media/Analyze.4cc43205c0cb47d38af1.jpg",
@@ -56,11 +56,11 @@
     "static/media/comments-t.svg": "/aarondiggdon/static/media/comments-t.d0331af1b52709adf0814096a49e139f.svg",
     "static/media/code-t.svg": "/aarondiggdon/static/media/code-t.31ea02b779deb47925d73a774687c34f.svg",
     "static/media/email-t.svg": "/aarondiggdon/static/media/email-t.e2fb9050372a909df7433f821d2dee81.svg",
-    "main.219a16a1.css.map": "/aarondiggdon/static/css/main.219a16a1.css.map",
-    "main.fe229776.js.map": "/aarondiggdon/static/js/main.fe229776.js.map"
+    "main.ece1e5b3.css.map": "/aarondiggdon/static/css/main.ece1e5b3.css.map",
+    "main.6f96e29d.js.map": "/aarondiggdon/static/js/main.6f96e29d.js.map"
   },
   "entrypoints": [
-    "static/css/main.219a16a1.css",
-    "static/js/main.fe229776.js"
+    "static/css/main.ece1e5b3.css",
+    "static/js/main.6f96e29d.js"
   ]
 }

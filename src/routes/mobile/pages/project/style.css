@@ -16,7 +16,27 @@
 #project .main-text {
   color: #8D8F9A;
 }
+#project .title-section{
+  position: relative;
+    box-sizing: content-box;
+    padding: 100px 10vw 60px;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  justify-content: center;
+  min-height: 40vh;
+  align-items: flex-start;
+}
+.downbtn {
+  transform: scale(.9);
+  margin-left: -4px;
+  /* padding-bottom:20px; */
+box-sizing: border-box;
+/* width: 66px;
+height: 66px; */
 
+}
 
 /* OLDER VERSION */
   #project-mobile {
@@ -196,6 +216,7 @@ width: 90%;
    width: 100%;
    object-fit: cover;
  } */
+
 
 
 

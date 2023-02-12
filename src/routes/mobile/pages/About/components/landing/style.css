@@ -1,6 +1,6 @@
 @media only screen and (max-width: 768px) {
 
-.page-section .main-subtitle {
+.main-subtitle {
   font-family: Inter;
   /* color: #959595; */
   color: #fff;
@@ -11,14 +11,14 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.page-section .main-title {
+.main-title {
   box-sizing: content-box;
   display: flex;
   flex-direction: column;
   /* margin-bottom: 60px; */
   -webkit-font-smoothing: antialiased;
 }
-.page-section .main-title .line {
+.main-title .line {
   font-family: Inter;
   color: #fff;
   font-weight: 200;

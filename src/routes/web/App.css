@@ -1,4 +1,4 @@
-
+@media only screen and (min-width: 768px) {
 html, body {
   background-color: #000;
   overscroll-behavior: none;
@@ -14,14 +14,68 @@ body {
 } */
 
 /* ONLY FOR NEW VERSON */
-.page-section {
+#project .page-section {
   position: relative;
   box-sizing: content-box;
-  padding: 80px 10vw 60px;
+  padding: 10vw 10vw 10vw;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   gap: 80px;
+}
+#project .title-section{
+  position: relative;
+    box-sizing: content-box;
+    padding: 100px 10vw 100px;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  min-height: 40vh;
+  align-items: flex-start;
+  background: white;
+}
+.main-subtitle {
+  font-family: Inter;
+  /* color: #959595; */
+  color: #fff;
+  font-weight: 300;
+  font-size: 1.6vw;
+  margin: 0;
+  margin-bottom: 4vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main-title {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12vh;
+  -webkit-font-smoothing: antialiased;
+}
+ .main-title .line {
+  font-family: Inter;
+  color: #fff;
+  font-weight: 300;
+  margin: 0;
+
+  font-size: 6vw;
+  max-width: 100%;
+  white-space: wrap;
+  -webkit-font-smoothing: antialiased;
+}
+ .main-text {
+  font-family: Inter;
+  color: #fff;
+  font-weight: 200;
+  margin: 0;
+  font-size: 1.6vw;
+  line-height: 1.6;
+  max-width: 32vw;
+align-self: center;
+
+  white-space: wrap;
+  -webkit-font-smoothing: antialiased;
 }
 /* ONLY FOR NEW VERSON */
 
@@ -243,3 +297,4 @@ p {
   font-weight: 200;
 } */
 
+}

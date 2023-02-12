@@ -1,0 +1,44 @@
+@media only screen and (min-width: 768px) {
+
+  #list {
+background: white;
+    }
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6vw;
+  }
+.text-c {
+  will-change: transform;
+}
+  .list-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 60px;
+    align-items: center;
+    transform: translateY(0px);
+    opacity: 0;
+    will-change: opacity, transform;
+    }
+
+.circle-num {
+  width: 66px;
+  height: 66px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #e1e1e1 solid 1.2px;
+  border-radius: 100%;
+}
+#list .text {
+margin: 0;
+flex: 1;
+}
+
+
+
+
+}

@@ -7,6 +7,7 @@ import "./style.css";
 import Portal from "./sections/portal";
 import Text from "./sections/text";
 import useWindowSize from "../../../../hooks/windowSize";
+import List from "./sections/list";
 
 function Project({ el, current, basename }) {
   const navigate = useNavigate();
@@ -117,17 +118,32 @@ function Project({ el, current, basename }) {
     portalclip: portalclip,
   };
 
+  let linestroke = "#050505"
+let circlestroke = "#e1e1e1"
   return (
     <div id="project">
       <div className="scroller" ref={scroller}>
         <div className="b4img" ref={b4img}>
+          
+          <section className="title-section">
           <div className="spacer" />
-          <section className="page-section">
             <div className="main-title">
-              <h2 className="line">{el.title}</h2>
+            
               <h6 className="main-subtitle">{el.subtitle}</h6>
+            
+              <h2 className="line">{el.title}</h2>
+              <div className="downbtn">
+        
               {/* <p className="main-text">Lorem ipsum dolor sit amet consectetur. Sit sed ultricies nisl vitae ac dui mi aliquam condimentum.</p> */}
-            </div>
+            </div>  
+</div>
+<svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+
+<path d="M34 21V45" stroke={linestroke} stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M43 36L34 45L25 36" stroke={linestroke} stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="0.6" y="0.6" width="64.8" height="64.8" rx="32.4" transform="matrix(0 1 1 0 0.5 0)" stroke={circlestroke} stroke-width="1.2"/>
+</svg>
           </section>
         </div>
         <Portal {...portalprops} />
@@ -144,6 +160,9 @@ function Project({ el, current, basename }) {
             }
             case "description": {
               return <Text e={e} key={i} />;
+            }
+            case "list": {
+              return <List e={e} key={i} />;
             }
           }
         })}

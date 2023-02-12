@@ -7,7 +7,7 @@ position: relative;
 display: flex;
 flex-direction: row;
 justify-content: baseline;
-/* gap: 10vw; */
+gap: 12%;
   }
   #project .col-right {
     display: flex;
@@ -17,8 +17,7 @@ justify-content: baseline;
   #project .col-left {
     display: flex;
     flex-direction: column;
-    width: 36%;
-    margin-right: 12%;
+    width: 38%;
   }
 #project .page-section .title {
   font-family: Inter;
@@ -35,6 +34,7 @@ justify-content: baseline;
     color: #8D8F9A;
     line-height: 1.6;
     padding-bottom: 24px;
+
     }
     #project .page-section .paragraphs {
       margin-bottom: 12px;
@@ -57,7 +57,7 @@ justify-content: baseline;
     #project .detail-title {
       font-family: Inter;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1.6vw;
     line-height: 1.6;
     color: #8D8F9A;
     margin-bottom: 12px;
@@ -65,7 +65,7 @@ justify-content: baseline;
     #project .detail-content {
       font-family: Inter;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6vw;
     line-height: 1.6;
     color: #050505;
     margin-bottom: 20px;

@@ -35,6 +35,9 @@ function App() {
     basename: basename,
     isPopup: isPopup,
     setIsPopup: setIsPopup,
+
+    setnavVisible: setnavVisible,
+   
   };
   const projectprops = {
     basename: basename,
@@ -54,6 +57,7 @@ function App() {
       <Routes>
         <Route path={`/`} element={<About />} />
         <Route path={`/${basename}/`} element={<About {...aboutProps} />} />
+        <Route path={`/${basename}/home`} element={<About {...aboutProps} />} />
         <Route path={`/${basename}/about`} element={<About {...aboutProps} />} />
         {/* <Route path={`/`} element={<Landing {...landingProps}/>}/>
             <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/> */}

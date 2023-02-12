@@ -34,7 +34,7 @@
 .btn-wrap {
 
   width: 100%;
-  padding: 20px 0 40px;
+  padding: 80px 0 20px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -51,12 +51,28 @@ width: min-content;
   align-items: center;
   border: #303030 solid 1px;
   border-radius: 60px;
-  padding: 0 24px 0;
+  padding: 0 28px 0;
   
 }
+
+.arrow {
+width: 60px;
+height: 60px;
+display: flex;
+justify-content: center;
+border: #303030 solid 1px;
+border-radius: 60px;
+align-items: center;
+}
+.arrow svg{
+  transform: scale(.9);
+  }
+
+
 .contact-btn-text {
   color: white;
 width: max-content;
+font-weight: 300;
 }
 
 .reveal {

@@ -1,8 +1,25 @@
 @media only screen and (min-width: 768px) {
 #about .landing.page-section  {
  
-  margin-top: 0vh;
-  margin-bottom: 12vw;
+  
+  /* padding-top: 6vh; */
+  /* margin-bottom: 12vw; */
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.landing.line {
+font-weight: 200;
+}
+.landing#logo {
+  font-size: 6vw;
+  margin: 0;
+  margin-bottom: 6vh;
 
 }
 
@@ -39,6 +56,50 @@
   margin: 0;
   font-size: 2vw;
 
+}
+
+.btn-wrap {
+
+  width: 100%;
+  padding: 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 4%;
+}
+
+.contact-btn {
+  height: 66px;
+  box-sizing: content-box;
+width: min-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: #303030 solid 1px;
+  border-radius: 66px;
+  padding: 0 32px 0;
+  
+}
+
+.arrow {
+width: 66px;
+height: 66px;
+display: flex;
+justify-content: center;
+border: #303030 solid 1px;
+border-radius: 66px;
+align-items: center;
+}
+.arrow svg{
+  transform: scale(.9);
+  }
+
+
+.contact-btn-text {
+  color: white;
+width: max-content;
+font-weight: 300;
 }
 
 }

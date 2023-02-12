@@ -179,7 +179,7 @@ function App() {
 
             <Route path={`/`} element={<About />}/>
             
-            <Route path={`${basename}`} element={<About />} />
+            <Route path={`${basename}/`} element={<About />} />
             <Route path={`${basename}/home`} element={<About />} />
             <Route path={`${basename}/about`} element={<About />} />
             <Route path={`${basename}/projects`} element={<Projects />} />

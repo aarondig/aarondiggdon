@@ -12,11 +12,11 @@ import "./style.css";
 
 function Landing({startpage, b4img, svgprops}) {
   const lines = [
-    "I Create",
+    "Creating Elevated ",
     // "unforgettable",
     // "—winning Websites",
-    "Elevated Visual",
-    " — Experiences",
+    "Visual — Experiences",
+
 
 
   ];
@@ -59,7 +59,8 @@ function Landing({startpage, b4img, svgprops}) {
 
   return (<section className="landing page-section" ref={b4img}>
   <div className="main-c">
-  <a.h6 className="main-subtitle" style={reveal}>/ About</a.h6>
+  <a.h6 className="landing" id="logo" style={reveal}>aaro</a.h6>
+  {/* <a.h6 className="main-subtitle" style={reveal}>/ About</a.h6> */}
   <a.div className="main-title">
     {lines.map((el, i) => {
       return (
@@ -71,7 +72,7 @@ function Landing({startpage, b4img, svgprops}) {
   </a.div>
   <a.div className="row" style={reveal}>
   {/* <Ornament {...svgprops} /> */}
-    <a.p className="main-text" >
+    {/* <a.p className="main-text" >
       Currently based in London, Aaron is a visual designer and
       developer focused on creating immersive digital products.
     </a.p>
@@ -94,7 +95,38 @@ function Landing({startpage, b4img, svgprops}) {
      London
       </p>
       </div>
-    </div>
+    </div> */}
+    <div className="btn-wrap">
+            <div className="contact-btn">
+              {/* <a onClick={() => window.scrollY(0, 0)}> */}
+              <p className="contact-btn-text">Get in touch</p>
+              {/* </a> */}
+            </div>
+            <div className="arrow">
+              <svg
+                width="67"
+                height="66"
+                viewBox="0 0 67 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34 21V45"
+                  stroke="white"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M43 36L34 45L25 36"
+                  stroke="white"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
   </a.div>
   </div>
 </section>

@@ -177,7 +177,7 @@ function App() {
         <Routes>
           {/* Maybe Loader route shouldn't be a nester? */}
 
-            <Route path={`/`}/>
+            <Route path={`/`} element={<About />}/>
             
             <Route path={`${basename}`} element={<About />} />
             <Route path={`${basename}/home`} element={<About />} />

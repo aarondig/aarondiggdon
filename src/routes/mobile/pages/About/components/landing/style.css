@@ -31,13 +31,41 @@
 
 }
 
+.btn-wrap {
+
+  width: 100%;
+  padding: 20px 0 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.contact-btn {
+  height: 60px;
+  box-sizing: content-box;
+width: min-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: #303030 solid 1px;
+  border-radius: 60px;
+  padding: 0 24px 0;
+  
+}
+.contact-btn-text {
+  color: white;
+width: max-content;
+}
+
 .reveal {
   opacity: 0;
 }
-.landing .main-title .line {
+/* .landing .main-title .line {
   font-size: 38px;
   
-}
+} */
 .main-c .row {
   flex-direction: column;
   gap: 40px;

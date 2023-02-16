@@ -71,7 +71,7 @@ function Contact({ startpage }) {
                 >
                     <img className="card-icon" src={el.icon} />
                     <h4 className="card-title">{el.title}</h4>
-                    <p className="card-text">{el.text}</p>
+                    {/* <p className="card-text">{el.text}</p> */}
                     </a>
                   </div>
              

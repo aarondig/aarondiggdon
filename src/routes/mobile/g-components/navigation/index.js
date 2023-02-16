@@ -52,6 +52,25 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
     }
   }, [navvisible]);
 
+  useEffect(() => {
+    if (active) {
+      setMenuColor("#050505");
+    }
+    if (!active) {
+      if (
+        location.pathname === `/${basename}/about` ||
+        location.pathname === `/${basename}` ||
+        location.pathname === `/${basename}/` ||
+        location.pathname === `/` ||
+        location.pathname === `/${basename}/home` 
+      ) {
+        setMenuColor("#fff");
+      } else {
+        setMenuColor("#050505");
+      }
+    }
+  }, [location.pathname]);
+
   // //Checking Location Match
   // const [isMatch, setIsMatch] = useState(false);
   // const match = useMatch(`/${basename}/projects/:id`, {

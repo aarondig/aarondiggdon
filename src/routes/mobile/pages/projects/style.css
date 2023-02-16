@@ -25,7 +25,9 @@
   flex-direction: column;
   gap: 80px;
 justify-content: center;
-min-height: 40vh;
+min-height: 20vh;
+background: #fff;
+
 }
 
 #projects .main-title {
@@ -36,7 +38,13 @@ min-height: 40vh;
   /* font-size: 38px; */
   font-size: 46px;
   color: #050505;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+.underline {
+  width: 20%;
+  background: #202020;
+  height: 1px;
+
 }
 
 #projects .main-subtitle {
@@ -56,20 +64,25 @@ min-height: 40vh;
   flex-direction: column;
   /* padding:  0px 0vw 60px; */
   
-  /* gap: 10vw; */
+  gap: 10vw;
+  padding: 30px 7vw 40px;
 }
 .project {
-box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
-  
-  /* background: #f4f4f4;   */
-  overflow: hidden;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+
+ overflow: hidden;
+ border-radius: 16px;
+
 }
 
 .project-img-c {
 position: relative;
   width: 100%;
-  height: 80vh;
+  height: 40vh;
   object-fit: contain;
   
   display: flex;
@@ -77,13 +90,14 @@ position: relative;
   justify-content: center;
   /* align-items: center; */
   overflow: hidden;
-  background: #f4f4f4;
+
 
 }
 .project-img {
   position: absolute;
   /* height: 150%; */
   height: 100%;
+  min-width: 100%;
   /* max-height: 100%; */
   /* padding-bottom:20%; */
   /* object-position: -100vw 0; */
@@ -92,19 +106,32 @@ position: relative;
 
 .project-text-c {
   position: relative;
-width:100%;
-height: calc(100% - 80px - 60px);
+  width:calc(100% -80px);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 60px 10vw 80px;
-  gap: 32px;
-  background: linear-gradient(#05050500 40%, #05050580 100%);
+  flex-direction: row;
+  padding: 40px 40px 20px;
+  
+  z-index: 1;
+  overflow: hidden;
+  background: #181818;
+  gap: 12%;
 }
 
+.project .col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1 1;
+}
+#projects .arrow {
+  transform: scale(.7) rotate(-90deg);
+  /* flex: 1 1; */
+  /* align-self:flex-end; */
+  margin-left: -10px;
+}
 .project-title {
 font-family: Inter;
-font-size: 24px;
+font-size: 18px;
 font-weight: 400;
 margin: 0;
 color: #fff;
@@ -114,7 +141,7 @@ width: 90%;
 .project-subtitle {
   font-family: Inter;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
   margin: 0;
   color: #fff;
   opacity: .4;

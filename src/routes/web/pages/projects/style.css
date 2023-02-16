@@ -1,7 +1,5 @@
 @media only screen and (min-width: 768px) {
 
-
-
 #projects {
   position: fixed;
   width: 100%;
@@ -19,13 +17,14 @@ height: 100%;
 
 }
 
+
 .title-wrap {
   
 }
 
 #projects .line {
   font-size: 6vw;
-  color: #050505;
+  color: #fff;
   margin-bottom: 40px;
 }
 
@@ -54,52 +53,73 @@ height: 100%;
  {
 box-sizing: border-box;
   width: 100%;
- 
-  /* background: #f4f4f4;   */
-  /* overflow: hidden; */
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+ overflow: hidden;
+ border-radius: 8px;
 }
 
 .project-img-c {
 position: relative;
-  /* width: 100%; */
-  height: 50vh;
+  height: 40vh;
   object-fit: contain;
-  
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: #f4f4f4;
+  
 }
 .project-img {
   position: absolute;
+  
   height: 100%;
+  min-width: 100%;
 }
 
 .project-text-c {
   position: relative;
-  width: 100%;
+  width:calc(100% -80px);
+  display: flex;
+  flex-direction: row;
+  padding: 40px 40px 40px;
+  
+  z-index: 1;
+  overflow: hidden;
+  background: #151515;
+  gap: 12%;
+}
+.project .col {
   display: flex;
   flex-direction: column;
-  padding: 20px 0 60px;
-  gap: 6px;
+  gap: 12px;
+  flex: 1 1;
 }
+#projects .arrow {
+  transform: scale(.8) rotate(-90deg);
+  /* flex: 1 1; */
+  align-self: center;
+}
+
+
 
 .project-title {
 font-family: Inter;
-font-size: 18px;
+font-size: 1.8vw;
 font-weight: 300;
 margin: 0;
-color: #050505;
+color: #fff;
 line-height: 1.4;
+
 }
 .project-subtitle {
   font-family: Inter;
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 1.4vw;
+  font-weight: 400;
   margin: 0;
-  color: #8D8F9A;
+  color: #fff;
+  opacity: .4;
   }
 
 

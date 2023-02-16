@@ -1,0 +1,29 @@
+@media only screen and (max-width: 768px) {
+
+ .page-section.image {
+
+  box-sizing: border-box;
+  margin-bottom: 0;
+  /* padding-top: 0 !important;
+  padding-bottom: 0 !important; */
+  background: #050505;
+  overflow: hidden;
+  
+}
+.img-c {
+  height: 100%;
+
+  object-fit: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+}
+.img {
+  position: relative;
+  height: 100%;
+  object-position: 50% 50%;
+  transform: translate3d(0px, 0px, 0px);
+  will-change: transform;
+}
+}

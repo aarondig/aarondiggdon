@@ -19,7 +19,7 @@ function App() {
   const [navvisible, setnavVisible] = useState(true);
 
   //ROUTER
-  const basename = "aarondiggdon";
+  const basename = "a";
 
   const location = useLocation();
 

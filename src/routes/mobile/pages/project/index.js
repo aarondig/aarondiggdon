@@ -9,6 +9,7 @@ import Text from "./sections/text";
 import { InView } from "react-intersection-observer";
 import downbtn from "../../../../Assets/svgs/projects/downbtn.svg"
 import List from "./sections/list";
+import Image from "./sections/image";
 
 function Project({el, current, basename, setnavVisible}) {
 const navigate = useNavigate();
@@ -70,7 +71,7 @@ let circlestroke = "#e1e1e1"
                   </div>
                 );
               }
-              case "description": {
+              case "text": {
                 return (
                   <Text e={e} key={i}/>
                 );
@@ -79,6 +80,9 @@ let circlestroke = "#e1e1e1"
                 return (
                   <List e={e} key={i}/>
                 );
+              }
+              case "image": {
+                return <Image e={e} key={i} />;
               }
             }
         }

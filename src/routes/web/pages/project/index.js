@@ -8,6 +8,7 @@ import Portal from "./sections/portal";
 import Text from "./sections/text";
 import useWindowSize from "../../../../hooks/windowSize";
 import List from "./sections/list";
+import Image from "./sections/image";
 
 function Project({ el, current, basename }) {
   const navigate = useNavigate();
@@ -158,11 +159,14 @@ let circlestroke = "#e1e1e1"
                 </div>
               );
             }
-            case "description": {
+            case "text": {
               return <Text e={e} key={i} />;
             }
             case "list": {
               return <List e={e} key={i} />;
+            }
+            case "image": {
+              return <Image e={e} key={i} />;
             }
           }
         })}

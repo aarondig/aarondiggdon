@@ -25,7 +25,7 @@ import Project from "../web/pages/project/index";
 function App() {
 
   //ROUTER
-  const basename = "aarondiggdon";
+  const basename = "a";
 
   const size = useWindowSize();
 

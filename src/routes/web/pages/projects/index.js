@@ -81,7 +81,8 @@ function Projects({ basename, isPopup, setIsPopup }) {
     };
   }, [startscroll]);
   
-    
+  let linestroke = "#fff"
+  let circlestroke = "#505050"
   return (
     <div id="projects" >
       <div className="scroller" ref={scroller}>
@@ -105,13 +106,43 @@ function Projects({ basename, isPopup, setIsPopup }) {
                 className="project"
                 onClick={() => navigate(`${el.id}`)}
               >
+                {/* <div className="project-c"> */}
+                
                 <div className="project-img-c">
+                
                   <img className="project-img" src={el.banner} />
                 </div>
                 <div className="project-text-c">
+                  <div className="col">
+                <h6 className="project-subtitle">{el.subtitle}</h6>
                   <h6 className="project-title">{el.title}</h6>
-                  <h6 className="project-subtitle">{el.subtitle}</h6>
+                  </div>
+                  <div className="arrow" style={{borderColor: circlestroke}}>
+              <svg
+                width="67"
+                height="66"
+                viewBox="0 0 67 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34 21V45"
+                  stroke={linestroke}
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M43 36L34 45L25 36"
+                  stroke={linestroke}
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
                 </div>
+                
               </div>
             );
           })}

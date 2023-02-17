@@ -1,0 +1,36 @@
+@media only screen and (max-width: 768px) {
+
+/* INTRO */
+#about .intro-c {
+  height: 80vh;
+  position: absolute;
+  
+  z-index: 2;
+  
+  box-sizing: border-box;
+  padding-left: 12vw;
+  padding-right: 12vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+opacity: 0;
+/* padding-bottom: 20vh; */
+  /* align-items: center; */
+}
+#about .intro-text {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+#about .intro-letter {
+  font-family: Inter;
+  /* font-size: 64px; */
+  font-size: 24vw;
+  font-weight: 300;
+  color: white;
+  margin: 0;
+  line-height: 0.8em;
+  opacity: 0;
+}
+}

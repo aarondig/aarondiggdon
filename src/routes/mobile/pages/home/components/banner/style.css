@@ -1,0 +1,14 @@
+@media only screen and (max-width: 768px) {
+#banner {
+
+}
+#banner .banner-img-c  {
+  overflow: hidden;
+}
+#banner .banner-img  {
+  /* margin-top: -200vh; */
+  width: 100%;
+  /* height: auto; */
+
+}
+}

@@ -10,6 +10,7 @@ import { InView } from "react-intersection-observer";
 import downbtn from "../../../../Assets/svgs/projects/downbtn.svg"
 import List from "./sections/list";
 import Image from "./sections/image";
+import {motion} from "framer-motion"
 
 function Project({el, current, basename, setnavVisible}) {
 const navigate = useNavigate();
@@ -20,9 +21,21 @@ useEffect(()=>{
 },[])
 let linestroke = "#050505"
 let circlestroke = "#e1e1e1"
+const spring = {
+  type: "spring",
+  damping: 60,
+  stiffness: 200
+}
   return (
     <div id="project">
-        
+        <motion.div
+      id="screen"
+      key="screen"
+      transition={spring}
+      initial={{ y: "0vh", background: "#050505" }}
+      animate={{ y: "-100vh", background: "#ffffff" }}
+      exit={{ y: "0vh", background: "#050505" }}
+    />
         <div className="spacer"/>
         <InView id="navvisible" threshold={0} onChange={setnavVisible}/>
       <section className="title-section">

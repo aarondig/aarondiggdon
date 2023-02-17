@@ -12,6 +12,8 @@ import Navigation from "./g-components/navigation";
 import Project from "./pages/project/index";
 import {data} from "../../data"
 import Error from "./pages/error";
+import Home from "./pages/home";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [isPopup, setIsPopup] = useState(false);
@@ -50,14 +52,20 @@ function App() {
     setnavVisible: setnavVisible,
   };
 
+  // Transition Animation
+
+
+
+
+
   return (
     <Wrapper>
       <Navigation {...navProps} />
-
+      {/* <AnimatePresence> */}
       <Routes>
-        <Route path={`/`} element={<About />} />
-        <Route path={`/${basename}/`} element={<About {...aboutProps} />} />
-        <Route path={`/${basename}/home`} element={<About {...aboutProps} />} />
+        <Route path={`/`} element={<Home />} />
+        <Route path={`/${basename}/`} element={<Home {...aboutProps} />} />
+        <Route path={`/${basename}/home`} element={<Home {...aboutProps} />} />
         <Route path={`/${basename}/about`} element={<About {...aboutProps} />} />
         {/* <Route path={`/`} element={<Landing {...landingProps}/>}/>
             <Route path={`/${basename}/`} element={<Landing {...landingProps}/>}/> */}
@@ -71,7 +79,7 @@ function App() {
         })}
           <Route path="*" element={<Error />} />
       </Routes>
-
+      {/* </AnimatePresence> */}
     </Wrapper>
   );
 }

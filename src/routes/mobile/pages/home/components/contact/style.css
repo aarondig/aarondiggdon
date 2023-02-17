@@ -1,0 +1,66 @@
+@media only screen and (max-width: 768px) {
+#contact {
+  padding-top: 8vw;
+  padding-bottom: 8vw;
+}
+#contact .page-section{
+  gap: 40px;
+}
+.contact-cards {
+  box-sizing: border-box;
+  display: grid;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+ /* flex-wrap: wrap; */
+ grid-template-columns: repeat(auto-fit, minmax(120px, 2fr));
+  gap: 24px;
+}
+.contact-card {
+  box-sizing: border-box;
+  /* padding: 6vw 0 6vw; */
+  display: flex;
+  flex-direction: column;
+ border: 1px solid #303030;
+ border-radius: 20px;
+ /* width: 46%; */
+ /* min-height: 100%; */
+ /* flex: 1 1 150px; */
+ padding: 60px 6vw 2vw;
+}
+/* .contact-card:nth-last-child(1){
+  
+
+  max-width: 100%;
+  
+} */
+.contact-card .card-title {
+  width: 100%;
+  margin: 12px 0;
+  font-size: 20px;
+}
+.contact-card .card-text {
+  font-size: 14px;
+
+}
+.card-icon {
+  height: 32px;
+  /* max-width: 24%; */
+  
+}
+a {
+  width: 100%;
+}
+  }
+
+  @media only screen and (max-width: 330px) {
+    .contact-card {
+      box-sizing: border-box;
+      /* padding: 6vw 0 6vw; */
+      display: flex;
+      flex-direction: column;
+     border: 1px solid #303030;
+     border-radius: 20px;
+
+     padding: 44px 32px 12px;
+    }
+  }

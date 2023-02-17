@@ -1,0 +1,25 @@
+@media only screen and (max-width: 768px) {
+
+#slider {
+
+}
+#slider .section-title {
+    flex-direction: row;
+    
+    flex-wrap: wrap;
+    max-width: 80%;
+    gap: 2vw;
+}
+#slider .line-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  flex-wrap: nowrap;
+    }
+#slider .line {
+width: fit-content;
+}
+#slider .line-break {
+   color: #252525
+    }
+  }

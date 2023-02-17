@@ -20,7 +20,7 @@ function Landing({ startpage, b4img, svgprops }) {
     "Experiences",
   ];
 
-  const reveal = useSpring({ opacity: startpage ? 1 : 0, delay: 770 });
+  const reveal = useSpring({ opacity: startpage ? 1 : 0, delay: 860 });
   const linesprings = useSprings(
     lines.length,
     lines.map((el, i) =>
@@ -53,6 +53,8 @@ function Landing({ startpage, b4img, svgprops }) {
           }
     )
   );
+
+
 
   return (
     <section className="landing page-section" ref={b4img}>
@@ -90,9 +92,9 @@ function Landing({ startpage, b4img, svgprops }) {
     </div> */}
           <div className="btn-wrap">
             <div className="contact-btn">
-              {/* <a onClick={() => window.scrollY(0, 0)}> */}
+              <a onClick={() =>  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}>
               <p className="contact-btn-text">Get in touch</p>
-              {/* </a> */}
+              </a>
             </div>
             <div className="arrow">
               <svg
@@ -112,36 +114,13 @@ function Landing({ startpage, b4img, svgprops }) {
                 <path
                   d="M43 36L34 45L25 36"
                   stroke="white"
-                  strokeWidth="1.2"
+                  stroke-width="1.2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
             </div>
           </div>
-
-          {/* <div className="details">
-    <div className="detail">
-    <div className="detail-c">
-    <p className="detail-subtitle">
-      Employer
-      </p>
-      <p className="detail-text">
-      Railsr
-      </p>
-      </div>
-    </div>
-    <div className="detail">
-    <div className="detail-c">
-    <p className="detail-subtitle">
-      City
-      </p>
-      <p className="detail-text">
-     London
-      </p>
-      </div>
-    </div>
-    </div> */}
         </a.div>
       </div>
     </section>

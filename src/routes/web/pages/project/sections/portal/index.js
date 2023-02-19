@@ -19,7 +19,7 @@ function Portal({ el, portal, portalclip }) {
     <InView className="page-section banner" threshold={.6} onChange={setIsVisible}>
       <div className="banner-img-clip" ref={portalclip} data-isvisible={isVisible}>
         <div className="banner-img-c">
-          <img className="banner-img" src={el.banner} ref={portal} />
+          <img className="banner-img" src={el.banner} ref={portal} alt="image"/>
         </div>
       </div>
     </InView>

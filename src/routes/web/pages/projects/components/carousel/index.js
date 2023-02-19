@@ -48,7 +48,7 @@ function Carousel({ isCurrent, setIsCurrent, handleClick }) {
                 onClick={() => handleClick()}
               >
                 <div className="slider-img">
-                  <img src={el.banner}></img>
+                  <img src={el.banner} alt="image"></img>
                 </div>
                 <div className="body-container">
                   <div className="slider-title-container">

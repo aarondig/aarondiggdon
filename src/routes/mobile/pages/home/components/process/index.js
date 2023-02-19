@@ -94,14 +94,14 @@ function Process({
             {/* </div> */}
     
 
-          {/* <img className="banner-img" src={src} ref={banner} data-isVisible={isVisible}/> */}
+          {/* <img className="banner-img" src={src} ref={banner} data-isVisible={isVisible} alt="image"/> */}
           {/* <Ornament ornament={process_svg} /> */}
         </div>
         <InView className="parallax-columns" onChange={setIsVisible}>
           
             <div className="parallax-column-card">
               <div className="card-img-c">
-                <img className="card-img" src={assets[0]} ref={process_img_0} />
+                <img className="card-img" src={assets[0]} ref={process_img_0} alt="image"/>
               </div>
               <div className="card-details">
               <div className="card-caption">
@@ -116,7 +116,7 @@ function Process({
             </div>
             <div className="parallax-column-card">
               <div className="card-img-c">
-                <img className="card-img" src={assets[1]} ref={process_img_1} />
+                <img className="card-img" src={assets[1]} ref={process_img_1} alt="image"/>
               </div>
               <div className="card-details">
               <div className="card-caption">
@@ -133,7 +133,7 @@ function Process({
             <div className="parallax-column-card">
               
               <div className="card-img-c">
-                <img className="card-img" src={assets[2]} ref={process_img_2} />
+                <img className="card-img" src={assets[2]} ref={process_img_2} alt="image"/>
               </div>
               <div className="card-details">
               <div className="card-caption">
@@ -148,7 +148,7 @@ function Process({
             </div>
             <div className="parallax-column-card">
               <div className="card-img-c">
-                <img className="card-img" src={assets[3]} ref={process_img_3} />
+                <img className="card-img" src={assets[3]} ref={process_img_3} alt="image"/>
               </div>
               <div className="card-details">
               <div className="card-caption">

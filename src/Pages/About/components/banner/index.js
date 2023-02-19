@@ -22,7 +22,7 @@ function Banner({ banner, bannerclip }) {
                     Certified
                   </a.h3>
                   <a.h3 className="line line-break">/</a.h3> */}
-          <img className="banner-img" src={src} ref={banner} data-isVisible={isVisible}/>
+          <img className="banner-img" src={src} ref={banner} data-isVisible={isVisible} alt="image"/>
         </div>
       {/* </div> */}
     </InView>

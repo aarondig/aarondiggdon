@@ -110,7 +110,7 @@ function Projects({ basename, isPopup, setIsPopup }) {
                 
                 <div className="project-img-c">
                 
-                  <img className="project-img" src={el.banner} />
+                  <img className="project-img" src={el.banner} alt="image"/>
                 </div>
                 <div className="project-text-c">
                   <div className="col">

@@ -22,7 +22,7 @@ function Portal(el) {
       <a.div className="banner-img-clip"  data-isvisible={isVisible} >
       {/* style={clip} */}
         <div className="banner-img-c">
-          <img className="banner-img" src={el.el.banner} />
+          <img className="banner-img" src={el.el.banner} alt="image"/>
         </div>
       </a.div>
     </InView>

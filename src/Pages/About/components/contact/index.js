@@ -62,7 +62,7 @@ function Contact({ startpage }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                    <img className="card-icon" src={el.icon} />
+                    <img className="card-icon" src={el.icon} alt="image"/>
                     <h4 className="card-title">{el.title}</h4>
                     <p className="card-text">{el.text}</p>
                     </a>

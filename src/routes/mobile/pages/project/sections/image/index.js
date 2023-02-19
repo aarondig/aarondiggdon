@@ -18,7 +18,7 @@ function Image({ e }) {
  
     <InView className="page-section image" threshold={.6} onChange={setIsVisible}>
         <div className="img-c">
-          <img className="img" src={e.src} />
+          <img className="img" src={e.src} alt="image"/>
         </div>
     </InView>
    

@@ -23,7 +23,7 @@ console.log(startpage)
       <a.div className="banner-img-clip"  data-isvisible={isVisible} style={reveal} >
       {/* style={clip} */}
         <div className="banner-img-c">
-          <img className="banner-img" src={src} />
+          <img className="banner-img" src={src} alt="image"/>
         </div>
       </a.div>
     </InView>

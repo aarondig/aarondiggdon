@@ -93,7 +93,7 @@ function Gallery({ el, size, scrollTop}) {
           return (
             <div className="img-c" style={{maxWidth: `${imageWidth}%`, flex: `0 0 ${imageWidth}%`}} key={index}>
               <div className="paralax-c">
-                <img className="img" src={element.src} />
+                <img className="img" src={element.src} alt="image"/>
               </div>
             </div>
           );
@@ -105,7 +105,7 @@ function Gallery({ el, size, scrollTop}) {
             <div className="img-c" style={{maxWidth: `${imageWidth}%`, flex: `0 0 ${imageWidth}%`}} key={index}>
               <div className="paralax-c">
               
-                  <img className="img" src={element.src} />
+                  <img className="img" src={element.src} alt="image"/>
                   
               </div>
             </div>

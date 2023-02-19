@@ -11,6 +11,7 @@ import { InView } from "react-intersection-observer";
 import "./style.css";
 
 function Text(e) {
+  
 
   return (
     <section className="page-section" style={{background: e.e.darkmode ? "#050505" : "white"}}>

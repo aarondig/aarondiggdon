@@ -87,7 +87,7 @@ function Landing({ startpage, b4img, svgprops }) {
             <path d="M44.5,0h5.5v27.4h-5.5V0z"></path>
             <path d="M62,13.8h-6V7.9h6V13.8z M56,21.5h6v5.9h-6V21.5z" ></path>
         </svg>
-        <img className="badge" src={berkeley}/>
+        <img className="badge" src={berkeley} alt="image"/>
     </div> */}
           <div className="btn-wrap">
             <div className="contact-btn">

@@ -68,6 +68,7 @@ function Slideshow({ el, isCurrent }) {
                 src={el}
                 key={i}
                 style={index === i ? {opacity: 1} : {opacity: 0}}
+                alt="image"
               ></img>
           );
         })} */}

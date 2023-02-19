@@ -43,7 +43,7 @@ function Article({ el }) {
                   <p className="description">{element.subbody}</p>
                 </div>
                 <div className="sub-img-c">
-                  <img className="sub-img" src={element.src} />
+                  <img className="sub-img" src={element.src} alt="image"/>
                 </div>
               </div>
             );
@@ -52,7 +52,7 @@ function Article({ el }) {
             return (
               <div className={i !== el.subsections.length -1 ? "subsection" : "subsection last"} key={i}>
                 <div className="sub-img-c">
-                  <img className="sub-img" src={element.src} />
+                  <img className="sub-img" src={element.src} alt="image"/>
                 </div>
                 <div className="left-c">
                   <h3 className="subtitle">{element.subhead}</h3>

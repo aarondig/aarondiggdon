@@ -148,7 +148,8 @@ export default Home;
             className="img"
             style={imgStyles}
             src="https://raw.githubusercontent.com/aarondig/aarondiggdon/main/src/Assets/Images/About/profile.jpg"
-          />
+          alt="image"
+            />
           </div>
           <Contact contact={contact}/>
         </Suspense>

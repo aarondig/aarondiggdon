@@ -20,7 +20,7 @@ function Expertise({ startpage }) {
     "Web Development",
     "Graphic Design",
     "Branding",
-    "Advertisement",
+    "Advertising",
     "Product Design",
   ];
   const linesprings = useSprings(
@@ -83,10 +83,10 @@ function Expertise({ startpage }) {
     <div id="expertise">
       <section className="page-section">
         <div className="text-row">
-          <a.h6 className="main-subtitle">/ Expertise</a.h6>
+          <a.h6 className="main-subtitle">/ Experience</a.h6>
           <a.p className="main-text">
-            Working at a global Fintech, I became proficient in Figma, and
-            developed my skills across a variety of subjects.
+            Working at a global Fintech, I became an expert in Figma, and
+            developed experience across the following areas.
           </a.p>
         </div>
         <InView
@@ -113,7 +113,7 @@ function Expertise({ startpage }) {
 
           <a.div className="button">
             <a href="https://aarondiggdon.com" target="_blank" rel="noreferrer">
-              <p className="button-text">Explore More</p>
+              <p className="button-text">Photography</p>
               <svg
                 width="72"
                 height="30"

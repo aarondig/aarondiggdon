@@ -16,8 +16,9 @@ function Landing({ startpage, b4img, svgprops }) {
   const lines = [
     "Creating Elevated",
     // "unforgettable",
-    "Visual — ",
-    "Experiences",
+    // "Visual — ",
+    "Visual Experiences",
+    // "Experiences",
   ];
 
   const reveal = useSpring({ opacity: startpage ? 1 : 0, delay: 770 });
@@ -90,9 +91,9 @@ function Landing({ startpage, b4img, svgprops }) {
     </div> */}
           <div className="btn-wrap">
             <div className="contact-btn">
-              {/* <a onClick={() => window.scrollY(0, 0)}> */}
+            <a onClick={() =>  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}>
               <p className="contact-btn-text">Get in touch</p>
-              {/* </a> */}
+              </a>
             </div>
             <div className="arrow">
               <svg

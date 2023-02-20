@@ -16,8 +16,11 @@ function Landing({ startpage, b4img, svgprops }) {
   const lines = [
     "Creating Elevated",
     // "unforgettable",
-    "Visual — ",
-    "Experiences",
+    
+    // "— Visual",
+    // "Experiences",
+    // "Visual — ",
+    "Visual Experiences",
   ];
 
   const reveal = useSpring({ opacity: startpage ? 1 : 0, delay: 860 });

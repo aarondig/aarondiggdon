@@ -5,7 +5,7 @@ import creditcard from "./Assets/Images/Projects/credit-card/credit-card.jpg"
 export const data = [
   {
     id: "creditcard",
-    title: "Credit Card as a Service Card Design",
+    title: "Credit Card Design for CCAS",
     subtitle: "Case Study",
     banner:
       creditcard,
@@ -77,7 +77,7 @@ export const data = [
   // },
   {
     id: "make-a-payment",
-    title: "Make a Payment Design Kit User Flow",
+    title: "Make a Payment User Flow",
     subtitle: "Case Study",
     banner:
       makepayment,

@@ -22,7 +22,7 @@ body::-webkit-scrollbar {
   height: 100vh;
   top:0;
   left:0;
-  background: #fff;
+  background: #050505;
   will-change: transform, background;
   
 z-index: 1;

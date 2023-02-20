@@ -118,6 +118,10 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
     toggleActive(false);
   };
 
+//   const projects = data.map((el, i)=>{
+//     return `/${basename}/projects/${el.id}`
+//     })
+// console.log(projects)
   const logoscroll = useSpring({
     opacity: navvisible ? 1 : active ? 1 : 0,
     color: active
@@ -195,13 +199,55 @@ function Navigation({ location, basename, setIsPopup, navvisible }) {
     opacity: active ? 1 : 0,
     delay: active ? pages.length * 180 + 200 : 0,
   });
+
+
+const backbtn = useSpring({opacity: location.pathname === `/${basename}/projects/creditcard` || location.pathname === `/${basename}/projects/make-a-payment` ? (active ? 0 : 1) : 0,
+pointerEvents: location.pathname === `/${basename}/projects/creditcard` || location.pathname === `/${basename}/projects/make-a-payment` ? (active ? "none" : "all") : "none"})
+  
+
+  let linestroke = "#050505"
+
   return (
     <div id="navigation">
       <div className="nav-wrap">
+      <div className="nav-left">
+
+      <a.div id="back-btn" style={logoscroll}>
+        <a.div className="back-btn-inner" style={backbtn} onClick={()=>navigate(`/${basename}/projects`)}>
+
+       
+      <svg
+                width="67"
+                height="66"
+                viewBox="0 0 67 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M34 21V45"
+                  stroke={linestroke}
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M43 36L34 45L25 36"
+                  stroke={linestroke}
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              </a.div>
+        </a.div>
+      </div>
+        <div className="nav-right">
+        
         <a.div id="logo" style={logoscroll}>
           aaro
         </a.div>
         <Hamburger toggled={active} toggle={toggleActive} {...hamburger} />
+        </div>
       </div>
       <a.div className="nav-active" style={wrapper}>
         <a.div className="nav-inner-wrap" style={parallaxclose}>

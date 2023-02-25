@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.78626e4d.css",
-    "main.js": "/static/js/main.81cf9cff.js",
+    "main.css": "/static/css/main.ec0de87a.css",
+    "main.js": "/static/js/main.ca681c45.js",
     "static/media/blue-background.jpg": "/static/media/blue-background.0bc5cee07a8e811ec226.jpg",
-    "static/media/credit-card.jpg": "/static/media/credit-card.069eee847345350fcc8d.jpg",
     "static/media/Analyze.jpg": "/static/media/Analyze.4cc43205c0cb47d38af1.jpg",
     "static/media/Repeat.jpg": "/static/media/Repeat.81d5f809cfeabd3746d2.jpg",
     "static/media/Propose.jpg": "/static/media/Propose.1c1296b08b00d5261c1d.jpg",
-    "static/media/make-a-payment.jpg": "/static/media/make-a-payment.9eed3206f2e12c6d475b.jpg",
     "static/media/Consult.jpg": "/static/media/Consult.c22c22b0a9c60e94b38c.jpg",
     "static/media/make-a-payment-flow.jpg": "/static/media/make-a-payment-flow.2a17ce8dbeb1d6cd5ba9.jpg",
+    "static/media/make-a-payment.jpg": "/static/media/make-a-payment.e328229fce3a291a4d5c.jpg",
+    "static/media/bnpl.jpg": "/static/media/bnpl.daadd77c4daafed29b28.jpg",
+    "static/media/credit-card.jpg": "/static/media/credit-card.3d532ab2232942172ba4.jpg",
     "static/media/aarondiggdon.pdf": "/static/media/aarondiggdon.b2ce560ea858f249137c.pdf",
+    "static/media/lululemon.jpg": "/static/media/lululemon.456aaa5b02ed2004f481.jpg",
     "static/media/CalibreBold.otf": "/static/media/CalibreBold.bba4dd93e0dc972eedb6.otf",
     "static/media/CalibreSemibold.otf": "/static/media/CalibreSemibold.508412ff4c6875e10aa1.otf",
     "static/media/CalibreBlack.otf": "/static/media/CalibreBlack.b4b05685f40bf2ee8cf1.otf",
@@ -57,11 +59,11 @@
     "static/media/comments-t.svg": "/static/media/comments-t.d0331af1b52709adf0814096a49e139f.svg",
     "static/media/code-t.svg": "/static/media/code-t.31ea02b779deb47925d73a774687c34f.svg",
     "static/media/email-t.svg": "/static/media/email-t.e2fb9050372a909df7433f821d2dee81.svg",
-    "main.78626e4d.css.map": "/static/css/main.78626e4d.css.map",
-    "main.81cf9cff.js.map": "/static/js/main.81cf9cff.js.map"
+    "main.ec0de87a.css.map": "/static/css/main.ec0de87a.css.map",
+    "main.ca681c45.js.map": "/static/js/main.ca681c45.js.map"
   },
   "entrypoints": [
-    "static/css/main.78626e4d.css",
-    "static/js/main.81cf9cff.js"
+    "static/css/main.ec0de87a.css",
+    "static/js/main.ca681c45.js"
   ]
 }
